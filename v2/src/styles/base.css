@@ -13,6 +13,199 @@ body {
   color: #fff;
   overflow-x: hidden;
   font-family: 'Space Grotesk', sans-serif;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* Tema Claro */
+body.light-theme {
+  background: #f5f5f7;
+  color: #1d1d1f;
+}
+
+body.light-theme .nav {
+  background: rgba(255, 255, 255, 0.8);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+body.light-theme .nav-logo,
+body.light-theme .nav-link {
+  color: #1d1d1f;
+}
+
+body.light-theme .nav-link {
+  color: rgba(0, 0, 0, 0.6);
+}
+
+body.light-theme .nav-link:hover {
+  color: rgba(0, 0, 0, 0.9);
+}
+
+body.light-theme .theme-toggle-btn {
+  background: rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+body.light-theme .theme-toggle-btn:hover {
+  background: rgba(0, 0, 0, 0.1);
+  border-color: rgba(0, 0, 0, 0.2);
+}
+
+body.light-theme .section-tag,
+body.light-theme .section-title,
+body.light-theme h1, body.light-theme h2, body.light-theme h3 {
+  color: #1d1d1f;
+}
+
+body.light-theme .stack-card,
+body.light-theme .exp-card-small,
+body.light-theme .exp-card-detail,
+body.light-theme .project-card {
+  background: rgba(0, 0, 0, 0.02);
+  border-color: rgba(0, 0, 0, 0.1);
+}
+
+body.light-theme .stack-card:hover,
+body.light-theme .exp-card-small:hover,
+body.light-theme .project-card:hover {
+  background: rgba(0, 0, 0, 0.04);
+  border-color: rgba(0, 0, 0, 0.15);
+}
+
+body.light-theme .exp-card-small.selected {
+  background: rgba(0, 0, 0, 0.05);
+  border-color: rgba(0, 0, 0, 0.2);
+}
+
+body.light-theme .exp-detail-title,
+body.light-theme .stack-card-title,
+body.light-theme .project-title {
+  color: #1d1d1f;
+}
+
+body.light-theme .exp-detail-desc,
+body.light-theme .stack-card-desc,
+body.light-theme .project-desc,
+body.light-theme .exp-card-small-company,
+body.light-theme .exp-card-small-period {
+  color: rgba(0, 0, 0, 0.6);
+}
+
+body.light-theme .exp-detail-company,
+body.light-theme .exp-detail-location,
+body.light-theme .exp-detail-period {
+  color: rgba(0, 0, 0, 0.5);
+}
+
+body.light-theme .exp-tab-btn {
+  background: rgba(0, 0, 0, 0.03);
+  border-color: rgba(0, 0, 0, 0.1);
+  color: rgba(0, 0, 0, 0.5);
+}
+
+body.light-theme .exp-tab-btn:hover {
+  background: rgba(0, 0, 0, 0.05);
+  border-color: rgba(0, 0, 0, 0.15);
+}
+
+body.light-theme .exp-tab-btn.active {
+  background: rgba(0, 0, 0, 0.08);
+  border-color: rgba(0, 0, 0, 0.2);
+}
+
+body.light-theme .exp-scroll-btn {
+  background: rgba(0, 0, 0, 0.03);
+  border-color: rgba(0, 0, 0, 0.08);
+}
+
+body.light-theme .exp-scroll-btn:hover:not(:disabled) {
+  background: rgba(0, 0, 0, 0.05);
+  border-color: rgba(0, 0, 0, 0.12);
+}
+
+body.light-theme #starfield {
+  opacity: 0.3;
+}
+
+body.light-theme .hero-blob-1,
+body.light-theme .hero-blob-2,
+body.light-theme .hero-blob-3 {
+  opacity: 0.08;
+}
+
+body.light-theme .hero-tag {
+  background: rgba(0, 0, 0, 0.05);
+  border-color: rgba(0, 0, 0, 0.1);
+  color: rgba(0, 0, 0, 0.6);
+}
+
+body.light-theme .hero-title {
+  color: #1d1d1f;
+}
+
+body.light-theme .hero-subtitle {
+  color: rgba(0, 0, 0, 0.6);
+}
+
+body.light-theme .section {
+  color: #1d1d1f;
+}
+
+body.light-theme .footer {
+  background: rgba(255, 255, 255, 0.5);
+  border-top-color: rgba(0, 0, 0, 0.1);
+  color: rgba(0, 0, 0, 0.6);
+}
+
+body.light-theme .footer a {
+  color: rgba(0, 0, 0, 0.6);
+}
+
+body.light-theme .footer a:hover {
+  color: #1d1d1f;
+}
+
+body.light-theme .exp-detail-pdf-section {
+  border-top-color: rgba(0, 0, 0, 0.08);
+}
+
+body.light-theme .exp-detail-pdf-title {
+  color: rgba(0, 0, 0, 0.8);
+}
+
+body.light-theme .exp-detail-pdf-preview {
+  background: rgba(0, 0, 0, 0.02);
+  border-color: rgba(0, 0, 0, 0.08);
+}
+
+body.light-theme .exp-detail-pdf-preview:hover {
+  border-color: rgba(0, 0, 0, 0.15);
+}
+
+body.light-theme .pdf-modal-overlay {
+  background: rgba(255, 255, 255, 0.95);
+}
+
+body.light-theme .pdf-modal-content {
+  background: #ffffff;
+}
+
+body.light-theme .pdf-modal-close {
+  background: rgba(0, 0, 0, 0.1);
+  border-color: rgba(0, 0, 0, 0.2);
+}
+
+body.light-theme .pdf-modal-close:hover {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+body.light-theme .project-tag {
+  background: rgba(0, 0, 0, 0.05);
+  border-color: rgba(0, 0, 0, 0.1);
+  color: rgba(0, 0, 0, 0.6);
+}
+
+body.light-theme .stack-card-icon {
+  background: rgba(0, 0, 0, 0.02);
 }
 
 ::-webkit-scrollbar {
@@ -26,6 +219,10 @@ body {
 ::-webkit-scrollbar-thumb {
   background: rgba(123, 47, 247, 0.4);
   border-radius: 2px;
+}
+
+body.light-theme ::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.2);
 }
 
 #starfield {

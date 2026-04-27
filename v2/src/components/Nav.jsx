@@ -7,7 +7,7 @@ export function Nav({ scheme, onScrollTo }) {
   const links = [
     ['stack', 'Stack'],
     ['experiencia', 'Experiencia'],
-    ['proyectos', 'Proyectos']
+    ['proyectos', 'Portafolio']
   ];
 
   return (
@@ -19,16 +19,18 @@ export function Nav({ scheme, onScrollTo }) {
         <div className="nav-dot" style={{ background: gradBtn }} />
         Renzo Ramos
       </a>
-      <div className="nav-links">
-        {links.map(([id, label]) => (
-          <span
-            key={id}
-            className="nav-link"
-            onClick={() => onScrollTo(id)}
-          >
-            {label}
-          </span>
-        ))}
+      <div className="nav-center">
+        <div className="nav-links">
+          {links.map(([id, label]) => (
+            <span
+              key={id}
+              className="nav-link"
+              onClick={() => onScrollTo(id)}
+            >
+              {label}
+            </span>
+          ))}
+        </div>
       </div>
     </nav>
   );

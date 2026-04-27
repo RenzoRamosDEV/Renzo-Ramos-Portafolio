@@ -8,7 +8,21 @@
       "Bash(git commit -m 'Initial commit: Portfolio responsive con menú hamburguesa y dropdown para controles *)",
       "Bash(git remote *)",
       "Bash(git push *)",
-      "Bash(grep -E \"\\\\.\\(png|jpg|jpeg|svg|gif\\)$\")"
+      "Bash(grep -E \"\\\\.\\(png|jpg|jpeg|svg|gif\\)$\")",
+      "Bash(npm install *)",
+      "Bash(npm run *)",
+      "Bash(python /tmp/test_portfolio.py)",
+      "Bash(python3 /tmp/test_portfolio.py)",
+      "Bash(pip3 install *)",
+      "Bash(curl -s http://localhost:5173/)",
+      "Read(//home/renzo-ramos/.agents/skills/webapp-testing/**)",
+      "Bash(python scripts/with_server.py --port 5173 --skip-server -- python -c ' *)",
+      "Bash(python3 scripts/with_server.py --port 5173 --skip-server -- python3 -c ' *)",
+      "Bash(python scripts/with_server.py --help)",
+      "Bash(python3 /tmp/check_layout.py)",
+      "Bash(npm list *)",
+      "Bash(curl -s http://localhost:5174)",
+      "Read(//home/renzo-renzo-ramos/Workspace/Renzo/portafololio-renzo/v2/src/data/**)"
     ],
     "additionalDirectories": [
       "/home/renzo-ramos/Workspace/Renzo/portafololio-renzo/.claude",

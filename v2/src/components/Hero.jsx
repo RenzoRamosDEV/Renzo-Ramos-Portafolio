@@ -17,26 +17,33 @@ export function Hero({ scheme, onScrollTo }) {
       />
       <div className="hero-blob-3" />
 
-      <div className="hero-pill fade-up fade-up-1">
-        <div className="hero-pill-dot" style={{ background: s.a }} />
-        <span className="hero-pill-text">Desarrollador Multiplataforma · Madrid</span>
-      </div>
-
-      <h1 className="hero-name fade-up fade-up-2">
+      <h1 className="hero-name fade-up fade-up-1">
         <span className="hero-name-line1">Renzo</span>
         <span className="hero-name-line2" style={{ backgroundImage: gradText }}>
           Ramos
         </span>
       </h1>
 
+      <div className="hero-pill fade-up fade-up-2">
+        <div className="hero-pill-dot" style={{ background: s.a }} />
+        <span className="hero-pill-text" style={{
+          backgroundImage: gradText,
+          WebkitBackgroundClip: 'text',
+          WebkitTextFillColor: 'transparent',
+          backgroundClip: 'text'
+        }}>
+          Desarrollador de Aplicaciones Multiplataforma
+        </span>
+      </div>
+
       <p className="hero-desc fade-up fade-up-3">
-        Full Stack Developer en <em>SEIDOR</em>. Especializado en <em>Java</em>, <em>Spring Boot</em> y ecosistemas JVM.{' '}
-        Construyendo software escalable e integrando <em>IA</em> en flujos reales de producción.
+        Enfoque en Backend (Java/Spring Boot), especializado en la construcción de servicios escalables y mantenibles. Trabajo principalmente en la lógica de negocio y APIs, aplicando buenas prácticas y arquitectura limpia.<br></br>
+        También cuento con experiencia en frontend y diseño gráfico, lo que me permite tener una visión completa del producto y facilitar la integración entre backend y UI/UX, logrando soluciones coherentes y eficientes.
       </p>
 
       <div className="hero-actions fade-up fade-up-4">
         <a
-          href="https://linkedin.com/in/renzo-ramos"
+          href="https://www.linkedin.com/in/renzoinv04/"
           target="_blank"
           rel="noopener noreferrer"
           className="btn-secondary"
@@ -50,15 +57,6 @@ export function Hero({ scheme, onScrollTo }) {
           style={{ textDecoration: 'none' }}
         >
           Correo
-        </a>
-        <a
-          href="https://gitlab.com/renzo-ramos"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="btn-secondary"
-          style={{ textDecoration: 'none' }}
-        >
-          GitLab
         </a>
       </div>
 

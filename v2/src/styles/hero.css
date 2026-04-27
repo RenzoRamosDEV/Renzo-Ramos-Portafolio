@@ -105,7 +105,7 @@
   font-size: 16px;
   line-height: 1.9;
   color: rgba(255, 255, 255, 0.38);
-  max-width: 520px;
+  max-width: 800px;
   margin: 0 auto 52px;
   font-weight: 300;
 }
@@ -152,11 +152,26 @@
   border-radius: 8px;
   cursor: pointer;
   transition: all 0.2s;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
 }
 
 .btn-secondary:hover {
   border-color: rgba(255, 255, 255, 0.35);
   color: rgba(255, 255, 255, 0.85);
+}
+
+.btn-icon {
+  width: 18px;
+  height: 18px;
+  object-fit: contain;
+  opacity: 0.6;
+  transition: opacity 0.2s;
+}
+
+.btn-secondary:hover .btn-icon {
+  opacity: 1;
 }
 
 .hero-scroll {
