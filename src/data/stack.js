@@ -1,11 +1,5 @@
 export const stackItems = [
-  {
-    name: "Linux",
-    color: "#61dafb",
-    bg: "#0d1f2d",
-    desc: "Sistemas operativos Linux.",
-    image: "src/assets/LINUX.png"
-  },
+
   {
     name: "Java",
     color: "#61dafb",
@@ -109,6 +103,13 @@ export const stackItems = [
     bg: "#0d1620",
     desc: "Entornos de desarrollo integrated con las herramientas necesarias para el desarrollo de software.",
     images: ["src/assets/ANTIGRAVITY.png", "src/assets/INTELLIJ.png"]
+  },
+  {
+    name: "Sistemas Operativos",
+    color: "#61dafb",
+    bg: "#0d1f2d",
+    desc: "Sistemas operativos como Linux y Windows.",
+    images: ["src/assets/LINUX.png", "src/assets/WINDOES.png"]
   }
 
 ];
