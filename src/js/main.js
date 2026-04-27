@@ -25,9 +25,15 @@ function renderStackGrid(container) {
   const html = doubled
     .map(
       (item, i) => `
-    <div class="stack-card" ${i >= stackItems.length ? 'aria-hidden="true"' : ''} role="listitem">
+    <div class="stack-card ${item.images ? 'dual-icon' : ''}" ${i >= stackItems.length ? 'aria-hidden="true"' : ''} role="listitem">
       <div class="stack-icon" style="background: ${item.bg}; color: ${item.color}">
-        ${item.name.slice(0, 3).toUpperCase()}
+        ${
+          item.images
+            ? item.images.map((img) => `<img src="${img}" alt="${item.name}" class="stack-icon-img">`).join('')
+            : item.image
+              ? `<img src="${item.image}" alt="${item.name}" class="stack-icon-img">`
+              : item.name.slice(0, 3).toUpperCase()
+        }
       </div>
       <div class="stack-name">${item.name}</div>
       <div class="stack-desc">${item.desc}</div>

@@ -5,7 +5,10 @@
       "Bash(node -c /home/renzo-ramos/Workspace/Renzo/portafololio-renzo/src/utils/mobile-menu.js)",
       "Bash(git init *)",
       "Bash(git config *)",
-      "Bash(git commit -m 'Initial commit: Portfolio responsive con menú hamburguesa y dropdown para controles *)"
+      "Bash(git commit -m 'Initial commit: Portfolio responsive con menú hamburguesa y dropdown para controles *)",
+      "Bash(git remote *)",
+      "Bash(git push *)",
+      "Bash(grep -E \"\\\\.\\(png|jpg|jpeg|svg|gif\\)$\")"
     ]
   }
 }

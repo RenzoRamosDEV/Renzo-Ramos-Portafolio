@@ -1,50 +1,115 @@
 export const stackItems = [
   {
-    name: "React",
+    name: "Linux",
     color: "#61dafb",
     bg: "#0d1f2d",
-    desc: "UI components, hooks, context y React Router para SPAs modernas."
+    desc: "Sistemas operativos Linux.",
+    image: "src/assets/LINUX.png"
   },
   {
-    name: "Node.js",
+    name: "Java",
+    color: "#61dafb",
+    bg: "#0d1f2d",
+    desc: "Desarrollo backend con Java, arquitectura limpia y servicios escalables.",
+    image: "src/assets/JAVA.png"
+  },
+  {
+    name: "JUnit",
+    color: "#61dafb",
+    bg: "#0d1f2d",
+    desc: "Pruebas unitarias con JUnit.",
+    image: "src/assets/JUNIT.png"
+  },
+  {
+    name: "Spring Boot",
     color: "#3c873a",
     bg: "#0f1f0e",
-    desc: "APIs REST y servicios backend escalables con Express."
+    desc: "Desarrollo de APIs REST con Spring Boot y arquitectura escalable.",
+    image: "src/assets/SPRING.png"
   },
   {
-    name: "TypeScript",
+    name: "Maven",
+    color: "#61dafb",
+    bg: "#0d1f2d",
+    desc: "Gestión de dependencias y construcción de proyectos Java.",
+    image: "src/assets/MAVEN.png"
+  },
+  {
+    name: "Gradle",
+    color: "#61dafb",
+    bg: "#0d1f2d",
+    desc: "Gestión de dependencias y construcción de proyectos Java.",
+    image: "src/assets/GRADLE.png"
+  },
+  {
+    name: "MySQL",
     color: "#3178c6",
     bg: "#0d1a2d",
-    desc: "Tipado estático para bases de código robustas y mantenibles."
-  },
-  {
-    name: "Python",
-    color: "#f5c518",
-    bg: "#1f1a08",
-    desc: "Scripts, automatizaciones y análisis de datos."
-  },
-  {
-    name: "PostgreSQL",
-    color: "#336791",
-    bg: "#0d1620",
-    desc: "Bases de datos relacionales, queries complejas y optimización."
+    desc: "Bases de datos relacionales, queries complejas y optimización.",
+    image: "src/assets/MYSQL.png"
   },
   {
     name: "Docker",
-    color: "#2496ed",
-    bg: "#0d1d2d",
-    desc: "Contenedores para entornos reproducibles y deploys limpios."
+    color: "#f5c518",
+    bg: "#1f1a08",
+    desc: "Contenedores para entornos reproducibles y deploys limpios.",
+    image: "src/assets/DOCKER.png"
+  },
+  {
+    name: "HTML",
+    color: "#336791",
+    bg: "#0d1620",
+    desc: "Maquetación web con HTML semántico y accesible.",
+    image: "src/assets/HTML.png"
+  },
+  {
+    name: "CSS",
+    color: "#336791",
+    bg: "#0d1620",
+    desc: "Hojas de estilo para dar estilo a las páginas web, control de diseño responsivo y estilos modernos.",
+    image: "src/assets/CSS.png"
   },
   {
     name: "Git",
     color: "#f05032",
     bg: "#2d0f09",
-    desc: "Control de versiones, branching strategies y code review."
+    desc: "Control de versiones.",
+    image: "src/assets/GIT.png"
   },
   {
-    name: "CSS / Tailwind",
+    name: "OpenSpec",
     color: "#38bdf8",
     bg: "#0d1d2a",
-    desc: "Diseño responsive, animaciones y sistemas de diseño."
+    desc: "Uso de OpenSpec como agente IA para especificación de software.",
+    image: "src/assets/OPENSPEC.png"
+  },
+  {
+    name: "OpenCode",
+    color: "#38bdf8",
+    bg: "#0d1d2a",
+    desc: "Uso de agentes IA (OpenCode) para acelerar desarrollo y debugging.",
+    image: "src/assets/OPENCODE.png"
+  },
+  {
+    name: "Claude Code",
+    color: "#38bdf8",
+    bg: "#0d1d2a",
+    desc: "Uso de Claude Code como agente IA para desarrollo y optimización de código.",
+    image: "src/assets/CLAUDE.png"
+  },
+  {
+    name: "Claude Design",
+    color: "#38bdf8",
+    bg: "#0d1d2a",
+    desc: "Desarrollo de interfaces de usuario con Claude Design.",
+    image: "src/assets/CLAUDE.png"
+  }, {
+    name: "IDEs",
+    color: "#336791",
+    bg: "#0d1620",
+    desc: "Entornos de desarrollo integrated con las herramientas necesarias para el desarrollo de software.",
+    images: ["src/assets/ANTIGRAVITY.png", "src/assets/INTELLIJ.png"]
   }
+
 ];
+
