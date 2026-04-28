@@ -24,9 +24,20 @@ git remote -v
 
 ## 📝 Flujo de trabajo diario
 
-### ✅ Opción 1: Push a ambos repositorios (RECOMENDADO)
+### ✅ Opción 1: Push a ambos repositorios usando alias (RECOMENDADO)
 
-Usa este comando para hacer push a **ambos** a la vez:
+Usa el alias `pushall` para hacer push a **ambos** a la vez:
+
+```bash
+# Hacer cambios en tu código
+git add .
+git commit -m "tu mensaje de commit"
+
+# Push a ambos repositorios con un solo comando
+git pushall
+```
+
+### ✅ Opción 2: Push a ambos repositorios con comando completo
 
 ```bash
 # Hacer cambios en tu código
@@ -37,7 +48,7 @@ git commit -m "tu mensaje de commit"
 git push origin main && git push github main
 ```
 
-### ✅ Opción 2: Push individual
+### ✅ Opción 3: Push individual
 
 **Solo a GitLab:**
 ```bash
@@ -51,24 +62,32 @@ git push github main
 
 ---
 
-## 🚀 Alias para facilitar el trabajo (OPCIONAL)
+## 🚀 Alias configurado: `pushall`
 
-Puedes crear un alias para hacer push a ambos con un solo comando:
+✅ **Ya está configurado** un alias global para hacer push a ambos repositorios:
 
 ```bash
-# Configurar el alias
-git config alias.pushall '!git push origin main && git push github main'
-
-# Ahora puedes usar:
+# Simplemente usa:
 git pushall
 ```
 
-O si prefieres un script más robusto, agrega esto a tu `~/.gitconfig`:
+Esto es equivalente a ejecutar:
+```bash
+git push origin && git push github
+```
 
-```ini
-[alias]
-    pushall = !git push origin main && git push github main
-    pullall = !git pull origin main
+### Verificar el alias:
+```bash
+git config --get alias.pushall
+```
+
+### Configurar manualmente (si lo necesitas en otro proyecto):
+```bash
+# Configurar el alias globalmente
+git config --global alias.pushall '!git push origin && git push github'
+
+# O solo para este repositorio
+git config alias.pushall '!git push origin && git push github'
 ```
 
 ---
@@ -94,7 +113,15 @@ git push origin main
 git push github main
 ```
 
-### Flujo simplificado (push dual):
+### Flujo simplificado con alias (RECOMENDADO):
+
+```bash
+git add .
+git commit -m "feat: descripción del cambio"
+git pushall
+```
+
+### Flujo completo sin alias:
 
 ```bash
 git add .

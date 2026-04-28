@@ -31,38 +31,6 @@ portafolio/
 └── GIT-CHEATSHEET.md     # Comandos rápidos de Git
 ```
 
-## 💻 Desarrollo local
-
-### Requisitos previos
-- Node.js 18 o superior
-- npm o yarn
-
-### Instalación
-
-```bash
-# Clonar el repositorio
-git clone https://github.com/RenzoRamosDEV/RenzoRamosPortafolio.git
-
-# Entrar al directorio
-cd RenzoRamosPortafolio
-
-# Instalar dependencias
-npm install
-
-# Iniciar servidor de desarrollo
-npm run dev
-```
-
-El sitio estará disponible en `http://localhost:5173`
-
-## 🔨 Scripts disponibles
-
-```bash
-npm run dev      # Servidor de desarrollo
-npm run build    # Build para producción
-npm run preview  # Preview del build de producción
-```
-
 ## 🔄 Repositorios
 
 Este proyecto está sincronizado en dos repositorios:
@@ -81,7 +49,10 @@ Para trabajar con ambos repositorios, consulta:
 git add .
 git commit -m "descripción del cambio"
 
-# Push a ambos repositorios
+# Push a ambos repositorios (opción 1 - usando alias)
+git pushall
+
+# Push a ambos repositorios (opción 2 - comando completo)
 git push origin main && git push github main
 ```
 

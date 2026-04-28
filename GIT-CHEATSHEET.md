@@ -3,7 +3,12 @@
 ## 🚀 Comando más usado
 
 ```bash
-# Workflow completo en 3 pasos:
+# Workflow completo con alias (RECOMENDADO):
+git add .
+git commit -m "descripción del cambio"
+git pushall
+
+# Workflow completo sin alias:
 git add .
 git commit -m "descripción del cambio"
 git push origin main && git push github main
@@ -30,22 +35,36 @@ github → GitHub
 | Commit | `git commit -m "mensaje"` |
 | Push a GitLab | `git push origin main` |
 | Push a GitHub | `git push github main` |
-| **Push a ambos** | `git push origin main && git push github main` |
+| **Push a ambos (alias)** | `git pushall` |
+| **Push a ambos (completo)** | `git push origin main && git push github main` |
 | Pull desde GitLab | `git pull origin main` |
 | Ver últimos commits | `git log --oneline -5` |
 
 ---
 
-## ✅ Alias recomendado
+## ✅ Alias pushall
+
+**✅ Ya está configurado globalmente**
 
 ```bash
-# Configurar una vez:
-git config alias.pushall '!git push origin main && git push github main'
-
-# Usar siempre:
+# Simplemente usa:
 git add .
 git commit -m "mensaje"
 git pushall
+```
+
+### Verificar la configuración:
+```bash
+git config --get alias.pushall
+```
+
+### Configurar en otro proyecto (si es necesario):
+```bash
+# Global (todos los repos)
+git config --global alias.pushall '!git push origin && git push github'
+
+# Local (solo este repo)
+git config alias.pushall '!git push origin && git push github'
 ```
 
 ---
