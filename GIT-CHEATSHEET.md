@@ -50,10 +50,9 @@ git pushall
 
 ---
 
-## 🌐 URLs de deploy
+## 🌐 URL de deploy
 
-- **GitLab**: https://portafolio-69a3ed.gitlab.io/
-- **GitHub**: https://renzoramosdev.github.io/RenzoRamosPortafolio/
+- **GitHub Pages**: https://renzoramosdev.github.io/RenzoRamosPortafolio/
 
 ---
 

@@ -1,12 +1,11 @@
 # 📚 Guía: Trabajar con GitLab y GitHub Simultáneamente
 
 Este proyecto está configurado para sincronizarse automáticamente en **dos** repositorios remotos:
-- 🦊 **GitLab**: https://gitlab.com/mini-projects7212415/portafolio
+- 🦊 **GitLab**: https://gitlab.com/mini-projects7212415/portafolio (solo código fuente)
 - 🐙 **GitHub**: https://github.com/RenzoRamosDEV/RenzoRamosPortafolio
 
-## 🌐 URLs de los sitios desplegados
+## 🌐 URL del sitio desplegado
 
-- **GitLab Pages**: https://portafolio-69a3ed.gitlab.io/
 - **GitHub Pages**: https://renzoramosdev.github.io/RenzoRamosPortafolio/
 
 ---
@@ -255,19 +254,15 @@ git push github main --force-with-lease
 
 ## 📦 Deployment automático
 
-### GitLab Pages
-- Se despliega automáticamente con cada push a `main`
-- Pipeline definido en `.gitlab-ci.yml`
-- URL: https://portafolio-69a3ed.gitlab.io/
-
 ### GitHub Pages
 - Se despliega automáticamente con cada push a `main`
 - Workflow definido en `.github/workflows/deploy.yml`
 - URL: https://renzoramosdev.github.io/RenzoRamosPortafolio/
 
-**IMPORTANTE:** Después del primer push a GitHub, necesitas:
+**IMPORTANTE:** Para activar GitHub Pages:
 1. Ir a: https://github.com/RenzoRamosDEV/RenzoRamosPortafolio/settings/pages
 2. En "Build and deployment" → "Source" → Seleccionar **"GitHub Actions"**
+3. Esperar 2-3 minutos después del push para que se despliegue
 
 ---
 
@@ -295,6 +290,5 @@ git push origin main && git push github main
 
 ---
 
-**¿Preguntas?** Consulta la documentación oficial o revisa los logs de los pipelines en:
-- GitLab: https://gitlab.com/mini-projects7212415/portafolio/-/pipelines
-- GitHub: https://github.com/RenzoRamosDEV/RenzoRamosPortafolio/actions
+**¿Preguntas?** Consulta la documentación oficial o revisa los logs del deployment en:
+- GitHub Actions: https://github.com/RenzoRamosDEV/RenzoRamosPortafolio/actions
