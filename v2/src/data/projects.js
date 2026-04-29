@@ -1,29 +1,31 @@
 export const PROJECTS = [
   {
     num: '01',
-    title: 'Booqi',
-    image: null,
-    desc: 'Aplicación web completa con autenticación, dashboard en tiempo real y API REST documentada. Arquitectura limpia y escalable.',
-    badges: ['React', 'Node.js', 'PostgreSQL', 'Docker'],
+    title: 'Booqi - Sistema de Gestión de Reservas de Eventos',
+    images: [
+      '/proyectos/booqui-images/BOOQI001.png',
+      '/proyectos/booqui-images/BOOQI002.png',
+      '/proyectos/booqui-images/BOOQI003.png',
+      '/proyectos/booqui-images/BOOQI004.png',
+      '/proyectos/booqui-images/BOOQI005.png',
+      '/proyectos/booqui-images/BOOQI006.png'
+    ],
+    desc: 'Sistema de gestión de reservas de eventos desarrollado con arquitectura de microservicios, que permite a los usuarios explorar eventos, realizar reservas y gestionar pagos de manera eficiente.',
+    badges: ['Java', 'Spring Boot', 'Docker', 'MySQL', 'Microservicios', 'React'],
     demo: '#',
-    repo: '#'
+    repo: 'https://github.com/RenzoRamosDEV/Booqui'
   },
   {
     num: '02',
-    title: 'Otro Proyecto',
-    image: null,
-    desc: 'Herramienta que automatiza procesos repetitivos ahorrando horas de trabajo manual. Integra con APIs externas y genera reportes automáticos.',
-    badges: ['Python', 'FastAPI', 'SQLite', 'GitHub Actions'],
+    title: 'Sistema de Gestión de Inventario de Productos',
+    images: [
+      '/proyectos/inventario-imagenes/001INVENTARIO.png',
+      '/proyectos/inventario-imagenes/002INVENTARIO.png',
+      '/proyectos/inventario-imagenes/003INVENTARIO.png'
+    ],
+    desc: 'Sistema de gestión de inventario de prodcutos, que permite a los usuarios gestionar sus productos de manera eficiente',
+    badges: ['Java', 'Spring Boot', 'Docker', 'MySQL', 'React', 'Claude Design'],
     demo: '#',
-    repo: '#'
-  },
-  {
-    num: '03',
-    title: 'Tercer Proyecto',
-    image: null,
-    desc: 'Plataforma diseñada con accesibilidad y performance como prioridades. Arquitectura moderna y despliegue automatizado.',
-    badges: ['TypeScript', 'Next.js', 'Prisma', 'Vercel'],
-    demo: '#',
-    repo: '#'
+    repo: 'https://github.com/RenzoRamosDEV/Inventario'
   }
 ];
