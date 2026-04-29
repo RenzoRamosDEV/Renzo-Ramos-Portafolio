@@ -22,3 +22,17 @@
   color: rgba(255, 255, 255, 0.2);
   letter-spacing: 0.1em;
 }
+
+@media (max-width: 720px) {
+  .footer {
+    padding: 40px 24px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .footer-copy {
+    font-size: 10px;
+    letter-spacing: 0.06em;
+  }
+}

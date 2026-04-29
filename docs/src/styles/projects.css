@@ -39,16 +39,17 @@
   display: block;
 }
 
-/* Responsive: en pantallas pequeñas, volver a diseño vertical */
-@media (max-width: 768px) {
+@media (max-width: 720px) {
   .project-card {
     grid-template-columns: 1fr;
     min-height: auto;
+    border-radius: 20px;
   }
-  
+
   .project-img {
-    min-height: 240px;
+    min-height: 220px;
     aspect-ratio: 16 / 9;
+    height: auto;
   }
 }
 
@@ -119,17 +120,53 @@
   flex-grow: 1;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 720px) {
+  .projects-grid {
+    gap: 20px;
+  }
+
   .project-body {
-    padding: 24px;
+    padding: 22px 20px 24px;
+    gap: 12px;
   }
-  
+
+  .project-num-tag {
+    font-size: 12px;
+    margin-bottom: 8px;
+  }
+
   .project-title {
-    font-size: 20px;
+    font-size: 22px;
+    margin-bottom: 10px;
   }
-  
+
   .project-desc {
+    font-size: 14px;
+    line-height: 1.75;
+    margin-bottom: 20px;
+  }
+
+  .project-footer {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .project-badges {
+    gap: 8px;
+  }
+
+  .project-badge {
+    font-size: 12px;
+    padding: 7px 13px;
+  }
+
+  .project-links {
+    justify-content: flex-start;
+  }
+
+  .project-link {
     font-size: 13px;
+    padding: 10px 20px;
   }
 }
 
