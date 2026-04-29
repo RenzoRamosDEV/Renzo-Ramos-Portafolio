@@ -35,7 +35,8 @@ export function App() {
     const cursorTrailCanvas = document.getElementById('cursor-trail');
 
     if (starfieldCanvas) initStarfield(starfieldCanvas);
-    if (cursorTrailCanvas) initCursorTrail(cursorTrailCanvas);
+    const isTouchDevice = window.matchMedia('(pointer: coarse)').matches;
+    if (cursorTrailCanvas && !isTouchDevice) initCursorTrail(cursorTrailCanvas);
   }, []);
 
   const scrollTo = (id) => {
