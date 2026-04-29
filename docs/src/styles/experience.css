@@ -402,6 +402,7 @@
   /* Lista: fila horizontal con 2 cards */
   .exp-layout--mobile .exp-list-container {
     gap: 0;
+    width: 100%;
   }
 
   .exp-layout--mobile .exp-list {
@@ -423,25 +424,30 @@
   }
 
   /* Cuando hay solo 1 card en mobile: ocupa todo el ancho */
-  @media (max-width: 720px) {
-    .exp-layout--mobile.exp-cards--1 .exp-list {
-      gap: 0;
-    }
-    
-    .exp-layout--mobile.exp-cards--1 .exp-card-small {
-      flex: 1 1 100% !important;
-      width: 100% !important;
-      max-width: 100% !important;
-      min-width: 0;
-    }
+  .exp-layout--mobile.exp-cards--1 .exp-list {
+    gap: 0;
+  }
+  
+  .exp-layout--mobile.exp-cards--1 .exp-card-small {
+    flex: 1;
+    min-width: 0;
+    max-width: none;
+  }
 
-    /* Cuando hay 2 cards en mobile: cada una ocupa 50% */
-    .exp-layout--mobile.exp-cards--2 .exp-card-small {
-      flex: 1 1 calc(50% - 5px) !important;
-      width: calc(50% - 5px) !important;
-      max-width: calc(50% - 5px) !important;
-      min-width: 0;
-    }
+  /* Respaldo: si solo se renderiza una card, forzar ancho completo en mobile */
+  .exp-layout--mobile .exp-list > .exp-card-small:only-child {
+    flex: 1 1 100% !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 100% !important;
+  }
+
+  /* Cuando hay 2 cards en mobile: cada una ocupa 50% */
+  .exp-layout--mobile.exp-cards--2 .exp-card-small {
+    flex: 1 1 calc(50% - 5px) !important;
+    width: calc(50% - 5px) !important;
+    max-width: calc(50% - 5px) !important;
+    min-width: 0;
   }
 
   /* Flechas ◀▶: fila centrada debajo de las cards */

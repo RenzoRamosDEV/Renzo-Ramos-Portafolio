@@ -45,7 +45,7 @@ export function ExperienceSection({ scheme }) {
     : VISIBLE_DESKTOP;
   const currentItems  = TABS.find(t => t.id === activeTab)?.items ?? [];
   const currentVisibleItems = currentItems.slice(scrollIndex, scrollIndex + visibleCount);
-  const actualVisibleCount = Math.min(currentItems.length - scrollIndex, visibleCount);
+  const actualVisibleCount = currentVisibleItems.length;
   const canScrollUp   = scrollIndex > 0;
   const canScrollDown = scrollIndex < currentItems.length - visibleCount;
 
