@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { SCHEMES } from '../constants/schemes';
 import { experienceItems } from '../data/experience';
 import { educationItems } from '../data/education';
@@ -6,8 +6,8 @@ import { certificateItems } from '../data/certificates';
 import { ExpCardSmall } from './ExpCardSmall';
 import { ExpCardDetail } from './ExpCardDetail';
 
-// Número máximo de cards visibles en la lista antes de paginar con flechas
-const VISIBLE_ITEMS = 3;
+const VISIBLE_DESKTOP = 3;
+const VISIBLE_MOBILE  = 2;
 
 const TABS = [
   { id: 'experiencia',  label: 'Experiencia',  items: experienceItems },
@@ -18,13 +18,21 @@ const TABS = [
 export function ExperienceSection({ scheme }) {
   const s = SCHEMES[scheme] || SCHEMES['purple-pink'];
 
-  const [activeTab, setActiveTab]     = useState('experiencia');
+  const [activeTab, setActiveTab]       = useState('experiencia');
   const [selectedCard, setSelectedCard] = useState(0);
   const [scrollIndex, setScrollIndex]   = useState(0);
+  const [isMobile, setIsMobile]         = useState(() => window.innerWidth <= 720);
 
-  const currentItems = TABS.find(t => t.id === activeTab)?.items ?? [];
+  useEffect(() => {
+    const check = () => setIsMobile(window.innerWidth <= 720);
+    window.addEventListener('resize', check);
+    return () => window.removeEventListener('resize', check);
+  }, []);
+
+  const visibleCount  = isMobile ? VISIBLE_MOBILE : VISIBLE_DESKTOP;
+  const currentItems  = TABS.find(t => t.id === activeTab)?.items ?? [];
   const canScrollUp   = scrollIndex > 0;
-  const canScrollDown = scrollIndex < currentItems.length - VISIBLE_ITEMS;
+  const canScrollDown = scrollIndex < currentItems.length - visibleCount;
 
   function handleTabChange(tabId) {
     setActiveTab(tabId);
@@ -39,7 +47,6 @@ export function ExperienceSection({ scheme }) {
         Experiencia &amp;<br />Formación
       </h2>
 
-      {/* Pestañas de filtro */}
       <div className="exp-tabs-container">
         {TABS.map((tab) => (
           <button
@@ -53,13 +60,11 @@ export function ExperienceSection({ scheme }) {
         ))}
       </div>
 
-      {/* Layout: lista | flechas | detalle */}
       <div className="exp-layout">
 
-        {/* Lista izquierda — muestra VISIBLE_ITEMS cards a la vez */}
         <div className="exp-list-container">
           <div className="exp-list">
-            {currentItems.slice(scrollIndex, scrollIndex + VISIBLE_ITEMS).map((item, idx) => (
+            {currentItems.slice(scrollIndex, scrollIndex + visibleCount).map((item, idx) => (
               <ExpCardSmall
                 key={scrollIndex + idx}
                 data={item}
@@ -71,29 +76,27 @@ export function ExperienceSection({ scheme }) {
           </div>
         </div>
 
-        {/* Flechas de paginación — deshabilitadas si no hay suficientes items */}
         <div className="exp-scroll-controls">
           <button
             className="exp-scroll-btn"
             onClick={() => setScrollIndex(Math.max(0, scrollIndex - 1))}
-            disabled={!canScrollUp || currentItems.length <= VISIBLE_ITEMS}
+            disabled={!canScrollUp || currentItems.length <= visibleCount}
             style={{ color: canScrollUp ? s.a : 'rgba(255,255,255,0.2)' }}
             title="Anterior"
           >
-            ▲
+            {isMobile ? '◀' : '▲'}
           </button>
           <button
             className="exp-scroll-btn"
-            onClick={() => setScrollIndex(Math.min(currentItems.length - VISIBLE_ITEMS, scrollIndex + 1))}
-            disabled={!canScrollDown || currentItems.length <= VISIBLE_ITEMS}
+            onClick={() => setScrollIndex(Math.min(currentItems.length - visibleCount, scrollIndex + 1))}
+            disabled={!canScrollDown || currentItems.length <= visibleCount}
             style={{ color: canScrollDown ? s.a : 'rgba(255,255,255,0.2)' }}
             title="Siguiente"
           >
-            ▼
+            {isMobile ? '▶' : '▼'}
           </button>
         </div>
 
-        {/* Detalle derecho — muestra la información completa del item seleccionado */}
         <div className="exp-detail">
           {currentItems[selectedCard] && (
             <ExpCardDetail data={currentItems[selectedCard]} scheme={scheme} />

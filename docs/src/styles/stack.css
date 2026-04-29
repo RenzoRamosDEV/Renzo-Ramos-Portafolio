@@ -520,6 +520,10 @@
 }
 
 @media (max-width: 720px) {
+  .section {
+    padding: 80px 20px;
+  }
+
   .stack-section {
     padding: 80px 20px;
   }

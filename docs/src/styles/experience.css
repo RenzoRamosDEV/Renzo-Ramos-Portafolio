@@ -470,6 +470,7 @@
     grid-template-columns: repeat(2, 1fr);
     gap: 12px;
     overflow: visible;
+    height: auto;
   }
 
   .exp-list-container {
@@ -486,6 +487,12 @@
 
   .exp-detail {
     padding: 0;
+    height: auto;
+  }
+
+  .exp-detail .exp-card-detail {
+    height: auto;
+    overflow-y: visible;
   }
 
   .exp-detail-title {
@@ -498,23 +505,72 @@
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 720px) {
+  /* Tabs: cada botón ocupa el mismo ancho */
   .exp-tabs-container {
-    margin-bottom: 24px;
+    gap: 8px;
+    margin-bottom: 20px;
   }
 
+  .exp-tab-btn {
+    flex: 1;
+    padding: 10px 8px;
+    font-size: 11px;
+    text-align: center;
+    letter-spacing: 0.03em;
+  }
+
+  /* Layout: columna única */
   .exp-layout {
-    min-height: 600px;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    min-height: auto;
+  }
+
+  /* Lista: fila horizontal con 2 cards */
+  .exp-list-container {
+    gap: 0;
   }
 
   .exp-list {
-    display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    gap: 10px;
     overflow: hidden;
+    height: auto;
   }
 
   .exp-card-small {
-    padding: 12px;
+    flex: 1;
+    min-width: 0;
+    min-height: auto;
+    padding: 14px;
+  }
+
+  /* Flechas ◀▶: fila centrada debajo de las cards */
+  .exp-scroll-controls {
+    flex-direction: row;
+    gap: 12px;
+    justify-content: center;
+    align-self: stretch;
+    width: 100%;
+    padding: 12px 0;
+    order: 0;
+  }
+
+  /* Detalle: ancho completo, altura auto */
+  .exp-detail {
+    height: auto;
+    margin-top: 4px;
+  }
+
+  .exp-detail .exp-card-detail {
+    height: auto;
+    overflow-y: visible;
+  }
+
+  .exp-card-detail {
+    padding: 18px 16px;
   }
 
   .exp-detail-title {
@@ -522,7 +578,21 @@
   }
 
   .exp-detail-logo {
-    width: 48px;
-    height: 48px;
+    width: 44px;
+    height: 44px;
+  }
+
+  .exp-detail-header {
+    gap: 12px;
+    margin-bottom: 14px;
+  }
+
+  .exp-detail-meta {
+    gap: 10px;
+    margin-bottom: 14px;
+  }
+
+  .exp-detail-desc {
+    font-size: 13px;
   }
 }
