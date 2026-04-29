@@ -347,6 +347,119 @@
   }
 }
 
+@media (max-width: 720px) {
+  .modal-overlay {
+    padding: 8px;
+    align-items: center;
+  }
+
+  .modal-content {
+    width: min(100%, 92vw);
+    max-width: 92vw;
+    max-height: 88vh;
+    margin-top: 0;
+    border-radius: 14px;
+  }
+
+  .modal-header {
+    padding: 18px 16px 12px;
+  }
+
+  .modal-title {
+    font-size: 18px;
+    line-height: 1.25;
+    padding-right: 34px;
+  }
+
+  .modal-num {
+    font-size: 11px;
+    margin-bottom: 6px;
+  }
+
+  .modal-close {
+    width: 32px;
+    height: 32px;
+    font-size: 18px;
+    top: 12px;
+    right: 12px;
+  }
+
+  .modal-carousel {
+    min-height: 190px;
+  }
+
+  .modal-image {
+    max-height: 34vh;
+  }
+
+  .modal-carousel-btn {
+    width: 30px;
+    height: 30px;
+    font-size: 22px;
+  }
+
+  .modal-carousel-btn-prev {
+    left: 6px;
+  }
+
+  .modal-carousel-btn-next {
+    right: 6px;
+  }
+
+  .modal-carousel-counter {
+    top: 10px;
+    padding: 5px 10px;
+    font-size: 11px;
+  }
+
+  .modal-carousel-dots {
+    bottom: 10px;
+    gap: 8px;
+    padding: 8px 10px;
+  }
+
+  .modal-carousel-dot {
+    width: 8px;
+    height: 8px;
+  }
+
+  .modal-carousel-dot.active {
+    width: 20px;
+  }
+
+  .modal-footer {
+    padding: 14px 16px 16px;
+  }
+
+  .modal-desc {
+    font-size: 13px;
+    line-height: 1.55;
+    margin-bottom: 16px;
+  }
+
+  .modal-badges {
+    gap: 8px;
+    margin-bottom: 16px;
+  }
+
+  .modal-badge {
+    font-size: 11px;
+    padding: 6px 10px;
+  }
+
+  .modal-links {
+    justify-content: stretch;
+    gap: 8px;
+  }
+
+  .modal-link {
+    width: 100%;
+    justify-content: center;
+    padding: 10px 12px;
+    font-size: 13px;
+  }
+}
+
 /* Scrollbar personalizado para el modal */
 .modal-content::-webkit-scrollbar {
   width: 8px;
