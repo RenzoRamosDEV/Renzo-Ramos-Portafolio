@@ -5,9 +5,9 @@ export function Nav({ scheme, onScrollTo }) {
   const gradBtn = `linear-gradient(135deg, ${s.a}, ${s.b})`;
 
   const links = [
-    ['stack', 'Stack'],
+    ['proyectos', 'Portafolio'],
     ['experiencia', 'Experiencia'],
-    ['proyectos', 'Portafolio']
+    ['stack', 'Stack']
   ];
 
   return (
