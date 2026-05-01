@@ -1,205 +1,171 @@
-.projects-grid {
+/* ── Scroll horizontal container ────────────────────────── */
+.projects-scroll-wrapper {
+  overflow-x: auto;
+  overflow-y: visible;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
   display: flex;
-  flex-direction: column;
-  gap: 24px;
-  max-width: 1200px;
-  margin: 0 auto;
+  gap: 16px;
+  padding: 12px 8px 20px;
+  margin: 0 -8px;
+  cursor: grab;
+  scrollbar-width: none;
 }
 
+.projects-scroll-wrapper::-webkit-scrollbar {
+  display: none;
+}
+
+.projects-scroll-wrapper:active {
+  cursor: grabbing;
+}
+
+/* ── Card ────────────────────────────────────────────────── */
 .project-card {
-  background: rgba(255, 255, 255, 0.03);
+  scroll-snap-align: start;
+  flex: 0 0 calc(50% - 8px);
+  aspect-ratio: 16 / 9;
+  position: relative;
+  border-radius: 20px;
   border: 1px solid rgba(255, 255, 255, 0.07);
-  border-radius: 16px;
-  overflow: hidden;
-  transition: border-color 0.2s, transform 0.2s;
   cursor: pointer;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 0;
-  min-height: 320px;
+  transition: border-color 0.3s, transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.3s;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
 }
 
 .project-card:hover {
-  border-color: rgba(255, 255, 255, 0.14);
-  transform: scale(1.02);
+  border-color: rgba(255, 255, 255, 0.18);
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.5);
 }
 
-.project-img {
-  width: 100%;
-  height: 100%;
-  min-height: 320px;
+
+/* ── Imagen de fondo ─────────────────────────────────────── */
+.project-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
   overflow: hidden;
-  position: relative;
+  border-radius: 20px;
 }
 
-.project-img img {
+.project-bg .carousel-image,
+.project-bg img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   display: block;
 }
 
-@media (min-width: 721px) and (max-width: 1100px) {
-  .projects-grid {
-    gap: 28px;
-  }
-
-  .project-card {
-    grid-template-columns: 1fr;
-    min-height: auto;
-  }
-
-  .project-img {
-    aspect-ratio: 16 / 9;
-    min-height: auto;
-    height: auto;
-    max-height: 360px;
-  }
+.project-bg-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(5, 5, 15, 0.97) 0%,
+    rgba(5, 5, 15, 0.55) 45%,
+    rgba(5, 5, 15, 0.1) 100%
+  );
+  z-index: 1;
 }
 
-@media (max-width: 720px) {
-  .project-card {
-    grid-template-columns: 1fr;
-    min-height: auto;
-    border-radius: 20px;
-  }
-
-  .project-img {
-    min-height: 220px;
-    aspect-ratio: 16 / 9;
-    height: auto;
-  }
-}
-
-.project-img-placeholder {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+/* ── Texto ──────────────────────────────────────────────── */
+.project-body {
   position: relative;
-  overflow: hidden;
+  z-index: 2;
+  padding: 32px;
 }
 
-.project-img-label {
+.project-num {
   font-family: 'JetBrains Mono', monospace;
   font-size: 11px;
-  font-weight: 500;
-  letter-spacing: 0.2em;
+  font-weight: 600;
+  letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.18);
-}
-
-.project-body {
-  padding: 32px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  position: relative;
+  color: rgba(255, 255, 255, 0.3);
+  margin-bottom: 8px;
 }
 
 .project-title {
   font-family: 'Outfit', sans-serif;
-  font-size: 24px;
+  font-size: clamp(20px, 2.2vw, 28px);
   font-weight: 700;
   color: #fff;
-  margin-bottom: 12px;
   letter-spacing: -0.02em;
-  line-height: 1.3;
+  line-height: 1.25;
+  margin-bottom: 10px;
 }
 
 .project-desc {
   font-size: 14px;
-  line-height: 1.8;
-  color: rgba(255, 255, 255, 0.4);
-  margin-bottom: 24px;
-  flex-grow: 1;
+  line-height: 1.75;
+  color: rgba(255, 255, 255, 0.45);
+  margin-bottom: 20px;
+  max-width: 600px;
 }
 
-@media (max-width: 720px) {
-  .projects-grid {
-    gap: 20px;
-  }
-
-  .project-body {
-    padding: 22px 20px 24px;
-    gap: 12px;
-  }
-
-  .project-num-tag {
-    font-size: 12px;
-    margin-bottom: 8px;
-  }
-
-  .project-title {
-    font-size: 22px;
-    margin-bottom: 10px;
-  }
-
-  .project-desc {
-    font-size: 14px;
-    line-height: 1.75;
-    margin-bottom: 20px;
-  }
-
-  .project-footer {
-    grid-template-columns: 1fr;
-    gap: 16px;
-  }
-
-  .project-badges {
-    gap: 8px;
-  }
-
-  .project-badge {
-    font-size: 12px;
-    padding: 7px 13px;
-  }
-
-  .project-link {
-    font-size: 13px;
-    padding: 10px 20px;
-  }
-}
-
+/* ── Footer ─────────────────────────────────────────────── */
 .project-footer {
-  display: grid;
-  grid-template-columns: 1fr auto;
-  align-items: end;
-  gap: 16px;
-  margin-top: auto;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
 }
 
 .project-badges {
   display: flex;
-  gap: 8px;
+  gap: 6px;
   flex-wrap: wrap;
-  align-items: center;
   flex: 1;
-  min-width: 0;
 }
 
 .project-badge {
   font-family: 'JetBrains Mono', monospace;
-  font-size: 11px;
+  font-size: 10px;
   font-weight: 500;
-  color: rgba(255, 255, 255, 0.6);
-  background: rgba(255, 255, 255, 0.05);
+  color: rgba(255, 255, 255, 0.55);
+  background: rgba(255, 255, 255, 0.06);
   border: 1px solid rgba(255, 255, 255, 0.1);
-  padding: 6px 12px;
+  padding: 5px 10px;
   border-radius: 6px;
   letter-spacing: 0.02em;
-  transition: all 0.2s;
   white-space: nowrap;
+  transition: all 0.2s;
 }
 
 .project-badge:hover {
-  background: rgba(255, 255, 255, 0.08);
-  border-color: rgba(255, 255, 255, 0.2);
-  color: rgba(255, 255, 255, 0.8);
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.22);
+  color: rgba(255, 255, 255, 0.85);
 }
 
-/* Estilos del carrusel */
+.project-link {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.45);
+  text-decoration: none;
+  padding: 8px 16px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  background: none;
+  transition: all 0.2s;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.project-link:hover {
+  color: rgba(255, 255, 255, 0.9);
+  border-color: rgba(255, 255, 255, 0.28);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+/* ── Carrusel interno ────────────────────────────────────── */
 .project-carousel {
   position: relative;
   width: 100%;
@@ -211,19 +177,19 @@
   height: 100%;
   object-fit: cover;
   display: block;
-  transition: opacity 0.3s ease-in-out;
+  transition: opacity 0.3s ease-in-out, transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 .carousel-btn {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.45);
   color: white;
   border: none;
-  font-size: 32px;
-  width: 40px;
-  height: 40px;
+  font-size: 28px;
+  width: 36px;
+  height: 36px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -231,7 +197,7 @@
   border-radius: 50%;
   transition: all 0.2s;
   opacity: 0;
-  z-index: 2;
+  z-index: 3;
 }
 
 .project-carousel:hover .carousel-btn {
@@ -243,13 +209,8 @@
   transform: translateY(-50%) scale(1.1);
 }
 
-.carousel-btn-prev {
-  left: 10px;
-}
-
-.carousel-btn-next {
-  right: 10px;
-}
+.carousel-btn-prev { left: 10px; }
+.carousel-btn-next { right: 10px; }
 
 .carousel-dots {
   position: absolute;
@@ -257,53 +218,190 @@
   left: 50%;
   transform: translateX(-50%);
   display: flex;
-  gap: 8px;
-  z-index: 2;
+  gap: 6px;
+  z-index: 3;
 }
 
 .carousel-dot {
-  width: 8px;
-  height: 8px;
+  width: 6px;
+  height: 6px;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.4);
+  background: rgba(255, 255, 255, 0.35);
   border: none;
   cursor: pointer;
   transition: all 0.3s;
   padding: 0;
 }
 
-.carousel-dot:hover {
-  background: rgba(255, 255, 255, 0.7);
-  transform: scale(1.2);
-}
+.carousel-dot:hover { background: rgba(255, 255, 255, 0.7); }
 
 .carousel-dot.active {
   background: white;
-  width: 24px;
+  width: 20px;
   border-radius: 4px;
 }
 
-.project-link {
+/* ── Placeholder ─────────────────────────────────────────── */
+.project-img-placeholder {
+  width: 100%;
+  height: 100%;
   display: flex;
   align-items: center;
-  gap: 6px;
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 12px;
-  font-weight: 600;
-  color: rgba(255, 255, 255, 0.4);
-  text-decoration: none;
-  padding: 8px 16px;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 8px;
-  letter-spacing: 0.04em;
-  cursor: pointer;
-  background: none;
-  transition: all 0.2s;
-  white-space: nowrap;
+  justify-content: center;
 }
 
-.project-link:hover {
-  color: rgba(255, 255, 255, 0.9);
-  border-color: rgba(255, 255, 255, 0.25);
-  background: rgba(255, 255, 255, 0.05);
+.project-img-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.15);
+}
+
+/* En desktop, ocultar paginación si solo hay 2 cards */
+@media (min-width: 1025px) {
+  .projects-pagination.projects-pagination--desktop-hidden {
+    display: none !important;
+  }
+}
+
+/* ── Paginación ──────────────────────────────────────────── */
+.projects-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.projects-dots {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.projects-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: all 0.3s;
+}
+
+.projects-dot:hover {
+  background: rgba(255, 255, 255, 0.45);
+}
+
+.projects-dot.active {
+  background: rgba(255, 255, 255, 0.8);
+  width: 20px;
+  border-radius: 4px;
+}
+
+.projects-nav-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: none;
+  color: rgba(255, 255, 255, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: border-color 0.2s, color 0.2s, opacity 0.2s;
+}
+
+.projects-nav-btn:hover:not(.disabled) {
+  border-color: rgba(255, 255, 255, 0.3);
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.projects-nav-btn.disabled {
+  opacity: 0.2;
+  cursor: default;
+}
+
+/* ── Tablet (721px – 1024px) ────────────────────────────── */
+@media (min-width: 721px) and (max-width: 1024px) {
+  .project-card {
+    flex: 0 0 100%;
+    aspect-ratio: 16 / 9;
+  }
+
+  .project-body {
+    padding: 24px;
+  }
+}
+
+/* ── Mobile (≤ 720px) ───────────────────────────────────── */
+@media (max-width: 720px) {
+  .projects-scroll-wrapper {
+    gap: 12px;
+  }
+
+  .project-card {
+    flex: 0 0 88vw;
+    aspect-ratio: unset;
+    min-height: unset;
+    border-radius: 16px;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+
+  /* Imagen encima como bloque propio */
+  .project-card .project-bg {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    flex-shrink: 0;
+  }
+
+  .project-card .project-bg-overlay {
+    display: none;
+  }
+
+  /* Texto debajo con fondo oscuro */
+  .project-card .project-body {
+    position: relative;
+    background: rgba(255, 255, 255, 0.03);
+    padding: 20px;
+    z-index: auto;
+  }
+
+  .project-desc {
+    font-size: 13px;
+    margin-bottom: 14px;
+  }
+
+  .project-badge {
+    font-size: 10px;
+    padding: 4px 9px;
+  }
+
+  .projects-pagination {
+    margin-top: 20px;
+  }
+
+  .project-title {
+    font-size: 18px;
+  }
+
+  .project-desc {
+    font-size: 13px;
+    margin-bottom: 14px;
+  }
+
+  .project-badge {
+    font-size: 10px;
+    padding: 4px 9px;
+  }
+
+  .projects-pagination {
+    margin-top: 20px;
+  }
 }
