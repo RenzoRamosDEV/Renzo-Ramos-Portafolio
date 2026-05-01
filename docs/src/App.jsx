@@ -53,8 +53,8 @@ export function App() {
       <div className="portfolio-root">
         <Hero scheme={scheme} onScrollTo={scrollTo} />
         <ProjectsSection scheme={scheme} />
-        <StackSection scheme={scheme} />
         <ExperienceSection scheme={scheme} />
+        <StackSection scheme={scheme} />
         <Footer />
       </div>
 
