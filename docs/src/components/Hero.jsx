@@ -61,13 +61,6 @@ export function Hero({ scheme, onScrollTo }) {
         >
           LinkedIn
         </a>
-        <a
-          href="mailto:renzoramosivan@gmail.com"
-          className="btn-secondary"
-          style={{ textDecoration: 'none' }}
-        >
-          Correo
-        </a>
       </div>
 
     </section>
