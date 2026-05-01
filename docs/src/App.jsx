@@ -58,22 +58,6 @@ export function App() {
         <Footer />
       </div>
 
-      <TweaksPanel title="Personalizar">
-        <TweakSection label="Color del acento">
-          <TweakSelect
-            id="accentScheme"
-            value={tweaks.accentScheme}
-            options={[
-              { value: 'purple-pink', label: 'Púrpura → Rosa (original)' },
-              { value: 'blue-cyan', label: 'Azul → Cyan' },
-              { value: 'emerald-teal', label: 'Esmeralda → Teal' },
-              { value: 'orange-red', label: 'Naranja → Rojo' }
-            ]}
-            onChange={(v) => setTweak('accentScheme', v)}
-          />
-        </TweakSection>
-      </TweaksPanel>
-
     </>
   );
 }
