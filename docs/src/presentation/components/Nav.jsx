@@ -19,25 +19,20 @@ export function Nav({ scheme, onScrollTo }) {
 
   // Orden visible en el nav: portafolio → experiencia → stack
   const links = [
-    ['proyectos',   'Portafolio'],
+    ['proyectos', 'Portafolio'],
     ['experiencia', 'Experiencia'],
-    ['stack',       'Stack']
+    ['stack', 'Stack']
   ];
 
   return (
     <nav className="nav">
-      <a
-        className="nav-logo"
-        href="#hero"
-        onClick={(e) => {
-          e.preventDefault();
-          onScrollTo('hero');
-        }}
-      >
+      <a className="nav-logo" href="#hero" onClick={(e) => {
+        e.preventDefault();
+        onScrollTo('hero');
+      }}>
         <div className="nav-dot" style={{ background: gradBtn }} />
         Renzo Ramos
       </a>
-
       <div className="nav-center">
         <div className="nav-links">
           {links.map(([id, label]) => (

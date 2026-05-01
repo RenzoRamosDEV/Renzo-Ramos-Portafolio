@@ -1,0 +1,16 @@
+{
+  "name": "Renzo Ramos - Portfolio",
+  "short_name": "Renzo Ramos",
+  "description": "Portfolio de Renzo Ramos — desarrollador fullstack.",
+  "start_url": "/RenzoRamosPortafolio/",
+  "display": "standalone",
+  "background_color": "#04000e",
+  "theme_color": "#04000e",
+  "icons": [
+    {
+      "src": "iconpage.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    }
+  ]
+}
