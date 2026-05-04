@@ -217,26 +217,23 @@ function TimelineNode({
 
 export function Experience() {
   return (
-    <section id="experiencia" className="p-3 sm:p-4 bg-black">
-      <div id="experiencia-card" className="relative w-full rounded-2xl md:rounded-[2rem] overflow-hidden flex flex-col pb-20">
-        <div className="absolute inset-0 z-[1]" style={{ background: '#1a1d22' }} />
-        <div
-          className="absolute inset-0 z-[2]"
-          style={{
-            backgroundImage:
-              'linear-gradient(rgba(167,180,188,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(167,180,188,0.03) 1px, transparent 1px)',
-            backgroundSize: '64px 64px',
-          }}
-        />
-        <div
-          className="absolute inset-0 z-[3]"
-          style={{ background: 'radial-gradient(ellipse 70% 50% at 50% 50%, transparent 50%, rgba(0,0,0,0.6) 100%)' }}
-        />
+    <section id="experiencia" className="min-h-screen p-[16px] bg-black">
+      <div
+        id="experiencia-card"
+        className="relative w-full rounded-2xl md:rounded-[2rem] flex flex-col overflow-hidden"
+        style={{
+          background: '#1a1d22',
+          backgroundImage:
+            'linear-gradient(rgba(167,180,188,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(167,180,188,0.03) 1px, transparent 1px)',
+          backgroundSize: '64px 64px',
+          height: 'calc(100vh - 32px)',
+        }}
+      >
 
         <div
-          className="relative z-10 flex-1 flex flex-col"
+          className="relative z-10 flex-1 flex flex-col overflow-y-auto"
           style={{
-            padding: 'clamp(60px,8vw,80px) clamp(20px,4.5vw,64px) clamp(72px,9vw,96px)',
+            padding: 'clamp(40px,6vw,64px) clamp(20px,4.5vw,64px) clamp(32px,4vw,48px)',
             gap: 'clamp(28px,4vw,44px)',
             display: 'flex',
             flexDirection: 'column',
@@ -270,10 +267,9 @@ export function Experience() {
             </div>
           </div>
 
-        </div>
-
-        <div className="relative z-10 flex justify-center pb-6 pt-2 lg:pb-0 lg:pt-0 lg:absolute lg:bottom-8 lg:left-0 lg:right-0">
-          <ScrollIndicator targetId="stack" />
+          <div className="flex justify-center pt-2">
+            <ScrollIndicator targetId="stack" />
+          </div>
         </div>
       </div>
     </section>

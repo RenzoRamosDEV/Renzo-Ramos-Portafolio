@@ -39,21 +39,17 @@ export function Methodologies() {
   const [selectedMet, setSelectedMet] = useState<MethodologyItem | null>(null)
 
   return (
-    <section id="metodologias" className="bg-black p-[16px]">
-      <div className="relative w-full rounded-2xl md:rounded-[2rem] overflow-hidden flex flex-col">
-        <div className="absolute inset-0 z-[1]" style={{ background: '#1a1d22' }} />
-        <div
-          className="absolute inset-0 z-[2]"
-          style={{
-            backgroundImage:
-              'linear-gradient(rgba(167,180,188,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(167,180,188,0.03) 1px, transparent 1px)',
-            backgroundSize: '64px 64px',
-          }}
-        />
-        <div
-          className="absolute inset-0 z-[3]"
-          style={{ background: 'radial-gradient(ellipse 70% 50% at 50% 50%, transparent 50%, rgba(0,0,0,0.6) 100%)' }}
-        />
+    <section id="metodologias" className="min-h-screen bg-black p-[16px]">
+      <div
+        className="relative w-full rounded-2xl md:rounded-[2rem] flex flex-col"
+        style={{
+          background: '#1a1d22',
+          backgroundImage:
+            'linear-gradient(rgba(167,180,188,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(167,180,188,0.03) 1px, transparent 1px)',
+          backgroundSize: '64px 64px',
+          minHeight: 'calc(100vh - 32px)',
+        }}
+      >
 
         <div className="relative z-10 flex-1 xl:overflow-hidden px-4 sm:px-6 lg:px-24 flex flex-col gap-4 lg:gap-4 py-10 lg:py-10 pb-20">
 

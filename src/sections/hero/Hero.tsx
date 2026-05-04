@@ -5,8 +5,8 @@ import bgHero from '../../assets/videos/bg-hero-light.mp4'
 
 export function Hero() {
   return (
-    <section id="sobre-mi" className="h-screen p-[16px]">
-      <div className="relative w-full h-full rounded-2xl md:rounded-[2rem] overflow-hidden">
+    <section id="sobre-mi" className="min-h-screen p-[16px]">
+      <div className="relative w-full min-h-[calc(100vh-32px)] rounded-2xl md:rounded-[2rem] overflow-hidden">
         <video className="absolute inset-0 w-full h-full object-cover" src={bgHero} autoPlay loop muted playsInline />
 
         <div className="noise-overlay opacity-[0.7] mix-blend-overlay pointer-events-none z-10" />
