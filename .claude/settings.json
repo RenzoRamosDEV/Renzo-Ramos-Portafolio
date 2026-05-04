@@ -5,7 +5,9 @@
       "Bash(git rm *)",
       "Bash(git mv *)",
       "Bash(sed -n '415,425p' /home/renzo-ramos/Workspace/Renzo/portafololio-renzo/docs/src/presentation/styles/stack.css)",
-      "Bash(sed -n '499,510p' /home/renzo-ramos/Workspace/Renzo/portafololio-renzo/docs/src/presentation/styles/stack.css)"
+      "Bash(sed -n '499,510p' /home/renzo-ramos/Workspace/Renzo/portafololio-renzo/docs/src/presentation/styles/stack.css)",
+      "Bash(git stash *)",
+      "Bash(git commit -m ' *)"
     ]
   }
 }
