@@ -8,7 +8,7 @@ const NAV_ITEMS = [
   { label: 'Metodologías', targetId: 'metodologias' },
 ]
 
-const FUSED_SECTIONS = ['experiencia-card', 'proyectos', 'stack', 'metodologias']
+const FUSED_SECTIONS = ['proyectos', 'experiencia', 'experiencia-formacion', 'stack', 'metodologias']
 
 const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, targetId: string) => {
   e.preventDefault()
