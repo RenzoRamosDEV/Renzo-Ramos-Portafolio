@@ -230,7 +230,7 @@ export function Experience() {
       >
 
         <div
-          className="relative z-10 flex-1 flex flex-col md:overflow-y-auto"
+          className="relative z-10 flex-1 flex flex-col"
           style={{
             padding: 'clamp(40px,6vw,64px) clamp(20px,4.5vw,64px) clamp(32px,4vw,48px)',
             gap: 'clamp(28px,4vw,44px)',
