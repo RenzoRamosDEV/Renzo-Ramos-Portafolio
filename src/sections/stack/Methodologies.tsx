@@ -39,19 +39,19 @@ export function Methodologies() {
   const [selectedMet, setSelectedMet] = useState<MethodologyItem | null>(null)
 
   return (
-    <section id="metodologias" className="bg-black p-[16px]">
-      <div className="relative w-full rounded-2xl md:rounded-[2rem] overflow-hidden flex flex-col">
-        <div className="absolute inset-0 z-[1]" style={{ background: '#1a1d22' }} />
+    <section id="metodologias" className="min-h-screen bg-black p-[16px]">
+      <div
+        className="relative w-full rounded-2xl md:rounded-[2rem] flex flex-col md:overflow-hidden md:h-[calc(100vh-32px)]"
+        style={{
+          background: '#1a1d22',
+          backgroundImage:
+            'linear-gradient(rgba(167,180,188,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(167,180,188,0.03) 1px, transparent 1px)',
+          backgroundSize: '64px 64px',
+          minHeight: 'calc(100vh - 32px)',
+        }}
+      >
         <div
-          className="absolute inset-0 z-[2]"
-          style={{
-            backgroundImage:
-              'linear-gradient(rgba(167,180,188,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(167,180,188,0.03) 1px, transparent 1px)',
-            backgroundSize: '64px 64px',
-          }}
-        />
-        <div
-          className="absolute inset-0 z-[3]"
+          className="absolute inset-0 z-[3] pointer-events-none"
           style={{ background: 'radial-gradient(ellipse 70% 50% at 50% 50%, transparent 50%, rgba(0,0,0,0.6) 100%)' }}
         />
 

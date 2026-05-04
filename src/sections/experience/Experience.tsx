@@ -145,21 +145,21 @@ function TimelineNode({
                 className="m-0 leading-[1.2] font-semibold"
                 style={{
                   color: LABEL_COLOR,
-                  fontSize: 'clamp(14px,1.8vw,17px)',
+                  fontSize: 'clamp(14px,2.2vw,22px)',
                   letterSpacing: '-0.03em',
                 }}
               >
                 {item.title}
               </h4>
               <p
-                className="text-[11px] mt-1 tracking-[0.08em] uppercase"
+                className="text-[11px] md:text-[13px] mt-1 tracking-[0.08em] uppercase"
                 style={{ color: LABEL_COLOR, margin: '4px 0 0' }}
               >
                 {item.company}
               </p>
             </div>
             <span
-              className="font-mono whitespace-nowrap flex-shrink-0 text-[10.5px]"
+              className="font-mono whitespace-nowrap flex-shrink-0 text-[10.5px] md:text-[12px]"
               style={{ color: LABEL_COLOR }}
             >
               {item.period}
@@ -168,7 +168,7 @@ function TimelineNode({
 
           {item.desc && (
             <p
-              className="text-[12.5px] leading-relaxed mt-2.5"
+              className="text-[12.5px] md:text-[14px] leading-relaxed mt-2.5"
               style={{ color: LABEL_COLOR, margin: '10px 0 0' }}
             >
               {item.desc.split('\n').filter(Boolean).map((line, i) => (
@@ -215,67 +215,154 @@ function TimelineNode({
   )
 }
 
-export function Experience() {
+function ExperienceCard({ targetId }: { targetId: string }) {
   return (
-    <section id="experiencia" className="p-3 sm:p-4 bg-black">
-      <div id="experiencia-card" className="relative w-full rounded-2xl md:rounded-[2rem] overflow-hidden flex flex-col pb-20">
-        <div className="absolute inset-0 z-[1]" style={{ background: '#1a1d22' }} />
-        <div
-          className="absolute inset-0 z-[2]"
-          style={{
-            backgroundImage:
-              'linear-gradient(rgba(167,180,188,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(167,180,188,0.03) 1px, transparent 1px)',
-            backgroundSize: '64px 64px',
-          }}
-        />
-        <div
-          className="absolute inset-0 z-[3]"
-          style={{ background: 'radial-gradient(ellipse 70% 50% at 50% 50%, transparent 50%, rgba(0,0,0,0.6) 100%)' }}
-        />
-
-        <div
-          className="relative z-10 flex-1 flex flex-col"
-          style={{
-            padding: 'clamp(60px,8vw,80px) clamp(20px,4.5vw,64px) clamp(72px,9vw,96px)',
-            gap: 'clamp(28px,4vw,44px)',
-            display: 'flex',
-            flexDirection: 'column',
-          }}
-        >
-          <div className="flex items-baseline justify-between flex-wrap gap-3">
-            <SectionTitle text="Trayectoria" align="left" leading="snug" />
-          </div>
-
-          <div className="grid grid-cols-1 xl:grid-cols-2 gap-[clamp(16px,2vw,24px)] xl:items-stretch">
-            <div className="flex flex-col gap-[clamp(16px,2vw,24px)]">
-              <div className="bg-[#101010]/70 backdrop-blur-md border border-white/[0.06] rounded-[18px] p-[clamp(24px,3vw,40px)] flex flex-col gap-0">
-                <span className="text-[12px] tracking-[0.14em] uppercase mb-6 font-bold" style={{ color: LABEL_COLOR }}>Laboral</span>
-                {TIMELINE_JOBS.map((item, i) => (
-                  <TimelineNode key={`job-${i}`} item={item} index={i} isLast={i === TIMELINE_JOBS.length - 1} hideLabel />
-                ))}
-              </div>
-              <div className="bg-[#101010]/70 backdrop-blur-md border border-white/[0.06] rounded-[18px] p-[clamp(24px,3vw,40px)] flex flex-col gap-0 flex-1">
-                <span className="text-[12px] tracking-[0.14em] uppercase mb-6 font-bold" style={{ color: LABEL_COLOR }}>Certificados</span>
-                {TIMELINE_CERTS.map((item, i) => (
-                  <TimelineNode key={`cert-${i}`} item={item} index={i} isLast={i === TIMELINE_CERTS.length - 1} hideLabel />
-                ))}
-              </div>
-            </div>
-
-            <div className="bg-[#101010]/70 backdrop-blur-md border border-white/[0.06] rounded-[18px] p-[clamp(16px,2vw,28px)] flex flex-col gap-0">
-              <span className="text-[12px] tracking-[0.14em] uppercase mb-4 font-bold" style={{ color: LABEL_COLOR }}>Formación</span>
-              {TIMELINE_EDU.map((item, i) => (
-                <TimelineNode key={`edu-${i}`} item={item} index={i} isLast={i === TIMELINE_EDU.length - 1} hideLabel />
-              ))}
-            </div>
-          </div>
-
+    <div
+      className="relative w-full rounded-2xl md:rounded-[2rem] flex flex-col md:overflow-hidden md:h-[calc(100vh-32px)]"
+      style={{
+        background: '#1a1d22',
+        backgroundImage:
+          'linear-gradient(rgba(167,180,188,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(167,180,188,0.03) 1px, transparent 1px)',
+        backgroundSize: '64px 64px',
+      }}
+    >
+      <div
+        className="absolute inset-0 z-[3] pointer-events-none"
+        style={{ background: 'radial-gradient(ellipse 70% 50% at 50% 50%, transparent 50%, rgba(0,0,0,0.6) 100%)' }}
+      />
+      <div
+        className="relative z-10 flex-1 flex flex-col justify-between"
+        style={{
+          padding: 'clamp(40px,6vw,64px) clamp(20px,4.5vw,64px) clamp(32px,4vw,48px)',
+          gap: 'clamp(28px,4vw,44px)',
+          display: 'flex',
+          flexDirection: 'column',
+        }}
+      >
+        <div className="flex items-baseline justify-between flex-wrap gap-3">
+          <SectionTitle text="Trayectoria Laboral & Certificados" align="left" leading="snug" />
         </div>
 
-        <div className="relative z-10 flex justify-center pb-6 pt-2 lg:pb-0 lg:pt-0 lg:absolute lg:bottom-8 lg:left-0 lg:right-0">
+        {/* Mobile: columna única */}
+        <div className="flex md:hidden flex-col gap-[clamp(16px,2vw,24px)]">
+          <div className="bg-[#101010]/70 backdrop-blur-md border border-white/[0.06] rounded-[18px] p-[clamp(24px,3vw,40px)] flex flex-col gap-0">
+            <span className="text-[12px] tracking-[0.14em] uppercase mb-6 font-bold" style={{ color: LABEL_COLOR }}>Laboral</span>
+            {TIMELINE_JOBS.map((item, i) => (
+              <TimelineNode key={`job-${i}`} item={item} index={i} isLast={i === TIMELINE_JOBS.length - 1} hideLabel />
+            ))}
+          </div>
+          <div className="bg-[#101010]/70 backdrop-blur-md border border-white/[0.06] rounded-[18px] p-[clamp(24px,3vw,40px)] flex flex-col gap-0">
+            <span className="text-[12px] tracking-[0.14em] uppercase mb-6 font-bold" style={{ color: LABEL_COLOR }}>Certificados</span>
+            {TIMELINE_CERTS.map((item, i) => (
+              <TimelineNode key={`cert-${i}`} item={item} index={i} isLast={i === TIMELINE_CERTS.length - 1} hideLabel />
+            ))}
+          </div>
+          <div className="bg-[#101010]/70 backdrop-blur-md border border-white/[0.06] rounded-[18px] p-[clamp(16px,2vw,28px)] flex flex-col gap-0">
+            <span className="text-[12px] tracking-[0.14em] uppercase mb-4 font-bold" style={{ color: LABEL_COLOR }}>Formación</span>
+            {TIMELINE_EDU.map((item, i) => (
+              <TimelineNode key={`edu-${i}`} item={item} index={i} isLast={i === TIMELINE_EDU.length - 1} hideLabel />
+            ))}
+          </div>
+        </div>
+
+        {/* Desktop: 2 columnas */}
+        <div className="hidden md:grid grid-cols-2 gap-[clamp(16px,2vw,24px)] flex-1 content-center">
+          <div className="bg-[#101010]/70 backdrop-blur-md border border-white/[0.06] rounded-[18px] p-[clamp(24px,3vw,40px)] flex flex-col gap-0">
+            <span className="text-[12px] tracking-[0.14em] uppercase mb-6 font-bold" style={{ color: LABEL_COLOR }}>Laboral</span>
+            {TIMELINE_JOBS.map((item, i) => (
+              <TimelineNode key={`job-${i}`} item={item} index={i} isLast={i === TIMELINE_JOBS.length - 1} hideLabel />
+            ))}
+          </div>
+          <div className="bg-[#101010]/70 backdrop-blur-md border border-white/[0.06] rounded-[18px] p-[clamp(24px,3vw,40px)] flex flex-col gap-0">
+            <span className="text-[12px] tracking-[0.14em] uppercase mb-6 font-bold" style={{ color: LABEL_COLOR }}>Certificados</span>
+            {TIMELINE_CERTS.map((item, i) => (
+              <TimelineNode key={`cert-${i}`} item={item} index={i} isLast={i === TIMELINE_CERTS.length - 1} hideLabel />
+            ))}
+          </div>
+        </div>
+
+        <div className="flex justify-center pt-2">
+          <ScrollIndicator targetId={targetId} />
+        </div>
+      </div>
+    </div>
+  )
+}
+
+function EducationCard() {
+  return (
+    <div
+      className="relative w-full rounded-2xl md:rounded-[2rem] flex flex-col md:overflow-hidden md:h-[calc(100vh-32px)]"
+      style={{
+        background: '#1a1d22',
+        backgroundImage:
+          'linear-gradient(rgba(167,180,188,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(167,180,188,0.03) 1px, transparent 1px)',
+        backgroundSize: '64px 64px',
+      }}
+    >
+      <div
+        className="absolute inset-0 z-[3] pointer-events-none"
+        style={{ background: 'radial-gradient(ellipse 70% 50% at 50% 50%, transparent 50%, rgba(0,0,0,0.6) 100%)' }}
+      />
+      <div
+        className="relative z-10 flex-1 flex flex-col justify-between"
+        style={{
+          padding: 'clamp(40px,6vw,64px) clamp(20px,4.5vw,64px) clamp(32px,4vw,48px)',
+          gap: 'clamp(28px,4vw,44px)',
+          display: 'flex',
+          flexDirection: 'column',
+        }}
+      >
+        <div className="flex items-baseline justify-between flex-wrap gap-3">
+          <SectionTitle text="Trayectoria en Formación" align="left" leading="snug" />
+        </div>
+
+        <div className="w-full bg-[#101010]/70 backdrop-blur-md border border-white/[0.06] rounded-[18px] p-[clamp(16px,2vw,28px)] flex flex-col gap-0">
+          <span className="text-[12px] tracking-[0.14em] uppercase mb-4 font-bold" style={{ color: LABEL_COLOR }}>Formación</span>
+          {/* Mobile: columna */}
+          <div className="flex md:hidden flex-col">
+            {TIMELINE_EDU.map((item, i) => (
+              <TimelineNode key={`edu-${i}`} item={item} index={i} isLast={i === TIMELINE_EDU.length - 1} hideLabel />
+            ))}
+          </div>
+          {/* Desktop: fila horizontal */}
+          <div className="hidden md:grid gap-[clamp(12px,2vw,24px)]" style={{ gridTemplateColumns: `repeat(${TIMELINE_EDU.length}, 1fr)` }}>
+            {TIMELINE_EDU.map((item, i) => (
+              <div key={`edu-h-${i}`} className="border-l border-white/[0.07] pl-4 flex flex-col gap-1">
+                <h4 className="m-0 leading-[1.2] font-semibold" style={{ color: LABEL_COLOR, letterSpacing: '-0.03em', fontSize: 'clamp(16px,2.2vw,22px)' }}>{item.title}</h4>
+                <p className="text-[13px] tracking-[0.08em] uppercase m-0" style={{ color: LABEL_COLOR }}>{item.company}</p>
+                <span className="font-mono text-[12px]" style={{ color: LABEL_COLOR }}>{item.period}</span>
+                {item.desc && (
+                  <p className="text-[14px] leading-relaxed m-0 mt-1" style={{ color: LABEL_COLOR }}>
+                    {item.desc.split('\n').filter(Boolean).map((line, j) => (
+                      <span key={j} className={`block ${line.startsWith('-') ? 'pl-2' : ''}`}>{line}</span>
+                    ))}
+                  </p>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="flex justify-center pt-2">
           <ScrollIndicator targetId="stack" />
         </div>
       </div>
-    </section>
+    </div>
+  )
+}
+
+export function Experience() {
+  return (
+    <>
+      <section id="experiencia" className="min-h-screen p-[16px] bg-black">
+        <ExperienceCard targetId="experiencia-formacion" />
+      </section>
+
+      {/* Solo desktop */}
+      <section id="experiencia-formacion" className="hidden md:block min-h-screen p-[16px] bg-black">
+        <EducationCard />
+      </section>
+    </>
   )
 }

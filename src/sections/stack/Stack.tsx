@@ -22,20 +22,20 @@ function DesktopStackCard({ item, index }: { item: StackItem; index: number }) {
       initial={{ opacity: 0, y: 12 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.3, delay: index * 0.04, ease: [0.16, 1, 0.3, 1] }}
-      className="bg-white/[0.03] hover:bg-white/[0.06] border border-white/[0.06] hover:border-white/10 rounded-xl p-4 flex flex-col gap-3 transition-all duration-200 cursor-default"
+      className="bg-white/[0.03] hover:bg-white/[0.06] border border-white/[0.06] hover:border-white/10 rounded-xl p-3 flex flex-col gap-2.5 transition-all duration-200 cursor-default h-[120px]"
     >
       <div className="flex items-center gap-2.5">
-        <div className="w-12 h-12 flex items-center justify-center flex-shrink-0">
+        <div className="w-10 h-10 flex items-center justify-center flex-shrink-0">
           <img
             src={item.icon}
             alt={item.name}
-            className="w-11 h-11 object-contain"
+            className="w-9 h-9 object-contain"
             style={{ mixBlendMode: 'screen' }}
           />
         </div>
-        <span className="text-[#A7B4BC] font-semibold text-[17px] leading-snug truncate">{item.name}</span>
+        <span className="text-[#A7B4BC] font-semibold text-[15px] leading-snug truncate">{item.name}</span>
       </div>
-      <p className="text-[#A7B4BC]/70 text-[13px] leading-relaxed m-0 line-clamp-3">{item.desc}</p>
+      <p className="text-[#A7B4BC]/70 text-[12px] leading-relaxed m-0 line-clamp-2">{item.desc}</p>
     </motion.div>
   )
 }
@@ -44,34 +44,34 @@ export function Stack() {
   const [selectedStack, setSelectedStack] = useState<StackItem | null>(null)
 
   return (
-    <section id="stack" className="bg-black p-[16px]">
-      <div className="relative w-full rounded-2xl md:rounded-[2rem] overflow-hidden flex flex-col">
-        <div className="absolute inset-0 z-[1]" style={{ background: '#1a1d22' }} />
+    <section id="stack" className="min-h-screen bg-black p-[16px]">
+      <div
+        className="relative w-full rounded-2xl md:rounded-[2rem] flex flex-col md:overflow-hidden md:h-[calc(100vh-32px)]"
+        style={{
+          background: '#1a1d22',
+          backgroundImage:
+            'linear-gradient(rgba(167,180,188,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(167,180,188,0.03) 1px, transparent 1px)',
+          backgroundSize: '64px 64px',
+          minHeight: 'calc(100vh - 32px)',
+        }}
+      >
         <div
-          className="absolute inset-0 z-[2]"
-          style={{
-            backgroundImage:
-              'linear-gradient(rgba(167,180,188,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(167,180,188,0.03) 1px, transparent 1px)',
-            backgroundSize: '64px 64px',
-          }}
-        />
-        <div
-          className="absolute inset-0 z-[3]"
+          className="absolute inset-0 z-[3] pointer-events-none"
           style={{ background: 'radial-gradient(ellipse 70% 50% at 50% 50%, transparent 50%, rgba(0,0,0,0.6) 100%)' }}
         />
 
-        <div className="relative z-10 flex-1 xl:overflow-hidden px-4 sm:px-6 lg:px-24 flex flex-col gap-4 lg:gap-4 py-10 lg:py-10 pb-20">
+        <div className="relative z-10 flex-1 xl:overflow-hidden px-4 sm:px-6 lg:px-16 flex flex-col gap-3 lg:gap-4 py-8 lg:justify-center">
 
           <SectionTitle text="Herramientas en mi Stack" align="left" leading="snug" />
 
           {/* Desktop: cards grandes por grupo */}
           <div className="hidden lg:flex flex-col gap-3">
             {stackRows.map((row) => (
-              <div key={row.key} className="flex flex-col gap-2">
-                <span className="text-[13px] font-bold tracking-widest uppercase text-[#A7B4BC]">
+              <div key={row.key} className="flex flex-col gap-1.5">
+                <span className="text-[12px] font-bold tracking-widest uppercase text-[#A7B4BC]">
                   {row.label}
                 </span>
-                <div className="grid grid-cols-4 xl:grid-cols-6 gap-2">
+                <div className="grid grid-cols-4 xl:grid-cols-6 gap-2 items-stretch">
                   {row.items.map((item, i) => (
                     <DesktopStackCard key={item.name} item={item} index={i} />
                   ))}
@@ -113,10 +113,10 @@ export function Stack() {
             ))}
           </div>
 
-        </div>
+          <div className="flex justify-center pt-6">
+            <ScrollIndicator targetId="metodologias" />
+          </div>
 
-        <div className="relative z-10 flex justify-center pb-8 pt-4">
-          <ScrollIndicator targetId="metodologias" />
         </div>
       </div>
     </section>
