@@ -10,10 +10,10 @@ type AsButton = Common & { href?: undefined; disabled?: boolean; external?: neve
 
 export function PillButton(props: AsLink | AsButton) {
   const { label, width = 'md' } = props
-  const widthClass = width === 'xs' ? 'w-16' : width === 'sm' ? 'w-20' : 'w-24 sm:w-28'
-  const textClass = width === 'xs' ? 'text-xs' : 'text-sm sm:text-base'
-  const iconClass = width === 'xs' ? 'w-7 h-7' : 'w-9 h-9 sm:w-10 sm:h-10'
-  const paddingClass = width === 'xs' ? 'pl-3 pr-1 py-1' : 'pl-5 pr-1.5 py-1.5'
+  const widthClass = width === 'xs' ? 'w-16' : width === 'sm' ? 'w-20' : 'w-20 md:w-28'
+  const textClass = width === 'xs' ? 'text-xs' : width === 'sm' ? 'text-xs' : 'text-xs md:text-base'
+  const iconClass = width === 'xs' ? 'w-7 h-7' : width === 'sm' ? 'w-7 h-7' : 'w-7 h-7 md:w-10 md:h-10'
+  const paddingClass = width === 'xs' ? 'pl-3 pr-1 py-1' : width === 'sm' ? 'pl-3 pr-1 py-1' : 'pl-3 pr-1 py-1 md:pl-5 md:pr-1.5 md:py-1.5'
   const baseClass = `group flex items-center gap-2 hover:gap-3 bg-[#A7B4BC] rounded-full ${paddingClass} transition-all duration-300 no-underline border-0`
 
   const inner = (

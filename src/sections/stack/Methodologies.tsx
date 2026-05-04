@@ -41,7 +41,7 @@ export function Methodologies() {
   return (
     <section id="metodologias" className="min-h-screen bg-black p-[16px]">
       <div
-        className="relative w-full rounded-2xl md:rounded-[2rem] flex flex-col"
+        className="relative w-full rounded-2xl md:rounded-[2rem] flex flex-col md:overflow-hidden md:h-[calc(100vh-32px)]"
         style={{
           background: '#1a1d22',
           backgroundImage:
