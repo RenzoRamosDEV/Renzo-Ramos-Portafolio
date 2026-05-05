@@ -29,8 +29,7 @@ export function Hero() {
               className="font-bold leading-[1.05] tracking-[-0.04em] m-0 text-center"
               style={{ color: '#ffffff', fontSize: 'clamp(18px,5vw,64px)' }}
             >
-              Construyo backends robustos para que tu negocio nunca se detenga.
-            </p>
+              Diseño y construyo backends que escalan sin romperse cuando tu producto crece            </p>
 
             {/* Body text */}
             <div className="text-center leading-relaxed"
