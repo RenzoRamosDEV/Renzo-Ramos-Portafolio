@@ -47,7 +47,7 @@ export function Stack() {
       <div className="section-grid relative w-full flex flex-col">
         <div className="section-vignette absolute inset-0 z-[3] pointer-events-none" />
 
-        <div className="relative z-10 flex-1 xl:overflow-hidden px-4 sm:px-6 lg:px-16 flex flex-col gap-3 lg:gap-4 py-8 justify-center">
+        <div className="relative z-10 flex-1 xl:overflow-hidden px-4 sm:px-6 lg:px-16 flex flex-col gap-3 lg:gap-4 py-6 lg:py-8 justify-center">
 
           <SectionTitle line1="Herramientas" line2="en mi Stack" />
 

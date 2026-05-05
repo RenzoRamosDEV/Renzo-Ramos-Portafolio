@@ -195,13 +195,13 @@ export function Features() {
 
   return (
     <section id="proyectos" className="bg-black">
-      <div className="section-grid relative w-full overflow-hidden flex flex-col pb-20 lg:pb-0">
+      <div className="section-grid relative w-full overflow-hidden flex flex-col pb-6 lg:pb-0">
         <div className="section-vignette absolute inset-0 z-[1] pointer-events-none" />
 
         <div
           className="relative z-10 flex-1 flex flex-col justify-center"
           style={{
-            padding: 'clamp(40px,5vw,64px) clamp(20px,4vw,56px) clamp(48px,6vw,72px)',
+            padding: 'clamp(24px,5vw,64px) clamp(20px,4vw,56px) clamp(24px,6vw,72px)',
             gap: 'clamp(20px,3vw,36px)',
             display: 'flex',
             flexDirection: 'column',

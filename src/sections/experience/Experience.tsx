@@ -215,7 +215,7 @@ function ExperienceCard({ targetId }: { targetId: string }) {
       <div
         className="relative z-10 flex-1 flex flex-col justify-center md:justify-between"
         style={{
-          padding: 'clamp(40px,6vw,64px) clamp(20px,4.5vw,64px) clamp(32px,4vw,48px)',
+          padding: 'clamp(24px,6vw,64px) clamp(20px,4.5vw,64px) clamp(24px,4vw,48px)',
           gap: 'clamp(28px,4vw,44px)',
           display: 'flex',
           flexDirection: 'column',
@@ -277,7 +277,7 @@ function EducationCard() {
       <div
         className="relative z-10 flex-1 flex flex-col justify-center md:justify-between"
         style={{
-          padding: 'clamp(40px,6vw,64px) clamp(20px,4.5vw,64px) clamp(32px,4vw,48px)',
+          padding: 'clamp(24px,6vw,64px) clamp(20px,4.5vw,64px) clamp(24px,4vw,48px)',
           gap: 'clamp(28px,4vw,44px)',
           display: 'flex',
           flexDirection: 'column',
