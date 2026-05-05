@@ -30,7 +30,7 @@ function DesktopMethodCard({ item, index }: { item: MethodologyItem; index: numb
         </span>
         <span className="text-[#A7B4BC] font-semibold text-[17px] leading-snug">{item.name}</span>
       </div>
-      <p className="text-[#A7B4BC]/70 text-[13px] leading-relaxed m-0 line-clamp-3">{item.desc}</p>
+      <p className="text-[#A7B4BC]/70 text-[13px] leading-relaxed m-0">{item.desc}</p>
     </motion.div>
   )
 }

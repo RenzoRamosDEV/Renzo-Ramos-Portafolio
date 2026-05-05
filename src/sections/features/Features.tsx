@@ -27,7 +27,7 @@ function ProjectModal({ project, onClose }: { project: Project; onClose: () => v
     >
       <div
         onClick={e => e.stopPropagation()}
-        className="relative w-full max-w-3xl bg-[#111316] border border-white/[0.07] rounded-[24px] shadow-[0_32px_80px_rgba(0,0,0,0.8)] flex flex-col"
+        className="relative w-full max-w-5xl bg-[#111316] border border-white/[0.07] rounded-[24px] shadow-[0_32px_80px_rgba(0,0,0,0.8)] flex flex-col"
       >
         <button
           onClick={onClose}
@@ -37,7 +37,7 @@ function ProjectModal({ project, onClose }: { project: Project; onClose: () => v
         </button>
 
         {images.length > 0 && (
-          <div className="relative w-full bg-black rounded-t-[24px] overflow-hidden flex-shrink-0" style={{ aspectRatio: '16/7' }}>
+          <div className="relative w-full bg-black rounded-t-[24px] overflow-hidden flex-shrink-0" style={{ aspectRatio: '16/6' }}>
             <img
               src={images[imgIndex]}
               alt={project.title}
@@ -89,7 +89,7 @@ function ProjectModal({ project, onClose }: { project: Project; onClose: () => v
           </div>
 
           {project.points?.length > 0 && (
-            <div className="flex flex-col gap-4">
+            <div className="hidden md:flex flex-col gap-4">
               <span className="text-[10px] tracking-[0.14em] uppercase font-bold text-[#A7B4BC]/30">Qué resuelve</span>
               {project.points.map((p, i) => (
                 <div key={i} className="flex gap-3">
@@ -113,7 +113,7 @@ function ProjectModal({ project, onClose }: { project: Project; onClose: () => v
               {project.badges.map(t => (
                 <span
                   key={t}
-                  className="px-2.5 py-[3px] rounded-[6px] bg-[#A7B4BC]/[0.07] border border-[#A7B4BC]/10 text-[#A7B4BC]/55 text-[11px]"
+                  className="px-3 py-1 rounded-[6px] bg-[#A7B4BC]/[0.07] border border-[#A7B4BC]/10 text-[#A7B4BC]/55 text-[13px]"
                 >
                   {t}
                 </span>
@@ -164,14 +164,14 @@ function ProjectCard({ index, project, onLearnMore }: ProjectCardProps) {
             {project.title}
           </h3>
 
-          <p className="text-[#A7B4BC]/50 text-[15px] leading-relaxed m-0">{project.desc}</p>
+          <p className="text-[#A7B4BC]/50 text-[15px] leading-relaxed m-0">{project.summary}</p>
 
           {project.badges.length > 0 && (
             <div className="flex flex-wrap gap-1.5 mt-auto pt-3">
               {project.badges.map(t => (
                 <span
                   key={t}
-                  className="px-2.5 py-[3px] rounded-[6px] bg-[#A7B4BC]/[0.07] border border-[#A7B4BC]/10 text-[#A7B4BC]/55 text-[11px]"
+                  className="px-3 py-1 rounded-[6px] bg-[#A7B4BC]/[0.07] border border-[#A7B4BC]/10 text-[#A7B4BC]/55 text-[13px]"
                 >
                   {t}
                 </span>
@@ -201,7 +201,7 @@ export function Features() {
         <div
           className="relative z-10 flex-1 flex flex-col justify-center"
           style={{
-            padding: 'clamp(24px,5vw,64px) clamp(20px,4vw,56px) clamp(24px,6vw,72px)',
+            padding: 'clamp(80px,5vw,64px) clamp(20px,4vw,56px) clamp(36px,6vw,72px)',
             gap: 'clamp(20px,3vw,36px)',
             display: 'flex',
             flexDirection: 'column',

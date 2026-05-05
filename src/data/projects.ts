@@ -12,6 +12,7 @@ export type Project = {
   num: string
   title: string
   images: string[]
+  summary: string
   desc: string
   points: { title: string; body: string }[]
   badges: string[]
@@ -24,7 +25,8 @@ export const PROJECTS: Project[] = [
     num: '01',
     title: 'Booqi - Sistema de Gestión de Reservas de Eventos',
     images: [booqui01, booqui02, booqui03, booqui04, booqui05, booqui06],
-    desc: 'Booqi es una plataforma completa para la gestión de eventos y reservas que facilita la compra de entradas para diversos tipos de eventos. El sistema está diseñado con una arquitectura de microservicios independientes que se comunican entre sí, garantizando escalabilidad, mantenibilidad y alta disponibilidad.',
+    summary: 'Booqi es un proyecto que desarrollé en equipo, participando de forma integral desde el diseño de la arquitectura hasta el despliegue. Colaboré en la definición de los distintos módulos del sistema, la comunicación entre ellos y la validación de datos en tiempo real para asegurar un flujo coherente de usuarios, eventos, reservas y pagos.',
+    desc: 'Booqi es un proyecto que desarrollé en equipo, participando de forma integral, desde el diseño de la base de datos hasta el despliegue con Docker. Implementé cuatro microservicios independientes en Java con Spring Boot —usuarios, eventos, reservas y pagos— cada uno con su propia base de datos MySQL y API REST documentada con Swagger/OpenAPI. Diseñé la comunicación entre servicios para validar usuarios, eventos y reservas en tiempo real, y orquesté todo con Docker Compose, usando una red interna común, variables de entorno y healthchecks.',
     points: [
       { title: 'Compra centralizada de entradas', body: 'Elimina la necesidad de ir físicamente a taquillas. Todo el catálogo de eventos está en una sola plataforma donde el usuario puede explorar, filtrar y comprar desde cualquier lugar.' },
       { title: 'Gestión del proceso de reserva de principio a fin', body: 'Selección de evento, carrito, pago y confirmación ocurren dentro del mismo sistema sin redirigir al usuario a servicios externos desconectados.' },
@@ -40,7 +42,8 @@ export const PROJECTS: Project[] = [
     num: '02',
     title: 'Sistema de Gestión de Inventario de Productos',
     images: [inventario01, inventario02, inventario03],
-    desc: 'Este proyecto es una aplicacion web que permite gestionar inventarios de prodcutos, que facilita el control de stock, la visualizacion de productos. El sistema esta diseñado como monolito tradicional, es decir, que se puede dividir en modulos independientes',
+    summary: 'Inventario es una aplicación full-stack que desarrollé de forma integral, desde el diseño de la base de datos hasta el frontend. Construí la lógica de negocio, el sistema de validaciones, la gestión de errores, los filtros de búsqueda y la visualización en tiempo real, poniendo el foco en una estructura mantenible, una experiencia fluida y una integración consistente entre todas las partes del sistema.',
+    desc: 'Inventario es una aplicación full-stack que desarrollé de forma integral, desde el diseño de la base de datos hasta el frontend. Construí el backend en Java 17 con Spring Boot, con una arquitectura en capas, mapeo de DTOs con MapStruct y una API REST documentada con Swagger/OpenAPI. Implementé validaciones de negocio, manejo centralizado de excepciones, paginación, filtros de búsqueda y monitoreo con Spring Boot Actuator. Para el frontend con Claude Design desarrollé una SPA en React + TypeScript con dashboard en tiempo real y componentes reutilizables, manteniendo tipado estricto en toda la comunicación con la API.',
     points: [
       { title: 'Gestión centralizada del inventario', body: 'Elimina el uso de hojas de cálculo o sistemas dispersos. Todos los productos están en una sola plataforma accesible desde cualquier dispositivo.' },
       { title: 'Control total del ciclo de vida de un producto', body: 'Crear, editar, eliminar y restaurar productos ocurren dentro del mismo sistema, con eliminación lógica que permite recuperar registros sin pérdida permanente.' },

@@ -1,9 +1,10 @@
+import { useEffect, useState } from 'react'
 import { useScrollFusion } from '../../hooks/useScrollFusion'
 
 const NAV_ITEMS = [
   { label: 'Sobre mí', targetId: 'sobre-mi' },
-  { label: 'Trayectoria', targetId: 'proyectos' },
-  { label: 'Experiencia', targetId: 'experiencia' },
+  { label: 'Proyectos', targetId: 'proyectos' },
+  { label: 'Trayectoria', targetId: 'experiencia' },
   { label: 'Stack', targetId: 'stack' },
   { label: 'Metodologías', targetId: 'metodologias' },
 ]
@@ -15,8 +16,29 @@ const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, targetId: string
   document.getElementById(targetId)?.scrollIntoView({ behavior: 'smooth' })
 }
 
+function useActiveSection(ids: string[]) {
+  const [active, setActive] = useState<string>('')
+
+  useEffect(() => {
+    const observers = ids.map(id => {
+      const el = document.getElementById(id)
+      if (!el) return null
+      const obs = new IntersectionObserver(
+        ([entry]) => { if (entry.isIntersecting) setActive(id) },
+        { rootMargin: '-40% 0px -55% 0px', threshold: 0 }
+      )
+      obs.observe(el)
+      return obs
+    })
+    return () => observers.forEach(o => o?.disconnect())
+  }, [ids])
+
+  return active
+}
+
 export function Navbar() {
   const { scrolled, fused } = useScrollFusion(FUSED_SECTIONS)
+  const activeSection = useActiveSection(NAV_ITEMS.map(i => i.targetId))
   const isFloating = scrolled && !fused
   const borderColor = isFloating ? 'rgba(255,255,255,0.1)' : 'transparent'
 
@@ -35,7 +57,8 @@ export function Navbar() {
               <a
                 href={`#${targetId}`}
                 onClick={(e) => handleNavClick(e, targetId)}
-                className="nav-link text-[13px] sm:text-sm md:text-sm lg:text-base font-medium no-underline whitespace-nowrap"
+                className="nav-link text-[13px] sm:text-sm md:text-sm lg:text-base font-medium no-underline whitespace-nowrap transition-colors duration-300"
+                style={{ color: activeSection === targetId ? '#ffffff' : undefined }}
               >
                 {label}
               </a>
