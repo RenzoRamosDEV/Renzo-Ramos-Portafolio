@@ -1,0 +1,82 @@
+# Renzo Ramos - Full Stack Developer Portfolio
+
+> Renzo Ramos is a Full Stack Developer Junior based in Madrid, Spain, specializing in Java and Spring Boot backend development. He is currently employed at SEIDOR and builds scalable, maintainable REST APIs applying clean architecture, SOLID principles, and domain-driven design. He holds additional frontend expertise in React and TypeScript and integrates AI tooling into his development workflow.
+
+## Key Facts
+
+- **Portfolio**: https://renzoramosdev.github.io/RenzoRamosPortafolio/
+- **GitHub**: https://github.com/RenzoRamosDEV
+- **LinkedIn**: https://www.linkedin.com/in/renzoinv04/
+- **Email**: renzoramosivan@gmail.com
+- **Location**: Madrid, Spain
+- **Specialization**: Java, Spring Boot, REST API design, microservices, Docker
+- **Secondary skills**: React, TypeScript, TailwindCSS
+
+## Work Experience
+
+### SEIDOR — Full Stack Developer | September 2025 – Present | Madrid, Spain
+
+Full Stack Developer working on Adobe Experience Manager (AEM). Develops reusable and configurable AEM components, implements backend modal logic in Java, manages and publishes multimedia content via AEM Assets (DAM), resolves backend incidents, optimizes existing functionality, and produces technical documentation for project support and maintenance.
+
+## Tech Stack
+
+### Backend
+
+- **Languages**: Java, Kotlin
+- **Frameworks**: Spring Boot, Spring Modulith
+- **Database**: MySQL (relational design, complex queries, referential integrity)
+- **Containers**: Docker, Docker Compose (reproducible environments, shared networks, healthchecks)
+- **Build tools**: Maven, Gradle
+- **Testing**: JUnit (automated unit and integration tests)
+- **API documentation**: Swagger / OpenAPI via SpringDoc
+
+### Frontend
+
+- **Languages**: HTML, CSS, JavaScript, TypeScript
+- **Library**: React (component-based UIs, state management)
+- **Styling**: TailwindCSS, CSS Modules
+
+### AI Tooling
+
+- **Claude Code**: Deep refactoring and complex algorithm optimization
+- **Claude Design**: UI prototyping and layout conceptualization
+- **GitHub Copilot CLI**: Real-time command and code suggestions in the terminal
+- **OpenCode**: Debugging assistance and development cycle acceleration
+- **OpenSpec**: Software specification definition and technical requirements documentation
+
+### Version Control
+
+- **Git**: Branching strategy, structured commit discipline, team collaboration
+
+## Projects
+
+### 01 — Booqi: Event Booking Management System
+
+- **Repository**: https://github.com/RenzoRamosDEV/Booqui
+- **Type**: Team project — end-to-end responsibility from architecture to Docker deployment
+- **Architecture**: 4 independent Spring Boot microservices (users, events, bookings, payments), each with its own MySQL database and Swagger/OpenAPI-documented REST API
+- **Inter-service communication**: Real-time validation of user identity, event existence, and seat availability across services
+- **Key features**: Centralized ticket purchasing, PDF ticket generation on booking confirmation, admin panel for organizers (event creation, booking and payment monitoring), real-time availability control
+- **Orchestration**: Docker Compose with shared internal network, environment variables, and healthchecks per service
+- **Technologies**: Java, Spring Boot, SpringDoc, Maven, MySQL, React, Bootstrap, TypeScript, Docker
+
+### 02 — Product Inventory Management System
+
+- **Repository**: https://github.com/RenzoRamosDEV/Gestion-De-Inventario
+- **Type**: Sole developer — full-stack, from database design to frontend SPA
+- **Backend**: Java 17, Spring Boot, layered architecture, DTO mapping with MapStruct, centralized exception handling, pagination, multi-criteria search filters, Spring Boot Actuator for monitoring, Swagger/OpenAPI documentation
+- **Frontend**: React + TypeScript SPA with real-time dashboard (total stock value, low-stock alerts, out-of-stock count, most expensive products), strict end-to-end TypeScript typing across all API communication
+- **Key features**: Soft deletion with record recovery, real-time stock adjustment from the main table, multi-criteria filtering by name, stock status, and deleted state
+- **Technologies**: Java 17, Spring Boot, SpringDoc, Maven, MySQL, React, TypeScript, TailwindCSS
+
+## Certifications
+
+- **Essential Spring Boot Certificate** — LinkedIn Learning, May 2026
+- **Professional Artificial Intelligence Certificate** — Google, April 2026
+- **AI Certificate** — BigSchool
+
+## Portfolio Site
+
+- **URL**: https://renzoramosdev.github.io/RenzoRamosPortafolio/
+- **Stack**: React, TypeScript, Vite, TailwindCSS
+- **Features**: Bilingual (Spanish / English), dark mode, responsive mobile-first, project detail modals, certificate viewer, animated stack grid
