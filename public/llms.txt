@@ -1,6 +1,6 @@
-# Renzo Ramos - Full Stack Developer Portfolio
+# Renzo Ramos - Backend-Oriented Full Stack Developer
 
-> Renzo Ramos is a Full Stack Developer Junior based in Madrid, Spain, specializing in Java and Spring Boot backend development. He is currently employed at SEIDOR and builds scalable, maintainable REST APIs applying clean architecture, SOLID principles, and domain-driven design. He holds additional frontend expertise in React and TypeScript and integrates AI tooling into his development workflow.
+> Renzo Ramos is a backend-oriented Full Stack Developer based in Madrid, Spain. He specializes in Java and Spring Boot, building scalable and maintainable REST APIs applying clean architecture, SOLID principles, and domain-driven design. Currently employed at SEIDOR as a Fullstack Developer. Bridges backend logic and frontend interface using React and TypeScript. Integrates AI tooling deliberately into his development workflow as a force multiplier.
 
 ## Key Facts
 
@@ -10,13 +10,26 @@
 - **Email**: renzoramosivan@gmail.com
 - **Location**: Madrid, Spain
 - **Specialization**: Java, Spring Boot, REST API design, microservices, Docker
-- **Secondary skills**: React, TypeScript, TailwindCSS
 
 ## Work Experience
 
-### SEIDOR — Full Stack Developer | September 2025 – Present | Madrid, Spain
+### SEIDOR — Fullstack Developer | September 2025 – Present | Madrid, Spain
 
-Full Stack Developer working on Adobe Experience Manager (AEM). Develops reusable and configurable AEM components, implements backend modal logic in Java, manages and publishes multimedia content via AEM Assets (DAM), resolves backend incidents, optimizes existing functionality, and produces technical documentation for project support and maintenance.
+Develops reusable and configurable components in Adobe Experience Manager (AEM). Implements backend modal logic in Java. Manages and publishes multimedia content via AEM Assets (DAM). Resolves backend incidents, optimizes existing functionality, and produces technical documentation for project support and maintenance.
+
+## Education
+
+### CESUR — Higher Vocational Training in Cross-Platform Application Development | September 2024 – June 2026 | Madrid, Spain
+
+Focused on Java, Spring Boot, Kotlin, Python, HTML, CSS, Maven, and Gradle. Covers backend and frontend application development, REST APIs, dependency management, web interfaces, and good programming practices.
+
+### 42 Madrid — Fundación Telefónica Bootcamp | July 2025 – August 2025 | Madrid, Spain
+
+Intensive bootcamp focused on C, Linux, and shell scripting. Peer-to-peer learning methodology with student review and collaborative validation.
+
+### Instituto San Ignacio de Loyola — Graphic Design | 2021 – 2022 | Lima, Peru
+
+Training in visual communication and design tools: Adobe Illustrator, Photoshop, and InDesign. Provides a design sensibility that informs UI decisions in frontend work.
 
 ## Tech Stack
 
@@ -27,7 +40,7 @@ Full Stack Developer working on Adobe Experience Manager (AEM). Develops reusabl
 - **Database**: MySQL (relational design, complex queries, referential integrity)
 - **Containers**: Docker, Docker Compose (reproducible environments, shared networks, healthchecks)
 - **Build tools**: Maven, Gradle
-- **Testing**: JUnit (automated unit and integration tests)
+- **Testing**: JUnit, Mockito, Testcontainers (unit, integration, and TDD)
 - **API documentation**: Swagger / OpenAPI via SpringDoc
 
 ### Frontend
@@ -42,7 +55,28 @@ Uses AI tooling deliberately: Claude Code during refactoring and architecture de
 
 ### Version Control
 
-- **Git**: Branching strategy, structured commit discipline, team collaboration
+- **Git**: Branching strategy (Git Flow / Trunk-Based), structured commit discipline, team collaboration
+
+## Methodologies
+
+### Architecture
+- SOLID Principles — maintainable, decoupled, testable code
+- Clean Architecture — separation of business logic from technical details
+
+### Testing
+- TDD (Test-Driven Development) — design through tests before implementation
+- Integration Testing — module and service integration validation
+- Testcontainers — tests with real databases in controlled environments
+
+### Process
+- Agile (Scrum / Kanban) — iterative value delivery and continuous improvement
+- Spec-Driven Development — clear technical contracts before development
+- Agentic Workflows — automated development and debugging with intelligent agents
+- Prompt Engineering — AI interaction optimization
+
+### UI
+- Component-Based UI — modular, scalable, reusable interfaces
+- Responsive Design — mobile-first, adapts to any device and resolution
 
 ## Projects
 
@@ -50,10 +84,9 @@ Uses AI tooling deliberately: Claude Code during refactoring and architecture de
 
 - **Repository**: https://github.com/RenzoRamosDEV/Booqui
 - **Type**: Team project — backend ownership across all 4 microservices (users, events, bookings, payments); sole responsible for Docker Compose orchestration (shared network, healthchecks, environment configuration). Frontend developed by teammates.
-- **Architecture**: 4 independent Spring Boot microservices (users, events, bookings, payments), each with its own MySQL database and Swagger/OpenAPI-documented REST API
+- **Architecture**: 4 independent Spring Boot microservices, each with its own MySQL database and Swagger/OpenAPI-documented REST API
 - **Inter-service communication**: Real-time validation of user identity, event existence, and seat availability across services
 - **Key features**: Centralized ticket purchasing, PDF ticket generation on booking confirmation, admin panel for organizers (event creation, booking and payment monitoring), real-time availability control
-- **Orchestration**: Docker Compose with shared internal network, environment variables, and healthchecks per service
 - **Technologies**: Java, Spring Boot, SpringDoc, Maven, MySQL, React, Bootstrap, TypeScript, Docker
 
 ### 02 — Product Inventory Management System
@@ -68,8 +101,13 @@ Uses AI tooling deliberately: Claude Code during refactoring and architecture de
 ## Certifications
 
 - **Essential Spring Boot Certificate** — LinkedIn Learning, May 2026
-- **Professional Artificial Intelligence Certificate** — Google, April 2026
-- **AI Certificate** — BigSchool
+  Credential: https://www.linkedin.com/learning/certificates/7b7c86e65a375f5a2e3f6dd941c68683bfbda364592dacc893275a5e0a80eef6
+
+- **Professional Artificial Intelligence Certificate** — Google / Coursera, April 2026
+  Credential: https://www.coursera.org/account/accomplishments/professional-cert/certificate/XKQE5SSM3EDZ
+
+- **AI-Assisted Development Certificate** — Big School, March 2026
+  6-hour training on zero-to-production workflow integrating AI models into real projects.
 
 ## Portfolio Site
 
