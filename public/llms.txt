@@ -4,7 +4,7 @@
 
 ## Key Facts
 
-- **Portfolio**: https://renzoramosdev.github.io/RenzoRamosPortafolio/
+- **Portfolio**: https://renzoramosdev.github.io/Renzo-Ramos-Portafolio/
 - **GitHub**: https://github.com/RenzoRamosDEV
 - **LinkedIn**: https://www.linkedin.com/in/renzoinv04/
 - **Email**: renzoramosivan@gmail.com
@@ -111,6 +111,6 @@ Uses AI tooling deliberately: Claude Code during refactoring and architecture de
 
 ## Portfolio Site
 
-- **URL**: https://renzoramosdev.github.io/RenzoRamosPortafolio/
+- **URL**: https://renzoramosdev.github.io/Renzo-Ramos-Portafolio/
 - **Stack**: React, TypeScript, Vite, TailwindCSS
 - **Features**: Bilingual (Spanish / English), dark mode, responsive mobile-first, project detail modals, certificate viewer, animated stack grid
