@@ -90,7 +90,7 @@ const PROJECTS_RAW: ProjectRaw[] = [
     ],
     badges: ['Java', 'Spring Boot', 'SpringDoc', 'Maven', 'MySQL', 'React', 'Boostrap', 'TypeScript', 'Docker', 'Otros...'],
     demo: '#',
-    repo: 'https://github.com/RenzoRamosDEV/Booqui',
+    repo: 'https://github.com/RenzoRamosDEV/Booqui-Sistema-Gestion-Reservas-Eventos',
   },
   {
     num: '02',

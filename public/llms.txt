@@ -82,7 +82,7 @@ Uses AI tooling deliberately: Claude Code during refactoring and architecture de
 
 ### 01 — Booqi: Event Booking Management System
 
-- **Repository**: https://github.com/RenzoRamosDEV/Booqui
+- **Repository**: https://github.com/RenzoRamosDEV/Booqui-Sistema-Gestion-Reservas-Eventos
 - **Type**: Team project — backend ownership across all 4 microservices (users, events, bookings, payments); sole responsible for Docker Compose orchestration (shared network, healthchecks, environment configuration). Frontend developed by teammates.
 - **Architecture**: 4 independent Spring Boot microservices, each with its own MySQL database and Swagger/OpenAPI-documented REST API
 - **Inter-service communication**: Real-time validation of user identity, event existence, and seat availability across services
