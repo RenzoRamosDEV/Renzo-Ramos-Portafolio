@@ -55,23 +55,14 @@ initSpotlight(
   setTheme
 );
 
-// Layout inicial sin solapamiento: columna izquierda + columna derecha
-const PAD = 100, TOP = 50, GAP = 48, DOCK = 80;
-const vw = innerWidth, vh = innerHeight;
+const aboutW = 760, aboutH = 500;
+const aboutPos = {
+  x: Math.round((innerWidth  - aboutW) / 2),
+  y: Math.round((innerHeight - aboutH) / 2) + 15,
+};
 
-const aboutW = 620, aboutH = 400;
-const projW  = 500, projH  = Math.min(400, vh - TOP - aboutH - GAP - DOCK);
-const pathW  = Math.min(520, vw - PAD - aboutW - GAP - PAD), pathH = Math.min(520, vh - TOP - DOCK);
-
-// columna izquierda
-const leftX = PAD;
-const aboutPos = { x: leftX, y: TOP };
-const projPos  = { x: leftX, y: TOP + aboutH + GAP };
-
-// columna derecha
-const rightX = leftX + aboutW + GAP;
-const pathPos  = { x: rightX, y: TOP };
+// Override size for the initial open
+apps.about.w = aboutW;
+apps.about.h = aboutH;
 
 setTimeout(() => openApp(apps, 'about', aboutPos), 300);
-setTimeout(() => openApp(apps, 'proj',  projPos),  500);
-setTimeout(() => openApp(apps, 'path',  pathPos),  700);
