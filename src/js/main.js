@@ -47,21 +47,27 @@ dockItems.forEach((item, i) => {
   });
 
   // drag
-  let drag = false, sx, sy, ox, oy;
-  el.addEventListener('mousedown', e => {
-    drag = false; sx = e.clientX; sy = e.clientY;
-    ox = el.offsetLeft; oy = el.offsetTop;
-    e.stopPropagation();
-  });
-  addEventListener('mousemove', e => {
-    if (!e.buttons) return;
+  let dragging = false, sx, sy, ox, oy;
+  const onMove = e => {
     const dx = e.clientX - sx, dy = e.clientY - sy;
-    if (!drag && Math.hypot(dx, dy) < 4) return;
-    drag = true;
+    if (!dragging && Math.hypot(dx, dy) < 4) return;
+    dragging = true;
     el.style.left = Math.max(0, ox + dx) + 'px';
     el.style.top  = Math.max(34, oy + dy) + 'px';
+  };
+  const onUp = () => {
+    window.removeEventListener('mousemove', onMove);
+    window.removeEventListener('mouseup', onUp);
+  };
+  el.addEventListener('mousedown', e => {
+    dragging = false;
+    sx = e.clientX; sy = e.clientY;
+    ox = el.offsetLeft; oy = el.offsetTop;
+    window.addEventListener('mousemove', onMove);
+    window.addEventListener('mouseup', onUp);
+    e.stopPropagation();
   });
-  el.addEventListener('click', e => { if (drag) e.stopImmediatePropagation(); drag = false; });
+  el.addEventListener('click', e => { if (dragging) e.stopImmediatePropagation(); });
 
   desktop.appendChild(el);
 });
