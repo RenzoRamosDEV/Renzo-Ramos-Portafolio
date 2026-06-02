@@ -1,10 +1,8 @@
 import { useEffect, useRef, useState } from 'react'
 import { Menu, X } from 'lucide-react'
-import { useScrollFusion } from '../../hooks/useScrollFusion'
 import { useLanguage } from '../../i18n/LanguageContext'
 
 const NAV_SECTION_IDS = ['sobre-mi', 'proyectos', 'experiencia', 'stack', 'metodologias']
-const FUSED_SECTIONS = ['proyectos', 'experiencia', 'experiencia-formacion', 'stack', 'metodologias']
 
 const scrollTo = (e: React.MouseEvent, targetId: string, onDone?: () => void) => {
   e.preventDefault()
@@ -83,11 +81,8 @@ function LangButton() {
 }
 
 export function Navbar() {
-  const { scrolled, fused } = useScrollFusion(FUSED_SECTIONS)
   const activeSection = useActiveSection(NAV_SECTION_IDS)
-  const _isFloating = scrolled && !fused
-  void _isFloating
-  const { t } = useLanguage()
+const { t } = useLanguage()
   const [menuOpen, setMenuOpen] = useState(false)
   const menuRef = useRef<HTMLDivElement>(null)
 

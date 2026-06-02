@@ -73,7 +73,6 @@
 /* CERTS */
 .certs{padding:22px 24px;display:flex;flex-direction:column;gap:12px}
 .cert{border:1px solid var(--line);border-radius:13px;background:var(--win-solid);padding:15px 17px;display:flex;gap:14px;align-items:flex-start}
-.cert .cb{width:42px;height:42px;border-radius:11px;flex:none;display:grid;place-items:center;font-size:18px;color:#fff;background:linear-gradient(135deg,#0071e3,#22c1c3)}
 .cert .ci{flex:1}
 .cert h4{font-size:14.5px;font-weight:600;letter-spacing:-.01em}
 .cert .issuer{font-size:12.5px;color:var(--text2);margin:2px 0 5px}

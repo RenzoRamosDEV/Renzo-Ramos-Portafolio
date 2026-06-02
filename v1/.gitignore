@@ -1,4 +1,0 @@
-node_modules
-*.local
-.DS_Store
-# dist is intentionally tracked — used as iframe embed in parent portfolio
