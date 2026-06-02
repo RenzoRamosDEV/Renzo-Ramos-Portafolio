@@ -116,16 +116,18 @@ function resizify(win) {
   });
 }
 
-export function openApp(apps, id) {
+export function openApp(apps, id, pos = null) {
   if (openWins[id]) { minimizeWin(openWins[id]); return; }
   const a = apps[id]; if (!a) return;
   const win = document.createElement('div');
   win.className = 'win';
   win.style.width = a.w + 'px'; win.style.height = a.h + 'px';
+  const ix = pos ? pos.x : a.x;
+  const iy = pos ? pos.y : a.y;
   const maxX = Math.max(20, innerWidth - a.w - 20);
   const maxY = Math.max(40, innerHeight - a.h - 90);
-  win.style.left = Math.min(a.x, maxX) + 'px';
-  win.style.top = Math.min(a.y, maxY) + 'px';
+  win.style.left = Math.min(ix, maxX) + 'px';
+  win.style.top = Math.min(iy, maxY) + 'px';
   win.style.zIndex = ++z;
   win.innerHTML = `<div class="titlebar"><div class="lights"><span class="light l-r"></span><span class="light l-y"></span><span class="light l-g"></span></div><div class="wtitle">${a.title}</div></div><div class="wbody">${a.html}</div>`;
   desktop.appendChild(win);
