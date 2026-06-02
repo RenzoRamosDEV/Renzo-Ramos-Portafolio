@@ -63,21 +63,22 @@ const aboutW = Math.round(vw * 0.46);
 const aboutH = Math.round(vh * 0.72);
 apps.about.w = aboutW;
 apps.about.h = aboutH;
-const aboutPos = { x: 80, y: TOP };
+const LEFT = 110; // deja espacio a los iconos del escritorio (72px + margen)
+const aboutPos = { x: LEFT, y: TOP };
 
 // Proyectos — arriba derecha
 const projW = Math.round(vw * 0.26);
 const projH = Math.round(vh * 0.40);
 apps.proj.w = projW;
 apps.proj.h = projH;
-const projPos = { x: 80 + aboutW + 14, y: TOP };
+const projPos = { x: LEFT + aboutW + 14, y: TOP };
 
 // Trayectoria — abajo derecha, solapada bajo Proyectos
 const pathW = Math.round(vw * 0.28);
 const pathH = Math.round(vh * 0.55);
 apps.path.w = pathW;
 apps.path.h = pathH;
-const pathPos = { x: 80 + aboutW + projW + 28, y: TOP + projH + 16 };
+const pathPos = { x: LEFT + aboutW + projW + 28, y: TOP + projH + 16 };
 
 setTimeout(() => openApp(apps, 'about', aboutPos), 300);
 setTimeout(() => openApp(apps, 'proj',  projPos),  500);
