@@ -43,18 +43,23 @@ export const apps = {
   },
 
   'proj-booqi': {
-    title: 'Booqi', w: 620, h: 560, x: 300, y: 70,
+    title: 'Booqi', w: 680, h: 620, x: 300, y: 70,
     html: `
       <div class="pd">
         <div class="hero"><div class="pico pi0">B</div><div><h2>Booqi — Gestión de Reservas de Eventos</h2><div class="sub">Proyecto en equipo · Ownership de todo el backend</div></div></div>
         <div class="body">
+          <div class="blk">
+            <div class="gallery">
+              ${[1,2,3,4,5,6].map(n=>`<img class="gimg" src="assets/projects/booqui/booqui-0${n}.png" alt="Booqi screenshot ${n}">`).join('')}
+            </div>
+          </div>
           <div class="blk"><div class="h">Mi rol</div><p>Responsable del backend en los 4 microservicios (usuarios, eventos, reservas, pagos) y único encargado de la orquestación con Docker Compose: red compartida, healthchecks y configuración de entornos. El frontend lo desarrollaron compañeros de equipo.</p></div>
           <div class="blk"><div class="h">Arquitectura</div><p>4 microservicios Spring Boot independientes, cada uno con su propia base de datos MySQL y su API REST documentada con Swagger / OpenAPI. Comunicación inter-servicio para validar en tiempo real la identidad del usuario, la existencia del evento y la disponibilidad de asientos.</p></div>
           <div class="blk"><div class="h">Características clave</div><ul class="feat">
-            <li>Compra centralizada de tickets</li>
-            <li>Generación de ticket en PDF al confirmar la reserva</li>
-            <li>Panel de administración para organizadores: creación de eventos y monitorización de reservas y pagos</li>
-            <li>Control de disponibilidad en tiempo real</li>
+            <li><b>Compra centralizada de tickets</b> — todo el catálogo en una sola plataforma, sin redirigir a servicios externos.</li>
+            <li><b>Generación de ticket en PDF</b> al confirmar la reserva, listo para descargar al instante.</li>
+            <li><b>Panel de administración</b> para organizadores: creación de eventos y monitorización de reservas y pagos.</li>
+            <li><b>Control de disponibilidad en tiempo real</b> — valida antes de confirmar para no sobrevender.</li>
           </ul></div>
           <div class="blk"><div class="h">Tecnologías</div><div class="chips">${['Java','Spring Boot','SpringDoc','Maven','MySQL','React','Bootstrap','TypeScript','Docker'].map(t=>`<span class="chip2">${t}</span>`).join('')}</div></div>
           <a class="repo-btn" href="https://github.com/RenzoRamosDEV/Booqui-Sistema-Gestion-Reservas-Eventos" target="_blank" rel="noopener">⎇ Ver repositorio en GitHub</a>
@@ -63,17 +68,23 @@ export const apps = {
   },
 
   'proj-inv': {
-    title: 'Inventario', w: 620, h: 560, x: 330, y: 80,
+    title: 'Inventario', w: 680, h: 620, x: 330, y: 80,
     html: `
       <div class="pd">
         <div class="hero"><div class="pico pi1">I</div><div><h2>Sistema de Gestión de Inventario</h2><div class="sub">Desarrollador único · Full-stack end-to-end</div></div></div>
         <div class="body">
+          <div class="blk">
+            <div class="gallery">
+              ${[1,2,3].map(n=>`<img class="gimg" src="assets/projects/inventario/inventario-0${n}.png" alt="Inventario screenshot ${n}">`).join('')}
+            </div>
+          </div>
           <div class="blk"><div class="h">Backend</div><p>Java 17 + Spring Boot con arquitectura por capas, mapeo DTO con MapStruct, manejo centralizado de excepciones, paginación, filtros de búsqueda multi-criterio, Spring Boot Actuator para monitorización y documentación Swagger / OpenAPI.</p></div>
-          <div class="blk"><div class="h">Frontend</div><p>SPA en React + TypeScript con dashboard en tiempo real (valor total del stock, alertas de bajo stock, productos agotados, más caros) y tipado estricto end-to-end en toda la comunicación con la API.</p></div>
+          <div class="blk"><div class="h">Frontend</div><p>SPA en React + TypeScript con dashboard en tiempo real: valor total del stock, alertas de bajo stock, productos agotados y los más caros — tipado estricto end-to-end en toda la comunicación con la API.</p></div>
           <div class="blk"><div class="h">Características clave</div><ul class="feat">
-            <li>Borrado lógico (soft delete) con recuperación de registros</li>
-            <li>Ajuste de stock en tiempo real desde la tabla principal</li>
-            <li>Filtrado multi-criterio por nombre, estado de stock y estado eliminado</li>
+            <li><b>Borrado lógico (soft delete)</b> con recuperación de registros sin pérdida permanente.</li>
+            <li><b>Ajuste de stock en tiempo real</b> desde la tabla principal, sin formularios separados.</li>
+            <li><b>Filtrado multi-criterio</b> por nombre, estado de stock y registros eliminados con paginación automática.</li>
+            <li><b>Dashboard en tiempo real</b> con métricas clave del inventario en un solo vistazo.</li>
           </ul></div>
           <div class="blk"><div class="h">Tecnologías</div><div class="chips">${['Java 17','Spring Boot','SpringDoc','Maven','MySQL','React','TypeScript','TailwindCSS'].map(t=>`<span class="chip2">${t}</span>`).join('')}</div></div>
           <a class="repo-btn" href="https://github.com/RenzoRamosDEV/Gestion-De-Inventario" target="_blank" rel="noopener">⎇ Ver repositorio en GitHub</a>
@@ -82,27 +93,39 @@ export const apps = {
   },
 
   stack: {
-    title: 'Tech Stack', w: 600, h: 540, x: 380, y: 90,
+    title: 'Tech Stack', w: 620, h: 560, x: 380, y: 90,
     html: `
       <div class="sect">
         <h2>Tech Stack & Metodologías</h2>
         <div class="lead">Herramientas y prácticas que uso en el día a día.</div>
 
         <div class="grouptitle">Backend <span class="ln"></span></div>
-        <div class="chips">${['Java','Kotlin','Spring Boot','Spring Modulith','MySQL','Docker','Docker Compose','Maven','Gradle','JUnit','Mockito','Testcontainers','Swagger / OpenAPI'].map(t=>`<span class="chip2 key">${t}</span>`).join('')}</div>
+        <div class="stack-icons">
+          ${[
+            {f:'java',n:'Java'},{f:'kotlin',n:'Kotlin'},{f:'spring',n:'Spring Boot'},{f:'spring-modulith',n:'Spring Modulith'},
+            {f:'mysql',n:'MySQL'},{f:'docker',n:'Docker'},{f:'maven',n:'Maven'},{f:'gradle',n:'Gradle'},
+            {f:'junit',n:'JUnit'},{f:'git',n:'Git'}
+          ].map(({f,n})=>`<div class="sico"><img src="assets/stack/${f}.png" alt="${n}"><span>${n}</span></div>`).join('')}
+        </div>
 
         <div class="grouptitle">Frontend <span class="ln"></span></div>
-        <div class="chips">${['HTML','CSS','JavaScript','TypeScript','React','TailwindCSS','CSS Modules'].map(t=>`<span class="chip2">${t}</span>`).join('')}</div>
-
-        <div class="grouptitle">Control de versiones <span class="ln"></span></div>
-        <div class="chips">${['Git','Git Flow','Trunk-Based','Commits estructurados'].map(t=>`<span class="chip2">${t}</span>`).join('')}</div>
+        <div class="stack-icons">
+          ${[
+            {f:'html',n:'HTML'},{f:'css',n:'CSS'},{f:'javascript',n:'JavaScript'},{f:'react',n:'React'}
+          ].map(({f,n})=>`<div class="sico"><img src="assets/stack/${f}.png" alt="${n}"><span>${n}</span></div>`).join('')}
+          ${['TypeScript','TailwindCSS','CSS Modules'].map(t=>`<span class="chip2">${t}</span>`).join('')}
+        </div>
 
         <div class="grouptitle">Herramientas de IA <span class="ln"></span></div>
-        <div class="chips">${['Claude Code','Copilot CLI','OpenSpec'].map(t=>`<span class="chip2">${t}</span>`).join('')}</div>
+        <div class="stack-icons">
+          ${[
+            {f:'claude',n:'Claude Code'},{f:'github-copilot',n:'Copilot'},{f:'openspec',n:'OpenSpec'}
+          ].map(({f,n})=>`<div class="sico"><img src="assets/stack/${f}.png" alt="${n}"><span>${n}</span></div>`).join('')}
+        </div>
         <div class="ainote">Uso la IA de forma deliberada: <b>Claude Code</b> en refactors y decisiones de arquitectura, <b>Copilot CLI</b> para sugerencias en terminal y <b>OpenSpec</b> para redactar specs técnicas antes de implementar. No como muleta — como multiplicador de fuerza.</div>
 
         <div class="grouptitle">Metodologías <span class="ln"></span></div>
-        <div class="chips">${['SOLID','Clean Architecture','TDD','Integration Testing','Agile (Scrum/Kanban)','Spec-Driven Development','Agentic Workflows','Prompt Engineering','Component-Based UI','Responsive Design','DDD'].map(t=>`<span class="chip2">${t}</span>`).join('')}</div>
+        <div class="chips">${['SOLID','Clean Architecture','TDD','Integration Testing','Agile (Scrum/Kanban)','Spec-Driven Development','Agentic Workflows','DDD'].map(t=>`<span class="chip2">${t}</span>`).join('')}</div>
       </div>`
   },
 
@@ -121,12 +144,44 @@ export const apps = {
   },
 
   cert: {
-    title: 'Certificados', w: 560, h: 440, x: 400, y: 120,
+    title: 'Certificados', w: 600, h: 560, x: 400, y: 120,
     html: `
       <div class="certs">
-        <div class="cert"><div class="cb">☕</div><div class="ci"><h4>Essential Spring Boot Certificate</h4><div class="issuer">LinkedIn Learning · Mayo 2026</div><a href="https://www.linkedin.com/learning/certificates/7b7c86e65a375f5a2e3f6dd941c68683bfbda364592dacc893275a5e0a80eef6" target="_blank" rel="noopener">Ver credencial →</a></div></div>
-        <div class="cert"><div class="cb">✦</div><div class="ci"><h4>Professional Artificial Intelligence Certificate</h4><div class="issuer">Google / Coursera · Abril 2026</div><a href="https://www.coursera.org/account/accomplishments/professional-cert/certificate/XKQE5SSM3EDZ" target="_blank" rel="noopener">Ver credencial →</a></div></div>
-        <div class="cert"><div class="cb">⚡</div><div class="ci"><h4>AI-Assisted Development Certificate</h4><div class="issuer">Big School · Marzo 2026</div><div class="cd">Formación de 6 horas sobre el flujo zero-to-production integrando modelos de IA en proyectos reales.</div></div></div>
+        <div class="cert">
+          <img class="cert-preview" src="assets/certs/cert-linkedin-springboot-preview.png" alt="Spring Boot cert preview">
+          <div class="ci">
+            <h4>Essential Spring Boot Certificate</h4>
+            <div class="issuer">LinkedIn Learning · Mayo 2026</div>
+            <div class="cd">Desarrollo de aplicaciones backend con Spring Boot: fundamentos, persistencia, seguridad y mensajería en un proyecto práctico.</div>
+            <div class="cert-links">
+              <a href="https://www.linkedin.com/learning/certificates/7b7c86e65a375f5a2e3f6dd941c68683bfbda364592dacc893275a5e0a80eef6" target="_blank" rel="noopener">Ver credencial →</a>
+              <a href="assets/certs/cert-linkedin-springboot.pdf" target="_blank" rel="noopener">PDF →</a>
+            </div>
+          </div>
+        </div>
+        <div class="cert">
+          <img class="cert-preview" src="assets/certs/cert-google-ia-preview.png" alt="Google IA cert preview">
+          <div class="ci">
+            <h4>Professional Artificial Intelligence Certificate</h4>
+            <div class="issuer">Google / Coursera · Abril 2026</div>
+            <div class="cd">Certificado profesional en IA emitido por Google. Modelos de IA, mejores prácticas y aplicaciones reales.</div>
+            <div class="cert-links">
+              <a href="https://www.coursera.org/account/accomplishments/professional-cert/certificate/XKQE5SSM3EDZ" target="_blank" rel="noopener">Ver credencial →</a>
+              <a href="assets/certs/cert-google-ia.pdf" target="_blank" rel="noopener">PDF →</a>
+            </div>
+          </div>
+        </div>
+        <div class="cert">
+          <img class="cert-preview" src="assets/certs/cert-bigschool-ia-preview.png" alt="Big School cert preview">
+          <div class="ci">
+            <h4>AI-Assisted Development Certificate</h4>
+            <div class="issuer">Big School · Marzo 2026</div>
+            <div class="cd">Formación de 6 horas sobre el flujo zero-to-production integrando modelos de IA en proyectos reales.</div>
+            <div class="cert-links">
+              <a href="assets/certs/cert-bigschool-ia.pdf" target="_blank" rel="noopener">PDF →</a>
+            </div>
+          </div>
+        </div>
       </div>`
   },
 
@@ -142,11 +197,6 @@ export const apps = {
           <a class="lnk" href="https://renzoramosdev.github.io/Renzo-Ramos-Portafolio/" target="_blank" rel="noopener"><div class="li">◈</div><div><div class="lt">Portafolio web</div><div class="ls">renzoramosdev.github.io</div></div><span class="arrow">→</span></a>
         </div>
       </div>`
-  },
-
-  v1: {
-    title: 'Portafolio v1', w: 900, h: 580, x: 200, y: 80,
-    html: `<iframe src="v1/dist/index.html" style="width:100%;height:100%;border:none;display:block;" title="Portafolio v1"></iframe>`
   },
 
   config: {

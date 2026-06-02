@@ -25,8 +25,7 @@ const dockItems = [
   { id: 'path',   label: 'Trayectoria',  ico: '◷',  cls: 'd-path'  },
   { id: 'cert',   label: 'Certificados', ico: '✦',  cls: 'd-cert'  },
   { id: 'mail',   label: 'Contacto',     ico: '✉',  cls: 'd-mail'  },
-  { id: 'v1',     label: 'Portfolio v1', ico: '①',  cls: 'd-v1'    },
-  { id: 'config', label: 'Preferencias', ico: '⚙',  cls: 'd-cfg'   },
+{ id: 'config', label: 'Preferencias', ico: '⚙',  cls: 'd-cfg'   },
 ];
 
 const desktop = document.getElementById('desktop');

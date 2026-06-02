@@ -92,4 +92,21 @@
 .lnk .ls{font-size:12.5px;color:var(--text2)}
 .lnk .arrow{margin-left:auto;color:var(--text2)}
 
+/* PROJECT GALLERY */
+.gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-bottom:4px}
+.gimg{width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:8px;border:1px solid var(--line);cursor:zoom-in;transition:transform .2s}
+.gimg:hover{transform:scale(1.03)}
+
+/* STACK ICONS */
+.stack-icons{display:flex;flex-wrap:wrap;gap:10px;align-items:flex-start}
+.sico{display:flex;flex-direction:column;align-items:center;gap:4px;width:54px}
+.sico img{width:36px;height:36px;object-fit:contain;border-radius:8px}
+.sico span{font-size:10px;color:var(--text2);text-align:center;line-height:1.2}
+
+/* CERT PREVIEW */
+.cert-preview{width:90px;height:68px;object-fit:cover;border-radius:8px;border:1px solid var(--line);flex:none}
+.cert-links{display:flex;gap:12px;margin-top:6px}
+.cert-links a{font-size:12.5px;color:var(--accent);text-decoration:none}
+.cert-links a:hover{text-decoration:underline}
+
 @media(max-width:600px){.about{grid-template-columns:1fr}.about .side{border-right:none;border-bottom:1px solid var(--line)}}
