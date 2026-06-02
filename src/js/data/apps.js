@@ -9,7 +9,7 @@ export const apps = {
           <div class="r">Backend-Oriented<br>Full Stack Developer</div>
           <ul>
             <li><span class="i">📍</span> Madrid, España</li>
-            <li><span class="i">💼</span> SEIDOR</li>
+            <li><span class="i">💼</span> renzoramosivan@gmail.com</li>
             <li><span class="i">☕</span> Java · Spring Boot</li>
             <li><span class="i">🗣</span> Español · English</li>
           </ul>
@@ -140,6 +140,66 @@ export const apps = {
           <a class="lnk" href="https://github.com/RenzoRamosDEV" target="_blank" rel="noopener"><div class="li">⎇</div><div><div class="lt">GitHub</div><div class="ls">github.com/RenzoRamosDEV</div></div><span class="arrow">→</span></a>
           <a class="lnk" href="https://www.linkedin.com/in/renzoinv04/" target="_blank" rel="noopener"><div class="li">in</div><div><div class="lt">LinkedIn</div><div class="ls">linkedin.com/in/renzoinv04</div></div><span class="arrow">→</span></a>
           <a class="lnk" href="https://renzoramosdev.github.io/Renzo-Ramos-Portafolio/" target="_blank" rel="noopener"><div class="li">◈</div><div><div class="lt">Portafolio web</div><div class="ls">renzoramosdev.github.io</div></div><span class="arrow">→</span></a>
+        </div>
+      </div>`
+  },
+
+  config: {
+    title: 'Preferencias', w: 480, h: 520, x: 200, y: 120,
+    html: `
+      <div class="cfg">
+        <div class="cfg-section">
+          <div class="cfg-title">Apariencia</div>
+          <div class="cfg-row">
+            <div class="cfg-label"><span class="cfg-ico">☾</span>Tema</div>
+            <div class="cfg-segmented" id="cfg-theme">
+              <button data-val="light">☀ Claro</button>
+              <button data-val="dark">☾ Oscuro</button>
+              <button data-val="auto">⬤ Auto</button>
+            </div>
+          </div>
+          <div class="cfg-row">
+            <div class="cfg-label"><span class="cfg-ico">◉</span>Color de acento</div>
+            <div class="cfg-colors" id="cfg-accent">
+              <span class="cfg-dot" data-color="0071e3" style="background:#0071e3" title="Azul Apple"></span>
+              <span class="cfg-dot" data-color="a855f7" style="background:#a855f7" title="Violeta"></span>
+              <span class="cfg-dot" data-color="22c1c3" style="background:#22c1c3" title="Teal"></span>
+              <span class="cfg-dot" data-color="f0a500" style="background:#f0a500" title="Dorado"></span>
+              <span class="cfg-dot" data-color="ef4444" style="background:#ef4444" title="Rojo"></span>
+              <span class="cfg-dot" data-color="34c759" style="background:#34c759" title="Verde"></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="cfg-section">
+          <div class="cfg-title">Fondo de escritorio</div>
+          <div class="cfg-wallpapers" id="cfg-wall">
+            <div class="cfg-wall-opt" data-wall="blue" style="background:linear-gradient(150deg,#d7e3ff,#eef7ff)"></div>
+            <div class="cfg-wall-opt" data-wall="night" style="background:linear-gradient(150deg,#06122e,#0c1430)"></div>
+            <div class="cfg-wall-opt" data-wall="aurora" style="background:linear-gradient(150deg,#0d1b2a,#1b4332,#081c15)"></div>
+            <div class="cfg-wall-opt" data-wall="sunset" style="background:linear-gradient(150deg,#1a1a2e,#16213e,#0f3460)"></div>
+            <div class="cfg-wall-opt" data-wall="rose"   style="background:linear-gradient(150deg,#fce4ec,#f8bbd9,#fdf2f8)"></div>
+            <div class="cfg-wall-opt" data-wall="slate"  style="background:linear-gradient(150deg,#1e293b,#334155,#0f172a)"></div>
+          </div>
+        </div>
+
+        <div class="cfg-section">
+          <div class="cfg-title">Animaciones</div>
+          <div class="cfg-row">
+            <div class="cfg-label"><span class="cfg-ico">◈</span>Velocidad de ventanas</div>
+            <input class="cfg-range" id="cfg-speed" type="range" min="50" max="500" step="50" value="280">
+            <span class="cfg-range-val" id="cfg-speed-val">280ms</span>
+          </div>
+        </div>
+
+        <div class="cfg-section">
+          <div class="cfg-title">Sobre este portafolio</div>
+          <div class="cfg-info">
+            <div class="cfg-info-row"><span>Versión</span><span>2.0</span></div>
+            <div class="cfg-info-row"><span>Stack</span><span>HTML · CSS · JS vanilla</span></div>
+            <div class="cfg-info-row"><span>Hosting</span><span>GitHub Pages</span></div>
+            <div class="cfg-info-row"><span>Autor</span><span>Renzo Ramos</span></div>
+          </div>
         </div>
       </div>`
   }

@@ -2,9 +2,11 @@ import { apps } from './data/apps.js';
 import { initTheme, initClock, setTheme } from './theme.js';
 import { openApp } from './windows.js';
 import { initSpotlight, toggleSpot } from './spotlight.js';
+import { applyStoredConfig, initConfig } from './config.js';
 
 initTheme();
 initClock();
+applyStoredConfig();
 
 // Dock
 document.querySelectorAll('.dapp').forEach(d => {
@@ -17,12 +19,13 @@ document.querySelectorAll('.dapp').forEach(d => {
 
 // Desktop icons
 const dockItems = [
-  { id: 'about',  label: 'Sobre mí',     ico: '☻', cls: 'd-about' },
-  { id: 'proj',   label: 'Proyectos',    ico: '▦', cls: 'd-proj'  },
-  { id: 'stack',  label: 'Tech Stack',   ico: '{ }', cls: 'd-stack' },
-  { id: 'path',   label: 'Trayectoria',  ico: '◷', cls: 'd-path'  },
-  { id: 'cert',   label: 'Certificados', ico: '✦', cls: 'd-cert'  },
-  { id: 'mail',   label: 'Contacto',     ico: '✉', cls: 'd-mail'  },
+  { id: 'about',  label: 'Sobre mí',     ico: '☻',  cls: 'd-about' },
+  { id: 'proj',   label: 'Proyectos',    ico: '▦',  cls: 'd-proj'  },
+  { id: 'stack',  label: 'Tech Stack',   ico: '{ }',cls: 'd-stack' },
+  { id: 'path',   label: 'Trayectoria',  ico: '◷',  cls: 'd-path'  },
+  { id: 'cert',   label: 'Certificados', ico: '✦',  cls: 'd-cert'  },
+  { id: 'mail',   label: 'Contacto',     ico: '✉',  cls: 'd-mail'  },
+  { id: 'config', label: 'Preferencias', ico: '⚙',  cls: 'd-cfg'   },
 ];
 
 const desktop = document.getElementById('desktop');
@@ -44,6 +47,8 @@ dockItems.forEach((item, i) => {
   desktop.appendChild(el);
 });
 
+
+initConfig(setTheme);
 
 initSpotlight(
   (id) => openApp(apps, id),
