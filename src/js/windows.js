@@ -22,9 +22,46 @@ function closeWin(id) {
   markRunning();
 }
 
+function minimizeWin(win) {
+  const body = win.querySelector('.wbody');
+  if (win.dataset.minimized === '1') {
+    body.style.display = '';
+    win.style.height = win.dataset.prevH;
+    win.dataset.minimized = '0';
+  } else {
+    win.dataset.prevH = win.style.height;
+    body.style.display = 'none';
+    win.style.height = '42px';
+    win.dataset.minimized = '1';
+  }
+}
+
+function toggleFullscreen(win) {
+  if (win.dataset.fullscreen === '1') {
+    win.style.left   = win.dataset.prevLeft;
+    win.style.top    = win.dataset.prevTop;
+    win.style.width  = win.dataset.prevW;
+    win.style.height = win.dataset.prevH2;
+    win.style.borderRadius = '14px';
+    win.dataset.fullscreen = '0';
+  } else {
+    win.dataset.prevLeft = win.style.left;
+    win.dataset.prevTop  = win.style.top;
+    win.dataset.prevW    = win.style.width;
+    win.dataset.prevH2   = win.style.height;
+    win.style.left   = '0px';
+    win.style.top    = '30px';
+    win.style.width  = '100vw';
+    win.style.height = 'calc(100vh - 30px)';
+    win.style.borderRadius = '0';
+    win.dataset.fullscreen = '1';
+  }
+}
+
 function dragify(win, handle) {
   let sx, sy, ox, oy, drag = false;
   handle.addEventListener('mousedown', e => {
+    if (win.dataset.fullscreen === '1') return;
     drag = true; sx = e.clientX; sy = e.clientY;
     ox = win.offsetLeft; oy = win.offsetTop;
     focusWin(win); e.preventDefault();
@@ -53,6 +90,8 @@ export function openApp(apps, id) {
   openWins[id] = win;
   requestAnimationFrame(() => win.classList.add('open'));
   win.querySelector('.l-r').onclick = e => { e.stopPropagation(); closeWin(id); };
+  win.querySelector('.l-y').onclick = e => { e.stopPropagation(); minimizeWin(win); };
+  win.querySelector('.l-g').onclick = e => { e.stopPropagation(); toggleFullscreen(win); };
   win.addEventListener('mousedown', () => focusWin(win));
   dragify(win, win.querySelector('.titlebar'));
   win.querySelectorAll('[data-open]').forEach(p => p.onclick = () => openApp(apps, p.dataset.open));
