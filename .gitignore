@@ -10,10 +10,8 @@ lerna-debug.log*
 node_modules
 dist
 dist-ssr
-# Permitir el dist de v1 para embebido en iframe
-!v1/dist
-!v1/dist/**
 *.local
+*.tsbuildinfo
 
 # Editor directories and files
 .vscode/*
