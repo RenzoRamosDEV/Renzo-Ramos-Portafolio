@@ -50,4 +50,6 @@ initSpotlight(
   setTheme
 );
 
-setTimeout(() => openApp(apps, 'about'), 300);
+setTimeout(() => openApp(apps, 'about'),  300);
+setTimeout(() => openApp(apps, 'proj'),   500);
+setTimeout(() => openApp(apps, 'path'),   700);
