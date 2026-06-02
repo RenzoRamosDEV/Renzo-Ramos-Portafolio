@@ -23,7 +23,11 @@ export function DesktopIcons({ onLaunch }: Props) {
               onLaunch(id)
             }}
           >
-            <div className={`di-ico ${app.dockClass}`}>{app.icon}</div>
+            <div className={`di-ico ${app.dockClass}`} style={app.iconImg ? { overflow: 'hidden', position: 'relative' } : {}}>
+              {app.iconImg
+                ? <img src={app.iconImg} alt={app.title} style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover' }} />
+                : app.icon}
+            </div>
             <div className="di-lbl">{app.title}</div>
           </div>
         )

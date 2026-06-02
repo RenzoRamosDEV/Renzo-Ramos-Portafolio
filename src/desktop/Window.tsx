@@ -6,6 +6,7 @@ type Props = {
   win: WinState
   title: string
   children: ReactNode
+  noResize?: boolean
   onClose: () => void
   onMinimize: () => void
   onFullscreen: () => void
@@ -31,6 +32,7 @@ export function Window({
   win,
   title,
   children,
+  noResize,
   onClose,
   onMinimize,
   onFullscreen,
@@ -152,7 +154,7 @@ export function Window({
         <div className="wtitle">{title}</div>
       </div>
       <div className="wbody">{children}</div>
-      {RESIZE_HANDLES.map(h => (
+      {!noResize && RESIZE_HANDLES.map(h => (
         <div
           key={h.cls}
           className={'resize-handle ' + h.cls}

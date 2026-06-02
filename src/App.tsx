@@ -49,31 +49,13 @@ export function App() {
     return () => window.removeEventListener('keydown', onKey)
   }, [])
 
-  // Initial layout: Sobre mí (left) · Proyectos (top-right) · Trayectoria (bottom-right)
+  // Initial layout: Portfolio V1 centrado
   useEffect(() => {
-    const vw = window.innerWidth
-    const vh = window.innerHeight
-    const LEFT = 110
-    const TOP = 130
-
-    const aboutW = Math.round(vw * 0.46)
-    const aboutH = Math.round(vh * 0.7)
-    const projW = Math.round(vw * 0.26)
-    const projH = Math.round(vh * 0.4)
-    const pathW = Math.round(vw * 0.28)
-    const pathH = Math.round(vh * 0.55)
-
-    const t1 = setTimeout(() => launch('about', { x: LEFT, y: TOP, w: aboutW, h: aboutH }), 250)
-    const t2 = setTimeout(() => launch('proj', { x: LEFT + aboutW + 14, y: TOP, w: projW, h: projH }), 450)
-    const t3 = setTimeout(
-      () => launch('path', { x: LEFT + aboutW + projW + 28, y: TOP + projH + 16, w: pathW, h: pathH }),
-      650,
-    )
-    return () => {
-      clearTimeout(t1)
-      clearTimeout(t2)
-      clearTimeout(t3)
-    }
+    const { w, h } = APPS['v1'].size
+    const x = Math.round((window.innerWidth - w) / 2)
+    const y = Math.round((window.innerHeight - h) / 2)
+    const t1 = setTimeout(() => launch('v1', { x, y, w, h }), 250)
+    return () => clearTimeout(t1)
   }, [launch])
 
   return (
@@ -94,6 +76,7 @@ export function App() {
                 key={win.id}
                 win={win}
                 title={APPS[win.id]?.title ?? ''}
+                noResize={APPS[win.id]?.noResize}
                 onClose={() => wm.close(win.id)}
                 onMinimize={() => wm.toggleMinimize(win.id)}
                 onFullscreen={() => wm.toggleFullscreen(win.id)}

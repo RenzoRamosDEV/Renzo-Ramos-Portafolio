@@ -15,10 +15,15 @@ export function Dock({ isOpen, onLaunch, onSpotlight }: Props) {
           <div
             key={id}
             className={`dapp ${app.dockClass} ${isOpen(id) ? 'running' : ''}`}
+            style={app.iconImg ? {} : {}}
             onClick={() => onLaunch(id)}
           >
             <span className="tip">{app.title}</span>
-            {app.icon}
+            {app.iconImg
+              ? <div style={{ position: 'absolute', inset: 0, overflow: 'hidden', borderRadius: '14px' }}>
+                  <img src={app.iconImg} alt={app.title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                </div>
+              : app.icon}
             <span className="dot" />
           </div>
         )

@@ -7,6 +7,7 @@ import { Timeline } from './Timeline'
 import { Certificates } from './Certificates'
 import { Contact } from './Contact'
 import { Config } from './Config'
+import { PortfolioV1 } from './PortfolioV1'
 
 /** Maps an app id to its window content. */
 export const APP_CONTENT: Record<string, () => ReactNode> = {
@@ -19,4 +20,5 @@ export const APP_CONTENT: Record<string, () => ReactNode> = {
   cert: () => <Certificates />,
   mail: () => <Contact />,
   config: () => <Config />,
+  v1: () => <PortfolioV1 />,
 }

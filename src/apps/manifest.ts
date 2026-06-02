@@ -1,11 +1,16 @@
+import rrIos from '../assets/RR-IOS.jpeg'
+
 export type AppMeta = {
   id: string
   title: string
   icon: string
+  iconImg?: string
   dockClass: string
   size: { w: number; h: number }
   /** Shown in the dock and as a desktop shortcut. Detail views are hidden. */
   inDock: boolean
+  /** Disable resize handles */
+  noResize?: boolean
 }
 
 export const APPS: Record<string, AppMeta> = {
@@ -16,9 +21,10 @@ export const APPS: Record<string, AppMeta> = {
   cert: { id: 'cert', title: 'Certificados', icon: '✦', dockClass: 'd-cert', size: { w: 600, h: 560 }, inDock: true },
   mail: { id: 'mail', title: 'Contacto', icon: '✉', dockClass: 'd-mail', size: { w: 520, h: 440 }, inDock: true },
   config: { id: 'config', title: 'Preferencias', icon: '⚙', dockClass: 'd-cfg', size: { w: 480, h: 560 }, inDock: true },
+  v1: { id: 'v1', title: 'Portafolio Renzo Ramos', icon: '★', iconImg: rrIos, dockClass: 'd-v1', size: { w: 1900, h: 950 }, inDock: true, noResize: true },
   'proj-booqi': { id: 'proj-booqi', title: 'Booqi', icon: 'B', dockClass: 'd-proj', size: { w: 700, h: 640 }, inDock: false },
   'proj-inv': { id: 'proj-inv', title: 'Inventario', icon: 'I', dockClass: 'd-stack', size: { w: 700, h: 640 }, inDock: false },
 }
 
 /** Ordered ids shown in the dock and as desktop shortcuts. */
-export const DOCK_IDS = ['about', 'proj', 'stack', 'path', 'cert', 'mail', 'config'] as const
+export const DOCK_IDS = ['about', 'proj', 'stack', 'path', 'cert', 'mail', 'v1', 'config'] as const
