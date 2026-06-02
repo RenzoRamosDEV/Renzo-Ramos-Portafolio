@@ -1,49 +1,43 @@
-<!doctype html>
-<html lang="es">
-
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <!-- Favicon -->
-  <link rel="icon" type="image/png" href="/LOGO-removebg-preview.png" />
-  <link rel="apple-touch-icon" href="/LOGO-removebg-preview.png" />
-
-  <!-- Primary SEO -->
-  <title>Renzo Ramos | Portafolio Junior Developer</title>
-  <meta name="title" content="Renzo Ramos | Portafolio" />
-  <meta name="description"
-    content="Desarrollador backend especializado en Java y Spring Boot. Creación de APIs robustas, arquitectura limpia y diseño UI/UX enfocado en el usuario." />
-  <meta name="author" content="Renzo Ramos" />
-  <meta name="robots" content="index, follow" />
-  <link rel="canonical" href="https://tu-dominio.com/" />
-
-  <!-- Open Graph (LinkedIn, WhatsApp, Facebook) -->
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://tu-dominio.com/" />
-  <meta property="og:title" content="Renzo Ramos | Portfolio FullStack Junior Developer " />
-  <meta property="og:description"
-    content="Especialista en Java y Spring Boot con enfoque en arquitecturas escalables y experiencia integral de usuario." />
-  <meta property="og:image" content="/LOGO-removebg-preview.png" />
-  <meta property="og:image:alt" content="Portafolio de Renzo Ramos" />
-
-  <!-- Twitter / X Card -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Renzo Ramos | Portafolio FullStack Junior Developer" />
-  <meta name="twitter:description" content="Desarrollador Java & Spring Boot. Mira mis proyectos y experiencia aquí." />
-  <meta name="twitter:image" content="/LOGO-removebg-preview.png" />
-
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700;800&family=Instrument+Serif:ital@1&display=swap"
-    rel="stylesheet" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Renzo Ramos — Portafolio</title>
+  <link rel="stylesheet" href="src/styles/variables.css">
+  <link rel="stylesheet" href="src/styles/base.css">
+  <link rel="stylesheet" href="src/styles/menubar.css">
+  <link rel="stylesheet" href="src/styles/windows.css">
+  <link rel="stylesheet" href="src/styles/components.css">
+  <link rel="stylesheet" href="src/styles/dock.css">
+  <link rel="stylesheet" href="src/styles/spotlight.css">
 </head>
-
 <body>
-  <div id="root"></div>
-  <script type="module" src="/src/main.tsx"></script>
-</body>
+  <div class="menubar">
+    <div class="ml"><b>Renzo Ramos</b><span>Portafolio</span><span>Proyectos</span><span>Contacto</span></div>
+    <div class="mr"><span class="tbtn" id="themeBtn">☾</span><span id="clock">--:--</span></div>
+  </div>
+  <div class="deskhint">Pulsa <kbd>⌘ Espacio</kbd> para Spotlight · o usa el Dock ↓</div>
 
+  <div id="desktop"></div>
+
+  <div class="dock">
+    <div class="dapp d-about" data-app="about"><span class="tip">Sobre mí</span>☻<span class="dot"></span></div>
+    <div class="dapp d-proj"  data-app="proj" ><span class="tip">Proyectos</span>▦<span class="dot"></span></div>
+    <div class="dapp d-stack" data-app="stack"><span class="tip">Tech Stack</span>{ }<span class="dot"></span></div>
+    <div class="dapp d-path"  data-app="path" ><span class="tip">Trayectoria</span>◷<span class="dot"></span></div>
+    <div class="dapp d-cert"  data-app="cert" ><span class="tip">Certificados</span>✦<span class="dot"></span></div>
+    <div class="dapp d-mail"  data-app="mail" ><span class="tip">Contacto</span>✉<span class="dot"></span></div>
+    <div class="dapp d-spot"  data-app="spot" ><span class="tip">Spotlight</span>⌕</div>
+  </div>
+
+  <div class="spot-overlay" id="spotOverlay">
+    <div class="spot">
+      <input id="spotInput" placeholder="Buscar en el portafolio…" autocomplete="off">
+      <div class="results" id="spotResults"></div>
+    </div>
+  </div>
+
+  <script type="module" src="src/js/main.js"></script>
+</body>
 </html>
