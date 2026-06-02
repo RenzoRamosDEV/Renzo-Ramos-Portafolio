@@ -51,7 +51,7 @@ initSpotlight(
 );
 
 // Layout inicial sin solapamiento: columna izquierda + columna derecha
-const PAD = 100, TOP = 50, GAP = 18, DOCK = 80;
+const PAD = 100, TOP = 50, GAP = 48, DOCK = 80;
 const vw = innerWidth, vh = innerHeight;
 
 const aboutW = 620, aboutH = 400;
