@@ -55,7 +55,7 @@ initSpotlight(
   setTheme
 );
 
-const aboutW = 760, aboutH = 500;
+const aboutW = 960, aboutH = 620;
 const aboutPos = {
   x: Math.round((innerWidth  - aboutW) / 2),
   y: Math.round((innerHeight - aboutH) / 2) + 15,
