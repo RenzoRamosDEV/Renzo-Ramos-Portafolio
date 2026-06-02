@@ -1,189 +1,81 @@
-# Portfolio Renzo - Documentación Claude
+# Portfolio Renzo — Documentación Claude
 
 ## 📋 Descripción General
 
-Portfolio moderno y personalizable en HTML/CSS/JS vanilla. Completamente estático, responsivo, con modo oscuro y soporte multiidioma (ES/EN). Incluye panel flotante para edición en tiempo real.
+Portfolio personal de Renzo Ramos con una **interfaz tipo escritorio macOS**: menubar, ventanas
+arrastrables/redimensionables, dock, iconos de escritorio, Spotlight y panel de Preferencias.
+SPA estática construida con **React + TypeScript + Vite**, desplegable en GitHub Pages.
+
+> **v3.0** — migrado de HTML/CSS/JS vanilla a React. La versión vanilla anterior y el proyecto
+> React original (`v1/`) quedan como archivo histórico.
 
 ## 🏗️ Arquitectura
 
-**Frontend**: 100% HTML/CSS/JavaScript vanilla
-- **HTML**: Semántico, con data attributes para i18n
-- **CSS**: Modular, variables OKLCH, mobile-first
-- **JS**: Módulos ES6, sin dependencias (React solo en panel)
+**Stack**: React 19 + TypeScript + Vite. Sin Tailwind — usa el CSS modular del escritorio
+(`src/styles/*.css`). Sin backend, todo estático.
 
-**Estructura**:
 ```
-index.html (punto de entrada)
-├── src/styles/*.css (8 archivos modulares)
-├── src/js/main.js (renderizado)
-├── src/data/*.js (stack, proyectos)
-├── src/i18n/translations.js (ES/EN)
-├── src/utils/*.js (scroll, trail, tema)
-└── src/components/tweaks-panel.jsx (React - edición)
-```
-
-## 🔧 Tecnologías
-
-- **Estilos**: CSS puro, sin preprocessador
-- **Colores**: OKLCH (mejor que Hex/RGB)
-- **Animaciones**: CSS transitions + requestAnimationFrame
-- **Tipografía**: Google Fonts (Caveat, Lora, JetBrains Mono)
-- **Interactividad**: JS vanilla (localStorage, ResizeObserver, IntersectionObserver)
-- **Panel**: React CDN + Babel (opcional, no bloqueante)
-
-## 📁 Archivos Críticos
-
-| Archivo                    | Responsabilidad            | Nota                        |
-| -------------------------- | -------------------------- | --------------------------- |
-| `index.html`               | Estructura, meta tags      | Cambiar nombre/email aquí   |
-| `src/data/stack.js`        | Tecnologías                | Array de 8 items            |
-| `src/data/projects.js`     | Proyectos                  | Array de 3-N proyectos      |
-| `src/styles/variables.css` | Tema (colores, tipografía) | Editar para cambiar colores |
-| `src/js/main.js`           | Renderizado y setup        | Punto de entrada JS         |
-| `src/i18n/translations.js` | Textos ES/EN               | Objeto con 2 claves         |
-
-## 🎯 Flujo Principal
-
-1. **Carga**: browser → `index.html` → carga CSS + JS
-2. **Renderizado**:
-   - `main.js` → importa data/*.js
-   - Renderiza grid de stack (marquee infinito)
-   - Renderiza cards de proyectos
-3. **Interactividad**:
-   - `utils/i18n-dark-mode.js` → botones lang/dark
-   - `utils/scroll-reveal.js` → IntersectionObserver
-   - `utils/drawing-trail.js` → canvas trail
-   - `tweaks-panel.jsx` → panel flotante (React)
-
-## 💾 Estado Persistente
-
-localStorage keys:
-- `pf-lang`: 'es' | 'en'
-- `pf-dark`: 'true' | 'false'
-
-## 🔴 Puntos Críticos
-
-1. **Colores**: Usar OKLCH, no Hex. Sintaxis: `oklch(L% C H)`
-   - L: 0-100 (lightness)
-   - C: 0-0.4 (chroma)
-   - H: 0-360 (hue)
-
-2. **Responsiveness**: Mobile-first, breakpoint principal: 720px
-
-3. **Traducciones**: Si editas textos en `translations.js`, actualiza también `index.html` (data-i18n)
-
-4. **Grid Background**: CSS puro, no imagen. Cambiar en `body {}` para ajustar patrón.
-
-5. **Avatar**: Placeholder actual. Reemplazar con `<img>` en `.avatar-placeholder`
-
-## 🎨 Customización Frecuente
-
-### Cambiar Color Principal
-```css
-/* src/styles/variables.css */
---accent: oklch(44% 0.18 250);  /* Cambia H para nuevo color */
+index.html                  → punto de entrada Vite (monta #root)
+src/
+├── main.tsx                → render + imports de CSS
+├── App.tsx                 → orquestador: providers, window manager, layout inicial, Ctrl+Space
+├── styles/*.css            → 9 hojas modulares (tema, ventanas, dock, etc.)
+├── desktop/                → shell del escritorio
+│   ├── Window.tsx          → ventana: drag, resize 8-dir, minimizar, fullscreen
+│   ├── useWindowManager.ts → estado de ventanas (abrir/cerrar/focus/z-index)
+│   ├── Dock.tsx, DesktopIcons.tsx, MenuBar.tsx, Spotlight.tsx
+│   ├── desktop-context.ts  → DesktopContext (launch, theme, setTheme)
+│   └── types.ts            → Rect, WinState
+├── apps/                   → contenido de cada ventana
+│   ├── manifest.ts         → metadata de apps (id, título, icono, tamaño, dock)
+│   ├── registry.tsx        → mapea id → componente React
+│   └── About/Projects/ProjectDetail/Stack/Timeline/Certificates/Contact/Config .tsx
+├── hooks/                  → useTheme, useClock, useConfig (+ config-context.ts)
+├── data/                   → stack.ts, projects.ts, timeline.ts, certificates.ts (ES)
+└── assets/                 → stack/ proyectos/ certs/ cv/ (imágenes y PDFs)
 ```
 
-### Agregar Proyecto
-```javascript
-// src/data/projects.js
-{
-  num: "04",
-  title: "Nuevo Proyecto",
-  desc: "...",
-  badges: ["Tech1", "Tech2"],
-  repo: "...",
-  demo: "..."
-}
+## 🎯 Flujo
+
+1. `main.tsx` importa todo el CSS y monta `<App/>`.
+2. `App.tsx` provee `DesktopContext` + `ConfigContext`, crea el window manager y abre el layout
+   inicial (Sobre mí / Proyectos / Trayectoria) escalonado.
+3. Dock / iconos de escritorio / Spotlight llaman a `launch(id)`.
+4. `useWindowManager` mantiene el array de ventanas; `Window.tsx` renderiza cada una con sus
+   interacciones (drag, resize, minimizar, fullscreen).
+
+## 🔧 Cómo añadir / editar
+
+| Quiero…                  | Toco…                                                            |
+| ------------------------ | ---------------------------------------------------------------- |
+| Editar textos del perfil | `src/apps/About.tsx`                                             |
+| Añadir un proyecto       | `src/data/projects.ts` (+ imágenes en `src/assets/projects/`)    |
+| Añadir tecnología        | `src/data/stack.ts` (+ icono PNG en `src/assets/stack/`)         |
+| Editar experiencia       | `src/data/timeline.ts`                                           |
+| Añadir certificado       | `src/data/certificates.ts` (+ preview/PDF en `src/assets/certs/`)|
+| Nueva app/ventana        | crear componente en `src/apps/`, añadir a `manifest.ts` + `registry.tsx` |
+| Cambiar colores/tema     | `src/styles/variables.css` (`:root` y `[data-theme="dark"]`)     |
+
+## 💾 Estado persistente (localStorage)
+
+- `pf-theme`: `'light' | 'dark'`
+- `pf-cfg-accent`, `pf-cfg-wall`, `pf-cfg-speed`: preferencias del panel Config
+
+## 🚀 Comandos
+
+```bash
+npm install      # instalar dependencias
+npm run dev      # servidor de desarrollo (Vite, http://localhost:5173)
+npm run build    # build de producción a dist/ (tsc -b && vite build)
+npm run preview  # previsualizar el build
 ```
 
-### Agregar Tecnología
-```javascript
-// src/data/stack.js
-{
-  name: "Nueva Tech",
-  color: "#hexcolor",
-  bg: "#hexbg",
-  desc: "Descripción"
-}
-```
+## 🚢 Deploy
 
-### Cambiar Textos
-```javascript
-// src/i18n/translations.js
-es: { myKey: "Nuevo texto" }
-en: { myKey: "New text" }
-```
-Y en `index.html`: `<p data-i18n="myKey">`
+GitHub Pages sirviendo `dist/`. `vite.config.ts` usa `base: './'` (rutas relativas, funciona
+bajo cualquier subpath sin reconfigurar).
 
-## 🚀 Deploy
+## 👤 Autor
 
-- **Recomendado**: Vercel (automático desde GitHub)
-- **Alternativas**: Netlify, GitHub Pages, Cloudflare Pages
-- **Dominio**: Personalizado ($12/año, apunta DNS)
-- **SSL**: Incluido automáticamente en todos
-
-Ver: `docs/DEPLOYMENT.md`
-
-## 📖 Documentación
-
-- `README.md` → Overview general
-- `STRUCTURE.md` → Árbol y flujo
-- `docs/CUSTOMIZATION.md` → Guía detallada de cambios
-- `docs/DEPLOYMENT.md` → Cómo subir a producción
-- Este archivo → Referencia para Claude
-
-## 🔍 Testing
-
-- **Local**: Abre `index.html` directo (no necesita servidor)
-- **Build**: No hay build step (archivo estático)
-- **Browser**: Chrome, Firefox, Safari, Edge (soporte amplio)
-- **Mobile**: Responsivo hasta 320px
-
-## 📊 Análiticas Tipícas
-
-- **Tamaño total**: ~200KB (CSS + JS + HTML sin imágenes)
-- **First Paint**: <1s en conexión normal
-- **Animaciones**: 60fps suave
-- **Score Lighthouse**: 90-95 (si sin imagen heavy)
-
-## 🐛 Debugging
-
-Si no funciona:
-
-1. **Consola**: F12 → Console (hay `useTweaks` disponible)
-2. **LocalStorage**: `localStorage.clear()` reinicia todo
-3. **Caché**: Ctrl+Shift+R fuerza recarga
-4. **Red**: Verificar que Google Fonts cargue
-
-## ⚠️ Restricciones/Consideraciones
-
-1. **Sin API backend**: Solo datos estáticos (no contacto form, sin dinámico)
-2. **Sin CMS**: Editar archivos .js/.html directamente
-3. **Sin versioning automático**: Cambios manuales en Git
-4. **Grid background**: CPU leve en scroll (canvas trail), OK en modern browsers
-5. **React**: Solo para panel, no bloqueante, carga async
-
-## 🆕 Agregar Funcionalidad
-
-Si quieres:
-- **Formulario de contacto**: Agregar servicio (Formspree, Netlify Forms)
-- **Blog**: Agregar carpeta /blog con archivos estáticos o Markdown
-- **Comentarios**: Integrar Disqus o similar
-- **Búsqueda**: No necesaria para 3-5 proyectos
-
-## 👤 Autor Info
-
-- Nombre: Renzo Ramos
-- Email: renzoramosivan@gmail.com
-- Portfolio: (en portafololio-renzo/)
-- Versión: 2.0 (reorganizado)
-
-## 📝 Historial
-
-- **v1.0**: Portfolio original (2 archivos monolíticos)
-- **v2.0**: Reorganizado en estructura modular (este)
-
----
-
-**Nota para Claude**: Este proyecto es mantenible, escalable y está listo para producción. Cambios simples (textos, datos) en `src/data/` y `src/i18n/`. Cambios visuales en `src/styles/`. No requiere tooling complejo.
+- Renzo Ramos · renzoramosivan@gmail.com
+- GitHub: RenzoRamosDEV · LinkedIn: renzoinv04
