@@ -23,15 +23,16 @@ function closeWin(id) {
 }
 
 function minimizeWin(win) {
-  const body = win.querySelector('.wbody');
   if (win.dataset.minimized === '1') {
-    body.style.display = '';
-    win.style.height = win.dataset.prevH;
+    win.style.opacity = '1';
+    win.style.pointerEvents = '';
+    win.style.transform = 'scale(1)';
     win.dataset.minimized = '0';
+    focusWin(win);
   } else {
-    win.dataset.prevH = win.style.height;
-    body.style.display = 'none';
-    win.style.height = '42px';
+    win.style.opacity = '0';
+    win.style.pointerEvents = 'none';
+    win.style.transform = 'scale(0.85)';
     win.dataset.minimized = '1';
   }
 }
