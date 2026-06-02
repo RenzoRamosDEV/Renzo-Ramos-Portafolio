@@ -77,27 +77,35 @@ function dragify(win, handle) {
 
 function resizify(win) {
   const MIN_W = 280, MIN_H = 160;
-  const corners = [
+  const handles = [
     { cls: 'rc-nw', dx: -1, dy: -1 },
     { cls: 'rc-ne', dx:  1, dy: -1 },
     { cls: 'rc-sw', dx: -1, dy:  1 },
     { cls: 'rc-se', dx:  1, dy:  1 },
+    { cls: 're-l',  dx: -1, dy:  0 },
+    { cls: 're-r',  dx:  1, dy:  0 },
+    { cls: 're-b',  dx:  0, dy:  1 },
+    { cls: 're-t',  dx:  0, dy: -1 },
   ];
-  corners.forEach(({ cls, dx, dy }) => {
+  handles.forEach(({ cls, dx, dy }) => {
     const handle = document.createElement('div');
-    handle.className = 'resize-corner ' + cls;
+    handle.className = 'resize-handle ' + cls;
     win.appendChild(handle);
 
     let sx, sy, ow, oh, ol, ot;
     const onMove = e => {
       const dw = (e.clientX - sx) * dx;
       const dh = (e.clientY - sy) * dy;
-      const newW = Math.max(MIN_W, ow + dw);
-      const newH = Math.max(MIN_H, oh + dh);
-      win.style.width  = newW + 'px';
-      win.style.height = newH + 'px';
-      if (dx === -1) win.style.left = (ol + ow - newW) + 'px';
-      if (dy === -1) win.style.top  = (ot + oh - newH) + 'px';
+      if (dx !== 0) {
+        const newW = Math.max(MIN_W, ow + dw);
+        win.style.width = newW + 'px';
+        if (dx === -1) win.style.left = (ol + ow - newW) + 'px';
+      }
+      if (dy !== 0) {
+        const newH = Math.max(MIN_H, oh + dh);
+        win.style.height = newH + 'px';
+        if (dy === -1) win.style.top = (ot + oh - newH) + 'px';
+      }
     };
     const onUp = () => {
       window.removeEventListener('mousemove', onMove);

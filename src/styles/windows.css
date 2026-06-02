@@ -9,8 +9,15 @@
 .wbody{overflow:auto;flex:1}
 .wbody::-webkit-scrollbar{width:9px}.wbody::-webkit-scrollbar-thumb{background:color-mix(in oklab,var(--text) 18%,transparent);border-radius:9px;border:2px solid transparent;background-clip:padding-box}
 
-.resize-corner{position:absolute;width:16px;height:16px;z-index:10}
+.resize-handle{position:absolute;z-index:10}
+/* corners */
+.rc-nw,.rc-ne,.rc-sw,.rc-se{width:16px;height:16px}
 .rc-nw{top:0;left:0;cursor:nw-resize}
 .rc-ne{top:0;right:0;cursor:ne-resize}
 .rc-sw{bottom:0;left:0;cursor:sw-resize}
 .rc-se{bottom:0;right:0;cursor:se-resize}
+/* edges */
+.re-l{top:16px;bottom:16px;left:0;width:6px;cursor:w-resize}
+.re-r{top:16px;bottom:16px;right:0;width:6px;cursor:e-resize}
+.re-b{left:16px;right:16px;bottom:0;height:6px;cursor:s-resize}
+.re-t{left:16px;right:16px;top:0;height:6px;cursor:n-resize}
