@@ -6,7 +6,8 @@
 .light{width:12px;height:12px;border-radius:50%}
 .l-r{background:#ff5f57}.l-y{background:#febc2e}.l-g{background:#28c840}
 .titlebar .wtitle{font-size:13px;font-weight:600;margin:0 auto;opacity:.85;padding-right:48px}
-.wbody{overflow:auto;flex:1}
+.wbody{overflow:auto;flex:1;display:flex;flex-direction:column}
+.wbody iframe{flex:1;min-height:0}
 .wbody::-webkit-scrollbar{width:9px}.wbody::-webkit-scrollbar-thumb{background:color-mix(in oklab,var(--text) 18%,transparent);border-radius:9px;border:2px solid transparent;background-clip:padding-box}
 
 .resize-handle{position:absolute;z-index:10}
