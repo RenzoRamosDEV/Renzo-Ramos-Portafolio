@@ -46,28 +46,6 @@ dockItems.forEach((item, i) => {
     openApp(apps, item.id);
   });
 
-  // drag
-  let dragging = false, sx, sy, ox, oy;
-  const onMove = e => {
-    const dx = e.clientX - sx, dy = e.clientY - sy;
-    if (!dragging && Math.hypot(dx, dy) < 4) return;
-    dragging = true;
-    el.style.left = Math.max(0, ox + dx) + 'px';
-    el.style.top  = Math.max(34, oy + dy) + 'px';
-  };
-  const onUp = () => {
-    window.removeEventListener('mousemove', onMove);
-    window.removeEventListener('mouseup', onUp);
-  };
-  el.addEventListener('mousedown', e => {
-    dragging = false;
-    sx = e.clientX; sy = e.clientY;
-    ox = el.offsetLeft; oy = el.offsetTop;
-    window.addEventListener('mousemove', onMove);
-    window.addEventListener('mouseup', onUp);
-    e.stopPropagation();
-  });
-  el.addEventListener('click', e => { if (dragging) e.stopImmediatePropagation(); });
 
   desktop.appendChild(el);
 });
