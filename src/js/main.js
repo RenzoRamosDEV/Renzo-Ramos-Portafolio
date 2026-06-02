@@ -35,13 +35,7 @@ dockItems.forEach((item, i) => {
   el.style.top  = (ROW_START + i * ROW_GAP) + 'px';
   el.innerHTML  = `<div class="di-ico ${item.cls}">${item.ico}</div><div class="di-lbl">${item.label}</div>`;
 
-  // single click = select, double click = open
   el.addEventListener('click', e => {
-    e.stopPropagation();
-    document.querySelectorAll('.desk-icon').forEach(d => d.classList.remove('selected'));
-    el.classList.add('selected');
-  });
-  el.addEventListener('dblclick', e => {
     e.stopPropagation();
     openApp(apps, item.id);
   });
@@ -50,10 +44,6 @@ dockItems.forEach((item, i) => {
   desktop.appendChild(el);
 });
 
-// Deselect icons when clicking empty desktop
-desktop.addEventListener('click', () => {
-  document.querySelectorAll('.desk-icon').forEach(d => d.classList.remove('selected'));
-});
 
 initSpotlight(
   (id) => openApp(apps, id),
