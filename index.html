@@ -4,44 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Renzo Ramos — Portafolio</title>
-  <link rel="stylesheet" href="src/styles/variables.css">
-  <link rel="stylesheet" href="src/styles/base.css">
-  <link rel="stylesheet" href="src/styles/menubar.css">
-  <link rel="stylesheet" href="src/styles/windows.css">
-  <link rel="stylesheet" href="src/styles/components.css">
-  <link rel="stylesheet" href="src/styles/dock.css">
-  <link rel="stylesheet" href="src/styles/spotlight.css">
-  <link rel="stylesheet" href="src/styles/desktop-icons.css">
-  <link rel="stylesheet" href="src/styles/config.css">
+  <meta name="description" content="Portafolio de Renzo Ramos — Desarrollador Full Stack orientado a backend (Java · Spring Boot). Interfaz estilo escritorio macOS.">
 </head>
 <body>
-  <div class="menubar">
-    <div class="ml"><b>Renzo Ramos</b><span>Portafolio</span><span>Proyectos</span><span>Contacto</span></div>
-    <div class="mr"><span class="tbtn" id="themeBtn">☾</span><span id="clock">--:--</span></div>
-  </div>
-  <div class="deskhint">Pulsa <kbd>⌘ Espacio</kbd> para Spotlight · o usa el Dock ↓</div>
-
-  <div id="desktop"></div>
-
-  <div class="dock">
-    <div class="dapp d-about" data-app="about"><span class="tip">Sobre mí</span>☻<span class="dot"></span></div>
-    <div class="dapp d-proj"  data-app="proj" ><span class="tip">Proyectos</span>▦<span class="dot"></span></div>
-    <div class="dapp d-stack" data-app="stack"><span class="tip">Tech Stack</span>{ }<span class="dot"></span></div>
-    <div class="dapp d-path"  data-app="path" ><span class="tip">Trayectoria</span>◷<span class="dot"></span></div>
-    <div class="dapp d-cert"  data-app="cert" ><span class="tip">Certificados</span>✦<span class="dot"></span></div>
-    <div class="dapp d-mail"  data-app="mail" ><span class="tip">Contacto</span>✉<span class="dot"></span></div>
-    <div class="dapp d-v1"    data-app="v1"   ><span class="tip">Portafolio v1</span>①<span class="dot"></span></div>
-    <div class="dapp d-cfg"   data-app="config"><span class="tip">Preferencias</span>⚙<span class="dot"></span></div>
-    <div class="dapp d-spot"  data-app="spot" ><span class="tip">Spotlight</span>⌕</div>
-  </div>
-
-  <div class="spot-overlay" id="spotOverlay">
-    <div class="spot">
-      <input id="spotInput" placeholder="Buscar en el portafolio…" autocomplete="off">
-      <div class="results" id="spotResults"></div>
-    </div>
-  </div>
-
-  <script type="module" src="src/js/main.js"></script>
+  <div id="root"></div>
+  <script type="module" src="/src/main.tsx"></script>
 </body>
 </html>
