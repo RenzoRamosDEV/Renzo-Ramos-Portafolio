@@ -8,3 +8,9 @@
 .titlebar .wtitle{font-size:13px;font-weight:600;margin:0 auto;opacity:.85;padding-right:48px}
 .wbody{overflow:auto;flex:1}
 .wbody::-webkit-scrollbar{width:9px}.wbody::-webkit-scrollbar-thumb{background:color-mix(in oklab,var(--text) 18%,transparent);border-radius:9px;border:2px solid transparent;background-clip:padding-box}
+
+.resize-corner{position:absolute;width:16px;height:16px;z-index:10}
+.rc-nw{top:0;left:0;cursor:nw-resize}
+.rc-ne{top:0;right:0;cursor:ne-resize}
+.rc-sw{bottom:0;left:0;cursor:sw-resize}
+.rc-se{bottom:0;right:0;cursor:se-resize}

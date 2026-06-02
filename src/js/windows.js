@@ -75,6 +75,47 @@ function dragify(win, handle) {
   addEventListener('mouseup', () => drag = false);
 }
 
+function resizify(win) {
+  const MIN_W = 280, MIN_H = 160;
+  const corners = [
+    { cls: 'rc-nw', dx: -1, dy: -1 },
+    { cls: 'rc-ne', dx:  1, dy: -1 },
+    { cls: 'rc-sw', dx: -1, dy:  1 },
+    { cls: 'rc-se', dx:  1, dy:  1 },
+  ];
+  corners.forEach(({ cls, dx, dy }) => {
+    const handle = document.createElement('div');
+    handle.className = 'resize-corner ' + cls;
+    win.appendChild(handle);
+
+    let sx, sy, ow, oh, ol, ot;
+    const onMove = e => {
+      const dw = (e.clientX - sx) * dx;
+      const dh = (e.clientY - sy) * dy;
+      const newW = Math.max(MIN_W, ow + dw);
+      const newH = Math.max(MIN_H, oh + dh);
+      win.style.width  = newW + 'px';
+      win.style.height = newH + 'px';
+      if (dx === -1) win.style.left = (ol + ow - newW) + 'px';
+      if (dy === -1) win.style.top  = (ot + oh - newH) + 'px';
+    };
+    const onUp = () => {
+      window.removeEventListener('mousemove', onMove);
+      window.removeEventListener('mouseup', onUp);
+    };
+    handle.addEventListener('mousedown', e => {
+      if (win.dataset.fullscreen === '1') return;
+      e.stopPropagation(); e.preventDefault();
+      sx = e.clientX; sy = e.clientY;
+      ow = win.offsetWidth; oh = win.offsetHeight;
+      ol = win.offsetLeft;  ot = win.offsetTop;
+      focusWin(win);
+      window.addEventListener('mousemove', onMove);
+      window.addEventListener('mouseup', onUp);
+    });
+  });
+}
+
 export function openApp(apps, id) {
   if (openWins[id]) { minimizeWin(openWins[id]); return; }
   const a = apps[id]; if (!a) return;
@@ -95,6 +136,7 @@ export function openApp(apps, id) {
   win.querySelector('.l-g').onclick = e => { e.stopPropagation(); toggleFullscreen(win); };
   win.addEventListener('mousedown', () => focusWin(win));
   dragify(win, win.querySelector('.titlebar'));
+  resizify(win);
   win.querySelectorAll('[data-open]').forEach(p => p.onclick = () => openApp(apps, p.dataset.open));
   markRunning();
 }
