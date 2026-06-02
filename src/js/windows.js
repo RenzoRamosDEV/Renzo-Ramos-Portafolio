@@ -75,7 +75,7 @@ function dragify(win, handle) {
 }
 
 export function openApp(apps, id) {
-  if (openWins[id]) { focusWin(openWins[id]); return; }
+  if (openWins[id]) { minimizeWin(openWins[id]); return; }
   const a = apps[id]; if (!a) return;
   const win = document.createElement('div');
   win.className = 'win';
