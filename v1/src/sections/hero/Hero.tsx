@@ -2,7 +2,6 @@ import { WordsPullUp } from '../../components/motion/WordsPullUp'
 import { ScrollIndicator } from '../../components/ui/ScrollIndicator'
 import { PillButton } from '../../components/ui/PillButton'
 import { useLanguage } from '../../i18n/LanguageContext'
-import bgHero from '../../assets/videos/bg-hero-light.mp4'
 import cvPdf from '../../assets/cv/CV Renzo Ramos.pdf'
 
 export function Hero() {
@@ -11,7 +10,7 @@ export function Hero() {
   return (
     <section id="sobre-mi" className="min-h-screen">
       <div className="relative w-full min-h-screen overflow-hidden">
-        <video className="absolute inset-0 w-full h-full object-cover" src={bgHero} autoPlay loop muted playsInline preload="none" />
+        <div className="absolute inset-0" style={{ background: 'linear-gradient(135deg,#0a0a0f 0%,#0d1117 40%,#0a0e1a 70%,#060608 100%)' }} />
 
         <div className="noise-overlay opacity-[0.7] mix-blend-overlay pointer-events-none z-10" />
         <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/60 z-10" />

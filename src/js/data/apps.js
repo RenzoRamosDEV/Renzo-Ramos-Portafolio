@@ -149,6 +149,11 @@ export const apps = {
     html: `<iframe src="v1/dist/index.html" style="width:100%;height:100%;border:none;display:block;" title="Portafolio v1"></iframe>`
   },
 
+  v1: {
+    title: 'Portafolio v1', w: 900, h: 580, x: 200, y: 80,
+    html: `<iframe src="v1/dist/index.html" style="width:100%;height:100%;border:none;display:block;" title="Portafolio v1"></iframe>`
+  },
+
   config: {
     title: 'Preferencias', w: 480, h: 520, x: 200, y: 120,
     html: `
