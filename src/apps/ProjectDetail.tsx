@@ -26,11 +26,12 @@ export function ProjectDetail({ id }: { id: string }) {
           <p>{p.summary}</p>
         </div>
         <div className="blk">
-          <div className="h">Características clave</div>
+          <div className="h">{p.pointsLabel ?? 'Características clave'}</div>
           <ul className="feat">
             {p.points.map((pt, i) => (
               <li key={i}>
-                <b>{pt.title}</b> — {pt.body}
+                <b>{pt.title}</b>
+                <span>{pt.body}</span>
               </li>
             ))}
           </ul>
@@ -45,9 +46,16 @@ export function ProjectDetail({ id }: { id: string }) {
             ))}
           </div>
         </div>
-        <a className="repo-btn" href={p.repo} target="_blank" rel="noopener">
-          ⎇ Ver repositorio en GitHub
-        </a>
+        <div className="proj-btns">
+          <a className="repo-btn" href={p.repo} target="_blank" rel="noopener">
+            ⎇ Ver repositorio en GitHub
+          </a>
+          {p.preview && (
+            <a className="repo-btn preview-btn" href={p.preview} target="_blank" rel="noopener">
+              ↗ Ver demo en vivo
+            </a>
+          )}
+        </div>
       </div>
     </div>
   )

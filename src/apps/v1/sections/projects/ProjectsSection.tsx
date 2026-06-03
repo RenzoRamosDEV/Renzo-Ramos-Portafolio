@@ -1,13 +1,14 @@
-import { useState } from 'react'
 import { getProjects } from '../../data/projects'
 import { useLanguage } from '../../i18n/LanguageContext'
 import { ProjectCard } from './ProjectCard'
-import { ProjectModal } from './ProjectModal'
 import type { Project } from '../../data/projects'
 
-export function ProjectsSection() {
+type Props = {
+  onLearnMore: (project: Project) => void
+}
+
+export function ProjectsSection({ onLearnMore }: Props) {
   const { t, lang } = useLanguage()
-  const [activeProject, setActiveProject] = useState<Project | null>(null)
   const projects = getProjects(lang)
 
   return (
@@ -41,16 +42,12 @@ export function ProjectsSection() {
                 key={project.num}
                 index={i}
                 project={project}
-                onLearnMore={() => setActiveProject(project)}
+                onLearnMore={() => onLearnMore(project)}
               />
             ))}
           </div>
         </div>
       </div>
-
-      {activeProject && (
-        <ProjectModal project={activeProject} onClose={() => setActiveProject(null)} />
-      )}
     </section>
   )
 }

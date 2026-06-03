@@ -1,5 +1,5 @@
 /* ABOUT */
-.about{display:grid;grid-template-columns:210px 1fr;min-height:100%}
+.about{display:grid;grid-template-columns:240px 1fr;min-height:100%}
 .about .side{background:var(--side);padding:24px 18px;border-right:1px solid var(--line)}
 .avatar{width:88px;height:88px;border-radius:24px;margin:0 auto 14px;background:linear-gradient(135deg,#0071e3,#22c1c3);display:grid;place-items:center;color:#fff;font-size:32px;font-weight:600;letter-spacing:-.02em;box-shadow:0 10px 28px rgba(0,113,227,.35)}
 .about .side h3{text-align:center;font-size:18px;font-weight:600;letter-spacing:-.01em}
@@ -7,9 +7,11 @@
 .about .side ul{list-style:none;margin-top:18px;display:flex;flex-direction:column;gap:3px}
 .about .side li{font-size:13px;padding:7px 10px;border-radius:8px;color:var(--text2);display:flex;align-items:center;gap:9px}
 .about .side li .i{width:16px;text-align:center;opacity:.7}
+.about .side li a{color:var(--text2);text-decoration:none;font-size:13px}
+.about .side li a:hover{color:var(--accent);text-decoration:underline}
 .about .main{padding:26px 28px}
 .about .main h2{font-size:23px;font-weight:600;letter-spacing:-.02em;margin-bottom:12px}
-.about .main p{font-size:14px;color:var(--text2);line-height:1.62;margin-bottom:13px}
+.about .main p{font-size:15.5px;color:var(--text2);line-height:1.65;margin-bottom:14px}
 .about .main p b{color:var(--text);font-weight:600}
 .pillrow{margin-top:6px}
 .pill{display:inline-block;font-size:12px;padding:6px 12px;border-radius:980px;background:var(--chip);border:1px solid var(--line);margin:0 6px 6px 0;color:var(--text)}
@@ -52,11 +54,16 @@
 .pd .blk{margin-bottom:18px}
 .pd .blk .h{font-size:11.5px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--accent);margin-bottom:7px}
 .pd .blk p{font-size:13.5px;color:var(--text2);line-height:1.6}
-.pd ul.feat{list-style:none;display:flex;flex-direction:column;gap:7px}
-.pd ul.feat li{font-size:13.5px;color:var(--text2);line-height:1.5;display:flex;gap:9px}
-.pd ul.feat li::before{content:"›";color:var(--accent);font-weight:700;flex:none}
+.pd ul.feat{list-style:none;display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:10px}
+.pd ul.feat li{font-size:13px;color:var(--text2);line-height:1.55;background:var(--chip);border:1px solid var(--line);border-radius:12px;padding:12px 14px;display:flex;flex-direction:column;gap:4px}
+.pd ul.feat li b{font-size:13px;font-weight:600;color:var(--text)}
+.proj-github-cta{display:flex;align-items:center;justify-content:center;gap:10px;padding:18px;border-radius:14px;border:1px dashed var(--line);font-size:14px;color:var(--text2)}
+.proj-github-cta a{color:var(--accent);font-weight:500;text-decoration:none}
+.proj-github-cta a:hover{text-decoration:underline}
+.proj-btns{display:flex;flex-wrap:wrap;gap:10px}
 .repo-btn{display:inline-flex;align-items:center;gap:8px;background:var(--accent);color:#fff;text-decoration:none;padding:10px 18px;border-radius:980px;font-size:13.5px;font-weight:500;transition:transform .25s}
 .repo-btn:hover{transform:scale(1.04)}
+.preview-btn{background:var(--chip);color:var(--text);border:1px solid var(--line)}
 
 /* TIMELINE */
 .timeline{padding:24px 26px}

@@ -4,9 +4,13 @@ import booqui03 from '../assets/projects/booqui/booqui-03.png'
 import booqui04 from '../assets/projects/booqui/booqui-04.png'
 import booqui05 from '../assets/projects/booqui/booqui-05.png'
 import booqui06 from '../assets/projects/booqui/booqui-06.png'
-import inventario01 from '../assets/projects/inventario/inventario-01.png'
-import inventario02 from '../assets/projects/inventario/inventario-02.png'
-import inventario03 from '../assets/projects/inventario/inventario-03.png'
+import redactorIA01 from '../assets/projects/redactor-ia/image.png'
+import pokedex01 from '../assets/projects/pokedex/image.png'
+import pokedex02 from '../assets/projects/pokedex/image copy.png'
+import pokedex03 from '../assets/projects/pokedex/image copy 2.png'
+import pokedex04 from '../assets/projects/pokedex/image copy 3.png'
+import pokedex05 from '../assets/projects/pokedex/image copy 4.png'
+import pokedex06 from '../assets/projects/pokedex/image copy 5.png'
 
 export type ProjectPoint = { title: string; body: string }
 
@@ -15,21 +19,23 @@ export type Project = {
   num: string
   title: string
   role: string
-  icon: string // single letter for the tile
+  icon: string
   iconClass: string
   images: string[]
   summary: string
   points: ProjectPoint[]
+  pointsLabel?: string
   badges: string[]
   repo: string
+  preview?: string
 }
 
 export const PROJECTS: Project[] = [
   {
     id: 'booqi',
     num: '01',
-    title: 'Booqi — Gestión de Reservas de Eventos',
-    role: 'Proyecto en equipo · Ownership de todo el backend',
+    title: 'Booqi - Gestión de Reservas de Eventos',
+    role: 'Proyecto en equipo · TFG · Backend Developer',
     icon: 'B',
     iconClass: 'pi0',
     images: [booqui01, booqui02, booqui03, booqui04, booqui05, booqui06],
@@ -42,28 +48,50 @@ export const PROJECTS: Project[] = [
       { title: 'Control de disponibilidad en tiempo real', body: 'Valida la disponibilidad antes de confirmar cada reserva, garantizando que no se vendan más entradas de las que el evento soporta.' },
       { title: 'Panel de administración para organizadores', body: 'Los organizadores crean, gestionan y monitorean sus eventos con visibilidad de reservas, pagos y estadísticas desde un panel dedicado.' },
     ],
-    badges: ['Java', 'Spring Boot', 'SpringDoc', 'Maven', 'MySQL', 'React', 'Bootstrap', 'TypeScript', 'Docker'],
+    badges: ['Java', 'Spring Boot', 'Spring Data JPA', 'Spring Web', 'Spring Validation', 'MySQL', 'Lombok', 'MapStruct', 'SpringDoc OpenAPI', 'Maven', 'Docker', 'Docker Compose', 'React', 'Bootstrap'],
     repo: 'https://github.com/RenzoRamosDEV/Booqui-Sistema-Gestion-Reservas-Eventos',
+    preview: 'https://renzoramosdev.github.io/Booqui-Sistema-Gestion-Reservas-Eventos/',
   },
   {
-    id: 'inventario',
+    id: 'redactor-ia',
     num: '02',
-    title: 'Sistema de Gestión de Inventario',
-    role: 'Desarrollador único · Full-stack end-to-end',
-    icon: 'I',
+    title: 'Redactor IA - Reformulador de Textos',
+    role: 'Desarrollador único · Full Stack Developer',
+    icon: 'R',
     iconClass: 'pi1',
-    images: [inventario01, inventario02, inventario03],
+    images: [redactorIA01],
     summary:
-      'Inventario es una aplicación full-stack que desarrollé de forma integral, desde el diseño de la base de datos hasta el frontend. Construí el backend en Java 17 con Spring Boot, con arquitectura en capas, mapeo de DTOs con MapStruct y una API REST documentada con Swagger/OpenAPI. Implementé validaciones de negocio, manejo centralizado de excepciones, paginación, filtros de búsqueda y monitoreo con Spring Boot Actuator. El frontend es una SPA en React + TypeScript con dashboard en tiempo real y componentes reutilizables, manteniendo tipado estricto en toda la comunicación con la API.',
+      'Herramienta web para reformular y mejorar textos usando inteligencia artificial. El usuario pega su texto, elige el tono deseado y recibe una versión reescrita por un modelo LLM en segundos. Construida con Node.js en el backend integrando el SDK de Groq con el modelo LLaMA, y un frontend en React con TailwindCSS. Incluye soporte multilenguaje con i18n y un diseño asistido por IA.',
     points: [
-      { title: 'Gestión centralizada del inventario', body: 'Elimina hojas de cálculo o sistemas dispersos. Todos los productos en una sola plataforma accesible desde cualquier dispositivo.' },
-      { title: 'Control total del ciclo de vida de un producto', body: 'Crear, editar, eliminar y restaurar productos dentro del mismo sistema, con eliminación lógica que permite recuperar registros sin pérdida permanente.' },
-      { title: 'Gestión de stock en tiempo real', body: 'Aumenta o reduce el stock de cualquier producto de forma inmediata desde la misma tabla, sin entrar a formularios separados.' },
-      { title: 'Visibilidad instantánea del estado del inventario', body: 'El dashboard muestra en tiempo real el valor total del stock, productos con stock bajo, agotados y los más costosos.' },
-      { title: 'Filtrado y búsqueda para cualquier escala', body: 'Filtra por nombre, estado de stock y productos activos o eliminados, con paginación automática que mantiene la interfaz ágil.' },
+      { title: 'Mejora de redacción instantánea', body: 'Reformula textos escritos rápido o con errores de estilo, entregando una versión pulida en segundos.' },
+      { title: 'Control del tono', body: 'Cambia el registro del mensaje: más formal, casual, profesional, directo, persuasivo, divertido o creativo.' },
+      { title: 'Intensidad ajustable', body: 'El usuario elige desde un leve retoque hasta una reescritura total según cuánto quiere transformar el texto.' },
+      { title: 'Control de longitud', body: 'Mantiene o libera la extensión del texto original según la necesidad del usuario.' },
+      { title: 'Instrucciones personalizadas', body: 'Campo de texto extra para añadir indicaciones específicas y personalizar aún más el resultado generado.' },
     ],
-    badges: ['Java 17', 'Spring Boot', 'SpringDoc', 'MapStruct', 'Maven', 'MySQL', 'React', 'TypeScript', 'TailwindCSS'],
-    repo: 'https://github.com/RenzoRamosDEV/Gestion-De-Inventario',
+    badges: ['Node.js', 'Groq SDK', 'Llama', 'React', 'TailwindCSS', 'i18n', 'TypeScript'],
+    repo: 'https://github.com/RenzoRamosDEV/Redactor-IA',
+  },
+  {
+    id: 'pokedex',
+    num: '03',
+    title: 'Pokédex Retro - API Pokémon en Scala',
+    role: 'Desarrollador único · Full Stack Developer',
+    icon: 'P',
+    iconClass: 'pi2',
+    images: [pokedex01, pokedex02, pokedex03, pokedex04, pokedex05, pokedex06],
+    summary:
+      'Pokédex interactiva con estética retro inspirada en la Game Boy original (DMG-01) y los videojuegos de Pokémon de primera generación. Construida con Scala y Play Framework, consumiendo datos en tiempo real desde PokéAPI.',
+    pointsLabel: 'Características',
+    points: [
+      { title: '7 secciones completas', body: 'Pokédex, Movimientos, Tipos, Habilidades, Naturalezas, Objetos y Bayas — cada una con su propio listado y buscador.' },
+      { title: 'Buscador con filtrado server-side', body: 'Cada sección tiene su propio buscador que filtra los resultados directamente en el servidor.' },
+      { title: '3 temas visuales', body: 'Normal (rojo retro), DMG (Game Boy verde LCD) y MONO (gris monocromático), cambiables al instante.' },
+      { title: 'Paginación configurable', body: 'El usuario ajusta cuántos elementos ver por página en cada sección según su preferencia.' },
+      { title: 'Modal de detalle por Pokémon', body: 'Stats, tipos, habilidades y barras de progreso animadas en un modal de detalle por cada Pokémon.' },
+    ],
+    badges: ['Scala', 'Play Framework', 'PokéAPI', 'CSS'],
+    repo: 'https://github.com/RenzoRamosDEV/Api-Pokemon-Scala-Web',
   },
 ]
 

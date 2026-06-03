@@ -30,7 +30,7 @@ export type StackItem = {
 export const STACK_GROUPS: { cat: StackCat; label: string }[] = [
   { cat: 'back', label: 'Backend' },
   { cat: 'front', label: 'Frontend' },
-  { cat: 'ia', label: 'Herramientas de IA' },
+  { cat: 'ia', label: 'Inteligencia Artificial' },
   { cat: 'tools', label: 'Build & Control de versiones' },
 ]
 

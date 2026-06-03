@@ -28,6 +28,12 @@ export function Projects() {
           </div>
         </div>
       ))}
+      <div className="proj-github-cta">
+        <span>¿Quieres ver más proyectos?</span>
+        <a href="https://github.com/RenzoRamosDEV" target="_blank" rel="noreferrer">
+          Visita mi GitHub →
+        </a>
+      </div>
     </div>
   )
 }
