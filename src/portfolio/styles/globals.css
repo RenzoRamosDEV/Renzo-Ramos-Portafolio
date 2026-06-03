@@ -1,0 +1,64 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  font-family: 'Almarai', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', sans-serif;
+}
+
+body {
+  margin: 0;
+  background: #000;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* Scrollbar igual al de .wbody */
+.portfolio-scroll-body::-webkit-scrollbar{width:9px}
+.portfolio-scroll-body::-webkit-scrollbar-thumb{background:color-mix(in oklab,var(--text) 18%,transparent);border-radius:9px;border:2px solid transparent;background-clip:padding-box}
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+}
+
+.noise-overlay {
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 200px 200px;
+}
+
+
+.section-grid {
+  background-color: #1a1d22;
+  background-image:
+    linear-gradient(rgba(167,180,188,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(167,180,188,0.03) 1px, transparent 1px);
+  background-size: 64px 64px;
+}
+
+.section-vignette {
+  background: radial-gradient(ellipse 70% 50% at 50% 50%, transparent 50%, rgba(0,0,0,0.6) 100%);
+}
+
+.nav-link {
+  color: #A7B4BC;
+  transition: color 200ms;
+}
+
+.nav-link:hover {
+  color: #ffffff;
+}
+
+.timeline-link {
+  color: #A7B4BC;
+  transition: color 200ms;
+}
+
+.timeline-link:hover {
+  color: #ffffff;
+}

@@ -2,59 +2,86 @@
 
 ## 📋 Descripción General
 
-Portfolio personal de Renzo Ramos con una **interfaz tipo escritorio macOS**: menubar, ventanas
-arrastrables/redimensionables, dock, iconos de escritorio, Spotlight y panel de Preferencias.
-SPA estática construida con **React + TypeScript + Vite**, desplegable en GitHub Pages.
+Portfolio personal de Renzo Ramos. Tiene **dos experiencias** que se eligen según el ancho de
+pantalla (ver `App.tsx`, breakpoint 768px):
 
-> **v3.0** — migrado de HTML/CSS/JS vanilla a React. La versión vanilla anterior y el proyecto
-> React original (`v1/`) quedan como archivo histórico.
+- **Escritorio** → una **interfaz tipo macOS**: menubar, ventanas arrastrables/redimensionables,
+  dock, iconos de escritorio, Spotlight y panel de Preferencias. El portafolio v1 se abre como una
+  ventana destacada centrada al cargar.
+- **Móvil** → el **portafolio v1** a pantalla completa: un sitio scrollable, bilingüe (ES/EN), con
+  secciones Hero / Proyectos / Experiencia / Stack / Metodologías y animaciones (framer-motion).
+
+SPA estática construida con **React + TypeScript + Vite**, desplegable en GitHub Pages.
 
 ## 🏗️ Arquitectura
 
-**Stack**: React 19 + TypeScript + Vite. Sin Tailwind — usa el CSS modular del escritorio
-(`src/styles/*.css`). Sin backend, todo estático.
+**Stack**: React 19 + TypeScript + Vite + Tailwind (usado por el portafolio). El shell de
+escritorio usa CSS modular propio en `src/desktop/styles/*.css`. Sin backend, todo estático.
+
+El código está organizado **por experiencia**: todo lo del escritorio macOS vive bajo `desktop/`
+y todo el sitio scrollable bajo `portfolio/`. Los assets son un árbol único compartido.
 
 ```
-index.html                  → punto de entrada Vite (monta #root)
+index.html                       → punto de entrada Vite (monta #root)
 src/
-├── main.tsx                → render + imports de CSS
-├── App.tsx                 → orquestador: providers, window manager, layout inicial, Ctrl+Space
-├── styles/*.css            → 9 hojas modulares (tema, ventanas, dock, etc.)
-├── desktop/                → shell del escritorio
-│   ├── Window.tsx          → ventana: drag, resize 8-dir, minimizar, fullscreen
-│   ├── useWindowManager.ts → estado de ventanas (abrir/cerrar/focus/z-index)
-│   ├── Dock.tsx, DesktopIcons.tsx, MenuBar.tsx, Spotlight.tsx
-│   ├── desktop-context.ts  → DesktopContext (launch, theme, setTheme)
-│   └── types.ts            → Rect, WinState
-├── apps/                   → contenido de cada ventana
-│   ├── manifest.ts         → metadata de apps (id, título, icono, tamaño, dock)
-│   ├── registry.tsx        → mapea id → componente React
-│   └── About/Projects/ProjectDetail/Stack/Timeline/Certificates/Contact/Config .tsx
-├── hooks/                  → useTheme, useClock, useConfig (+ config-context.ts)
-├── data/                   → stack.ts, projects.ts, timeline.ts, certificates.ts (ES)
-└── assets/                 → stack/ proyectos/ certs/ cv/ (imágenes y PDFs)
+├── main.tsx                     → render + imports del CSS del escritorio
+├── App.tsx                      → decide móvil (PortfolioSite) vs escritorio (componente Desktop)
+├── assets/                      → árbol único de imágenes y PDFs (stack/ projects/ certs/ cv/)
+│
+├── desktop/                     → EXPERIENCIA ESCRITORIO (macOS); solo en pantallas ≥768px
+│   ├── shell/                   → chrome del escritorio
+│   │   ├── Window.tsx           → ventana: drag, resize 8-dir, minimizar, fullscreen
+│   │   ├── useWindowManager.ts  → estado de ventanas (abrir/cerrar/focus/z-index)
+│   │   ├── Dock.tsx, DesktopIcons.tsx, MenuBar.tsx, Spotlight.tsx
+│   │   ├── desktop-context.ts   → DesktopContext (launch, theme, setTheme)
+│   │   └── types.ts             → Rect, WinState
+│   ├── apps/                    → contenido de cada ventana
+│   │   ├── manifest.ts          → metadata de apps (id, título, icono, tamaño, dock)
+│   │   ├── registry.tsx         → mapea id → componente React
+│   │   └── About/Projects/ProjectDetail/Stack/Timeline/Certificates/Contact/Config .tsx
+│   ├── data/                    → datos del escritorio (ES): stack, projects, timeline, certificates
+│   ├── hooks/                   → useTheme, useClock, useConfig (+ config-context.ts)
+│   └── styles/                  → hojas modulares del escritorio (tema, ventanas, dock, etc.)
+│
+└── portfolio/                   → EXPERIENCIA SITIO (vista móvil + ventana destacada en escritorio)
+    ├── PortfolioSite.tsx        → punto de entrada del sitio scrollable
+    ├── sections/                → hero, projects, experience, stack, methodologies
+    ├── components/              → layout/ (Navbar, Footer), ui/, motion/
+    ├── shared/                  → componentes compartidos del sitio
+    ├── data/                    → datos bilingües (ES/EN)
+    ├── i18n/                    → LanguageContext + translations
+    ├── hooks/                   → useInView
+    └── styles/                  → globals.css (incluye Tailwind)
 ```
 
 ## 🎯 Flujo
 
-1. `main.tsx` importa todo el CSS y monta `<App/>`.
-2. `App.tsx` provee `DesktopContext` + `ConfigContext`, crea el window manager y abre el layout
-   inicial (Sobre mí / Proyectos / Trayectoria) escalonado.
+1. `main.tsx` importa el CSS del escritorio y monta `<App/>`.
+2. `App.tsx`: si es móvil renderiza `<PortfolioSite/>`; si no, renderiza `<Desktop/>` (que provee
+   `DesktopContext` + `ConfigContext`, crea el window manager y abre la ventana `portfolio` centrada).
 3. Dock / iconos de escritorio / Spotlight llaman a `launch(id)`.
 4. `useWindowManager` mantiene el array de ventanas; `Window.tsx` renderiza cada una con sus
    interacciones (drag, resize, minimizar, fullscreen).
 
+> **Nota sobre datos duplicados**: el escritorio (`desktop/data/*`, solo ES) y el portafolio
+> (`portfolio/data/*`, bilingüe) mantienen sus propios datos porque tienen formas distintas, pero
+> comparten un único árbol de assets en `src/assets/`.
+
 ## 🔧 Cómo añadir / editar
 
-| Quiero…                  | Toco…                                                            |
-| ------------------------ | ---------------------------------------------------------------- |
-| Editar textos del perfil | `src/apps/About.tsx`                                             |
-| Añadir un proyecto       | `src/data/projects.ts` (+ imágenes en `src/assets/projects/`)    |
-| Añadir tecnología        | `src/data/stack.ts` (+ icono PNG en `src/assets/stack/`)         |
-| Editar experiencia       | `src/data/timeline.ts`                                           |
-| Añadir certificado       | `src/data/certificates.ts` (+ preview/PDF en `src/assets/certs/`)|
-| Nueva app/ventana        | crear componente en `src/apps/`, añadir a `manifest.ts` + `registry.tsx` |
-| Cambiar colores/tema     | `src/styles/variables.css` (`:root` y `[data-theme="dark"]`)     |
+> Las imágenes y PDFs viven siempre en `src/assets/` (árbol único). Edita los datos del
+> escritorio y los del portafolio en paralelo si quieres mantener ambas vistas sincronizadas.
+
+| Quiero…                            | Toco…                                                              |
+| ---------------------------------- | ------------------------------------------------------------------ |
+| Editar textos del perfil (escritorio)| `src/desktop/apps/About.tsx`                                     |
+| Añadir un proyecto (escritorio)    | `src/desktop/data/projects.ts` (imágenes en `src/assets/projects/`)|
+| Añadir tecnología (escritorio)     | `src/desktop/data/stack.ts` (icono PNG en `src/assets/stack/`)     |
+| Editar experiencia (escritorio)    | `src/desktop/data/timeline.ts`                                     |
+| Añadir certificado (escritorio)    | `src/desktop/data/certificates.ts` (preview/PDF en `src/assets/certs/`)|
+| Editar el portafolio / móvil       | `src/portfolio/data/*` (bilingüe) y `src/portfolio/sections/*`     |
+| Nueva app/ventana (escritorio)     | crear componente en `src/desktop/apps/`, añadir a `manifest.ts` + `registry.tsx` |
+| Cambiar colores/tema (escritorio)  | `src/desktop/styles/variables.css` (`:root` y `[data-theme="dark"]`)|
 
 ## 💾 Estado persistente (localStorage)
 

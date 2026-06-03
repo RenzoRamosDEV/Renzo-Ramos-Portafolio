@@ -1,29 +1,42 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
-import { MenuBar } from './desktop/MenuBar'
-import { Dock } from './desktop/Dock'
-import { DesktopIcons } from './desktop/DesktopIcons'
-import { Window } from './desktop/Window'
-import { Spotlight } from './desktop/Spotlight'
-import { useWindowManager } from './desktop/useWindowManager'
-import { DesktopContext } from './desktop/desktop-context'
-import type { Rect } from './desktop/types'
-import { APPS } from './apps/manifest'
-import { APP_CONTENT } from './apps/registry'
-import { useTheme } from './hooks/useTheme'
-import { useConfig } from './hooks/useConfig'
-import { ConfigContext } from './hooks/config-context'
-import { PortfolioV1 } from './apps/PortfolioV1'
+import { MenuBar } from './desktop/shell/MenuBar'
+import { Dock } from './desktop/shell/Dock'
+import { DesktopIcons } from './desktop/shell/DesktopIcons'
+import { Window } from './desktop/shell/Window'
+import { Spotlight } from './desktop/shell/Spotlight'
+import { useWindowManager } from './desktop/shell/useWindowManager'
+import { DesktopContext } from './desktop/shell/desktop-context'
+import type { Rect } from './desktop/shell/types'
+import { APPS } from './desktop/apps/manifest'
+import { APP_CONTENT } from './desktop/apps/registry'
+import { useTheme } from './desktop/hooks/useTheme'
+import { useConfig } from './desktop/hooks/useConfig'
+import { ConfigContext } from './desktop/hooks/config-context'
+import { PortfolioSite } from './portfolio/PortfolioSite'
 
 const isMobile = () => window.innerWidth < 768
 
+/**
+ * Punto de entrada. Decide qué experiencia montar:
+ * - Móvil (<768px): el portafolio (sitio scrollable) a pantalla completa.
+ * - Escritorio: el shell tipo macOS con ventanas, dock y Spotlight.
+ *
+ * La decisión se toma una sola vez al montar; no hay hooks en este componente
+ * para no romper las Reglas de Hooks con el retorno condicional.
+ */
 export function App() {
   if (isMobile()) {
     return (
       <div style={{ width: '100vw', height: '100vh' }}>
-        <PortfolioV1 />
+        <PortfolioSite />
       </div>
     )
   }
+  return <Desktop />
+}
+
+/** Shell de escritorio: window manager, menubar, dock, iconos y Spotlight. */
+function Desktop() {
   const [theme, setTheme] = useTheme()
   const config = useConfig()
   const [spotOpen, setSpotOpen] = useState(false)
@@ -59,12 +72,12 @@ export function App() {
     return () => window.removeEventListener('keydown', onKey)
   }, [])
 
-  // Initial layout: Portfolio V1 centrado
+  // Layout inicial: ventana del portafolio centrada
   useEffect(() => {
-    const { w, h } = APPS['v1'].size
+    const { w, h } = APPS['portfolio'].size
     const x = Math.round((window.innerWidth - w) / 2)
     const y = Math.round((window.innerHeight - h) / 2)
-    const t1 = setTimeout(() => launch('v1', { x, y, w, h }), 250)
+    const t1 = setTimeout(() => launch('portfolio', { x, y, w, h }), 250)
     return () => clearTimeout(t1)
   }, [launch])
 
