@@ -1,0 +1,9 @@
+langchain
+langgraph
+langchain-google-genai
+langchain-text-splitters
+langchain-core
+numpy
+fastapi
+uvicorn
+python-dotenv

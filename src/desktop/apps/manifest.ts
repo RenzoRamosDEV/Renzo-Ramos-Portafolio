@@ -1,4 +1,5 @@
 import rrIos from '../../assets/RR-IOS.jpeg'
+import iarr from '../../assets/IARR.png'
 
 export type AppMeta = {
   id: string
@@ -20,6 +21,7 @@ export const APPS: Record<string, AppMeta> = {
   path: { id: 'path', title: 'Trayectoria', icon: '◷', dockClass: 'd-path', size: { w: 580, h: 520 }, inDock: true },
   cert: { id: 'cert', title: 'Certificados', icon: '✦', dockClass: 'd-cert', size: { w: 600, h: 560 }, inDock: true },
   mail: { id: 'mail', title: 'Contacto', icon: '✉', dockClass: 'd-mail', size: { w: 520, h: 440 }, inDock: true },
+  chat: { id: 'chat', title: 'Asistente IA', icon: '⊹', iconImg: iarr, dockClass: 'd-chat', size: { w: 480, h: 580 }, inDock: true },
   config: { id: 'config', title: 'Preferencias', icon: '⚙', dockClass: 'd-cfg', size: { w: 480, h: 560 }, inDock: true },
   portfolio: { id: 'portfolio', title: 'Portafolio Renzo Ramos', icon: '★', iconImg: rrIos, dockClass: 'd-portfolio', size: { w: 1650, h: 860 }, inDock: true, noResize: true },
   'proj-booqi': { id: 'proj-booqi', title: 'Booqi', icon: 'B', dockClass: 'd-proj', size: { w: 1100, h: 720 }, inDock: false },
@@ -28,4 +30,4 @@ export const APPS: Record<string, AppMeta> = {
 }
 
 /** Ordered ids shown in the dock and as desktop shortcuts. */
-export const DOCK_IDS = ['about', 'proj', 'stack', 'path', 'cert', 'mail', 'portfolio', 'config'] as const
+export const DOCK_IDS = ['about', 'proj', 'stack', 'path', 'cert', 'mail', 'chat', 'portfolio', 'config'] as const

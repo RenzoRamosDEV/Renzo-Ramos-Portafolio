@@ -1,5 +1,6 @@
 import type { ReactNode } from 'react'
 import { About } from './About'
+import { Chat } from './Chat'
 import { Projects } from './Projects'
 import { ProjectDetail } from './ProjectDetail'
 import { Stack } from './Stack'
@@ -20,6 +21,7 @@ export const APP_CONTENT: Record<string, () => ReactNode> = {
   path: () => <Timeline />,
   cert: () => <Certificates />,
   mail: () => <Contact />,
+  chat: () => <Chat />,
   config: () => <Config />,
   portfolio: () => <PortfolioSite />,
 }
