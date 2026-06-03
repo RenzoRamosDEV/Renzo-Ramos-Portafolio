@@ -23,7 +23,7 @@ export function Footer() {
   const btnClass = "flex items-center gap-2 border border-[#A7B4BC]/25 hover:border-[#A7B4BC]/60 bg-[#A7B4BC]/5 hover:bg-[#A7B4BC]/10 text-[#A7B4BC]/70 hover:text-white px-4 py-2 rounded-md text-sm transition-all duration-200 justify-center"
 
   return (
-    <footer className="relative border-t border-[#A7B4BC]/20">
+    <footer className="relative border-t border-[#A7B4BC]/20 bg-black md:bg-transparent">
       <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-16 py-8">
 
         {/* Mobile layout */}

@@ -12,8 +12,18 @@ import { APP_CONTENT } from './apps/registry'
 import { useTheme } from './hooks/useTheme'
 import { useConfig } from './hooks/useConfig'
 import { ConfigContext } from './hooks/config-context'
+import { PortfolioV1 } from './apps/PortfolioV1'
+
+const isMobile = () => window.innerWidth < 768
 
 export function App() {
+  if (isMobile()) {
+    return (
+      <div style={{ width: '100vw', height: '100vh' }}>
+        <PortfolioV1 />
+      </div>
+    )
+  }
   const [theme, setTheme] = useTheme()
   const config = useConfig()
   const [spotOpen, setSpotOpen] = useState(false)
