@@ -34,7 +34,10 @@ function getThreadId(): string {
 const THREAD_ID = getThreadId()
 
 // El backend corre en local (ver chatbot/). Arráncalo con uvicorn en el puerto 8000.
-const API_URL = 'http://localhost:8000/chat'
+const API_BASE = 'http://localhost:8000'
+const API_URL = `${API_BASE}/chat`
+const HEALTH_URL = `${API_BASE}/health`
+const HEALTH_INTERVAL_MS = 15_000  // cada cuánto comprobamos si el backend sigue vivo
 
 export const CHAT_TXT = {
   es: {
@@ -42,6 +45,7 @@ export const CHAT_TXT = {
     placeholder: 'Pregunta sobre Renzo...',
     title: 'Asistente IA',
     offline: 'No se pudo conectar con el asistente. ¿Está el servidor corriendo?',
+    disabled: 'Asistente IA deshabilitado',
     open: 'Abrir chat',
     // {n} = horas, {m} = minutos hasta poder volver a preguntar.
     limit: 'Has alcanzado el límite de 6 preguntas cada 6 horas. Vuelve a intentarlo en {n}h {m}min.',
@@ -52,6 +56,7 @@ export const CHAT_TXT = {
     placeholder: 'Ask about Renzo...',
     title: 'AI Assistant',
     offline: "Couldn't reach the assistant. Is the server running?",
+    disabled: 'AI assistant disabled',
     open: 'Open chat',
     // {n} = hours, {m} = minutes until you can ask again.
     limit: "You've reached the limit of 6 questions every 6 hours. Try again in {n}h {m}min.",
@@ -74,6 +79,8 @@ export function useChat() {
   })
   const [input, setInput] = useState('')
   const [loading, setLoading] = useState(false)
+  // ¿El backend está encendido? null = aún sin comprobar (la burbuja arranca deshabilitada).
+  const [online, setOnline] = useState<boolean | null>(null)
   // Cuántas preguntas quedan en la ventana actual (se recalcula al enviar).
   const [remaining, setRemaining] = useState(() => Math.max(0, MAX_QUESTIONS - getRecentAsks().length))
   // Solo está el saludo inicial si no había conversación guardada.
@@ -88,6 +95,22 @@ export function useChat() {
   useEffect(() => {
     setMsgs(prev => (prev.length === 1 && greeted.current ? [{ role: 'bot', text: txt.greeting }] : prev))
   }, [lang, txt.greeting])
+
+  // Sondeamos el backend: si está caído, la burbuja se ve gris y no se puede abrir.
+  useEffect(() => {
+    let alive = true
+    async function ping() {
+      try {
+        const res = await fetch(HEALTH_URL, { method: 'GET' })
+        if (alive) setOnline(res.ok)
+      } catch {
+        if (alive) setOnline(false)
+      }
+    }
+    ping()
+    const id = setInterval(ping, HEALTH_INTERVAL_MS)
+    return () => { alive = false; clearInterval(id) }
+  }, [])
 
   async function send(text?: string) {
     const value = (text ?? input).trim()
@@ -127,5 +150,5 @@ export function useChat() {
     }
   }
 
-  return { lang, txt, msgs, input, setInput, loading, send, remaining, maxQuestions: MAX_QUESTIONS }
+  return { lang, txt, msgs, input, setInput, loading, send, remaining, maxQuestions: MAX_QUESTIONS, online: online === true }
 }

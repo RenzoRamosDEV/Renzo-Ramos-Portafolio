@@ -6,14 +6,25 @@ import { useChat } from './useChat'
 import './chat-widget.css'
 
 export function ChatWidget() {
-  const { txt, msgs, input, setInput, loading, send, remaining, maxQuestions } = useChat()
+  const { txt, msgs, input, setInput, loading, send, remaining, maxQuestions, online } = useChat()
   const [open, setOpen] = useState(false)
   const [expanded, setExpanded] = useState(false)   // true = ventana grande centrada
+  // En móvil no hay hover: al tocar la burbuja deshabilitada mostramos el mensajito un momento.
+  const [showHint, setShowHint] = useState(false)
+  const hintTimer = useRef<ReturnType<typeof setTimeout> | null>(null)
   const bottomRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     if (open) bottomRef.current?.scrollIntoView({ behavior: 'smooth' })
   }, [msgs, loading, open, expanded])
+
+  // Si el backend se cae mientras el chat está abierto, lo cerramos.
+  useEffect(() => {
+    if (!online) close()
+  }, [online])
+
+  // Limpiamos el temporizador del mensajito al desmontar.
+  useEffect(() => () => { if (hintTimer.current) clearTimeout(hintTimer.current) }, [])
 
   function onKey(e: React.KeyboardEvent) {
     if (e.key === 'Enter' && !e.shiftKey) {
@@ -25,6 +36,17 @@ export function ChatWidget() {
   function close() {
     setOpen(false)
     setExpanded(false)
+  }
+
+  function onBubbleClick() {
+    // Si el backend está caído, no abrimos: enseñamos el aviso (clave en móvil, donde no hay hover).
+    if (!online) {
+      setShowHint(true)
+      if (hintTimer.current) clearTimeout(hintTimer.current)
+      hintTimer.current = setTimeout(() => setShowHint(false), 2500)
+      return
+    }
+    open ? close() : setOpen(true)
   }
 
   // Cabecera, mensajes e input se comparten entre el popup y la ventana grande.
@@ -116,13 +138,20 @@ export function ChatWidget() {
         </div>
       )}
 
-      <button
-        className={`cw-bubble-btn ${open ? 'is-open' : ''}`}
-        onClick={() => (open ? close() : setOpen(true))}
-        aria-label={txt.open}
-      >
-        {open ? <span className="cw-chevron">✕</span> : <img src={iarr} alt={txt.title} />}
-      </button>
+      <div className="cw-bubble-wrap">
+        {!online && (
+          <div className={`cw-tooltip ${showHint ? 'is-shown' : ''}`} role="status">
+            {txt.disabled}
+          </div>
+        )}
+        <button
+          className={`cw-bubble-btn ${open ? 'is-open' : ''} ${online ? '' : 'is-offline'}`}
+          onClick={onBubbleClick}
+          aria-label={online ? txt.open : txt.disabled}
+        >
+          {open ? <span className="cw-chevron">✕</span> : <img src={iarr} alt={txt.title} />}
+        </button>
+      </div>
     </div>
   )
 }

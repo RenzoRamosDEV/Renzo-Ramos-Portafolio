@@ -30,7 +30,41 @@
 .cw-bubble-btn:hover { transform: translateY(-2px) scale(1.04); }
 .cw-bubble-btn img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .cw-bubble-btn.is-open { background: #2a2d33; }
+/* Backend apagado / no detectado: gris, sin interacción. */
+.cw-bubble-btn.is-offline {
+  background: #3a3d42;
+  cursor: not-allowed;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+.cw-bubble-btn.is-offline:hover { transform: none; }
+.cw-bubble-btn.is-offline img { filter: grayscale(1); opacity: 0.5; }
 .cw-chevron { color: #fff; font-size: 18px; line-height: 1; }
+
+/* Aviso "Asistente IA deshabilitado" junto a la burbuja gris. */
+.cw-bubble-wrap { position: relative; display: inline-flex; }
+.cw-tooltip {
+  position: absolute;
+  right: calc(100% + 10px);
+  top: 50%;
+  transform: translateY(-50%) translateX(6px);
+  white-space: nowrap;
+  background: #2a2d33;
+  color: #f3f4f6;
+  font-size: 13px;
+  line-height: 1;
+  padding: 8px 12px;
+  border-radius: 10px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+/* Escritorio: al pasar el ratón. Móvil: al tocar (clase is-shown desde React). */
+.cw-bubble-wrap:hover .cw-tooltip,
+.cw-tooltip.is-shown {
+  opacity: 1;
+  transform: translateY(-50%) translateX(0);
+}
 
 /* --- Panel --- */
 .cw-panel {

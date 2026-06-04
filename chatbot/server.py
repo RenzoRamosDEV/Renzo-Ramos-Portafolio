@@ -20,9 +20,15 @@ app = FastAPI()
 app.add_middleware(
     CORSMiddleware,
     allow_origins=CORS_ORIGINS,
-    allow_methods=["POST"],
+    allow_methods=["GET", "POST"],
     allow_headers=["*"],
 )
+
+
+@app.get("/health")
+def health():
+    # Sonda ligera para que el frontend sepa si el backend está encendido.
+    return {"ok": True}
 
 
 @app.post("/chat", response_model=ChatResponse)
