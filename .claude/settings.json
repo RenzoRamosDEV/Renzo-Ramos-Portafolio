@@ -22,10 +22,46 @@
       "Bash(sed -n '200,215p' /home/renzo-ramos/Workspace/Renzo/portafololio-renzo/src/sections/features/Features.tsx)",
       "Bash(sed -n '213,225p' /home/renzo-ramos/Workspace/Renzo/portafololio-renzo/src/sections/experience/Experience.tsx)",
       "Read(//home/renzo-renzo/Workspace/Renzo/portafololio-renzo/src/sections/features/**)",
-      "Bash(npx vite *)"
+      "Bash(npx vite *)",
+      "Bash(.venv/bin/python -c \"import ast; ast.parse\\(open\\('server.py'\\).read\\(\\)\\); print\\('sintaxis OK'\\)\")",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" http://localhost:8000/docs)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" http://localhost:5173)",
+      "Bash(curl -s -X POST http://localhost:8000/chat -H \"Content-Type: application/json\" -d '{\"message\":\"hola\",\"thread_id\":\"diag\"}' -w \"\\\\n[HTTP %{http_code}]\")",
+      "Bash(curl -s -i -X OPTIONS http://localhost:8000/chat -H 'Origin: http://localhost:5173' -H 'Access-Control-Request-Method: POST' -H 'Access-Control-Request-Headers: content-type')",
+      "Bash(sed -i \"s#chromium.launch\\(\\)#chromium.launch\\({ executablePath: '/home/renzo-ramos/.cache/ms-playwright/chromium-1217/chrome-linux64/chrome' }\\)#\" cw-check.mjs)",
+      "Bash(node cw-check.mjs)",
+      "Bash(curl -s -i -X POST http://localhost:8000/chat -H 'Origin: http://localhost:5173' -H 'Content-Type: application/json' -d '{\"message\":\"hola\",\"thread_id\":\"hdr\"}')",
+      "Bash(curl -s -X POST http://localhost:8000/chat -H \"Content-Type: application/json\" -d '{\"message\":\"hola\",\"thread_id\":\"body-check\"}')",
+      "Bash(.venv/bin/python -c ' *)",
+      "Bash(grep -vE \"UserWarning|warnings.warn|^\\\\s*$\")",
+      "Bash(curl -s -X POST http://localhost:8000/chat -H \"Content-Type: application/json\" -d '{\"message\":\"¿Qué proyectos ha hecho Renzo?\",\"thread_id\":\"on-check\"}')",
+      "Bash(python3 -c \"import sys,json;print\\(json.load\\(sys.stdin\\)['response'][:300]\\)\")",
+      "Bash(curl -s -X POST http://localhost:8000/chat -H \"Content-Type: application/json\" -d '{\"message\":\"hola\",\"thread_id\":\"raw\"}' -w \"\\\\n[HTTP %{http_code}]\")",
+      "Bash(.venv/bin/python -c \"import server; print\\('OK — modelo:', server.llm.model_name\\)\")",
+      "Bash(.venv/bin/uvicorn server:app --port 8000)",
+      "Bash(curl -s -o /dev/null -w \"HTTP %{http_code}\\\\n\" -X POST http://localhost:8000/chat -H \"Content-Type: application/json\" -d '{\"message\":\"hola\",\"thread_id\":\"smoke\"}')",
+      "Bash(git check-ignore *)",
+      "Bash(python3 -c \"from dotenv import dotenv_values; print\\(dotenv_values\\('.env'\\)['SYSTEM_PROMPT']\\)\")",
+      "Bash(.venv/bin/python -c \"from dotenv import dotenv_values; print\\(dotenv_values\\('.env'\\)['SYSTEM_PROMPT']\\)\")",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" -X POST http://localhost:8000/chat -H \"Content-Type: application/json\" -d '{\"message\":\"hi, who is Renzo?\",\"thread_id\":\"test-en\"}')",
+      "Bash(curl -s -X POST http://localhost:8000/chat -H \"Content-Type: application/json\" -d '{\"message\":\"hi, who is Renzo? answer briefly\",\"thread_id\":\"test-en2\"}')",
+      "Bash(rm -f .github/workflows/deploy.yml)",
+      "Bash(rmdir .github/workflows .github)",
+      "Bash(rm -rf dist tsconfig.app.tsbuildinfo tsconfig.node.tsbuildinfo chatbot/__pycache__)",
+      "Bash(grep -iE \"\\\\.env$|\\\\.env\\\\b\")",
+      "Bash(git grep *)",
+      "Bash(python3 -m py_compile chatbot/server.py)",
+      "Bash(python3 -m py_compile config.py knowledge.py llm.py history.py ratelimit.py schemas.py server.py)",
+      "Bash(rm -f Dockerfile .dockerignore docker-compose.yml DEPLOY-RASPBERRY.md && echo \"borrados\" && ls)",
+      "Bash(python3 -c \"import ast; [ast.parse\\(open\\(f\\).read\\(\\)\\) for f in ['config.py','ratelimit.py','server.py']]\")",
+      "Bash(.venv/bin/uvicorn server:app --port 8000 --reload)",
+      "Bash(curl -s http://localhost:8000/health)",
+      "Bash(curl -s -m 2 http://localhost:8000/health)",
+      "Bash(pkill -9 -f uvicorn)"
     ],
     "additionalDirectories": [
-      "/home/renzo-ramos/Documentos/Docs/CV"
+      "/home/renzo-ramos/Documentos/Docs/CV",
+      "/home/renzo-ramos/Workspace/Renzo/portafololio-renzo/chatbot"
     ]
   }
 }

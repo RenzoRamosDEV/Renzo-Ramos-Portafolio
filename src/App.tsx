@@ -1,27 +1,10 @@
-import './styles/globals.css'
-import { LanguageProvider } from './i18n/LanguageContext'
-import { Navbar } from './components/layout/Navbar'
-import { Footer } from './components/layout/Footer'
-import { Hero } from './sections/hero/Hero'
-import { ProjectsSection } from './sections/projects/ProjectsSection'
-import { ExperienceSection } from './sections/experience/ExperienceSection'
-import { StackSection } from './sections/stack/StackSection'
-import { MethodologiesSection } from './sections/methodologies/MethodologiesSection'
+import { PortfolioSite } from './portfolio/PortfolioSite'
 
-function App() {
+/** Punto de entrada: el portafolio (sitio scrollable) a pantalla completa. */
+export function App() {
   return (
-    <LanguageProvider>
-      <main className="bg-black">
-        <Navbar />
-        <Hero />
-        <ProjectsSection />
-        <ExperienceSection />
-        <StackSection />
-        <MethodologiesSection />
-        <Footer />
-      </main>
-    </LanguageProvider>
+    <div style={{ width: '100vw', height: '100vh' }}>
+      <PortfolioSite />
+    </div>
   )
 }
-
-export default App

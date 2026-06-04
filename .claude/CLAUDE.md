@@ -1,189 +1,130 @@
-# Portfolio Renzo - Documentación Claude
+# Portfolio Renzo — Documentación Claude
 
 ## 📋 Descripción General
 
-Portfolio moderno y personalizable en HTML/CSS/JS vanilla. Completamente estático, responsivo, con modo oscuro y soporte multiidioma (ES/EN). Incluye panel flotante para edición en tiempo real.
+Portfolio personal de Renzo Ramos. Es un **sitio web de una sola página, scrollable y bilingüe
+(ES/EN)**, con secciones Hero / Proyectos / Experiencia / Stack / Metodologías y animaciones
+(framer-motion). Incluye un **asistente IA flotante** (burbuja abajo a la derecha) que responde
+preguntas sobre Renzo mediante un backend independiente.
 
-## 🏗️ Arquitectura
+Dos piezas:
 
-**Frontend**: 100% HTML/CSS/JavaScript vanilla
-- **HTML**: Semántico, con data attributes para i18n
-- **CSS**: Modular, variables OKLCH, mobile-first
-- **JS**: Módulos ES6, sin dependencias (React solo en panel)
+- **Frontend** (`src/`) → SPA estática con **React + TypeScript + Vite**, desplegable en GitHub Pages.
+- **Chatbot** (`chatbot/`) → backend **FastAPI + LangChain + OpenAI** que sirve el endpoint `/chat`.
+  Se ejecuta aparte; el frontend lo consume vía `fetch` (por defecto a `http://localhost:8000`).
 
-**Estructura**:
+## 🏗️ Arquitectura del frontend
+
+**Stack**: React 19 + TypeScript + Vite + Tailwind. Sin backend propio en el frontend; todo estático.
+
 ```
-index.html (punto de entrada)
-├── src/styles/*.css (8 archivos modulares)
-├── src/js/main.js (renderizado)
-├── src/data/*.js (stack, proyectos)
-├── src/i18n/translations.js (ES/EN)
-├── src/utils/*.js (scroll, trail, tema)
-└── src/components/tweaks-panel.jsx (React - edición)
-```
-
-## 🔧 Tecnologías
-
-- **Estilos**: CSS puro, sin preprocessador
-- **Colores**: OKLCH (mejor que Hex/RGB)
-- **Animaciones**: CSS transitions + requestAnimationFrame
-- **Tipografía**: Google Fonts (Caveat, Lora, JetBrains Mono)
-- **Interactividad**: JS vanilla (localStorage, ResizeObserver, IntersectionObserver)
-- **Panel**: React CDN + Babel (opcional, no bloqueante)
-
-## 📁 Archivos Críticos
-
-| Archivo                    | Responsabilidad            | Nota                        |
-| -------------------------- | -------------------------- | --------------------------- |
-| `index.html`               | Estructura, meta tags      | Cambiar nombre/email aquí   |
-| `src/data/stack.js`        | Tecnologías                | Array de 8 items            |
-| `src/data/projects.js`     | Proyectos                  | Array de 3-N proyectos      |
-| `src/styles/variables.css` | Tema (colores, tipografía) | Editar para cambiar colores |
-| `src/js/main.js`           | Renderizado y setup        | Punto de entrada JS         |
-| `src/i18n/translations.js` | Textos ES/EN               | Objeto con 2 claves         |
-
-## 🎯 Flujo Principal
-
-1. **Carga**: browser → `index.html` → carga CSS + JS
-2. **Renderizado**:
-   - `main.js` → importa data/*.js
-   - Renderiza grid de stack (marquee infinito)
-   - Renderiza cards de proyectos
-3. **Interactividad**:
-   - `utils/i18n-dark-mode.js` → botones lang/dark
-   - `utils/scroll-reveal.js` → IntersectionObserver
-   - `utils/drawing-trail.js` → canvas trail
-   - `tweaks-panel.jsx` → panel flotante (React)
-
-## 💾 Estado Persistente
-
-localStorage keys:
-- `pf-lang`: 'es' | 'en'
-- `pf-dark`: 'true' | 'false'
-
-## 🔴 Puntos Críticos
-
-1. **Colores**: Usar OKLCH, no Hex. Sintaxis: `oklch(L% C H)`
-   - L: 0-100 (lightness)
-   - C: 0-0.4 (chroma)
-   - H: 0-360 (hue)
-
-2. **Responsiveness**: Mobile-first, breakpoint principal: 720px
-
-3. **Traducciones**: Si editas textos en `translations.js`, actualiza también `index.html` (data-i18n)
-
-4. **Grid Background**: CSS puro, no imagen. Cambiar en `body {}` para ajustar patrón.
-
-5. **Avatar**: Placeholder actual. Reemplazar con `<img>` en `.avatar-placeholder`
-
-## 🎨 Customización Frecuente
-
-### Cambiar Color Principal
-```css
-/* src/styles/variables.css */
---accent: oklch(44% 0.18 250);  /* Cambia H para nuevo color */
+index.html                       → punto de entrada Vite (monta #root)
+src/
+├── main.tsx                     → render de <App/>
+├── App.tsx                      → renderiza <PortfolioSite/> a pantalla completa
+├── assets/                      → árbol de imágenes y PDFs (stack/ projects/ certs/ cv/ + IARR.png)
+│
+└── portfolio/                   → EL SITIO
+    ├── PortfolioSite.tsx        → entrada del sitio scrollable; monta secciones + ChatWidget
+    ├── sections/                → hero, projects, experience, stack, methodologies
+    ├── components/
+    │   ├── layout/              → Navbar, Footer
+    │   ├── ui/                  → Chip, PillButton, ScrollIndicator, SectionTitle
+    │   ├── motion/              → WordsPullUp
+    │   └── chat/                → asistente flotante: ChatWidget.tsx (UI) + useChat.ts (estado/fetch)
+    │                              + chatMarkdown.tsx (render markdown) + chat-widget.css
+    ├── shared/                  → ItemDetailCard (componente compartido)
+    ├── data/                    → datos bilingües (ES/EN): projects, experience, stack, etc.
+    ├── i18n/                    → LanguageContext + translations
+    ├── hooks/                   → useInView
+    └── styles/                  → globals.css (incluye Tailwind)
 ```
 
-### Agregar Proyecto
-```javascript
-// src/data/projects.js
-{
-  num: "04",
-  title: "Nuevo Proyecto",
-  desc: "...",
-  badges: ["Tech1", "Tech2"],
-  repo: "...",
-  demo: "..."
-}
+## 🤖 Arquitectura del chatbot
+
+Backend independiente en `chatbot/` (Python). Ver `chatbot/server.py`.
+
+```
+chatbot/
+├── server.py        → FastAPI con el endpoint POST /chat. Fino: orquesta los módulos de abajo.
+├── config.py        → variables de entorno y constantes (modelo, límites, CORS)
+├── knowledge.py     → carga los knowledge/*.md y construye el SYSTEM_PROMPT
+├── llm.py           → llamada a OpenAI (ask_llm) y mensajes de error
+├── history.py       → historial por sesión (thread_id) en RAM, acotado a MAX_HISTORY
+├── ratelimit.py     → límite de preguntas por IP (ventana deslizante en RAM)
+├── schemas.py       → modelos Pydantic de petición/respuesta
+├── knowledge/       → base de conocimiento en .md (about, experience, education, certifications,
+│                      skills, methodologies, projects, contact). Se concatenan todos al arrancar.
+├── requirements.txt → dependencias Python (langchain-openai, fastapi, uvicorn, python-dotenv)
+└── .env             → OPENAI_API_KEY, OPENAI_MODEL, SYSTEM_PROMPT (NO se sube a git)
 ```
 
-### Agregar Tecnología
-```javascript
-// src/data/stack.js
-{
-  name: "Nueva Tech",
-  color: "#hexcolor",
-  bg: "#hexbg",
-  desc: "Descripción"
-}
+**Flujo de `/chat`**: al arrancar, `server.py` concatena todos los `knowledge/*.md` y los inyecta en
+el `SYSTEM_PROMPT` (que vive en `.env`, con reglas anti-inyección y los datos como contexto). Como ese
+prefijo es fijo, OpenAI lo cachea y abarata las llamadas. En cada petición recibe `{message, thread_id}`,
+añade el mensaje al historial de esa sesión y llama al modelo (`ask_llm`). Mantiene el historial por
+sesión (`thread_id`) en RAM, acotado a `MAX_HISTORY` mensajes. Si el LLM falla (p.ej. cuota agotada),
+devuelve un mensaje amable en 200 con CORS en vez de un 500.
+
+**Límite de peticiones**: cada IP puede hacer como máximo `MAX_QUESTIONS` (6) preguntas por
+`RATE_WINDOW` (6 h), comprobado en `ratelimit.py` (ventana deslizante en RAM). Al superarlo,
+`/chat` responde con un aviso amable sin llamar al LLM. El frontend también lleva un contador en
+`localStorage` (`pf-chat-rate`), pero es solo UX: la barrera real es el backend (no se salta
+borrando caché).
+
+**Frontend ↔ backend**: `useChat.ts` hace `fetch` a `http://localhost:8000/chat`. Todo corre en
+local: arranca el backend con uvicorn (ver Comandos) y el front con `npm run dev`.
+
+## 🎯 Flujo de arranque
+
+1. `main.tsx` monta `<App/>`.
+2. `App.tsx` renderiza `<PortfolioSite/>` a pantalla completa.
+3. `PortfolioSite` provee `LanguageProvider`, monta las secciones scrollables y la burbuja `ChatWidget`.
+
+## 🔧 Cómo añadir / editar
+
+| Quiero…                              | Toco…                                                             |
+| ------------------------------------ | ----------------------------------------------------------------- |
+| Editar textos del sitio / traducciones | `src/portfolio/data/*` (bilingüe) y `src/portfolio/i18n/translations.ts` |
+| Añadir un proyecto                   | `src/portfolio/data/projects.ts` (imágenes en `src/assets/projects/`) |
+| Añadir tecnología al stack           | `src/portfolio/data/stack.ts` (icono PNG en `src/assets/stack/`)  |
+| Editar experiencia / formación       | `src/portfolio/data/experience.ts`, `education.ts`                |
+| Añadir certificado                   | `src/portfolio/data/certificates.ts` (preview/PDF en `src/assets/certs/`) |
+| Editar una sección visual            | `src/portfolio/sections/*`                                        |
+| Editar el asistente IA (UI)          | `src/portfolio/components/chat/ChatWidget.tsx` + `useChat.ts` + `chat-widget.css` |
+| Editar lo que SABE el asistente      | `chatbot/knowledge/*.md` (crear un nuevo `.md` lo añade al conocimiento) |
+| Editar la lógica del asistente       | `chatbot/server.py`                                               |
+
+## 💾 Estado persistente (localStorage)
+
+- `pf-lang`: `'es' | 'en'` (idioma del sitio)
+- `pf-chat-thread`: id de conversación del asistente (continuidad con el backend)
+- `pf-chat-msgs`: mensajes visibles del chat (persisten al recargar)
+
+## 🚀 Comandos
+
+```bash
+# Frontend
+npm install      # instalar dependencias
+npm run dev      # servidor de desarrollo (Vite, http://localhost:5173)
+npm run build    # build de producción a dist/ (tsc -b && vite build)
+npm run preview  # previsualizar el build
+
+# Chatbot (desde chatbot/)
+python3 -m venv .venv && .venv/bin/pip install -r requirements.txt   # instalar (una vez)
+.venv/bin/uvicorn server:app --port 8000                            # arrancar el backend
 ```
 
-### Cambiar Textos
-```javascript
-// src/i18n/translations.js
-es: { myKey: "Nuevo texto" }
-en: { myKey: "New text" }
-```
-Y en `index.html`: `<p data-i18n="myKey">`
+## 🚢 Ejecución (local)
 
-## 🚀 Deploy
+Todo corre en local, sin despliegue a producción:
 
-- **Recomendado**: Vercel (automático desde GitHub)
-- **Alternativas**: Netlify, GitHub Pages, Cloudflare Pages
-- **Dominio**: Personalizado ($12/año, apunta DNS)
-- **SSL**: Incluido automáticamente en todos
+1. Backend: desde `chatbot/`, `.venv/bin/uvicorn server:app --port 8000`.
+2. Frontend: `npm run dev` (Vite en http://localhost:5173).
 
-Ver: `docs/DEPLOYMENT.md`
+El frontend apunta fijo a `http://localhost:8000/chat` (ver `useChat.ts`).
 
-## 📖 Documentación
+## 👤 Autor
 
-- `README.md` → Overview general
-- `STRUCTURE.md` → Árbol y flujo
-- `docs/CUSTOMIZATION.md` → Guía detallada de cambios
-- `docs/DEPLOYMENT.md` → Cómo subir a producción
-- Este archivo → Referencia para Claude
-
-## 🔍 Testing
-
-- **Local**: Abre `index.html` directo (no necesita servidor)
-- **Build**: No hay build step (archivo estático)
-- **Browser**: Chrome, Firefox, Safari, Edge (soporte amplio)
-- **Mobile**: Responsivo hasta 320px
-
-## 📊 Análiticas Tipícas
-
-- **Tamaño total**: ~200KB (CSS + JS + HTML sin imágenes)
-- **First Paint**: <1s en conexión normal
-- **Animaciones**: 60fps suave
-- **Score Lighthouse**: 90-95 (si sin imagen heavy)
-
-## 🐛 Debugging
-
-Si no funciona:
-
-1. **Consola**: F12 → Console (hay `useTweaks` disponible)
-2. **LocalStorage**: `localStorage.clear()` reinicia todo
-3. **Caché**: Ctrl+Shift+R fuerza recarga
-4. **Red**: Verificar que Google Fonts cargue
-
-## ⚠️ Restricciones/Consideraciones
-
-1. **Sin API backend**: Solo datos estáticos (no contacto form, sin dinámico)
-2. **Sin CMS**: Editar archivos .js/.html directamente
-3. **Sin versioning automático**: Cambios manuales en Git
-4. **Grid background**: CPU leve en scroll (canvas trail), OK en modern browsers
-5. **React**: Solo para panel, no bloqueante, carga async
-
-## 🆕 Agregar Funcionalidad
-
-Si quieres:
-- **Formulario de contacto**: Agregar servicio (Formspree, Netlify Forms)
-- **Blog**: Agregar carpeta /blog con archivos estáticos o Markdown
-- **Comentarios**: Integrar Disqus o similar
-- **Búsqueda**: No necesaria para 3-5 proyectos
-
-## 👤 Autor Info
-
-- Nombre: Renzo Ramos
-- Email: renzoramosivan@gmail.com
-- Portfolio: (en portafololio-renzo/)
-- Versión: 2.0 (reorganizado)
-
-## 📝 Historial
-
-- **v1.0**: Portfolio original (2 archivos monolíticos)
-- **v2.0**: Reorganizado en estructura modular (este)
-
----
-
-**Nota para Claude**: Este proyecto es mantenible, escalable y está listo para producción. Cambios simples (textos, datos) en `src/data/` y `src/i18n/`. Cambios visuales en `src/styles/`. No requiere tooling complejo.
+- Renzo Ramos · renzoramosivan@gmail.com
+- GitHub: RenzoRamosDEV · LinkedIn: renzoinv04

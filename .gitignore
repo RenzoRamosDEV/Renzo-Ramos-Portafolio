@@ -11,6 +11,13 @@ node_modules
 dist
 dist-ssr
 *.local
+*.tsbuildinfo
+
+# Chatbot (Python)
+chatbot/.env
+chatbot/.venv
+__pycache__/
+*.pyc
 
 # Editor directories and files
 .vscode/*
