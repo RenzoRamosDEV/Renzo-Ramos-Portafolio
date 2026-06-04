@@ -49,10 +49,14 @@
       "Bash(rmdir .github/workflows .github)",
       "Bash(rm -rf dist tsconfig.app.tsbuildinfo tsconfig.node.tsbuildinfo chatbot/__pycache__)",
       "Bash(grep -iE \"\\\\.env$|\\\\.env\\\\b\")",
-      "Bash(git grep *)"
+      "Bash(git grep *)",
+      "Bash(python3 -m py_compile chatbot/server.py)",
+      "Bash(python3 -m py_compile config.py knowledge.py llm.py history.py ratelimit.py schemas.py server.py)",
+      "Bash(rm -f Dockerfile .dockerignore docker-compose.yml DEPLOY-RASPBERRY.md && echo \"borrados\" && ls)"
     ],
     "additionalDirectories": [
-      "/home/renzo-ramos/Documentos/Docs/CV"
+      "/home/renzo-ramos/Documentos/Docs/CV",
+      "/home/renzo-ramos/Workspace/Renzo/portafololio-renzo/chatbot"
     ]
   }
 }

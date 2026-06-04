@@ -1,0 +1,3 @@
+# Portfolio de Renzo Ramos — sitio público, indexación permitida
+User-agent: *
+Allow: /

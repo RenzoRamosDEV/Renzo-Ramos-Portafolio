@@ -210,3 +210,12 @@
 }
 .cw-send:hover:not(:disabled) { transform: scale(1.1); }
 .cw-send:disabled { opacity: 0.4; cursor: default; }
+
+/* Contador de preguntas restantes */
+.cw-counter {
+  padding: 0 16px 8px;
+  font-size: 11px;
+  color: #8a97a0;
+  text-align: right;
+}
+.cw-counter.is-empty { color: #f0a3a3; }

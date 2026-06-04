@@ -46,11 +46,17 @@ Backend independiente en `chatbot/` (Python). Ver `chatbot/server.py`.
 
 ```
 chatbot/
-├── server.py        → FastAPI con el endpoint POST /chat (knowledge en el prompt → OpenAI → responder)
+├── server.py        → FastAPI con el endpoint POST /chat. Fino: orquesta los módulos de abajo.
+├── config.py        → variables de entorno y constantes (modelo, límites, CORS)
+├── knowledge.py     → carga los knowledge/*.md y construye el SYSTEM_PROMPT
+├── llm.py           → llamada a OpenAI (ask_llm) y mensajes de error
+├── history.py       → historial por sesión (thread_id) en RAM, acotado a MAX_HISTORY
+├── ratelimit.py     → límite de preguntas por IP (ventana deslizante en RAM)
+├── schemas.py       → modelos Pydantic de petición/respuesta
 ├── knowledge/       → base de conocimiento en .md (about, experience, education, certifications,
 │                      skills, methodologies, projects, contact). Se concatenan todos al arrancar.
 ├── requirements.txt → dependencias Python (langchain-openai, fastapi, uvicorn, python-dotenv)
-└── .env             → OPENAI_API_KEY, OPENAI_MODEL, SYSTEM_PROMPT, ... (NO se sube a git)
+└── .env             → OPENAI_API_KEY, OPENAI_MODEL, SYSTEM_PROMPT (NO se sube a git)
 ```
 
 **Flujo de `/chat`**: al arrancar, `server.py` concatena todos los `knowledge/*.md` y los inyecta en
@@ -60,8 +66,14 @@ añade el mensaje al historial de esa sesión y llama al modelo (`ask_llm`). Man
 sesión (`thread_id`) en RAM, acotado a `MAX_HISTORY` mensajes. Si el LLM falla (p.ej. cuota agotada),
 devuelve un mensaje amable en 200 con CORS en vez de un 500.
 
-**Frontend ↔ backend**: `useChat.ts` hace `fetch` a `${VITE_CHAT_API_URL ?? 'http://localhost:8000'}/chat`.
-En producción (GitHub Pages) hay que desplegar el backend en un host externo y definir `VITE_CHAT_API_URL`.
+**Límite de peticiones**: cada IP puede hacer como máximo `MAX_QUESTIONS` (6) preguntas por
+`RATE_WINDOW` (6 h), comprobado en `ratelimit.py` (ventana deslizante en RAM). Al superarlo,
+`/chat` responde con un aviso amable sin llamar al LLM. El frontend también lleva un contador en
+`localStorage` (`pf-chat-rate`), pero es solo UX: la barrera real es el backend (no se salta
+borrando caché).
+
+**Frontend ↔ backend**: `useChat.ts` hace `fetch` a `http://localhost:8000/chat`. Todo corre en
+local: arranca el backend con uvicorn (ver Comandos) y el front con `npm run dev`.
 
 ## 🎯 Flujo de arranque
 
@@ -103,12 +115,14 @@ python3 -m venv .venv && .venv/bin/pip install -r requirements.txt   # instalar 
 .venv/bin/uvicorn server:app --port 8000                            # arrancar el backend
 ```
 
-## 🚢 Deploy
+## 🚢 Ejecución (local)
 
-Frontend en GitHub Pages sirviendo `dist/` (`npm run build`). `vite.config.ts` usa `base: './'`
-(rutas relativas). No hay workflow de CI/CD: el deploy es manual.
-El chatbot requiere desplegar `chatbot/` en un host con Python (Render, Railway, Fly…) y apuntar
-el frontend ahí definiendo `VITE_CHAT_API_URL` (lo consume `useChat.ts`).
+Todo corre en local, sin despliegue a producción:
+
+1. Backend: desde `chatbot/`, `.venv/bin/uvicorn server:app --port 8000`.
+2. Frontend: `npm run dev` (Vite en http://localhost:5173).
+
+El frontend apunta fijo a `http://localhost:8000/chat` (ver `useChat.ts`).
 
 ## 👤 Autor
 

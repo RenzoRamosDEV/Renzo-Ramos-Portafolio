@@ -6,7 +6,7 @@ import { useChat } from './useChat'
 import './chat-widget.css'
 
 export function ChatWidget() {
-  const { txt, msgs, input, setInput, loading, send } = useChat()
+  const { txt, msgs, input, setInput, loading, send, remaining, maxQuestions } = useChat()
   const [open, setOpen] = useState(false)
   const [expanded, setExpanded] = useState(false)   // true = ventana grande centrada
   const bottomRef = useRef<HTMLDivElement>(null)
@@ -78,6 +78,12 @@ export function ChatWidget() {
     </div>
   )
 
+  const counter = (
+    <div className={`cw-counter ${remaining === 0 ? 'is-empty' : ''}`}>
+      {txt.counter.replace('{r}', String(remaining)).replace('{t}', String(maxQuestions))}
+    </div>
+  )
+
   return (
     <div className="cw">
       {/* Popup acoplado a la burbuja */}
@@ -86,6 +92,7 @@ export function ChatWidget() {
           {header}
           {messages}
           {inputRow}
+          {counter}
         </div>
       )}
 
@@ -103,6 +110,7 @@ export function ChatWidget() {
               {header}
               {messages}
               {inputRow}
+              {counter}
             </div>
           </div>
         </div>

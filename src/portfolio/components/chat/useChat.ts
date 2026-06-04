@@ -5,6 +5,22 @@ export type Msg = { role: 'user' | 'bot'; text: string }
 
 const THREAD_KEY = 'pf-chat-thread'   // localStorage: id de conversación (continuidad en el backend)
 const MSGS_KEY = 'pf-chat-msgs'       // localStorage: mensajes visibles del chat
+const RATE_KEY = 'pf-chat-rate'       // localStorage: timestamps de las preguntas enviadas
+
+// Límite anti-abuso: como máximo MAX_QUESTIONS preguntas por ventana de WINDOW_MS (ventana deslizante).
+const MAX_QUESTIONS = 6
+const WINDOW_MS = 6 * 60 * 60 * 1000  // 6 horas
+
+// Lee del localStorage los timestamps de preguntas que siguen dentro de la ventana actual.
+function getRecentAsks(): number[] {
+  const now = Date.now()
+  try {
+    const saved = JSON.parse(localStorage.getItem(RATE_KEY) ?? '[]') as number[]
+    return saved.filter(t => now - t < WINDOW_MS)
+  } catch {
+    return []
+  }
+}
 
 // Reusamos el thread_id guardado para no perder la conversación al recargar la página.
 function getThreadId(): string {
@@ -17,8 +33,8 @@ function getThreadId(): string {
 }
 const THREAD_ID = getThreadId()
 
-// En dev usa localhost; en producción define VITE_CHAT_API_URL (ej. la URL pública de la Pi).
-const API_URL = `${import.meta.env.VITE_CHAT_API_URL ?? 'http://localhost:8000'}/chat`
+// El backend corre en local (ver chatbot/). Arráncalo con uvicorn en el puerto 8000.
+const API_URL = 'http://localhost:8000/chat'
 
 export const CHAT_TXT = {
   es: {
@@ -27,6 +43,9 @@ export const CHAT_TXT = {
     title: 'Asistente IA',
     offline: 'No se pudo conectar con el asistente. ¿Está el servidor corriendo?',
     open: 'Abrir chat',
+    // {n} = horas, {m} = minutos hasta poder volver a preguntar.
+    limit: 'Has alcanzado el límite de 6 preguntas cada 6 horas. Vuelve a intentarlo en {n}h {m}min.',
+    counter: '{r} de {t} preguntas restantes',
   },
   en: {
     greeting: "Hi! I'm Renzo's assistant. Ask me about his experience, projects or technologies.",
@@ -34,6 +53,9 @@ export const CHAT_TXT = {
     title: 'AI Assistant',
     offline: "Couldn't reach the assistant. Is the server running?",
     open: 'Open chat',
+    // {n} = hours, {m} = minutes until you can ask again.
+    limit: "You've reached the limit of 6 questions every 6 hours. Try again in {n}h {m}min.",
+    counter: '{r} of {t} questions left',
   },
 } as const
 
@@ -52,6 +74,8 @@ export function useChat() {
   })
   const [input, setInput] = useState('')
   const [loading, setLoading] = useState(false)
+  // Cuántas preguntas quedan en la ventana actual (se recalcula al enviar).
+  const [remaining, setRemaining] = useState(() => Math.max(0, MAX_QUESTIONS - getRecentAsks().length))
   // Solo está el saludo inicial si no había conversación guardada.
   const greeted = useRef(msgs.length === 1)
 
@@ -68,6 +92,22 @@ export function useChat() {
   async function send(text?: string) {
     const value = (text ?? input).trim()
     if (!value || loading) return
+
+    // Límite de preguntas: si se superó la cuota de la ventana, avisamos y no enviamos.
+    const recent = getRecentAsks()
+    if (recent.length >= MAX_QUESTIONS) {
+      const msLeft = WINDOW_MS - (Date.now() - recent[0])
+      const n = Math.floor(msLeft / (60 * 60 * 1000))
+      const m = Math.ceil((msLeft % (60 * 60 * 1000)) / (60 * 1000))
+      greeted.current = false
+      setMsgs(prev => [...prev, { role: 'bot', text: txt.limit.replace('{n}', String(n)).replace('{m}', String(m)) }])
+      setRemaining(0)
+      return
+    }
+    const asks = [...recent, Date.now()]
+    localStorage.setItem(RATE_KEY, JSON.stringify(asks))
+    setRemaining(Math.max(0, MAX_QUESTIONS - asks.length))
+
     greeted.current = false
     setInput('')
     setMsgs(prev => [...prev, { role: 'user', text: value }])
@@ -87,5 +127,5 @@ export function useChat() {
     }
   }
 
-  return { lang, txt, msgs, input, setInput, loading, send }
+  return { lang, txt, msgs, input, setInput, loading, send, remaining, maxQuestions: MAX_QUESTIONS }
 }
