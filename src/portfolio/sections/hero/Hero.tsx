@@ -8,12 +8,12 @@ export function Hero() {
   const { t } = useLanguage()
 
   return (
-    <section id="sobre-mi" className="min-h-screen bg-black">
-      <div className="section-grid relative w-full min-h-screen overflow-hidden">
-        <div className="section-vignette absolute inset-0 z-[3] pointer-events-none" />
+    <section id="sobre-mi" className="relative min-h-screen bg-black overflow-hidden flex flex-col">
+      <div className="section-grid absolute inset-0" />
+      <div className="section-vignette absolute inset-0 z-[3] pointer-events-none" />
 
-        <div className="absolute inset-0 z-20 flex flex-col items-center justify-center px-4 sm:px-8 lg:px-16 py-10 -translate-y-16">
-          <div className="bg-[#101010]/80 backdrop-blur-md rounded-2xl md:rounded-3xl p-3 sm:p-8 md:p-12 w-full max-w-7xl border border-white/5 shadow-2xl flex flex-col gap-2 sm:gap-6 lg:gap-8">
+      <div className="relative z-20 flex-1 flex flex-col items-center justify-center px-4 sm:px-8 lg:px-16 pt-24 pb-8">
+        <div className="bg-[#101010]/80 backdrop-blur-md rounded-2xl md:rounded-3xl p-3 sm:p-8 md:p-12 w-full max-w-7xl border border-white/5 shadow-2xl flex flex-col gap-2 sm:gap-6 lg:gap-8">
             {/* Name */}
             <h1
               className="font-medium leading-[0.9] tracking-[-0.05em] m-0 text-center"
@@ -50,9 +50,10 @@ export function Hero() {
               <PillButton label={t('hero_btn_curriculum')} href={cvPdf} external />
             </div>
           </div>
-        </div>
+      </div>
 
-        <ScrollIndicator variant="absolute" iconColor="#000000" targetId="proyectos" bottomClass="bottom-20 md:bottom-24" />
+      <div className="relative z-20 flex justify-center pb-12 md:pb-16">
+        <ScrollIndicator variant="inline" iconColor="#000000" targetId="proyectos" />
       </div>
     </section>
   )

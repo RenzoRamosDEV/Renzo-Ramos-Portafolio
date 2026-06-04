@@ -7,7 +7,8 @@ import './chat-widget.css'
 type Msg = { role: 'user' | 'bot'; text: string }
 
 const THREAD_ID = `widget-${Math.random().toString(36).slice(2)}`
-const API_URL = 'http://localhost:8000/chat'
+// En dev usa localhost; en producción define VITE_CHAT_API_URL (ej. la URL pública de la Pi).
+const API_URL = `${import.meta.env.VITE_CHAT_API_URL ?? 'http://localhost:8000'}/chat`
 
 /** Enlaces [texto](url), **negrita**, `código`, *cursiva*, emails y teléfonos -> JSX. */
 function inline(text: string): ReactNode[] {
@@ -45,9 +46,14 @@ function renderMarkdown(text: string): ReactNode {
   for (const raw of lines) {
     const line = raw.trim()
     if (!line) { flushList(); continue }
+    const heading = line.match(/^(#{1,6})\s+(.*)$/)
     const bullet = line.match(/^[*-]\s+(.*)$/)
     const numbered = line.match(/^\d+\.\s+(.*)$/)
-    if (bullet) {
+    if (heading) {
+      flushList()
+      const level = Math.min(heading[1].length, 4)
+      blocks.push(<p key={blocks.length} className={`cw-h cw-h${level}`}>{inline(heading[2])}</p>)
+    } else if (bullet) {
       if (!list || list.ordered) { flushList(); list = { ordered: false, items: [] } }
       list.items.push(bullet[1])
     } else if (numbered) {
