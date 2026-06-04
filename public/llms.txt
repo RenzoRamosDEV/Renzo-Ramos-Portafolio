@@ -1,0 +1,71 @@
+# Renzo Ramos — Full Stack Developer · IA Developer
+
+> Renzo Ramos es un desarrollador Full Stack orientado a backend (Java y Spring Boot) e
+> integrador de Inteligencia Artificial, con base en Madrid, España. Diseña y construye APIs
+> mantenibles y escalables, y domina también el frontend (React) para entregar productos
+> coherentes de principio a fin. Este archivo resume su perfil profesional para asistentes de IA.
+
+Frase que lo define: *"Diseño y construyo backends que escalan sin romperse cuando el producto crece."*
+
+## Perfil
+
+- **Nombre:** Renzo Ramos
+- **Rol:** Full Stack Developer · IA Developer
+- **Ubicación:** Madrid, España
+- **Especialidad:** Backend con Java / Spring Boot e integración estratégica de IA
+- **Idiomas:** Español (nativo), inglés
+- **Sitio:** https://portafolio-renzoramos.com
+
+## Contacto
+
+- **Email:** renzoramosivan@gmail.com
+- **Teléfono:** +34 623 971 177
+- **LinkedIn:** https://www.linkedin.com/in/renzoinv04
+- **GitHub:** https://github.com/RenzoRamosDEV
+
+## Stack técnico
+
+- **Backend:** Java, Kotlin, Spring Boot, Spring Modulith, MySQL, Docker
+- **Frontend:** HTML, CSS, JavaScript, TypeScript, React, TailwindCSS
+- **Inteligencia Artificial:** Claude Code, GitHub Copilot CLI, Claude Design, OpenCode, OpenSpec
+- **Build & VCS:** JUnit, Maven, Gradle, Git
+- **Metodologías:** SOLID, Clean Architecture, TDD, Mockito, Testcontainers, Integration Testing,
+  Git Flow / Trunk-Based, Agile (Scrum/Kanban), Spec-Driven Development (SDD), Prompt Engineering,
+  Agentic Workflows, Component-Based UI, Responsive Design
+
+## Experiencia
+
+- **Fullstack Developer — SEIDOR** (sept. 2025 – jun. 2026, Madrid): componentes reutilizables en
+  Adobe Experience Manager (AEM), lógica de backend en Java, resolución de incidencias y
+  documentación técnica.
+
+## Formación
+
+- **FP Superior — Desarrollo de Aplicaciones Multiplataforma · CESUR Madrid** (2024–2026): Java,
+  Spring Boot, Kotlin, Python, APIs REST, Maven/Gradle.
+- **Bootcamp C / Linux / Shell · 42 Madrid · Fundación Telefónica** (2025): metodología peer-to-peer.
+- **Diseño Gráfico · Instituto San Ignacio de Loyola** (Lima, Perú, 2021–2022): Illustrator,
+  Photoshop, InDesign — sensibilidad de diseño aplicada a la UI.
+
+## Certificados
+
+- **Essential Spring Boot — LinkedIn Learning** (2026)
+- **Professional Artificial Intelligence — Google / Coursera** (2026)
+- **AI-Assisted Development — Big School** (2026)
+
+## Proyectos destacados
+
+- [Booqi — Gestión de Reservas de Eventos](https://github.com/RenzoRamosDEV/Booqui-Sistema-Gestion-Reservas-Eventos):
+  plataforma de venta de entradas con 4 microservicios en Java/Spring Boot (usuarios, eventos,
+  reservas, pagos), cada uno con su MySQL y API REST documentada con OpenAPI, orquestados con
+  Docker Compose. Demo: https://renzoramosdev.github.io/Booqui-Sistema-Gestion-Reservas-Eventos/
+- [Redactor IA — Reformulador de Textos](https://github.com/RenzoRamosDEV/Redactor-IA): herramienta
+  web que reescribe textos con IA (Node.js + Groq SDK + LLaMA, frontend React + TailwindCSS, i18n).
+- [Pokédex Retro — API Pokémon en Scala](https://github.com/RenzoRamosDEV/Api-Pokemon-Scala-Web):
+  Pokédex con estética Game Boy construida con Scala y Play Framework sobre PokéAPI.
+
+## Notas
+
+- El sitio es una SPA bilingüe (ES/EN) en React + TypeScript + Vite.
+- Incluye un asistente IA propio (FastAPI + LangChain + OpenAI) que responde preguntas sobre Renzo.
+- Para contratar o colaborar, el mejor canal es el email o LinkedIn indicados arriba.

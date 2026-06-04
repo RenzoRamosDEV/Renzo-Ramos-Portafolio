@@ -28,7 +28,7 @@
   <!-- Open Graph / Facebook / LinkedIn / WhatsApp -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://portafolio-renzoramos.com/">
-  <meta property="og:title" content="Renzo Ramos — Desarrollador Full Stack | Java & Spring Boot">
+  <meta property="og:title" content="Renzo Ramos — Desarrollador Full Stack | IA | Java & Spring Boot">
   <meta property="og:description" content="Construyo backends que escalan sin romperse: APIs mantenibles con Java y Spring Boot, frontend en React y un asistente IA integrado.">
   <meta property="og:image" content="https://portafolio-renzoramos.com/og-image.jpg">
   <meta property="og:image:width" content="1200">
@@ -40,27 +40,61 @@
 
   <!-- Twitter / X -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Renzo Ramos — Desarrollador Full Stack | Java & Spring Boot">
+  <meta name="twitter:title" content="Renzo Ramos — Desarrollador Full Stack | IA | Java & Spring Boot">
   <meta name="twitter:description" content="Construyo backends que escalan sin romperse: APIs mantenibles con Java y Spring Boot, frontend en React y un asistente IA integrado.">
   <meta name="twitter:image" content="https://portafolio-renzoramos.com/og-image.jpg">
   <meta name="twitter:image:alt" content="Renzo Ramos — Desarrollador Full Stack">
+
+  <!-- IA / LLM discovery -->
+  <link rel="llms" type="text/markdown" href="https://portafolio-renzoramos.com/llms.txt">
+  <link rel="author" href="/humans.txt">
 
   <!-- Structured Data (JSON-LD) -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "Renzo Ramos",
-    "url": "https://portafolio-renzoramos.com/",
-    "image": "https://portafolio-renzoramos.com/icon-512.png",
-    "jobTitle": "Desarrollador Full Stack",
-    "description": "Desarrollador Full Stack orientado a backend con Java y Spring Boot.",
-    "email": "renzoramosivan@gmail.com",
-    "sameAs": [
-      "https://github.com/RenzoRamosDEV",
-      "https://www.linkedin.com/in/renzoinv04"
-    ],
-    "knowsAbout": ["Java", "Spring Boot", "Spring Modulith", "React", "TypeScript", "MySQL", "Docker", "API REST", "Arquitectura de software"]
+    "@graph": [
+      {
+        "@type": "Person",
+        "@id": "https://portafolio-renzoramos.com/#renzo",
+        "name": "Renzo Ramos",
+        "url": "https://portafolio-renzoramos.com/",
+        "image": "https://portafolio-renzoramos.com/icon-512.png",
+        "jobTitle": ["Full Stack Developer", "IA Developer"],
+        "description": "Desarrollador Full Stack orientado a backend con Java y Spring Boot, con integración estratégica de Inteligencia Artificial.",
+        "email": "renzoramosivan@gmail.com",
+        "telephone": "+34623971177",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Madrid",
+          "addressCountry": "ES"
+        },
+        "worksFor": { "@type": "Organization", "name": "SEIDOR" },
+        "alumniOf": [
+          { "@type": "EducationalOrganization", "name": "CESUR Madrid" },
+          { "@type": "EducationalOrganization", "name": "42 Madrid · Fundación Telefónica" }
+        ],
+        "knowsLanguage": ["es", "en"],
+        "knowsAbout": ["Java", "Spring Boot", "Spring Modulith", "Kotlin", "React", "TypeScript", "MySQL", "Docker", "API REST", "Microservicios", "Clean Architecture", "SOLID", "TDD", "Inteligencia Artificial", "Prompt Engineering", "Spec-Driven Development"],
+        "sameAs": [
+          "https://github.com/RenzoRamosDEV",
+          "https://www.linkedin.com/in/renzoinv04"
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://portafolio-renzoramos.com/#website",
+        "url": "https://portafolio-renzoramos.com/",
+        "name": "Renzo Ramos — Portafolio",
+        "inLanguage": ["es", "en"],
+        "author": { "@id": "https://portafolio-renzoramos.com/#renzo" }
+      },
+      {
+        "@type": "ProfilePage",
+        "url": "https://portafolio-renzoramos.com/",
+        "mainEntity": { "@id": "https://portafolio-renzoramos.com/#renzo" }
+      }
+    ]
   }
   </script>
 </head>

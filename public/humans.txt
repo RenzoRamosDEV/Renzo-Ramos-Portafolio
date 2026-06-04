@@ -1,0 +1,13 @@
+/* TEAM */
+Desarrollador: Renzo Ramos
+Rol: Full Stack Developer · IA Developer
+Contacto: renzoramosivan@gmail.com
+LinkedIn: https://www.linkedin.com/in/renzoinv04
+GitHub: https://github.com/RenzoRamosDEV
+Ubicación: Madrid, España
+
+/* SITE */
+Estándares: HTML5, CSS3, ES Modules
+Stack: React, TypeScript, Vite, TailwindCSS, framer-motion
+Asistente IA: FastAPI + LangChain + OpenAI
+Idiomas: Español, Inglés
