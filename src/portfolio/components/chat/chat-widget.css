@@ -67,11 +67,56 @@
 .cw-header-text { display: flex; flex-direction: column; line-height: 1.25; flex: 1; }
 .cw-title { color: #fff; font-size: 14px; font-weight: 700; }
 .cw-status { color: #8a97a0; font-size: 11.5px; }
-.cw-close {
+.cw-icon-btn {
   background: none; border: none; color: #8a97a0; cursor: pointer;
-  font-size: 14px; padding: 6px; border-radius: 8px; transition: background 0.15s, color 0.15s;
+  font-size: 14px; padding: 6px; border-radius: 8px; line-height: 0;
+  display: grid; place-items: center; transition: background 0.15s, color 0.15s;
 }
-.cw-close:hover { background: rgba(255, 255, 255, 0.08); color: #fff; }
+.cw-icon-btn:hover { background: rgba(255, 255, 255, 0.08); color: #fff; }
+
+/* --- Ventana aparte (modo expandido), con el estilo de la página --- */
+.cw-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 80;
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  display: grid;
+  place-items: center;
+  padding: clamp(16px, 4vw, 40px);
+  animation: cw-fade 0.2s ease;
+}
+@keyframes cw-fade { from { opacity: 0; } to { opacity: 1; } }
+
+.cw-window {
+  position: relative;
+  width: min(960px, 100%);
+  height: min(780px, 100%);
+  border-radius: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 30px 90px rgba(0, 0, 0, 0.6);
+  overflow: hidden;
+  animation: cw-pop 0.24s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.cw-window-vignette {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background: radial-gradient(ellipse 70% 50% at 50% 50%, transparent 50%, rgba(0, 0, 0, 0.6) 100%);
+}
+.cw-window-inner {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+.cw-window .cw-header { padding: 18px 22px; }
+.cw-window .cw-messages { padding: 22px clamp(20px, 6%, 56px); gap: 16px; }
+.cw-window .cw-bubble { max-width: 80%; font-size: 14.5px; }
+.cw-window .cw-input-row { padding: 16px clamp(20px, 6%, 56px) 20px; }
 
 /* --- Mensajes --- */
 .cw-messages {

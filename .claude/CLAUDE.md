@@ -5,13 +5,13 @@
 Portfolio personal de Renzo Ramos. Es un **sitio web de una sola página, scrollable y bilingüe
 (ES/EN)**, con secciones Hero / Proyectos / Experiencia / Stack / Metodologías y animaciones
 (framer-motion). Incluye un **asistente IA flotante** (burbuja abajo a la derecha) que responde
-preguntas sobre Renzo mediante un backend RAG independiente.
+preguntas sobre Renzo mediante un backend independiente.
 
 Dos piezas:
 
 - **Frontend** (`src/`) → SPA estática con **React + TypeScript + Vite**, desplegable en GitHub Pages.
-- **Chatbot** (`chatbot/`) → backend **FastAPI + LangChain + Gemini** que sirve el endpoint `/chat`.
-  Se ejecuta aparte; el frontend lo consume vía `fetch` a `http://localhost:8000`.
+- **Chatbot** (`chatbot/`) → backend **FastAPI + LangChain + OpenAI** que sirve el endpoint `/chat`.
+  Se ejecuta aparte; el frontend lo consume vía `fetch` (por defecto a `http://localhost:8000`).
 
 ## 🏗️ Arquitectura del frontend
 
@@ -31,7 +31,8 @@ src/
     │   ├── layout/              → Navbar, Footer
     │   ├── ui/                  → Chip, PillButton, ScrollIndicator, SectionTitle
     │   ├── motion/              → WordsPullUp
-    │   └── chat/                → ChatWidget.tsx + chat-widget.css (burbuja flotante del asistente)
+    │   └── chat/                → asistente flotante: ChatWidget.tsx (UI) + useChat.ts (estado/fetch)
+    │                              + chatMarkdown.tsx (render markdown) + chat-widget.css
     ├── shared/                  → ItemDetailCard (componente compartido)
     ├── data/                    → datos bilingües (ES/EN): projects, experience, stack, etc.
     ├── i18n/                    → LanguageContext + translations
@@ -41,25 +42,26 @@ src/
 
 ## 🤖 Arquitectura del chatbot
 
-Backend RAG independiente en `chatbot/` (Python). Ver `chatbot/server.py`.
+Backend independiente en `chatbot/` (Python). Ver `chatbot/server.py`.
 
 ```
 chatbot/
-├── server.py        → FastAPI con el endpoint POST /chat (RAG: buscar contexto → Gemini → responder)
+├── server.py        → FastAPI con el endpoint POST /chat (knowledge en el prompt → OpenAI → responder)
 ├── knowledge/       → base de conocimiento en .md (about, experience, education, certifications,
-│                      skills, methodologies, projects, contact). build_retriever() los carga todos.
-├── requirements.txt → dependencias Python
-└── .env             → GOOGLE_API_KEY, GEMINI_MODEL, ... (NO se sube a git)
+│                      skills, methodologies, projects, contact). Se concatenan todos al arrancar.
+├── requirements.txt → dependencias Python (langchain-openai, fastapi, uvicorn, python-dotenv)
+└── .env             → OPENAI_API_KEY, OPENAI_MODEL, SYSTEM_PROMPT, ... (NO se sube a git)
 ```
 
-**Flujo de `/chat`**: recibe `{message, thread_id}` → `find_context()` recupera los fragmentos
-relevantes de `knowledge/` (embeddings + vector store en memoria) → `build_system_prompt()` arma el
-prompt (con reglas anti-inyección y el contexto como datos) → Gemini responde. Mantiene historial
-por sesión (`thread_id`) acotado a `MAX_HISTORY` mensajes. Si el LLM falla (p.ej. cuota agotada),
+**Flujo de `/chat`**: al arrancar, `server.py` concatena todos los `knowledge/*.md` y los inyecta en
+el `SYSTEM_PROMPT` (que vive en `.env`, con reglas anti-inyección y los datos como contexto). Como ese
+prefijo es fijo, OpenAI lo cachea y abarata las llamadas. En cada petición recibe `{message, thread_id}`,
+añade el mensaje al historial de esa sesión y llama al modelo (`ask_llm`). Mantiene el historial por
+sesión (`thread_id`) en RAM, acotado a `MAX_HISTORY` mensajes. Si el LLM falla (p.ej. cuota agotada),
 devuelve un mensaje amable en 200 con CORS en vez de un 500.
 
-**Frontend ↔ backend**: `ChatWidget.tsx` hace `fetch` a `http://localhost:8000/chat`. En producción
-(GitHub Pages) hay que desplegar el backend en un host externo y apuntar ahí.
+**Frontend ↔ backend**: `useChat.ts` hace `fetch` a `${VITE_CHAT_API_URL ?? 'http://localhost:8000'}/chat`.
+En producción (GitHub Pages) hay que desplegar el backend en un host externo y definir `VITE_CHAT_API_URL`.
 
 ## 🎯 Flujo de arranque
 
@@ -77,13 +79,15 @@ devuelve un mensaje amable en 200 con CORS en vez de un 500.
 | Editar experiencia / formación       | `src/portfolio/data/experience.ts`, `education.ts`                |
 | Añadir certificado                   | `src/portfolio/data/certificates.ts` (preview/PDF en `src/assets/certs/`) |
 | Editar una sección visual            | `src/portfolio/sections/*`                                        |
-| Editar el asistente IA (UI)          | `src/portfolio/components/chat/ChatWidget.tsx` + `chat-widget.css`|
-| Editar lo que SABE el asistente      | `chatbot/knowledge/*.md` (crear un nuevo `.md` lo añade al RAG)   |
+| Editar el asistente IA (UI)          | `src/portfolio/components/chat/ChatWidget.tsx` + `useChat.ts` + `chat-widget.css` |
+| Editar lo que SABE el asistente      | `chatbot/knowledge/*.md` (crear un nuevo `.md` lo añade al conocimiento) |
 | Editar la lógica del asistente       | `chatbot/server.py`                                               |
 
 ## 💾 Estado persistente (localStorage)
 
 - `pf-lang`: `'es' | 'en'` (idioma del sitio)
+- `pf-chat-thread`: id de conversación del asistente (continuidad con el backend)
+- `pf-chat-msgs`: mensajes visibles del chat (persisten al recargar)
 
 ## 🚀 Comandos
 
@@ -101,9 +105,10 @@ python3 -m venv .venv && .venv/bin/pip install -r requirements.txt   # instalar 
 
 ## 🚢 Deploy
 
-Frontend en GitHub Pages sirviendo `dist/`. `vite.config.ts` usa `base: './'` (rutas relativas).
+Frontend en GitHub Pages sirviendo `dist/` (`npm run build`). `vite.config.ts` usa `base: './'`
+(rutas relativas). No hay workflow de CI/CD: el deploy es manual.
 El chatbot requiere desplegar `chatbot/` en un host con Python (Render, Railway, Fly…) y apuntar
-el `fetch` de `ChatWidget.tsx` a esa URL.
+el frontend ahí definiendo `VITE_CHAT_API_URL` (lo consume `useChat.ts`).
 
 ## 👤 Autor
 
