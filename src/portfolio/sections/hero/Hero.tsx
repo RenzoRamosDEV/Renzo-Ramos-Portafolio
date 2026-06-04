@@ -52,7 +52,7 @@ export function Hero() {
           </div>
         </div>
 
-        <ScrollIndicator variant="absolute" iconColor="#000000" targetId="proyectos" />
+        <ScrollIndicator variant="absolute" iconColor="#000000" targetId="proyectos" bottomClass="bottom-20 md:bottom-24" />
       </div>
     </section>
   )

@@ -15,9 +15,9 @@ body {
   overflow-x: hidden;
 }
 
-/* Scrollbar igual al de .wbody */
+/* Scrollbar del sitio */
 .portfolio-scroll-body::-webkit-scrollbar{width:9px}
-.portfolio-scroll-body::-webkit-scrollbar-thumb{background:color-mix(in oklab,var(--text) 18%,transparent);border-radius:9px;border:2px solid transparent;background-clip:padding-box}
+.portfolio-scroll-body::-webkit-scrollbar-thumb{background:rgba(255,255,255,0.18);border-radius:9px;border:2px solid transparent;background-clip:padding-box}
 
 #root {
   width: 100%;

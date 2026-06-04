@@ -55,16 +55,13 @@ export const translations = {
     method_group_ui: 'UI',
 
     // Footer
-    footer_description: 'Desarrollador Junior de Aplicaciones Multiplataforma',
+    footer_description: 'Desarrollador de Aplicaciones Multiplataforma',
     footer_about: 'Sobre mí',
     footer_projects: 'Proyectos',
     footer_experience: 'Experiencia',
     footer_stack: 'Stack',
     footer_methodologies: 'Metodologías',
     footer_curriculum: 'Curriculum',
-
-    // Language toggle
-    lang_toggle: 'EN',
   },
   en: {
     // Navbar
@@ -127,9 +124,6 @@ export const translations = {
     footer_stack: 'Stack',
     footer_methodologies: 'Methodologies',
     footer_curriculum: 'Resume',
-
-    // Language toggle
-    lang_toggle: 'ES',
   },
 } satisfies Record<Lang, Record<string, string>>
 

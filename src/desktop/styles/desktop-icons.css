@@ -1,6 +1,0 @@
-.desk-icon{position:absolute;display:flex;flex-direction:column;align-items:center;gap:5px;cursor:pointer;width:90px;user-select:none;-webkit-user-select:none}
-.desk-icon .di-ico{width:52px;height:52px;border-radius:14px;display:grid;place-items:center;font-size:22px;color:#fff;transition:transform .15s,filter .15s}
-.desk-icon .di-lbl{font-size:11.5px;color:#fff;text-align:center;line-height:1.3;text-shadow:0 1px 4px rgba(0,0,0,.7);padding:2px 4px;border-radius:4px;word-break:break-word}
-.desk-icon:hover .di-ico{transform:scale(1.1)}
-.desk-icon.selected .di-ico{filter:brightness(1.25)}
-.desk-icon.selected .di-lbl{background:var(--accent);color:#fff}

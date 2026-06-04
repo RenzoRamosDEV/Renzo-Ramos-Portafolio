@@ -9,6 +9,7 @@ import { ProjectModal } from './sections/projects/ProjectModal'
 import { ExperienceSection } from './sections/experience/ExperienceSection'
 import { StackSection } from './sections/stack/StackSection'
 import { MethodologiesSection } from './sections/methodologies/MethodologiesSection'
+import { ChatWidget } from './components/chat/ChatWidget'
 import type { Project } from './data/projects'
 
 export function PortfolioSite() {
@@ -36,6 +37,8 @@ export function PortfolioSite() {
         {activeProject && (
           <ProjectModal project={activeProject} onClose={() => setActiveProject(null)} />
         )}
+        {/* Burbuja flotante del asistente IA */}
+        <ChatWidget />
       </div>
     </LanguageProvider>
   )

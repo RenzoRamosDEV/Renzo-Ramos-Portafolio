@@ -2,105 +2,108 @@
 
 ## 📋 Descripción General
 
-Portfolio personal de Renzo Ramos. Tiene **dos experiencias** que se eligen según el ancho de
-pantalla (ver `App.tsx`, breakpoint 768px):
+Portfolio personal de Renzo Ramos. Es un **sitio web de una sola página, scrollable y bilingüe
+(ES/EN)**, con secciones Hero / Proyectos / Experiencia / Stack / Metodologías y animaciones
+(framer-motion). Incluye un **asistente IA flotante** (burbuja abajo a la derecha) que responde
+preguntas sobre Renzo mediante un backend RAG independiente.
 
-- **Escritorio** → una **interfaz tipo macOS**: menubar, ventanas arrastrables/redimensionables,
-  dock, iconos de escritorio, Spotlight y panel de Preferencias. El portafolio v1 se abre como una
-  ventana destacada centrada al cargar.
-- **Móvil** → el **portafolio v1** a pantalla completa: un sitio scrollable, bilingüe (ES/EN), con
-  secciones Hero / Proyectos / Experiencia / Stack / Metodologías y animaciones (framer-motion).
+Dos piezas:
 
-SPA estática construida con **React + TypeScript + Vite**, desplegable en GitHub Pages.
+- **Frontend** (`src/`) → SPA estática con **React + TypeScript + Vite**, desplegable en GitHub Pages.
+- **Chatbot** (`chatbot/`) → backend **FastAPI + LangChain + Gemini** que sirve el endpoint `/chat`.
+  Se ejecuta aparte; el frontend lo consume vía `fetch` a `http://localhost:8000`.
 
-## 🏗️ Arquitectura
+## 🏗️ Arquitectura del frontend
 
-**Stack**: React 19 + TypeScript + Vite + Tailwind (usado por el portafolio). El shell de
-escritorio usa CSS modular propio en `src/desktop/styles/*.css`. Sin backend, todo estático.
-
-El código está organizado **por experiencia**: todo lo del escritorio macOS vive bajo `desktop/`
-y todo el sitio scrollable bajo `portfolio/`. Los assets son un árbol único compartido.
+**Stack**: React 19 + TypeScript + Vite + Tailwind. Sin backend propio en el frontend; todo estático.
 
 ```
 index.html                       → punto de entrada Vite (monta #root)
 src/
-├── main.tsx                     → render + imports del CSS del escritorio
-├── App.tsx                      → decide móvil (PortfolioSite) vs escritorio (componente Desktop)
-├── assets/                      → árbol único de imágenes y PDFs (stack/ projects/ certs/ cv/)
+├── main.tsx                     → render de <App/>
+├── App.tsx                      → renderiza <PortfolioSite/> a pantalla completa
+├── assets/                      → árbol de imágenes y PDFs (stack/ projects/ certs/ cv/ + IARR.png)
 │
-├── desktop/                     → EXPERIENCIA ESCRITORIO (macOS); solo en pantallas ≥768px
-│   ├── shell/                   → chrome del escritorio
-│   │   ├── Window.tsx           → ventana: drag, resize 8-dir, minimizar, fullscreen
-│   │   ├── useWindowManager.ts  → estado de ventanas (abrir/cerrar/focus/z-index)
-│   │   ├── Dock.tsx, DesktopIcons.tsx, MenuBar.tsx, Spotlight.tsx
-│   │   ├── desktop-context.ts   → DesktopContext (launch, theme, setTheme)
-│   │   └── types.ts             → Rect, WinState
-│   ├── apps/                    → contenido de cada ventana
-│   │   ├── manifest.ts          → metadata de apps (id, título, icono, tamaño, dock)
-│   │   ├── registry.tsx         → mapea id → componente React
-│   │   └── About/Projects/ProjectDetail/Stack/Timeline/Certificates/Contact/Config .tsx
-│   ├── data/                    → datos del escritorio (ES): stack, projects, timeline, certificates
-│   ├── hooks/                   → useTheme, useClock, useConfig (+ config-context.ts)
-│   └── styles/                  → hojas modulares del escritorio (tema, ventanas, dock, etc.)
-│
-└── portfolio/                   → EXPERIENCIA SITIO (vista móvil + ventana destacada en escritorio)
-    ├── PortfolioSite.tsx        → punto de entrada del sitio scrollable
+└── portfolio/                   → EL SITIO
+    ├── PortfolioSite.tsx        → entrada del sitio scrollable; monta secciones + ChatWidget
     ├── sections/                → hero, projects, experience, stack, methodologies
-    ├── components/              → layout/ (Navbar, Footer), ui/, motion/
-    ├── shared/                  → componentes compartidos del sitio
-    ├── data/                    → datos bilingües (ES/EN)
+    ├── components/
+    │   ├── layout/              → Navbar, Footer
+    │   ├── ui/                  → Chip, PillButton, ScrollIndicator, SectionTitle
+    │   ├── motion/              → WordsPullUp
+    │   └── chat/                → ChatWidget.tsx + chat-widget.css (burbuja flotante del asistente)
+    ├── shared/                  → ItemDetailCard (componente compartido)
+    ├── data/                    → datos bilingües (ES/EN): projects, experience, stack, etc.
     ├── i18n/                    → LanguageContext + translations
     ├── hooks/                   → useInView
     └── styles/                  → globals.css (incluye Tailwind)
 ```
 
-## 🎯 Flujo
+## 🤖 Arquitectura del chatbot
 
-1. `main.tsx` importa el CSS del escritorio y monta `<App/>`.
-2. `App.tsx`: si es móvil renderiza `<PortfolioSite/>`; si no, renderiza `<Desktop/>` (que provee
-   `DesktopContext` + `ConfigContext`, crea el window manager y abre la ventana `portfolio` centrada).
-3. Dock / iconos de escritorio / Spotlight llaman a `launch(id)`.
-4. `useWindowManager` mantiene el array de ventanas; `Window.tsx` renderiza cada una con sus
-   interacciones (drag, resize, minimizar, fullscreen).
+Backend RAG independiente en `chatbot/` (Python). Ver `chatbot/server.py`.
 
-> **Nota sobre datos duplicados**: el escritorio (`desktop/data/*`, solo ES) y el portafolio
-> (`portfolio/data/*`, bilingüe) mantienen sus propios datos porque tienen formas distintas, pero
-> comparten un único árbol de assets en `src/assets/`.
+```
+chatbot/
+├── server.py        → FastAPI con el endpoint POST /chat (RAG: buscar contexto → Gemini → responder)
+├── knowledge/       → base de conocimiento en .md (about, experience, education, certifications,
+│                      skills, methodologies, projects, contact). build_retriever() los carga todos.
+├── requirements.txt → dependencias Python
+└── .env             → GOOGLE_API_KEY, GEMINI_MODEL, ... (NO se sube a git)
+```
+
+**Flujo de `/chat`**: recibe `{message, thread_id}` → `find_context()` recupera los fragmentos
+relevantes de `knowledge/` (embeddings + vector store en memoria) → `build_system_prompt()` arma el
+prompt (con reglas anti-inyección y el contexto como datos) → Gemini responde. Mantiene historial
+por sesión (`thread_id`) acotado a `MAX_HISTORY` mensajes. Si el LLM falla (p.ej. cuota agotada),
+devuelve un mensaje amable en 200 con CORS en vez de un 500.
+
+**Frontend ↔ backend**: `ChatWidget.tsx` hace `fetch` a `http://localhost:8000/chat`. En producción
+(GitHub Pages) hay que desplegar el backend en un host externo y apuntar ahí.
+
+## 🎯 Flujo de arranque
+
+1. `main.tsx` monta `<App/>`.
+2. `App.tsx` renderiza `<PortfolioSite/>` a pantalla completa.
+3. `PortfolioSite` provee `LanguageProvider`, monta las secciones scrollables y la burbuja `ChatWidget`.
 
 ## 🔧 Cómo añadir / editar
 
-> Las imágenes y PDFs viven siempre en `src/assets/` (árbol único). Edita los datos del
-> escritorio y los del portafolio en paralelo si quieres mantener ambas vistas sincronizadas.
-
-| Quiero…                            | Toco…                                                              |
-| ---------------------------------- | ------------------------------------------------------------------ |
-| Editar textos del perfil (escritorio)| `src/desktop/apps/About.tsx`                                     |
-| Añadir un proyecto (escritorio)    | `src/desktop/data/projects.ts` (imágenes en `src/assets/projects/`)|
-| Añadir tecnología (escritorio)     | `src/desktop/data/stack.ts` (icono PNG en `src/assets/stack/`)     |
-| Editar experiencia (escritorio)    | `src/desktop/data/timeline.ts`                                     |
-| Añadir certificado (escritorio)    | `src/desktop/data/certificates.ts` (preview/PDF en `src/assets/certs/`)|
-| Editar el portafolio / móvil       | `src/portfolio/data/*` (bilingüe) y `src/portfolio/sections/*`     |
-| Nueva app/ventana (escritorio)     | crear componente en `src/desktop/apps/`, añadir a `manifest.ts` + `registry.tsx` |
-| Cambiar colores/tema (escritorio)  | `src/desktop/styles/variables.css` (`:root` y `[data-theme="dark"]`)|
+| Quiero…                              | Toco…                                                             |
+| ------------------------------------ | ----------------------------------------------------------------- |
+| Editar textos del sitio / traducciones | `src/portfolio/data/*` (bilingüe) y `src/portfolio/i18n/translations.ts` |
+| Añadir un proyecto                   | `src/portfolio/data/projects.ts` (imágenes en `src/assets/projects/`) |
+| Añadir tecnología al stack           | `src/portfolio/data/stack.ts` (icono PNG en `src/assets/stack/`)  |
+| Editar experiencia / formación       | `src/portfolio/data/experience.ts`, `education.ts`                |
+| Añadir certificado                   | `src/portfolio/data/certificates.ts` (preview/PDF en `src/assets/certs/`) |
+| Editar una sección visual            | `src/portfolio/sections/*`                                        |
+| Editar el asistente IA (UI)          | `src/portfolio/components/chat/ChatWidget.tsx` + `chat-widget.css`|
+| Editar lo que SABE el asistente      | `chatbot/knowledge/*.md` (crear un nuevo `.md` lo añade al RAG)   |
+| Editar la lógica del asistente       | `chatbot/server.py`                                               |
 
 ## 💾 Estado persistente (localStorage)
 
-- `pf-theme`: `'light' | 'dark'`
-- `pf-cfg-accent`, `pf-cfg-wall`, `pf-cfg-speed`: preferencias del panel Config
+- `pf-lang`: `'es' | 'en'` (idioma del sitio)
 
 ## 🚀 Comandos
 
 ```bash
+# Frontend
 npm install      # instalar dependencias
 npm run dev      # servidor de desarrollo (Vite, http://localhost:5173)
 npm run build    # build de producción a dist/ (tsc -b && vite build)
 npm run preview  # previsualizar el build
+
+# Chatbot (desde chatbot/)
+python3 -m venv .venv && .venv/bin/pip install -r requirements.txt   # instalar (una vez)
+.venv/bin/uvicorn server:app --port 8000                            # arrancar el backend
 ```
 
 ## 🚢 Deploy
 
-GitHub Pages sirviendo `dist/`. `vite.config.ts` usa `base: './'` (rutas relativas, funciona
-bajo cualquier subpath sin reconfigurar).
+Frontend en GitHub Pages sirviendo `dist/`. `vite.config.ts` usa `base: './'` (rutas relativas).
+El chatbot requiere desplegar `chatbot/` en un host con Python (Render, Railway, Fly…) y apuntar
+el `fetch` de `ChatWidget.tsx` a esa URL.
 
 ## 👤 Autor
 

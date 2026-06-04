@@ -13,6 +13,12 @@ dist-ssr
 *.local
 *.tsbuildinfo
 
+# Chatbot (Python)
+chatbot/.env
+chatbot/.venv
+__pycache__/
+*.pyc
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
