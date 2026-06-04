@@ -1,3 +1,5 @@
 # Portfolio de Renzo Ramos — sitio público, indexación permitida
 User-agent: *
 Allow: /
+
+Sitemap: https://portafolio-renzoramos.com/sitemap.xml
