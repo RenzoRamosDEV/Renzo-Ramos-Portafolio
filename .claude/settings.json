@@ -57,7 +57,12 @@
       "Bash(.venv/bin/uvicorn server:app --port 8000 --reload)",
       "Bash(curl -s http://localhost:8000/health)",
       "Bash(curl -s -m 2 http://localhost:8000/health)",
-      "Bash(pkill -9 -f uvicorn)"
+      "Bash(pkill -9 -f uvicorn)",
+      "Bash(git ls-remote *)",
+      "Bash(gh run *)",
+      "Bash(node -e \"require\\('sharp'\\);console.log\\('sharp OK'\\)\")",
+      "Bash(node -e ' *)",
+      "Bash(node -e \"const fs=require\\('fs'\\);const h=fs.readFileSync\\('dist/index.html','utf8'\\);const m=h.match\\(/<script type=\\\\\"application\\\\/ld\\\\+json\\\\\">\\([\\\\s\\\\S]*?\\)<\\\\/script>/\\);JSON.parse\\(m[1]\\);console.log\\('JSON-LD válido ✓'\\)\")"
     ],
     "additionalDirectories": [
       "/home/renzo-ramos/Documentos/Docs/CV",
