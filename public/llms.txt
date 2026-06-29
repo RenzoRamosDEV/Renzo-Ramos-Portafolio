@@ -1,7 +1,7 @@
-# Renzo Ramos — AI Engineer · Full Stack Developer
+# Renzo Ramos — Técnico Superior DAM & Junior AI Engineer
 
-> Renzo Ramos es AI Engineer (equipo de IA & Data en Tuio) y desarrollador Full Stack, con base
-> en Madrid, España. Diseña e implementa soluciones de IA con Python, LiteLLM, LangChain, LangGraph
+> Renzo Ramos es Técnico Superior en Desarrollo de Aplicaciones Multiplataforma (DAM) y Junior AI
+> Engineer (equipo de IA & Data en Tuio), con base en Madrid, España. Diseña e implementa soluciones de IA con Python, LiteLLM, LangChain, LangGraph
 > y Temporal.io —modelos de ML e IA generativa, APIs, MCPs y herramientas para agentes inteligentes—
 > sobre una base sólida de backend con Java y Spring Boot y frontend en React. Este archivo resume
 > su perfil profesional para asistentes de IA.
@@ -11,7 +11,7 @@ Frase que lo define: *"Diseño y construyo backends que escalan sin romperse cua
 ## Perfil
 
 - **Nombre:** Renzo Ramos
-- **Rol:** AI Engineer · Full Stack Developer
+- **Rol:** Técnico Superior DAM · Junior AI Engineer
 - **Ubicación:** Madrid, España
 - **Especialidad:** Ingeniería de IA (Python, LangChain/LangGraph, Temporal.io, agentes y MCPs) sobre base de backend con Java / Spring Boot
 - **Idiomas:** Español (nativo), inglés
