@@ -1,6 +1,6 @@
 /* TEAM */
 Desarrollador: Renzo Ramos
-Rol: Full Stack Developer · IA Developer
+Rol: AI Engineer · Full Stack Developer
 Contacto: renzoramosivan@gmail.com
 LinkedIn: https://www.linkedin.com/in/renzoinv04
 GitHub: https://github.com/RenzoRamosDEV

@@ -25,14 +25,14 @@ export function PortfolioSite() {
           </div>
         </div>
         {/* Contenido scrolleable */}
-        <div className="portfolio-scroll-body" style={{ height: '100%', overflowY: 'auto' }}>
+        <main className="portfolio-scroll-body" style={{ height: '100%', overflowY: 'auto' }}>
           <Hero />
           <ProjectsSection onLearnMore={setActiveProject} />
           <ExperienceSection />
           <StackSection />
           <MethodologiesSection />
           <Footer />
-        </div>
+        </main>
         {/* Detalle de proyecto: cubre todo el contenedor */}
         {activeProject && (
           <ProjectModal project={activeProject} onClose={() => setActiveProject(null)} />

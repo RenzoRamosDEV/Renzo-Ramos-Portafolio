@@ -1,7 +1,7 @@
 {
   "name": "Renzo Ramos — Portafolio",
   "short_name": "Renzo Ramos",
-  "description": "Portafolio de Renzo Ramos, desarrollador Full Stack orientado a backend con Java y Spring Boot.",
+  "description": "Portafolio de Renzo Ramos, AI Engineer y desarrollador Full Stack: soluciones de IA con Python y LangChain, y APIs con Java y Spring Boot.",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",

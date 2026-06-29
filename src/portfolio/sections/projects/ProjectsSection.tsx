@@ -25,10 +25,10 @@ export function ProjectsSection({ onLearnMore }: Props) {
             flexDirection: 'column',
           }}
         >
-          <div className="flex flex-col leading-[1.1] tracking-[-0.07em]" style={{ fontSize: 'clamp(40px,6vw,80px)', fontWeight: 500 }}>
+          <h2 className="m-0 flex flex-col leading-[1.1] tracking-[-0.07em]" style={{ fontSize: 'clamp(40px,6vw,80px)', fontWeight: 500 }}>
             <span style={{ color: '#A7B4BC' }}>{t('features_title1')}</span>
             <span style={{ color: 'rgba(167,180,188,0.25)' }}>{t('features_title2')}</span>
-          </div>
+          </h2>
 
           <div
             style={{

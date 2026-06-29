@@ -1,18 +1,19 @@
-# Renzo Ramos — Full Stack Developer · IA Developer
+# Renzo Ramos — AI Engineer · Full Stack Developer
 
-> Renzo Ramos es un desarrollador Full Stack orientado a backend (Java y Spring Boot) e
-> integrador de Inteligencia Artificial, con base en Madrid, España. Diseña y construye APIs
-> mantenibles y escalables, y domina también el frontend (React) para entregar productos
-> coherentes de principio a fin. Este archivo resume su perfil profesional para asistentes de IA.
+> Renzo Ramos es AI Engineer (equipo de IA & Data en Tuio) y desarrollador Full Stack, con base
+> en Madrid, España. Diseña e implementa soluciones de IA con Python, LiteLLM, LangChain, LangGraph
+> y Temporal.io —modelos de ML e IA generativa, APIs, MCPs y herramientas para agentes inteligentes—
+> sobre una base sólida de backend con Java y Spring Boot y frontend en React. Este archivo resume
+> su perfil profesional para asistentes de IA.
 
 Frase que lo define: *"Diseño y construyo backends que escalan sin romperse cuando el producto crece."*
 
 ## Perfil
 
 - **Nombre:** Renzo Ramos
-- **Rol:** Full Stack Developer · IA Developer
+- **Rol:** AI Engineer · Full Stack Developer
 - **Ubicación:** Madrid, España
-- **Especialidad:** Backend con Java / Spring Boot e integración estratégica de IA
+- **Especialidad:** Ingeniería de IA (Python, LangChain/LangGraph, Temporal.io, agentes y MCPs) sobre base de backend con Java / Spring Boot
 - **Idiomas:** Español (nativo), inglés
 - **Sitio:** https://portafolio-renzoramos.com
 
@@ -35,6 +36,10 @@ Frase que lo define: *"Diseño y construyo backends que escalan sin romperse cua
 
 ## Experiencia
 
+- **Junior AI Engineer · AI & Data — Tuio** (jun. 2026 – Actualidad, Madrid): soluciones de IA con
+  Python, LiteLLM, LangChain, LangGraph, Temporal.io, Claude Code/OpenCode y Spec-Driven Development;
+  modelos de ML e IA generativa para optimizar procesos de negocio; APIs, MCPs y herramientas (tools)
+  para agentes inteligentes; automatización de procesos internos y testing para garantizar calidad.
 - **Fullstack Developer — SEIDOR** (sept. 2025 – jun. 2026, Madrid): componentes reutilizables en
   Adobe Experience Manager (AEM), lógica de backend en Java, resolución de incidencias y
   documentación técnica.

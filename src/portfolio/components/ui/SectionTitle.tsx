@@ -9,7 +9,7 @@ type Props = {
 export function SectionTitle({ line1, line2, align = 'left' }: Props) {
   const alignClass = align === 'left' ? 'text-left' : align === 'right' ? 'text-right' : 'text-center'
   return (
-    <div className={`flex flex-col leading-[1.1] tracking-[-0.07em] ${alignClass}`} style={{ fontSize: 'clamp(40px,6vw,80px)', fontWeight: 500 }}>
+    <h2 className={`m-0 flex flex-col leading-[1.1] tracking-[-0.07em] ${alignClass}`} style={{ fontSize: 'clamp(40px,6vw,80px)', fontWeight: 500 }}>
       <span style={{ color: '#A7B4BC' }}>
         <WordsPullUp text={line1} align={align} />
       </span>
@@ -18,6 +18,6 @@ export function SectionTitle({ line1, line2, align = 'left' }: Props) {
           <WordsPullUp text={line2} align={align} />
         </span>
       )}
-    </div>
+    </h2>
   )
 }
