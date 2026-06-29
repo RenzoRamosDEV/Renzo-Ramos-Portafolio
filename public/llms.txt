@@ -1,19 +1,20 @@
 # Renzo Ramos — Técnico Superior DAM & Junior AI Engineer
 
 > Renzo Ramos es Técnico Superior en Desarrollo de Aplicaciones Multiplataforma (DAM) y Junior AI
-> Engineer (equipo de IA & Data en Tuio), con base en Madrid, España. Diseña e implementa soluciones de IA con Python, LiteLLM, LangChain, LangGraph
-> y Temporal.io —modelos de ML e IA generativa, APIs, MCPs y herramientas para agentes inteligentes—
-> sobre una base sólida de backend con Java y Spring Boot y frontend en React. Este archivo resume
-> su perfil profesional para asistentes de IA.
-
-Frase que lo define: *"Diseño y construyo backends que escalan sin romperse cuando el producto crece."*
+> Engineer en el equipo de IA & Data de Tuio, con base en Madrid, España. Diseña e implementa
+> soluciones de IA con Python, LiteLLM, LangChain, LangGraph, Temporal.io y MCP (Model Context
+> Protocol) —modelos de ML e IA generativa, APIs, MCPs y herramientas (tools) para agentes
+> inteligentes— sobre una base sólida de backend con Java y Spring Boot y frontend en React.
+> Este archivo resume su perfil profesional para asistentes de IA y motores de búsqueda.
 
 ## Perfil
 
+- **Nombre completo:** Renzo Iván Ramos de los Ríos
 - **Nombre:** Renzo Ramos
-- **Rol:** Técnico Superior DAM · Junior AI Engineer
+- **Rol actual:** Junior AI Engineer · AI & Data (Tuio)
+- **Titulación:** Técnico Superior en Desarrollo de Aplicaciones Multiplataforma (DAM)
 - **Ubicación:** Madrid, España
-- **Especialidad:** Ingeniería de IA (Python, LangChain/LangGraph, Temporal.io, agentes y MCPs) sobre base de backend con Java / Spring Boot
+- **Especialidad:** Ingeniería de IA (Python, LangChain/LangGraph, Temporal.io, agentes ReAct, MCP) sobre base de backend con Java / Spring Boot
 - **Idiomas:** Español (nativo), inglés
 - **Sitio:** https://portafolio-renzoramos.com
 
@@ -26,28 +27,29 @@ Frase que lo define: *"Diseño y construyo backends que escalan sin romperse cua
 
 ## Stack técnico
 
-- **Backend:** Java, Kotlin, Spring Boot, Spring Modulith, MySQL, Docker
-- **Frontend:** HTML, CSS, JavaScript, TypeScript, React, TailwindCSS
-- **Inteligencia Artificial:** Claude Code, GitHub Copilot CLI, Claude Design, OpenCode, OpenSpec
-- **Build & VCS:** JUnit, Maven, Gradle, Git
-- **Metodologías:** SOLID, Clean Architecture, TDD, Mockito, Testcontainers, Integration Testing,
-  Git Flow / Trunk-Based, Agile (Scrum/Kanban), Spec-Driven Development (SDD), Prompt Engineering,
-  Agentic Workflows, Component-Based UI, Responsive Design
+- **Lenguajes:** Java, Python, Scala, TypeScript, JavaScript, Kotlin
+- **Backend:** Spring Boot, Spring Modulith, Play Framework, FastAPI, Node.js/Express, API REST, MySQL, Docker
+- **Inteligencia Artificial:** LangChain, LangGraph, LiteLLM, Temporal.io, OpenAI SDK, MCP (Model Context Protocol), agentes ReAct, IA generativa, Machine Learning, Prompt Engineering. Herramientas: Claude Code, OpenCode, GitHub Copilot CLI, OpenSpec, Claude Design
+- **Frontend:** React, Vite, TailwindCSS, HTML, CSS, i18next
+- **Metodologías:** SOLID, Clean Architecture, TDD, Spec-Driven Development (SDD), Agentic Workflows, Git Flow / Trunk-Based, Agile (Scrum/Kanban)
 
 ## Experiencia
 
-- **Junior AI Engineer · AI & Data — Tuio** (jun. 2026 – Actualidad, Madrid): soluciones de IA con
-  Python, LiteLLM, LangChain, LangGraph, Temporal.io, Claude Code/OpenCode y Spec-Driven Development;
-  modelos de ML e IA generativa para optimizar procesos de negocio; APIs, MCPs y herramientas (tools)
-  para agentes inteligentes; automatización de procesos internos y testing para garantizar calidad.
-- **Fullstack Developer — SEIDOR** (sept. 2025 – jun. 2026, Madrid): componentes reutilizables en
-  Adobe Experience Manager (AEM), lógica de backend en Java, resolución de incidencias y
-  documentación técnica.
+- **Junior AI Engineer · AI & Data — Tuio** (jun. 2026 – Actualidad, Madrid): desarrollo de
+  soluciones con Python, LiteLLM, LangChain, LangGraph, Temporal.io, Claude Code/OpenCode y
+  Spec-Driven Development. Diseña e implementa soluciones basadas en ML e IA generativa para
+  optimizar procesos clave del negocio; colabora con producto, growth, IA y Data Science; diseña,
+  desarrolla y mantiene APIs, MCPs y herramientas (tools) consumibles por agentes inteligentes;
+  automatiza procesos internos; documenta y testea el código; y explora tecnologías emergentes.
+- **Junior Full Stack Developer — SEIDOR** (sept. 2025 – jun. 2026, Madrid): desarrollo con Java,
+  XML, HTML, CSS, JavaScript y Maven. Componentes reutilizables y contribuibles en Adobe Experience
+  Manager (AEM), creación de Modals con Java, gestión y contribución de páginas con contenido
+  multimedia mediante AEM Assets (DAM), resolución de incidencias backend y documentación técnica.
 
 ## Formación
 
-- **FP Superior — Desarrollo de Aplicaciones Multiplataforma · CESUR Madrid** (2024–2026): Java,
-  Spring Boot, Kotlin, Python, APIs REST, Maven/Gradle.
+- **FP Superior — Desarrollo de Aplicaciones Multiplataforma (DAM) · CESUR Madrid** (2024–2026):
+  Java, Spring Boot, Kotlin, Python, APIs REST, Maven/Gradle.
 - **Bootcamp C / Linux / Shell · 42 Madrid · Fundación Telefónica** (2025): metodología peer-to-peer.
 - **Diseño Gráfico · Instituto San Ignacio de Loyola** (Lima, Perú, 2021–2022): Illustrator,
   Photoshop, InDesign — sensibilidad de diseño aplicada a la UI.
@@ -60,17 +62,24 @@ Frase que lo define: *"Diseño y construyo backends que escalan sin romperse cua
 
 ## Proyectos destacados
 
-- [Booqi — Gestión de Reservas de Eventos](https://github.com/RenzoRamosDEV/Booqui-Sistema-Gestion-Reservas-Eventos):
-  plataforma de venta de entradas con 4 microservicios en Java/Spring Boot (usuarios, eventos,
-  reservas, pagos), cada uno con su MySQL y API REST documentada con OpenAPI, orquestados con
-  Docker Compose. Demo: https://renzoramosdev.github.io/Booqui-Sistema-Gestion-Reservas-Eventos/
-- [Redactor IA — Reformulador de Textos](https://github.com/RenzoRamosDEV/Redactor-IA): herramienta
-  web que reescribe textos con IA (Node.js + Groq SDK + LLaMA, frontend React + TailwindCSS, i18n).
-- [Pokédex Retro — API Pokémon en Scala](https://github.com/RenzoRamosDEV/Api-Pokemon-Scala-Web):
-  Pokédex con estética Game Boy construida con Scala y Play Framework sobre PokéAPI.
+- [Booqi — Sistema de Gestión de Reservas de Eventos](https://github.com/RenzoRamosDEV/Booqui-Sistema-Gestion-Reservas-Eventos):
+  plataforma web para descubrir eventos, comprar entradas (con ticket en PDF) y gestionar reservas,
+  más un panel de administración. Arquitectura de microservicios en Java/Spring Boot (usuarios,
+  eventos, reservas, pagos), MySQL, OpenAPI/Swagger, JUnit 5 y Pitest, frontend React + Vite +
+  Bootstrap, orquestado con Docker Compose. Proyecto en equipo (con Melanie Gabriela Cárdenas Hidalgo).
+  Demo: https://renzoramosdev.github.io/Booqui-Sistema-Gestion-Reservas-Eventos/
+- [Redactor IA — Reformulación de Textos con IA](https://github.com/RenzoRamosDEV/Redactor-IA):
+  herramienta web que mejora o reformula textos con IA (control de tono, intensidad e instrucciones).
+  Frontend React + Vite + TailwindCSS + i18next (ES/EN); backend Node.js + Express con Google
+  Generative AI (Gemini) y Groq SDK, con medidas de seguridad (helmet, CORS, rate limiting).
+- [Pokédex Retro + Chatbot ReAct (MCP)](https://github.com/RenzoRamosDEV/Api-Pokemon-Scala-Web):
+  app web completa que combina una Pokédex retro (interfaz en CSS puro, 3 temas) con un chatbot de
+  IA que razona paso a paso (ReAct) y consulta datos en tiempo real. Backend API REST en Scala +
+  Play Framework; servidor MCP en Python expone los datos como herramientas; agente ReAct con
+  OpenAI SDK + FastAPI. Integra el Model Context Protocol (MCP).
 
 ## Notas
 
-- El sitio es una SPA bilingüe (ES/EN) en React + TypeScript + Vite.
+- El sitio es una SPA bilingüe (ES/EN) en React + TypeScript + Vite, pre-renderizada (SSG) para SEO.
 - Incluye un asistente IA propio (FastAPI + LangChain + OpenAI) que responde preguntas sobre Renzo.
 - Para contratar o colaborar, el mejor canal es el email o LinkedIn indicados arriba.
