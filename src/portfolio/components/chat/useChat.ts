@@ -23,15 +23,18 @@ function getRecentAsks(): number[] {
 }
 
 // Reusamos el thread_id guardado para no perder la conversación al recargar la página.
+// Lazy: se calcula en el primer uso (cliente), no al importar el módulo (compatible con SSG).
+let _threadId: string | null = null
 function getThreadId(): string {
+  if (_threadId) return _threadId
   let id = localStorage.getItem(THREAD_KEY)
   if (!id) {
     id = `widget-${Math.random().toString(36).slice(2)}`
     localStorage.setItem(THREAD_KEY, id)
   }
+  _threadId = id
   return id
 }
-const THREAD_ID = getThreadId()
 
 // El backend corre en local (ver chatbot/). Arráncalo con uvicorn en el puerto 8000.
 const API_BASE = 'http://localhost:8000'
@@ -139,7 +142,7 @@ export function useChat() {
       const res = await fetch(API_URL, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ message: value, thread_id: THREAD_ID }),
+        body: JSON.stringify({ message: value, thread_id: getThreadId() }),
       })
       const data = await res.json()
       setMsgs(prev => [...prev, { role: 'bot', text: data.response }])

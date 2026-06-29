@@ -12,9 +12,11 @@ mediante modelos predictivos y generación de contenido con IA; documentación y
 para garantizar calidad, trazabilidad y mantenibilidad; y exploración de tecnologías emergentes
 aplicando la innovación de forma pragmática.
 
-## Fullstack Developer — SEIDOR
+## Junior Full Stack Developer — SEIDOR
 **Septiembre 2025 – Junio 2026 · Madrid**
 
-Desarrollo de componentes reutilizables y configurables en Adobe Experience Manager (AEM), lógica
-de backend modal en Java, resolución de incidencias, optimización de funcionalidades y documentación técnica
-para soporte y mantenimiento.
+Experiencia en el desarrollo de soluciones utilizando Java, XML, HTML, CSS, JavaScript y Maven.
+Desarrollo de componentes reutilizables y contribuibles en Adobe Experience Manager (AEM); creación
+de Modals para componentes con Java; gestión y contribución de páginas con contenido multimedia
+mediante AEM Assets (DAM); resolución de incidencias backend y optimización de funcionalidades
+existentes; y elaboración de documentación técnica para soporte y mantenimiento de proyectos.

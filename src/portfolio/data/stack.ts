@@ -2,15 +2,10 @@ import claude from '../../assets/stack/claude.png'
 import claudeDesign from '../../assets/stack/claude-design.png'
 import css from '../../assets/stack/css.png'
 import docker from '../../assets/stack/docker.png'
-import git from '../../assets/stack/git.png'
 import githubCopilot from '../../assets/stack/github-copilot.png'
-import gradle from '../../assets/stack/gradle.png'
 import html from '../../assets/stack/html.png'
 import java from '../../assets/stack/java.png'
 import javascript from '../../assets/stack/javascript.png'
-import junit from '../../assets/stack/junit.png'
-import kotlin from '../../assets/stack/kotlin.png'
-import maven from '../../assets/stack/maven.png'
 import mysql from '../../assets/stack/mysql.png'
 import opencode from '../../assets/stack/opencode.png'
 import openspec from '../../assets/stack/openspec.png'
@@ -30,10 +25,6 @@ export type StackItem = {
 type StackItemRaw = Omit<StackItem, 'desc'> & { desc: Record<Lang, string> }
 
 const STACK_RAW: StackItemRaw[] = [
-  { kind: 'stack', cat: 'back', name: 'Kotlin', icon: kotlin, desc: {
-    es: 'Lo utilizo para el desarrollo de servicios modernos, aprovechando su sintaxis concisa para implementar arquitecturas limpias y código altamente legible.',
-    en: 'I use it for modern service development, leveraging its concise syntax to implement clean architectures and highly readable code.',
-  }},
   { kind: 'stack', cat: 'back', name: 'Java', icon: java, desc: {
     es: 'Mi lenguaje base para construir aplicaciones empresariales robustas, aplicando principios SOLID y patrones de diseño para garantizar la escalabilidad.',
     en: 'My primary language for building robust enterprise applications, applying SOLID principles and design patterns to ensure scalability.',
@@ -93,22 +84,6 @@ const STACK_RAW: StackItemRaw[] = [
     en: 'I use it for software specification definition and design, ensuring technical requirements are well documented from the start.',
   }},
 
-  { kind: 'stack', cat: 'stack-tools', name: 'JUnit', icon: junit, desc: {
-    es: 'Lo utilizo para blindar la calidad del código mediante pruebas automatizadas, asegurando que cada funcionalidad responda correctamente ante fallos.',
-    en: 'I use it to protect code quality through automated testing, ensuring every functionality responds correctly to failures.',
-  }},
-  { kind: 'stack', cat: 'stack-tools', name: 'Maven', icon: maven, desc: {
-    es: 'Lo uso para la gestión estructurada de dependencias y la automatización del ciclo de vida de construcción en proyectos Java/Kotlin.',
-    en: 'I use it for structured dependency management and build lifecycle automation in Java/Kotlin projects.',
-  }},
-  { kind: 'stack', cat: 'stack-tools', name: 'Gradle', icon: gradle, desc: {
-    es: 'Lo prefiero en proyectos que requieren una configuración de build más flexible y rápida, optimizando los tiempos de compilación.',
-    en: 'I prefer it in projects that require more flexible and fast build configuration, optimizing compilation times.',
-  }},
-  { kind: 'stack', cat: 'stack-tools', name: 'Git', icon: git, desc: {
-    es: 'Lo domino para el control de versiones detallado y la colaboración en equipo, manteniendo un flujo de trabajo organizado mediante ramas y commits claros.',
-    en: 'I master it for detailed version control and team collaboration, maintaining an organized workflow through clear branches and commits.',
-  }},
 ]
 
 export function getStack(lang: Lang): StackItem[] {

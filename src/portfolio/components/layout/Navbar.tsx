@@ -1,183 +1,142 @@
 import { useEffect, useRef, useState } from 'react'
-import { Menu, X } from 'lucide-react'
+import type { CSSProperties, MouseEvent } from 'react'
+import { Globe, Menu, X } from 'lucide-react'
 import { useLanguage } from '../../i18n/LanguageContext'
+import type { Lang } from '../../i18n/translations'
+import { scrollToSection } from '../../utils/scroll'
 
-const NAV_SECTION_IDS = ['sobre-mi', 'proyectos', 'experiencia', 'stack', 'metodologias']
-
-const scrollTo = (e: React.MouseEvent, targetId: string, onDone?: () => void) => {
-  e.preventDefault()
-  const target = document.getElementById(targetId)
-  if (!target) return
-  
-  // Find the scroll container
-  const scrollBody = document.querySelector('.portfolio-scroll-body')
-  const wbody = document.querySelector('.wbody')
-  const scrollContainer = scrollBody instanceof HTMLElement ? scrollBody : wbody instanceof HTMLElement ? wbody : null
-
-  if (scrollContainer) {
-    const containerRect = scrollContainer.getBoundingClientRect()
-    const targetRect = target.getBoundingClientRect()
-    const scrollTop = scrollContainer.scrollTop
-    const offset = targetRect.top - containerRect.top + scrollTop
-    scrollContainer.scrollTo({ top: offset, behavior: 'smooth' })
-  } else {
-    // Otherwise use default scrollIntoView
-    target.scrollIntoView({ behavior: 'smooth' })
-  }
-  onDone?.()
-}
-
-function useActiveSection(ids: string[]) {
-  const [active, setActive] = useState<string>('')
-
-  useEffect(() => {
-    let observers: (IntersectionObserver | null)[] = []
-    
-    const setupObservers = () => {
-      // Find the scroll container
-      const scrollBody = document.querySelector('.portfolio-scroll-body')
-      const wbody = document.querySelector('.wbody')
-      const root = (scrollBody instanceof HTMLElement ? scrollBody : wbody instanceof HTMLElement ? wbody : null)
-      
-      observers = ids.map(id => {
-        const el = document.getElementById(id)
-        if (!el) return null
-        const obs = new IntersectionObserver(
-          ([entry]) => { if (entry.isIntersecting) setActive(id) },
-          { 
-            root: root,
-            rootMargin: '-40% 0px -55% 0px', 
-            threshold: 0 
-          }
-        )
-        obs.observe(el)
-        return obs
-      })
-    }
-
-    // Wait for DOM to be ready
-    const timer = setTimeout(setupObservers, 100)
-
-    return () => {
-      clearTimeout(timer)
-      observers.forEach(o => o?.disconnect())
-    }
-  }, [ids])
-
-  return active
-}
-
-function LangButton() {
-  const { lang, setLang } = useLanguage()
-  return (
-    <button
-      onClick={() => setLang(lang === 'es' ? 'en' : 'es')}
-      className="nav-link text-sm lg:text-base font-medium whitespace-nowrap transition-colors duration-300 bg-transparent border-0 cursor-pointer px-0 flex items-center gap-1.5"
-      style={{ color: 'rgba(167,180,188,0.7)' }}
-    >
-      🌐 {lang === 'es' ? 'ES' : 'EN'}
-    </button>
-  )
-}
+const LANGS: { code: Lang; label: string }[] = [
+  { code: 'es', label: 'Español' },
+  { code: 'en', label: 'English' },
+]
 
 export function Navbar() {
-  const activeSection = useActiveSection(NAV_SECTION_IDS)
-const { t } = useLanguage()
-  const [menuOpen, setMenuOpen] = useState(false)
+  const { t, lang, setLang } = useLanguage()
+  const [open, setOpen] = useState(false) // desplegable de idioma
+  const [navOpen, setNavOpen] = useState(false) // menú móvil
   const menuRef = useRef<HTMLDivElement>(null)
 
-  const navItems = [
-    { label: t('nav_about'),         targetId: 'sobre-mi'     },
-    { label: t('nav_projects'),      targetId: 'proyectos'    },
-    { label: t('nav_experience'),    targetId: 'experiencia'  },
-    { label: t('nav_stack'),         targetId: 'stack'        },
-    { label: t('nav_methodologies'), targetId: 'metodologias' },
+  const NAV_ITEMS: { id: string; label: string }[] = [
+    { id: 'proyectos', label: t('nav_projects') },
+    { id: 'stack', label: t('nav_stack') },
+    { id: 'experiencia', label: t('nav_exp') },
+    { id: 'educacion', label: t('nav_edu') },
+    { id: 'contacto', label: t('nav_contact') },
   ]
 
+  const go = (e: MouseEvent, id: string) => {
+    e.preventDefault()
+    setNavOpen(false)
+    scrollToSection(id)
+  }
+
+  // Cierra el desplegable de idioma al hacer clic fuera o con Escape.
   useEffect(() => {
-    if (!menuOpen) return
-    const handler = (e: MouseEvent) => {
-      if (!menuRef.current?.contains(e.target as Node)) setMenuOpen(false)
+    if (!open) return
+    const onDown = (e: globalThis.MouseEvent) => {
+      if (menuRef.current && !menuRef.current.contains(e.target as Node)) setOpen(false)
     }
-    document.addEventListener('mousedown', handler)
-    return () => document.removeEventListener('mousedown', handler)
-  }, [menuOpen])
+    const onKey = (e: KeyboardEvent) => { if (e.key === 'Escape') setOpen(false) }
+    document.addEventListener('mousedown', onDown)
+    document.addEventListener('keydown', onKey)
+    return () => {
+      document.removeEventListener('mousedown', onDown)
+      document.removeEventListener('keydown', onKey)
+    }
+  }, [open])
+
+  const choose = (code: Lang) => {
+    setLang(code)
+    setOpen(false)
+  }
+
+  const linkStyle: CSSProperties = { textDecoration: 'none', color: 'inherit', opacity: 0.85, fontSize: 12.5 }
 
   return (
-    <>
-      {/* ── Desktop nav + pill idioma — centrados juntos ── */}
-      <div className="hidden md:flex items-start gap-2 justify-center w-full pt-4 pb-2">
-        <nav
-          style={{ backgroundColor: '#000000', borderColor: 'rgba(255,255,255,0.1)' }}
-          className="transition-all duration-300 shadow-lg border rounded-full px-6 py-2 backdrop-blur-md"
-        >
-          <ul className="flex items-center gap-8 lg:gap-10 list-none m-0 p-0 flex-nowrap">
-            {navItems.map(({ label, targetId }) => (
-              <li key={targetId}>
-                <a
-                  href={`#${targetId}`}
-                  onClick={e => scrollTo(e, targetId)}
-                  className="nav-link text-sm lg:text-base font-medium no-underline whitespace-nowrap transition-colors duration-300"
-                  style={{ color: activeSection === targetId ? '#ffffff' : undefined }}
-                >
-                  {label}
-                </a>
-              </li>
-            ))}
-          </ul>
+    <header
+      style={{
+        position: 'sticky',
+        top: 0,
+        zIndex: 50,
+        background: 'rgba(245,245,247,.78)',
+        backdropFilter: 'saturate(180%) blur(20px)',
+        WebkitBackdropFilter: 'saturate(180%) blur(20px)',
+        borderBottom: '1px solid rgba(0,0,0,.09)',
+      }}
+    >
+      <div style={{ maxWidth: 1024, margin: '0 auto', height: 48, padding: '0 22px', display: 'flex', alignItems: 'center', gap: 24 }}>
+        <a href="#top" onClick={(e) => { e.preventDefault(); setNavOpen(false); window.scrollTo({ top: 0, behavior: 'smooth' }) }} style={{ textDecoration: 'none', color: '#1d1d1f', fontSize: 18, fontWeight: 600, letterSpacing: '-.02em', whiteSpace: 'nowrap' }}>
+          Renzo Ramos
+        </a>
+
+        <nav className="nav-links" style={{ color: '#1d1d1f' }}>
+          {NAV_ITEMS.map((item) => (
+            <a key={item.id} href={`#${item.id}`} onClick={(e) => go(e, item.id)} style={linkStyle}>{item.label}</a>
+          ))}
         </nav>
 
-        <div
-          style={{ backgroundColor: '#000000', borderColor: 'rgba(255,255,255,0.1)' }}
-          className="transition-all duration-300 shadow-lg border rounded-full px-5 py-2 backdrop-blur-md"
-        >
-          <LangButton />
-        </div>
-      </div>
-
-      {/* ── Mobile nav ── */}
-      <div ref={menuRef} className="md:hidden flex justify-center w-full pt-3 pb-2">
-        <div
-          style={{ backgroundColor: '#000000', borderColor: 'rgba(255,255,255,0.1)' }}
-          className="flex items-center justify-between gap-3 transition-all duration-300 shadow-lg border rounded-full px-4 py-2 backdrop-blur-md"
-        >
-          <button
-            onClick={() => setMenuOpen(o => !o)}
-            className="flex items-center gap-1.5 bg-transparent border-0 cursor-pointer text-[#A7B4BC]/70 hover:text-white transition-colors duration-200 p-1"
-            aria-label="Menu"
-          >
-            {menuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
-            <span className="text-[13px] font-medium">Menu</span>
-          </button>
-
-          <LangButton />
-        </div>
-
-        {menuOpen && (
-          <div
-            style={{ backgroundColor: '#0a0a0a', borderColor: 'rgba(255,255,255,0.08)' }}
-            className="absolute top-full left-0 mt-1.5 min-w-[160px] rounded-2xl border shadow-2xl overflow-hidden"
-          >
-            {navItems.map(({ label, targetId }, i) => (
-              <a
-                key={targetId}
-                href={`#${targetId}`}
-                onClick={e => scrollTo(e, targetId, () => setMenuOpen(false))}
-                className="flex items-center gap-2 px-4 py-3 text-[13px] font-medium no-underline transition-colors duration-150 hover:bg-white/5"
-                style={{
-                  color: activeSection === targetId ? '#ffffff' : 'rgba(167,180,188,0.65)',
-                  borderTop: i > 0 ? '1px solid rgba(255,255,255,0.05)' : undefined,
-                }}
-              >
-                {activeSection === targetId && (
-                  <span className="w-1 h-1 rounded-full bg-white flex-shrink-0" />
-                )}
-                {label}
-              </a>
-            ))}
+        <div style={{ marginLeft: 'auto', display: 'flex', alignItems: 'center', gap: 10 }}>
+          {/* Selector de idioma */}
+          <div ref={menuRef} style={{ position: 'relative' }}>
+            <button
+              onClick={() => setOpen((v) => !v)}
+              aria-haspopup="listbox"
+              aria-expanded={open}
+              aria-label="Idioma / Language"
+              style={{ cursor: 'pointer', display: 'inline-flex', alignItems: 'center', gap: 6, background: 'none', border: '1px solid rgba(0,0,0,.22)', borderRadius: 999, padding: '5px 10px', color: '#1d1d1f' }}
+            >
+              <Globe size={16} strokeWidth={1.8} />
+              <span style={{ fontSize: 12, fontWeight: 600, textTransform: 'uppercase' }}>{lang}</span>
+            </button>
+            {open && (
+              <div role="listbox" style={{ position: 'absolute', top: 'calc(100% + 8px)', right: 0, minWidth: 132, background: '#fff', border: '1px solid rgba(0,0,0,.08)', borderRadius: 12, boxShadow: '0 10px 30px rgba(0,0,0,.12)', padding: 6, zIndex: 60 }}>
+                {LANGS.map((l) => {
+                  const selected = l.code === lang
+                  return (
+                    <button
+                      key={l.code}
+                      role="option"
+                      aria-selected={selected}
+                      onClick={() => choose(l.code)}
+                      style={{ width: '100%', textAlign: 'left', cursor: 'pointer', background: selected ? '#f5f5f7' : 'none', border: 'none', borderRadius: 8, padding: '9px 12px', fontSize: 14, fontWeight: selected ? 600 : 400, color: '#1d1d1f', display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 10 }}
+                    >
+                      {l.label}
+                      {selected && <span style={{ color: '#0066cc' }}>✓</span>}
+                    </button>
+                  )
+                })}
+              </div>
+            )}
           </div>
-        )}
+
+          {/* Botón hamburguesa (solo móvil) */}
+          <button
+            className="nav-burger"
+            onClick={() => setNavOpen((v) => !v)}
+            aria-label="Menú"
+            aria-expanded={navOpen}
+            style={{ cursor: 'pointer', alignItems: 'center', justifyContent: 'center', background: 'none', border: '1px solid rgba(0,0,0,.22)', borderRadius: 999, width: 34, height: 30, color: '#1d1d1f', padding: 0 }}
+          >
+            {navOpen ? <X size={18} /> : <Menu size={18} />}
+          </button>
+        </div>
       </div>
-    </>
+
+      {/* Panel del menú móvil */}
+      {navOpen && (
+        <div style={{ borderTop: '1px solid rgba(0,0,0,.08)', background: 'rgba(245,245,247,.96)', padding: '8px 22px 14px' }}>
+          {NAV_ITEMS.map((item) => (
+            <a
+              key={item.id}
+              href={`#${item.id}`}
+              onClick={(e) => go(e, item.id)}
+              style={{ display: 'block', textDecoration: 'none', color: '#1d1d1f', fontSize: 16, padding: '11px 2px', borderBottom: '1px solid rgba(0,0,0,.06)' }}
+            >
+              {item.label}
+            </a>
+          ))}
+        </div>
+      )}
+    </header>
   )
 }

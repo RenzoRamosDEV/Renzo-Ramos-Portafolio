@@ -1,44 +1,62 @@
-import { useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 import './styles/globals.css'
 import { LanguageProvider } from './i18n/LanguageContext'
 import { Navbar } from './components/layout/Navbar'
 import { Footer } from './components/layout/Footer'
-import { Hero } from './sections/hero/Hero'
-import { ProjectsSection } from './sections/projects/ProjectsSection'
-import { ProjectModal } from './sections/projects/ProjectModal'
-import { ExperienceSection } from './sections/experience/ExperienceSection'
-import { StackSection } from './sections/stack/StackSection'
-import { MethodologiesSection } from './sections/methodologies/MethodologiesSection'
+import { Intro } from './sections/Intro'
+import { Hero } from './sections/Hero'
+import { Projects } from './sections/Projects'
+import { ProjectDetail } from './sections/ProjectDetail'
+import { Stack } from './sections/Stack'
+import { ExperienceEducation } from './sections/ExperienceEducation'
+import { Certificates } from './sections/Certificates'
+import { Contact } from './sections/Contact'
 import { ChatWidget } from './components/chat/ChatWidget'
 import type { Project } from './data/projects'
 
 export function PortfolioSite() {
-  const [activeProject, setActiveProject] = useState<Project | null>(null)
+  const [active, setActive] = useState<Project | null>(null)
+  const [showIntro, setShowIntro] = useState(true)
+  const dismissIntro = useCallback(() => setShowIntro(false), [])
+
+  // El intro y el chat son solo de cliente: no se pre-renderizan (no son
+  // contenido SEO y dependen de APIs del navegador). Evita saltos de hidratación.
+  const [mounted, setMounted] = useState(false)
+  useEffect(() => setMounted(true), [])
+
+  // Abre el detalle empujando una entrada al historial: el botón "atrás"
+  // del navegador cierra la vista en lugar de salir del sitio.
+  const openProject = (project: Project) => {
+    window.history.pushState({ project: project.num }, '')
+    setActive(project)
+  }
+  const closeProject = () => {
+    if (window.history.state?.project) window.history.back()
+    else setActive(null)
+  }
+
+  useEffect(() => {
+    const onPop = () => setActive(null)
+    window.addEventListener('popstate', onPop)
+    return () => window.removeEventListener('popstate', onPop)
+  }, [])
 
   return (
     <LanguageProvider>
-      <div style={{ height: '100%', position: 'relative', overflow: 'hidden' }}>
-        {/* Navbar flotante sobre el contenido */}
-        <div style={{ position: 'absolute', top: 0, left: 0, right: 0, zIndex: 50, pointerEvents: 'none' }}>
-          <div style={{ pointerEvents: 'auto' }}>
-            <Navbar />
-          </div>
-        </div>
-        {/* Contenido scrolleable */}
-        <main className="portfolio-scroll-body" style={{ height: '100%', overflowY: 'auto' }}>
+      <div style={{ background: '#f5f5f7', color: '#1d1d1f', minHeight: '100vh' }}>
+        {mounted && showIntro && <Intro onDone={dismissIntro} />}
+        <Navbar />
+        <main>
           <Hero />
-          <ProjectsSection onLearnMore={setActiveProject} />
-          <ExperienceSection />
-          <StackSection />
-          <MethodologiesSection />
-          <Footer />
+          <Projects onOpen={openProject} />
+          <Stack />
+          <ExperienceEducation />
+          <Certificates />
+          <Contact />
         </main>
-        {/* Detalle de proyecto: cubre todo el contenedor */}
-        {activeProject && (
-          <ProjectModal project={activeProject} onClose={() => setActiveProject(null)} />
-        )}
-        {/* Burbuja flotante del asistente IA */}
-        <ChatWidget />
+        <Footer />
+        {active && <ProjectDetail project={active} onClose={closeProject} />}
+        {mounted && <ChatWidget />}
       </div>
     </LanguageProvider>
   )
