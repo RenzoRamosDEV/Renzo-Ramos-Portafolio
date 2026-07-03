@@ -3,6 +3,7 @@ export type Lang = 'es' | 'en'
 export const translations = {
   es: {
     // Nav
+    nav_personal: 'Personal',
     nav_projects: 'Proyectos',
     nav_stack: 'Stack',
     nav_exp: 'Experiencia',
@@ -11,6 +12,7 @@ export const translations = {
     lang_label: 'ES / en',
 
     // Quick links
+    ql_personal: 'Personal',
     ql_projects: 'Proyectos',
     ql_exp: 'Experiencia',
     ql_edu: 'Educación',
@@ -45,6 +47,7 @@ export const translations = {
     detail_repo: 'Ver repositorio',
     detail_demo: 'Ver demo',
     detail_more: 'Ver detalles',
+    img_screenshot: 'Captura de pantalla',
 
     // Stack
     stack_title: 'Stack.',
@@ -72,6 +75,7 @@ export const translations = {
   },
   en: {
     // Nav
+    nav_personal: 'Personal',
     nav_projects: 'Projects',
     nav_stack: 'Stack',
     nav_exp: 'Experience',
@@ -80,6 +84,7 @@ export const translations = {
     lang_label: 'es / EN',
 
     // Quick links
+    ql_personal: 'Personal',
     ql_projects: 'Projects',
     ql_exp: 'Experience',
     ql_edu: 'Education',
@@ -114,6 +119,7 @@ export const translations = {
     detail_repo: 'View repository',
     detail_demo: 'View demo',
     detail_more: 'View details',
+    img_screenshot: 'Screenshot',
 
     // Stack
     stack_title: 'Stack.',

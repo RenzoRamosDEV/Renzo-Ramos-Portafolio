@@ -1,16 +1,13 @@
-import booqui01 from '../../assets/projects/booqui/booqui-01.png'
 import booqui02 from '../../assets/projects/booqui/booqui-02.png'
 import booqui03 from '../../assets/projects/booqui/booqui-03.png'
 import booqui04 from '../../assets/projects/booqui/booqui-04.png'
 import booqui05 from '../../assets/projects/booqui/booqui-05.png'
 import booqui06 from '../../assets/projects/booqui/booqui-06.png'
-import redactorIA01 from '../../assets/projects/redactor-ia/image.png'
-import pokedex01 from '../../assets/projects/pokedex/image.png'
-import pokedex02 from '../../assets/projects/pokedex/image copy.png'
-import pokedex03 from '../../assets/projects/pokedex/image copy 2.png'
-import pokedex04 from '../../assets/projects/pokedex/image copy 3.png'
-import pokedex05 from '../../assets/projects/pokedex/image copy 4.png'
-import pokedex06 from '../../assets/projects/pokedex/image copy 5.png'
+import pokedex02 from '../../assets/projects/pokedex/pokedex-02.png'
+import pokedex03 from '../../assets/projects/pokedex/pokedex-03.png'
+import pokedex04 from '../../assets/projects/pokedex/pokedex-04.png'
+import pokedex05 from '../../assets/projects/pokedex/pokedex-05.png'
+import pokedex06 from '../../assets/projects/pokedex/pokedex-06.png'
 import type { Lang } from '../i18n/translations'
 
 type I18nText = Record<Lang, string>
@@ -46,7 +43,7 @@ const PROJECTS_RAW: ProjectRaw[] = [
       es: 'Booqi — Sistema de Gestión de Reservas de Eventos',
       en: 'Booqi — Event Booking Management System',
     },
-    images: [booqui01, booqui02, booqui03, booqui04, booqui05, booqui06],
+    images: ['/img/projects/booqui.jpg', booqui02, booqui03, booqui04, booqui05, booqui06],
     summary: {
       es: 'Plataforma web para descubrir eventos, comprar entradas y gestionar reservas, con arquitectura de microservicios y panel de administración.',
       en: 'Web platform to discover events, buy tickets and manage bookings, built with a microservices architecture and an admin panel.',
@@ -102,7 +99,7 @@ const PROJECTS_RAW: ProjectRaw[] = [
       es: 'Redactor IA — Reformulación de Textos con IA',
       en: 'Redactor IA — AI Text Rewriting Tool',
     },
-    images: [redactorIA01],
+    images: ['/img/projects/redactor-ia.jpg'],
     summary: {
       es: 'Herramienta web para mejorar o reformular textos con IA: eliges el tono, ajustas la intensidad y recibes una versión mejorada en segundos.',
       en: 'Web tool to improve or rewrite text with AI: choose the tone, adjust the intensity and get an improved version in seconds.',
@@ -158,7 +155,7 @@ const PROJECTS_RAW: ProjectRaw[] = [
       es: 'Pokédex Retro + Chatbot ReAct (MCP)',
       en: 'Retro Pokédex + ReAct Chatbot (MCP)',
     },
-    images: [pokedex01, pokedex02, pokedex03, pokedex04, pokedex05, pokedex06],
+    images: ['/img/projects/pokedex.jpg', pokedex02, pokedex03, pokedex04, pokedex05, pokedex06],
     summary: {
       es: 'Aplicación web completa que combina una Pokédex retro con un chatbot de IA que razona paso a paso (ReAct) y consulta los datos en tiempo real vía MCP.',
       en: 'Full web application that combines a retro Pokédex with an AI chatbot that reasons step by step (ReAct) and queries data in real time via MCP.',

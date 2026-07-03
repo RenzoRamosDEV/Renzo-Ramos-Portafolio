@@ -24,7 +24,7 @@ function QuickLink({ href, label, children }: { href: string; label: string; chi
   return (
     <a
       href={href}
-      onClick={(e) => { e.preventDefault(); scrollToSection(href.replace('#', '')) }}
+      onClick={href.startsWith('#') ? (e) => { e.preventDefault(); scrollToSection(href.replace('#', '')) } : undefined}
       style={{ textDecoration: 'none', color: '#1d1d1f', flex: '0 0 auto', width: 96, textAlign: 'center' }}
     >
       <div
@@ -84,6 +84,10 @@ export function Hero() {
 
       <div className="qscroll" style={{ marginTop: 64, overflowX: 'auto', paddingBottom: 8 }}>
         <div style={{ display: 'flex', gap: 30, width: 'max-content', margin: '0 auto' }}>
+          <QuickLink href="/renzo-ramos-desarrollador-de-software.html" label={t('ql_personal')}>
+            <circle cx="12" cy="8" r="4" />
+            <path d="M4 20c0-3.3 3.6-6 8-6s8 2.7 8 6" />
+          </QuickLink>
           <QuickLink href="#proyectos" label={t('ql_projects')}>
             <path d="M3 7a2 2 0 0 1 2-2h4l2 2h6a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
           </QuickLink>

@@ -31,7 +31,9 @@
 - **Backend:** Spring Boot, Spring Modulith, Play Framework, FastAPI, Node.js/Express, API REST, MySQL, Docker
 - **Inteligencia Artificial:** LangChain, LangGraph, LiteLLM, Temporal.io, OpenAI SDK, MCP (Model Context Protocol), agentes ReAct, IA generativa, Machine Learning, Prompt Engineering. Herramientas: Claude Code, OpenCode, GitHub Copilot CLI, OpenSpec, Claude Design
 - **Frontend:** React, Vite, TailwindCSS, HTML, CSS, i18next
-- **Metodologías:** SOLID, Clean Architecture, TDD, Spec-Driven Development (SDD), Agentic Workflows, Git Flow / Trunk-Based, Agile (Scrum/Kanban)
+- **Testing:** JUnit 5, Mockito, Testcontainers, Integration Testing, Pitest (mutation testing), TDD
+- **Control de versiones:** Git, Git Flow / Trunk-Based
+- **Metodologías:** SOLID, Clean Architecture, Spec-Driven Development (SDD), Agentic Workflows, Agile (Scrum/Kanban)
 
 ## Experiencia
 

@@ -64,7 +64,8 @@ export function Projects({ onOpen }: { onOpen: (project: Project) => void }) {
                 <div style={{ marginTop: 'auto', padding: '0 18px 18px' }}>
                   <img
                     src={project.images[0]}
-                    alt={card.name}
+                    alt={`${project.title} — ${t('img_screenshot')}`}
+                    loading="lazy"
                     style={{ width: '100%', aspectRatio: '16 / 10', objectFit: 'cover', objectPosition: 'top', borderRadius: 12, display: 'block' }}
                   />
                 </div>

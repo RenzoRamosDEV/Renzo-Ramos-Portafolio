@@ -16,7 +16,8 @@ export function Navbar() {
   const [navOpen, setNavOpen] = useState(false) // menú móvil
   const menuRef = useRef<HTMLDivElement>(null)
 
-  const NAV_ITEMS: { id: string; label: string }[] = [
+  const NAV_ITEMS: { id: string; label: string; href?: string }[] = [
+    { id: 'personal', label: t('nav_personal'), href: '/renzo-ramos-desarrollador-de-software.html' },
     { id: 'proyectos', label: t('nav_projects') },
     { id: 'stack', label: t('nav_stack') },
     { id: 'experiencia', label: t('nav_exp') },
@@ -70,9 +71,13 @@ export function Navbar() {
         </a>
 
         <nav className="nav-links" style={{ color: '#1d1d1f' }}>
-          {NAV_ITEMS.map((item) => (
-            <a key={item.id} href={`#${item.id}`} onClick={(e) => go(e, item.id)} style={linkStyle}>{item.label}</a>
-          ))}
+          {NAV_ITEMS.map((item) =>
+            item.href ? (
+              <a key={item.id} href={item.href} style={linkStyle}>{item.label}</a>
+            ) : (
+              <a key={item.id} href={`#${item.id}`} onClick={(e) => go(e, item.id)} style={linkStyle}>{item.label}</a>
+            )
+          )}
         </nav>
 
         <div style={{ marginLeft: 'auto', display: 'flex', alignItems: 'center', gap: 10 }}>
@@ -128,8 +133,8 @@ export function Navbar() {
           {NAV_ITEMS.map((item) => (
             <a
               key={item.id}
-              href={`#${item.id}`}
-              onClick={(e) => go(e, item.id)}
+              href={item.href ?? `#${item.id}`}
+              onClick={item.href ? () => setNavOpen(false) : (e) => go(e, item.id)}
               style={{ display: 'block', textDecoration: 'none', color: '#1d1d1f', fontSize: 16, padding: '11px 2px', borderBottom: '1px solid rgba(0,0,0,.06)' }}
             >
               {item.label}

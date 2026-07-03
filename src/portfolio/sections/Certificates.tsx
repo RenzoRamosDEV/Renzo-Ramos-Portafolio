@@ -15,12 +15,20 @@ export function Certificates() {
             href={c.credential || c.pdf || '#'}
             target="_blank"
             rel="noreferrer"
-            style={{ textDecoration: 'none', color: '#1d1d1f', background: '#fff', borderRadius: 18, padding: '26px 24px', display: 'block' }}
+            style={{ textDecoration: 'none', color: '#1d1d1f', background: '#fff', borderRadius: 18, overflow: 'hidden', display: 'block' }}
           >
-            <div style={{ fontSize: 12, fontWeight: 600, letterSpacing: '.04em', textTransform: 'uppercase', color: '#bf4800' }}>{c.company}</div>
-            <div style={{ fontSize: 17, fontWeight: 600, lineHeight: 1.3, marginTop: 10 }}>{c.title}</div>
-            <div style={{ fontSize: 13.5, color: '#6e6e73', lineHeight: 1.45, marginTop: 10 }}>{c.desc}</div>
-            <div style={{ fontSize: 14, color: '#0066cc', marginTop: 16 }}>{t('cert_view')} ↗</div>
+            <img
+              src={c.preview}
+              alt={`${c.title} — ${c.company}`}
+              loading="lazy"
+              style={{ width: '100%', aspectRatio: '16 / 10', objectFit: 'cover', objectPosition: 'top', display: 'block' }}
+            />
+            <div style={{ padding: '20px 24px 26px' }}>
+              <div style={{ fontSize: 12, fontWeight: 600, letterSpacing: '.04em', textTransform: 'uppercase', color: '#bf4800' }}>{c.company}</div>
+              <div style={{ fontSize: 17, fontWeight: 600, lineHeight: 1.3, marginTop: 10 }}>{c.title}</div>
+              <div style={{ fontSize: 13.5, color: '#6e6e73', lineHeight: 1.45, marginTop: 10 }}>{c.desc}</div>
+              <div style={{ fontSize: 14, color: '#0066cc', marginTop: 16 }}>{t('cert_view')} ↗</div>
+            </div>
           </a>
         ))}
       </div>

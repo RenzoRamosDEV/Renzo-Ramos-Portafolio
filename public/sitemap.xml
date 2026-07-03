@@ -1,17 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://portafolio-renzoramos.com/</loc>
-    <lastmod>2026-06-29</lastmod>
+    <lastmod>2026-07-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://portafolio-renzoramos.com/og-image.jpg</image:loc>
+      <image:title>Renzo Ramos — Técnico Superior DAM &amp; Junior AI Engineer</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://portafolio-renzoramos.com/img/projects/booqui.jpg</image:loc>
+      <image:title>Booqi — Sistema de Gestión de Reservas de Eventos</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://portafolio-renzoramos.com/img/projects/redactor-ia.jpg</image:loc>
+      <image:title>Redactor IA — Reformulación de Textos con IA</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://portafolio-renzoramos.com/img/projects/pokedex.jpg</image:loc>
+      <image:title>Pokédex Retro + Chatbot ReAct (MCP)</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://portafolio-renzoramos.com/renzo-ramos-linkedin.html</loc>
     <lastmod>2026-07-03</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://portafolio-renzoramos.com/renzo-ramos-linkedin.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://portafolio-renzoramos.com/renzo-ramos-linkedin-en.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://portafolio-renzoramos.com/renzo-ramos-linkedin.html"/>
     <image:image>
       <image:loc>https://portafolio-renzoramos.com/img/renzo-ramos-linkedin.jpg</image:loc>
       <image:title>Renzo Ramos — LinkedIn</image:title>
@@ -22,9 +42,38 @@
     <lastmod>2026-07-03</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://portafolio-renzoramos.com/renzo-ramos-desarrollador-de-software.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://portafolio-renzoramos.com/renzo-ramos-desarrollador-de-software-en.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://portafolio-renzoramos.com/renzo-ramos-desarrollador-de-software.html"/>
     <image:image>
       <image:loc>https://portafolio-renzoramos.com/img/renzo-ramos-desarrollador-de-software.jpg</image:loc>
       <image:title>Renzo Ramos — Desarrollador de Software</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://portafolio-renzoramos.com/renzo-ramos-desarrollador-de-software-en.html</loc>
+    <lastmod>2026-07-03</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://portafolio-renzoramos.com/renzo-ramos-desarrollador-de-software.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://portafolio-renzoramos.com/renzo-ramos-desarrollador-de-software-en.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://portafolio-renzoramos.com/renzo-ramos-desarrollador-de-software.html"/>
+    <image:image>
+      <image:loc>https://portafolio-renzoramos.com/img/renzo-ramos-desarrollador-de-software.jpg</image:loc>
+      <image:title>Renzo Ramos — Software Developer</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://portafolio-renzoramos.com/renzo-ramos-linkedin-en.html</loc>
+    <lastmod>2026-07-03</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://portafolio-renzoramos.com/renzo-ramos-linkedin.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://portafolio-renzoramos.com/renzo-ramos-linkedin-en.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://portafolio-renzoramos.com/renzo-ramos-linkedin.html"/>
+    <image:image>
+      <image:loc>https://portafolio-renzoramos.com/img/renzo-ramos-linkedin.jpg</image:loc>
+      <image:title>Renzo Ramos — LinkedIn</image:title>
     </image:image>
   </url>
 </urlset>

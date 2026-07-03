@@ -148,7 +148,7 @@ export function ProjectDetail({ project, onClose }: { project: Project; onClose:
                 <img
                   key={i}
                   src={src}
-                  alt={`${project.title} ${i + 1}`}
+                  alt={`${project.title} — ${t('img_screenshot')} ${i + 1}`}
                   loading="lazy"
                   onLoad={updateArrows}
                   style={{ flex: '0 0 auto', height: 'clamp(240px,40vw,440px)', width: 'auto', maxWidth: '92vw', objectFit: 'contain', borderRadius: 16, display: 'block', background: '#fff', boxShadow: '0 4px 20px rgba(0,0,0,.06)' }}

@@ -7,12 +7,16 @@
   <meta name="description" content="Foto de Renzo Ramos, desarrollador de software, Técnico Superior en DAM y Junior AI Engineer.">
   <meta name="robots" content="index, follow, max-image-preview:large">
   <link rel="canonical" href="https://portafolio-renzoramos.com/renzo-ramos-desarrollador-de-software.html">
+  <link rel="alternate" hreflang="es" href="https://portafolio-renzoramos.com/renzo-ramos-desarrollador-de-software.html">
+  <link rel="alternate" hreflang="en" href="https://portafolio-renzoramos.com/renzo-ramos-desarrollador-de-software-en.html">
+  <link rel="alternate" hreflang="x-default" href="https://portafolio-renzoramos.com/renzo-ramos-desarrollador-de-software.html">
 
   <meta property="og:type" content="profile">
   <meta property="og:url" content="https://portafolio-renzoramos.com/renzo-ramos-desarrollador-de-software.html">
   <meta property="og:title" content="Renzo Ramos — Desarrollador de Software">
   <meta property="og:description" content="Foto de Renzo Ramos, desarrollador de software, Técnico Superior en DAM y Junior AI Engineer.">
   <meta property="og:image" content="https://portafolio-renzoramos.com/img/renzo-ramos-desarrollador-de-software.jpg">
+  <meta property="og:image:type" content="image/jpeg">
   <meta property="og:image:width" content="1055">
   <meta property="og:image:height" content="1055">
   <meta property="og:image:alt" content="Renzo Ramos, desarrollador de software, al aire libre">
@@ -37,9 +41,266 @@
     "isPartOf": { "@id": "https://portafolio-renzoramos.com/#website" }
   }
   </script>
+
+  <style>
+    :root{color-scheme:light;}
+    *{box-sizing:border-box;}
+    body{
+      margin:0;
+      background:#f5f5f7;
+      color:#1d1d1f;
+      font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text','Segoe UI',system-ui,Helvetica,Arial,sans-serif;
+      -webkit-font-smoothing:antialiased;
+    }
+    header{
+      position:sticky;
+      top:0;
+      z-index:50;
+      background:rgba(245,245,247,.78);
+      -webkit-backdrop-filter:saturate(180%) blur(20px);
+      backdrop-filter:saturate(180%) blur(20px);
+      border-bottom:1px solid rgba(0,0,0,.09);
+    }
+    .nav-inner{
+      max-width:1024px;
+      margin:0 auto;
+      height:48px;
+      padding:0 22px;
+      display:flex;
+      align-items:center;
+      gap:24px;
+    }
+    .brand{
+      text-decoration:none;
+      color:#1d1d1f;
+      font-size:18px;
+      font-weight:600;
+      letter-spacing:-.02em;
+      white-space:nowrap;
+    }
+    .nav-links{display:flex;align-items:center;gap:22px;flex-wrap:wrap;}
+    .nav-links a{
+      text-decoration:none;
+      color:#1d1d1f;
+      opacity:.85;
+      font-size:12.5px;
+    }
+    .nav-links a:hover{opacity:1;}
+    .nav-right{margin-left:auto;display:flex;align-items:center;gap:10px;}
+    .lang-wrap{position:relative;}
+    .lang-btn{
+      cursor:pointer;
+      display:inline-flex;
+      align-items:center;
+      gap:6px;
+      background:none;
+      border:1px solid rgba(0,0,0,.22);
+      border-radius:999px;
+      padding:5px 10px;
+      color:#1d1d1f;
+      font:inherit;
+    }
+    .lang-btn span{font-size:12px;font-weight:600;text-transform:uppercase;}
+    .lang-menu{
+      position:absolute;
+      top:calc(100% + 8px);
+      right:0;
+      min-width:132px;
+      background:#fff;
+      border:1px solid rgba(0,0,0,.08);
+      border-radius:12px;
+      box-shadow:0 10px 30px rgba(0,0,0,.12);
+      padding:6px;
+      z-index:60;
+      display:none;
+    }
+    .lang-menu.open{display:block;}
+    .lang-menu button{
+      width:100%;
+      text-align:left;
+      cursor:pointer;
+      background:none;
+      border:none;
+      border-radius:8px;
+      padding:9px 12px;
+      font-size:14px;
+      color:#1d1d1f;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:10px;
+      font:inherit;
+    }
+    .lang-menu button.selected{background:#f5f5f7;font-weight:600;}
+    .lang-menu button .check{color:#0066cc;}
+    .nav-burger{
+      display:none;
+      cursor:pointer;
+      align-items:center;
+      justify-content:center;
+      background:none;
+      border:1px solid rgba(0,0,0,.22);
+      border-radius:999px;
+      width:34px;
+      height:30px;
+      color:#1d1d1f;
+      padding:0;
+    }
+    .nav-mobile{display:none;border-top:1px solid rgba(0,0,0,.08);background:rgba(245,245,247,.96);padding:8px 22px 14px;}
+    .nav-mobile.open{display:block;}
+    .nav-mobile a{display:block;text-decoration:none;color:#1d1d1f;font-size:16px;padding:11px 2px;border-bottom:1px solid rgba(0,0,0,.06);}
+    @media (max-width:680px){
+      .nav-links{display:none;}
+      .nav-burger{display:inline-flex;}
+    }
+    main{max-width:840px;margin:0 auto;padding:64px 22px 80px;}
+    .intro{
+      display:grid;
+      grid-template-columns:220px 1fr;
+      gap:40px;
+      align-items:center;
+      margin-bottom:32px;
+    }
+    .photo{
+      display:block;
+      width:220px;
+      height:220px;
+      object-fit:cover;
+      border-radius:24px;
+      box-shadow:0 12px 30px rgba(0,0,0,.14);
+    }
+    .eyebrow{
+      font-size:13px;
+      font-weight:600;
+      letter-spacing:.06em;
+      text-transform:uppercase;
+      color:#bf4800;
+      margin:0 0 10px;
+    }
+    h1{
+      margin:0;
+      font-size:clamp(28px,5vw,38px);
+      font-weight:600;
+      letter-spacing:-.02em;
+    }
+    @media (max-width:640px){
+      .intro{grid-template-columns:1fr; text-align:center;}
+      .photo{margin:0 auto;}
+    }
+    .card{
+      background:#fff;
+      border-radius:24px;
+      padding:36px;
+      display:flex;
+      flex-direction:column;
+      gap:16px;
+    }
+    .card p{margin:0;font-size:17px;line-height:1.55;color:#3a3a3d;}
+    .card strong{color:#1d1d1f;}
+    .back{
+      display:block;
+      width:max-content;
+      margin:32px auto 0;
+      text-decoration:none;
+      color:#fff;
+      background:#1d1d1f;
+      font-size:15px;
+      font-weight:600;
+      padding:12px 24px;
+      border-radius:999px;
+      transition:opacity .15s ease;
+    }
+    .back:hover{opacity:.85;}
+  </style>
 </head>
 <body>
-  <img src="/img/renzo-ramos-desarrollador-de-software.jpg" alt="Renzo Ramos, desarrollador de software, al aire libre" width="1055" height="1055">
-  <p><a href="https://portafolio-renzoramos.com/">Ver el portfolio de Renzo Ramos</a></p>
+  <header>
+    <div class="nav-inner">
+      <a class="brand" href="https://portafolio-renzoramos.com/">Renzo Ramos</a>
+      <nav class="nav-links">
+        <a href="/renzo-ramos-desarrollador-de-software.html">Personal</a>
+        <a href="https://portafolio-renzoramos.com/#proyectos">Proyectos</a>
+        <a href="https://portafolio-renzoramos.com/#stack">Stack</a>
+        <a href="https://portafolio-renzoramos.com/#experiencia">Experiencia</a>
+        <a href="https://portafolio-renzoramos.com/#educacion">Educación</a>
+        <a href="https://portafolio-renzoramos.com/#contacto">Contacto</a>
+      </nav>
+
+      <div class="nav-right">
+        <div class="lang-wrap">
+          <button id="langBtn" class="lang-btn" aria-haspopup="listbox" aria-expanded="false" aria-label="Idioma / Language">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20a14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
+            <span>es</span>
+          </button>
+          <div id="langMenu" class="lang-menu" role="listbox">
+            <button class="selected" role="option" aria-selected="true">Español <span class="check">✓</span></button>
+            <button role="option" aria-selected="false" onclick="location.href='/renzo-ramos-desarrollador-de-software-en.html'">English</button>
+          </div>
+        </div>
+        <button id="navBurger" class="nav-burger" aria-label="Menú" aria-expanded="false">
+          <svg id="iconMenu" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="6" x2="20" y2="6"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="18" x2="20" y2="18"/></svg>
+          <svg id="iconClose" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none;"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <div id="navMobile" class="nav-mobile">
+      <a href="/renzo-ramos-desarrollador-de-software.html">Personal</a>
+      <a href="https://portafolio-renzoramos.com/#proyectos">Proyectos</a>
+      <a href="https://portafolio-renzoramos.com/#stack">Stack</a>
+      <a href="https://portafolio-renzoramos.com/#experiencia">Experiencia</a>
+      <a href="https://portafolio-renzoramos.com/#educacion">Educación</a>
+      <a href="https://portafolio-renzoramos.com/#contacto">Contacto</a>
+    </div>
+  </header>
+
+  <script>
+    var langBtn = document.getElementById('langBtn')
+    var langMenu = document.getElementById('langMenu')
+    langBtn.addEventListener('click', function () {
+      var open = langMenu.classList.toggle('open')
+      langBtn.setAttribute('aria-expanded', open)
+    })
+    document.addEventListener('click', function (e) {
+      if (!langBtn.contains(e.target) && !langMenu.contains(e.target)) {
+        langMenu.classList.remove('open')
+        langBtn.setAttribute('aria-expanded', 'false')
+      }
+    })
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') { langMenu.classList.remove('open'); langBtn.setAttribute('aria-expanded', 'false') }
+    })
+
+    var navBurger = document.getElementById('navBurger')
+    var navMobile = document.getElementById('navMobile')
+    var iconMenu = document.getElementById('iconMenu')
+    var iconClose = document.getElementById('iconClose')
+    navBurger.addEventListener('click', function () {
+      var open = navMobile.classList.toggle('open')
+      navBurger.setAttribute('aria-expanded', open)
+      iconMenu.style.display = open ? 'none' : ''
+      iconClose.style.display = open ? '' : 'none'
+    })
+  </script>
+
+  <main>
+    <div class="intro">
+      <img class="photo" src="/img/renzo-ramos-desarrollador-de-software.jpg" alt="Renzo Ramos, desarrollador de software, al aire libre" width="1055" height="1055">
+      <div>
+        <div class="eyebrow">Sobre mí</div>
+        <h1>Renzo Ramos de los Ríos</h1>
+      </div>
+    </div>
+
+    <div class="card">
+      <p>Mi nombre es <strong>Renzo Ramos de los Ríos</strong>. Nací en 2004 en Perú y, en 2024, me trasladé a España con el propósito de continuar mi formación académica y construir mi carrera profesional en el sector tecnológico.</p>
+      <p>Finalicé mis estudios de Formación Profesional en Informática en CESUR en 2026, donde adquirí una base sólida en administración de sistemas, redes, soporte técnico, hardware, software, bases de datos y resolución de incidencias. Durante este periodo también desarrollé competencias como el trabajo en equipo, la organización, el aprendizaje continuo y la capacidad para resolver problemas de forma eficiente.</p>
+      <p>Como parte de mi formación, realicé prácticas profesionales en una empresa, lo que me permitió aplicar mis conocimientos en un entorno real y adquirir experiencia en soporte informático, mantenimiento de equipos y atención a usuarios.</p>
+      <p>Me apasiona el desarrollo de software, especialmente el backend, la arquitectura de aplicaciones, la inteligencia artificial y la creación de soluciones eficientes. Disfruto aprendiendo nuevas tecnologías, explorando las posibilidades que ofrece la IA, mejorando continuamente mis habilidades y enfrentándome a nuevos retos que me permitan crecer tanto a nivel técnico como profesional.</p>
+      <p>Mi objetivo es consolidarme como desarrollador de software, especializarme en el desarrollo de soluciones modernas e inteligentes, participar en proyectos de alto impacto y aportar valor mediante la tecnología y la innovación.</p>
+    </div>
+
+    <a class="back" href="https://portafolio-renzoramos.com/">Ver el portfolio de Renzo Ramos</a>
+  </main>
 </body>
 </html>
