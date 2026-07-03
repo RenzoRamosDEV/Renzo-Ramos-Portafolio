@@ -2,129 +2,143 @@ export type Lang = 'es' | 'en'
 
 export const translations = {
   es: {
-    // Navbar
-    nav_about: 'Sobre mí',
+    // Nav
     nav_projects: 'Proyectos',
-    nav_experience: 'Trayectoria',
     nav_stack: 'Stack',
-    nav_methodologies: 'Metodologías',
+    nav_exp: 'Experiencia',
+    nav_edu: 'Educación',
+    nav_contact: 'Contacto',
+    lang_label: 'ES / en',
+
+    // Quick links
+    ql_projects: 'Proyectos',
+    ql_exp: 'Experiencia',
+    ql_edu: 'Educación',
+    ql_cert: 'Certificados',
+    ql_contact: 'Contacto',
+
+    // Intro
+    intro_kicker: 'Portfolio',
+    intro_role: 'Técnico Superior de Desarrollo de Aplicaciones Multiplataforma',
+    intro_skip: 'Saltar intro',
 
     // Hero
-    hero_subtitle: 'Diseño y construyo backends que escalan sin romperse cuando tu producto crece',
-    hero_body1: 'Trabajo con <strong>Java y Spring Boot</strong> para construir APIs mantenibles, pensadas para evitar problemas antes de que aparezcan.',
-    hero_body2: 'No solo desarrollo funcionalidades: construyo la base sólida sobre la que tu producto puede crecer sin problemas.',
-    hero_body3: 'Además, domino el <strong>Frontend</strong> para cerrar la brecha entre la lógica y la interfaz, asegurando que el producto sea coherente de principio a fin.',
-    hero_btn_curriculum: 'Curriculum',
+    hero_eyebrow: 'IA · Backend',
+    hero_h: 'Hola, soy Renzo.',
+    hero_role: 'Técnico Superior DAM · Junior AI Engineer',
+    hero_tag: 'Con las mejores bases para que tu producto crezca sin romperse.',
+    hero_link_cv: 'Currículum',
 
-    // Features
-    features_title1: 'Proyectos',
-    features_title2: 'Destacados',
-    features_learn_more: 'Saber más',
-    features_repo: 'Repo',
-    modal_what_solves: 'Qué resuelve',
-    modal_repository: 'Repositorio',
+    // Proyectos
+    proj_title: 'Lo último.',
+    proj_sub: 'Echa un vistazo a mi trabajo.',
+    p1_eyebrow: 'Microservicios',
+    p1_blurb: 'Reservas de eventos con 4 microservicios orquestados con Docker Compose.',
+    p2_eyebrow: 'Inteligencia Artificial',
+    p2_blurb: 'Reformula textos con IA: control de tono, intensidad y longitud en segundos.',
+    p3_eyebrow: 'Retro · IA · MCP',
+    p3_blurb: 'Pokédex retro + chatbot que razona (ReAct) sobre los datos en tiempo real vía MCP.',
 
-    // Experience
-    exp_title1: 'Trayectoria Laboral',
-    exp_title2: '& Certificados',
-    exp_edu_title1: 'Trayectoria',
-    exp_edu_title2: 'en Formación',
-    exp_label_job: 'Laboral',
-    exp_label_cert: 'Certificados',
-    exp_label_edu: 'Formación',
-    exp_type_job: 'Laboral',
-    exp_type_edu: 'Formación',
-    exp_type_cert: 'Certificado',
-    exp_see_cert: 'Ver certificado',
-    exp_see_credential: 'Ver credencial',
+    // Detalle de proyecto
+    detail_back: 'Volver',
+    detail_features: 'Características',
+    detail_repo: 'Ver repositorio',
+    detail_demo: 'Ver demo',
+    detail_more: 'Ver detalles',
 
     // Stack
-    stack_title1: 'Herramientas',
-    stack_title2: 'en mi Stack',
+    stack_title: 'Stack.',
+    stack_sub: 'Las herramientas con las que construyo.',
     stack_group_back: 'Backend',
-    stack_group_tools: 'Tools',
     stack_group_front: 'Frontend',
-    stack_group_ia: 'IA',
+    stack_group_ia: 'Inteligencia Artificial',
+    stack_group_tools: 'Herramientas',
 
-    // Methodologies
-    method_title1: 'Metodologías',
-    method_title2: 'que aplico',
-    method_group_arch: 'Arquitectura',
-    method_group_testing: 'Testing',
-    method_group_process: 'Proceso',
-    method_group_ui: 'UI',
+    // Experiencia / Educación
+    exp_title: 'Experiencia',
+    edu_title: 'Educación',
+
+    // Certificados
+    cert_title: 'Certificados',
+    cert_view: 'Ver credencial',
+
+    // Contacto
+    contact_eyebrow: 'hablemos',
+    contact_h: '¿Construimos algo que escale?',
+    contact_cta: 'Escríbeme',
 
     // Footer
-    footer_description: 'Desarrollador de Aplicaciones Multiplataforma',
-    footer_about: 'Sobre mí',
-    footer_projects: 'Proyectos',
-    footer_experience: 'Experiencia',
-    footer_stack: 'Stack',
-    footer_methodologies: 'Metodologías',
-    footer_curriculum: 'Curriculum',
+    footer_note: 'Hecho en Madrid.',
   },
   en: {
-    // Navbar
-    nav_about: 'About me',
+    // Nav
     nav_projects: 'Projects',
-    nav_experience: 'Experience',
     nav_stack: 'Stack',
-    nav_methodologies: 'Methodologies',
+    nav_exp: 'Experience',
+    nav_edu: 'Education',
+    nav_contact: 'Contact',
+    lang_label: 'es / EN',
+
+    // Quick links
+    ql_projects: 'Projects',
+    ql_exp: 'Experience',
+    ql_edu: 'Education',
+    ql_cert: 'Certificates',
+    ql_contact: 'Contact',
+
+    // Intro
+    intro_kicker: 'Portfolio',
+    intro_role: 'Higher Technician in Multiplatform Application Development',
+    intro_skip: 'Skip intro',
 
     // Hero
-    hero_subtitle: 'I design and build backends that scale without breaking when your product grows',
-    hero_body1: 'I work with <strong>Java and Spring Boot</strong> to build maintainable APIs, designed to prevent problems before they appear.',
-    hero_body2: 'I don\'t just develop features: I build the solid foundation your product needs to grow without issues.',
-    hero_body3: 'I also master the <strong>Frontend</strong> to bridge the gap between logic and interface, ensuring the product is coherent from start to finish.',
-    hero_btn_curriculum: 'Resume',
+    hero_eyebrow: 'AI · Backend',
+    hero_h: "Hi, I'm Renzo.",
+    hero_role: 'DAM Higher Technician · Junior AI Engineer',
+    hero_tag: 'With the best foundations for your product to grow without breaking.',
+    hero_link_cv: 'Resume',
 
-    // Features
-    features_title1: 'Featured',
-    features_title2: 'Projects',
-    features_learn_more: 'Learn more',
-    features_repo: 'Repo',
-    modal_what_solves: 'What it solves',
-    modal_repository: 'Repository',
+    // Projects
+    proj_title: 'Latest.',
+    proj_sub: 'Take a look at my work.',
+    p1_eyebrow: 'Microservices',
+    p1_blurb: 'Event booking with 4 microservices orchestrated via Docker Compose.',
+    p2_eyebrow: 'Artificial Intelligence',
+    p2_blurb: 'Rewrites text with AI: tone, intensity and length control in seconds.',
+    p3_eyebrow: 'Retro · AI · MCP',
+    p3_blurb: 'Retro Pokédex + a chatbot that reasons (ReAct) over real-time data via MCP.',
 
-    // Experience
-    exp_title1: 'Work Experience',
-    exp_title2: '& Certificates',
-    exp_edu_title1: 'Education',
-    exp_edu_title2: '& Training',
-    exp_label_job: 'Work',
-    exp_label_cert: 'Certificates',
-    exp_label_edu: 'Education',
-    exp_type_job: 'Work',
-    exp_type_edu: 'Education',
-    exp_type_cert: 'Certificate',
-    exp_see_cert: 'View certificate',
-    exp_see_credential: 'View credential',
+    // Project detail
+    detail_back: 'Back',
+    detail_features: 'Features',
+    detail_repo: 'View repository',
+    detail_demo: 'View demo',
+    detail_more: 'View details',
 
     // Stack
-    stack_title1: 'Tools',
-    stack_title2: 'in my Stack',
+    stack_title: 'Stack.',
+    stack_sub: 'The tools I build with.',
     stack_group_back: 'Backend',
-    stack_group_tools: 'Tools',
     stack_group_front: 'Frontend',
-    stack_group_ia: 'AI',
+    stack_group_ia: 'Artificial Intelligence',
+    stack_group_tools: 'Tools',
 
-    // Methodologies
-    method_title1: 'Methodologies',
-    method_title2: 'I apply',
-    method_group_arch: 'Architecture',
-    method_group_testing: 'Testing',
-    method_group_process: 'Process',
-    method_group_ui: 'UI',
+    // Experience / Education
+    exp_title: 'Experience',
+    edu_title: 'Education',
+
+    // Certificates
+    cert_title: 'Certificates',
+    cert_view: 'View credential',
+
+    // Contact
+    contact_eyebrow: "let's talk",
+    contact_h: 'Shall we build something that scales?',
+    contact_cta: 'Email me',
 
     // Footer
-    footer_description: 'Junior Cross-Platform Application Developer',
-    footer_about: 'About me',
-    footer_projects: 'Projects',
-    footer_experience: 'Experience',
-    footer_stack: 'Stack',
-    footer_methodologies: 'Methodologies',
-    footer_curriculum: 'Resume',
+    footer_note: 'Made in Madrid.',
   },
-} satisfies Record<Lang, Record<string, string>>
+} as const
 
-export type TranslationKey = keyof (typeof translations)['es']
+export type TranslationKey = keyof typeof translations['es']

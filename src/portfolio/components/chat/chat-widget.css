@@ -1,7 +1,7 @@
 /* Widget de chat flotante del portafolio (vista móvil + ventana del sitio) */
 
 .cw {
-  position: absolute;
+  position: fixed;
   right: 20px;
   bottom: 20px;
   z-index: 60;
@@ -253,3 +253,9 @@
   text-align: right;
 }
 .cw-counter.is-empty { color: #f0a3a3; }
+
+/* En móvil se oculta el asistente IA (botón y ventana) */
+@media (max-width: 680px) {
+  .cw,
+  .cw-overlay { display: none !important; }
+}

@@ -43,168 +43,168 @@ const PROJECTS_RAW: ProjectRaw[] = [
   {
     num: '01',
     title: {
-      es: 'Booqi - Gestión de Reservas de Eventos',
-      en: 'Booqi - Event Booking Management System',
+      es: 'Booqi — Sistema de Gestión de Reservas de Eventos',
+      en: 'Booqi — Event Booking Management System',
     },
     images: [booqui01, booqui02, booqui03, booqui04, booqui05, booqui06],
     summary: {
-      es: 'Booqi es un proyecto que desarrollé en equipo, participando de forma integral desde el diseño de la base de datos hasta el despliegue con Docker. Implementé cuatro microservicios independientes en Java con Spring Boot, cada uno con su propia base de datos MySQL y API REST documentada con Swagger/OpenAPI.',
-      en: 'Booqi is a team project I developed end-to-end, from database design to Docker deployment. I implemented four independent microservices in Java with Spring Boot, each with its own MySQL database and REST API documented with Swagger/OpenAPI.',
+      es: 'Plataforma web para descubrir eventos, comprar entradas y gestionar reservas, con arquitectura de microservicios y panel de administración.',
+      en: 'Web platform to discover events, buy tickets and manage bookings, built with a microservices architecture and an admin panel.',
     },
     desc: {
-      es: 'Booqi es un proyecto que desarrollé en equipo, participando de forma integral desde el diseño de la base de datos hasta el despliegue con Docker. Implementé cuatro microservicios independientes en Java con Spring Boot —usuarios, eventos, reservas y pagos— cada uno con su propia base de datos MySQL y API REST documentada con Swagger/OpenAPI. Diseñé la comunicación entre servicios para validar usuarios, eventos y reservas en tiempo real, y orquesté todo con Docker Compose usando una red interna común, variables de entorno y healthchecks.',
-      en: 'Booqi is a team project I developed end-to-end, from database design to Docker deployment. I implemented four independent microservices in Java with Spring Boot —users, events, bookings, and payments— each with its own MySQL database and REST API documented with Swagger/OpenAPI. I designed inter-service communication to validate users, events, and bookings in real time, and orchestrated everything with Docker Compose using a shared internal network, environment variables, and healthchecks.',
+      es: 'Booqi es una plataforma web que permite a las personas descubrir eventos (conciertos, conferencias, etc.), comprar entradas y gestionar sus reservas, todo desde el navegador.\n\nDesde el lado del usuario el flujo es simple: exploras el catálogo de eventos, seleccionas tus entradas, pagas y recibes automáticamente tu ticket en formato PDF. También puedes ver el historial de tus reservas en cualquier momento. Desde el lado del administrador existe un panel de gestión donde se pueden crear y administrar eventos, ver estadísticas y controlar la capacidad disponible.\n\nEl sistema fue desarrollado por dos personas —Renzo Iván Ramos de los Ríos y Melanie Gabriela Cárdenas Hidalgo— y está construido como una aplicación profesional lista para producción: cada funcionalidad (usuarios, eventos, reservas y pagos) corre de forma independiente en su propio servicio, lo que permite que el sistema escale y se mantenga sin que una parte afecte a las demás.',
+      en: 'Booqi is a web platform that lets people discover events (concerts, conferences, etc.), buy tickets and manage their bookings, all from the browser.\n\nFrom the user side the flow is simple: you browse the event catalog, select your tickets, pay, and automatically receive your ticket as a PDF. You can also view your booking history at any time. From the admin side there is a management panel to create and administer events, view statistics and control available capacity.\n\nThe system was built by two people —Renzo Iván Ramos de los Ríos and Melanie Gabriela Cárdenas Hidalgo— as a professional, production-ready application: each capability (users, events, bookings and payments) runs independently in its own service, so the system can scale and be maintained without one part affecting the others.',
     },
     points: [
       {
-        title: { es: 'Compra centralizada de entradas', en: 'Centralized ticket purchasing' },
+        title: { es: 'Compra de entradas de principio a fin', en: 'End-to-end ticket purchase' },
         body: {
-          es: 'Todo el catálogo de eventos está en una sola plataforma donde el usuario puede explorar, filtrar y comprar desde cualquier lugar, sin ir físicamente a taquillas.',
-          en: 'The entire event catalog is on a single platform where users can browse, filter, and purchase from anywhere, without going to physical ticket offices.',
+          es: 'Explorar el catálogo, seleccionar entradas, pagar y recibir el ticket en PDF, todo dentro del mismo sistema.',
+          en: 'Browse the catalog, select tickets, pay and receive the PDF ticket, all within the same system.',
         },
       },
       {
-        title: { es: 'Gestión del proceso de reserva de principio a fin', en: 'End-to-end booking process' },
+        title: { es: 'Historial de reservas', en: 'Booking history' },
         body: {
-          es: 'Selección de evento, carrito, pago y confirmación ocurren dentro del mismo sistema sin redirigir al usuario a servicios externos desconectados.',
-          en: 'Event selection, cart, payment, and confirmation all happen within the same system without redirecting users to disconnected external services.',
+          es: 'El usuario puede consultar el historial de sus reservas en cualquier momento.',
+          en: 'Users can review their booking history at any time.',
         },
       },
       {
-        title: { es: 'Entrega inmediata y digital de tickets', en: 'Instant digital ticket delivery' },
+        title: { es: 'Panel de administración', en: 'Admin panel' },
         body: {
-          es: 'El sistema genera automáticamente un ticket en PDF con los datos de la reserva, listo para descargar al instante.',
-          en: 'The system automatically generates a PDF ticket with booking details, ready for instant download.',
+          es: 'Crear y administrar eventos, ver estadísticas y controlar el aforo disponible.',
+          en: 'Create and manage events, view statistics and control available capacity.',
         },
       },
       {
-        title: { es: 'Control de disponibilidad en tiempo real', en: 'Real-time availability control' },
+        title: { es: 'Arquitectura de microservicios', en: 'Microservices architecture' },
         body: {
-          es: 'Valida la disponibilidad antes de confirmar cada reserva, garantizando que no se vendan más entradas de las que el evento soporta.',
-          en: 'Validates availability before confirming each booking, ensuring no more tickets are sold than the event supports.',
+          es: 'Usuarios, eventos, reservas y pagos corren de forma independiente en su propio servicio.',
+          en: 'Users, events, bookings and payments run independently in their own service.',
         },
       },
       {
-        title: { es: 'Panel de administración para organizadores', en: 'Admin panel for organizers' },
+        title: { es: 'Listo para producción', en: 'Production-ready' },
         body: {
-          es: 'Los organizadores crean, gestionan y monitorean sus eventos con visibilidad de reservas, pagos y estadísticas desde un panel dedicado.',
-          en: 'Organizers can create, manage, and monitor their events with visibility of bookings, payments, and statistics from a dedicated panel.',
+          es: 'Diseñado para escalar y mantenerse sin que una parte afecte a las demás, con tests y mutation testing.',
+          en: 'Designed to scale and be maintained without one part affecting the others, with tests and mutation testing.',
         },
       },
     ],
-    badges: ['Java', 'Spring Boot', 'Spring Data JPA', 'MySQL', 'Maven', 'Docker', 'React', 'Bootstrap', 'Otros...'],
+    badges: ['Java', 'Spring Boot', 'Spring Data JPA', 'Maven', 'Lombok', 'MapStruct', 'OpenAPI / Swagger', 'JUnit 5', 'Pitest', 'MySQL', 'React', 'Vite', 'Bootstrap', 'Axios', 'Docker', 'Docker Compose'],
     demo: 'https://renzoramosdev.github.io/Booqui-Sistema-Gestion-Reservas-Eventos/',
     repo: 'https://github.com/RenzoRamosDEV/Booqui-Sistema-Gestion-Reservas-Eventos',
   },
   {
     num: '02',
     title: {
-      es: 'Redactor IA - Reformulador de Textos',
-      en: 'Redactor IA - AI Text Rewriter',
+      es: 'Redactor IA — Reformulación de Textos con IA',
+      en: 'Redactor IA — AI Text Rewriting Tool',
     },
     images: [redactorIA01],
     summary: {
-      es: 'Herramienta web para reformular y mejorar textos usando inteligencia artificial. El usuario pega su texto, elige el tono deseado y recibe una versión reescrita por un modelo LLM en segundos.',
-      en: 'Web tool to rephrase and improve texts using artificial intelligence. The user pastes their text, chooses the desired tone, and receives a rewritten version by an LLM model in seconds.',
+      es: 'Herramienta web para mejorar o reformular textos con IA: eliges el tono, ajustas la intensidad y recibes una versión mejorada en segundos.',
+      en: 'Web tool to improve or rewrite text with AI: choose the tone, adjust the intensity and get an improved version in seconds.',
     },
     desc: {
-      es: 'Herramienta web para reformular y mejorar textos usando inteligencia artificial. El usuario pega su texto, elige el tono deseado y recibe una versión reescrita por un modelo LLM en segundos. Construida con Node.js en el backend integrando el SDK de Groq con el modelo LLaMA, y un frontend en React con TailwindCSS. Incluye soporte multilenguaje con i18n y un diseño asistido por IA.',
-      en: 'Web tool to rephrase and improve texts using artificial intelligence. The user pastes their text, chooses the desired tone, and receives a rewritten version by an LLM model in seconds. Built with Node.js on the backend integrating the Groq SDK with the LLaMA model, and a React frontend with TailwindCSS. Includes multilingual support with i18n and an AI-assisted design.',
+      es: 'Redactor IA es una herramienta web que permite a cualquier persona mejorar o reformular textos usando inteligencia artificial, sin necesidad de conocimientos técnicos.\n\nEl usuario escribe o pega su texto, elige el tono que quiere darle (formal, casual, profesional, persuasivo, etc.) y en segundos recibe una versión mejorada generada por un modelo de IA. También puede controlar qué tan drástico es el cambio y agregar instrucciones adicionales para personalizar el resultado.\n\nLa aplicación está disponible en español e inglés, y cuenta con medidas de seguridad para evitar el abuso del servicio. Fue desarrollada con tecnologías web modernas tanto en el frontend (interfaz visual) como en el backend (servidor y conexión con la IA).',
+      en: 'Redactor IA is a web tool that lets anyone improve or rewrite text using artificial intelligence, with no technical knowledge required.\n\nThe user writes or pastes their text, chooses the tone they want (formal, casual, professional, persuasive, etc.) and in seconds receives an improved version generated by an AI model. They can also control how drastic the change is and add extra instructions to customize the result.\n\nThe app is available in Spanish and English and includes security measures to prevent service abuse. It was built with modern web technologies on both the frontend (visual interface) and the backend (server and AI connection).',
     },
     points: [
       {
-        title: { es: 'Mejora de redacción instantánea', en: 'Instant text improvement' },
+        title: { es: 'Reformulación instantánea con IA', en: 'Instant AI rewriting' },
         body: {
-          es: 'Reformula textos escritos rápido o con errores de estilo, entregando una versión pulida en segundos.',
-          en: 'Rephrases quickly written or stylistically inconsistent texts, delivering a polished version in seconds.',
+          es: 'Mejora cualquier texto en segundos sin necesidad de conocimientos técnicos.',
+          en: 'Improves any text in seconds with no technical knowledge required.',
         },
       },
       {
         title: { es: 'Control del tono', en: 'Tone control' },
         body: {
-          es: 'Cambia el registro del mensaje: más formal, casual, profesional, directo, persuasivo, divertido o creativo.',
-          en: 'Changes the message register: more formal, casual, professional, direct, persuasive, fun, or creative.',
+          es: 'Formal, casual, profesional, persuasivo y más, según lo que necesites.',
+          en: 'Formal, casual, professional, persuasive and more, depending on your needs.',
         },
       },
       {
-        title: { es: 'Intensidad ajustable', en: 'Adjustable intensity' },
+        title: { es: 'Intensidad e instrucciones', en: 'Intensity and instructions' },
         body: {
-          es: 'El usuario elige desde un leve retoque hasta una reescritura total según cuánto quiere transformar el texto.',
-          en: 'The user chooses from a light touch-up to a complete rewrite depending on how much they want to transform the text.',
+          es: 'Ajusta cuán drástico es el cambio y añade indicaciones extra para personalizar el resultado.',
+          en: 'Adjust how drastic the change is and add extra instructions to customize the result.',
         },
       },
       {
-        title: { es: 'Control de longitud', en: 'Length control' },
+        title: { es: 'Bilingüe (ES/EN)', en: 'Bilingual (ES/EN)' },
         body: {
-          es: 'Mantiene o libera la extensión del texto original según la necesidad del usuario.',
-          en: 'Maintains or releases the original text length according to the user\'s needs.',
+          es: 'Interfaz disponible en español e inglés con i18next.',
+          en: 'Interface available in Spanish and English with i18next.',
         },
       },
       {
-        title: { es: 'Instrucciones personalizadas', en: 'Custom instructions' },
+        title: { es: 'Seguridad', en: 'Security' },
         body: {
-          es: 'Campo de texto extra para añadir indicaciones específicas y personalizar aún más el resultado generado.',
-          en: 'Extra text field to add specific instructions and further customize the generated result.',
+          es: 'Medidas contra el abuso del servicio: rate limiting, helmet y CORS.',
+          en: 'Measures against service abuse: rate limiting, helmet and CORS.',
         },
       },
     ],
-    badges: ['Node.js', 'Groq SDK', 'LLaMA', 'React', 'TailwindCSS', 'i18n', 'TypeScript'],
+    badges: ['React', 'Vite', 'Tailwind CSS', 'i18next', 'TypeScript', 'Node.js', 'Express', 'Gemini', 'Groq SDK', 'helmet', 'express-rate-limit'],
     demo: '#',
     repo: 'https://github.com/RenzoRamosDEV/Redactor-IA',
   },
   {
     num: '03',
     title: {
-      es: 'Pokédex Retro - API Pokémon en Scala',
-      en: 'Retro Pokédex - Pokémon API in Scala',
+      es: 'Pokédex Retro + Chatbot ReAct (MCP)',
+      en: 'Retro Pokédex + ReAct Chatbot (MCP)',
     },
     images: [pokedex01, pokedex02, pokedex03, pokedex04, pokedex05, pokedex06],
     summary: {
-      es: 'Pokédex interactiva con estética retro inspirada en la Game Boy original (DMG-01) y los videojuegos de Pokémon de primera generación. Construida con Scala y Play Framework, consumiendo datos en tiempo real desde PokéAPI.',
-      en: 'Interactive Pokédex with retro aesthetics inspired by the original Game Boy (DMG-01) and first-generation Pokémon games. Built with Scala and Play Framework, consuming real-time data from PokéAPI.',
+      es: 'Aplicación web completa que combina una Pokédex retro con un chatbot de IA que razona paso a paso (ReAct) y consulta los datos en tiempo real vía MCP.',
+      en: 'Full web application that combines a retro Pokédex with an AI chatbot that reasons step by step (ReAct) and queries data in real time via MCP.',
     },
     desc: {
-      es: 'Pokédex interactiva con estética retro inspirada en la Game Boy original (DMG-01) y los videojuegos de Pokémon de primera generación. Construida con Scala y Play Framework en el backend, consumiendo datos en tiempo real desde PokéAPI. Incluye 7 secciones completas, buscador server-side en cada una, 3 temas visuales intercambiables y paginación configurable.',
-      en: 'Interactive Pokédex with retro aesthetics inspired by the original Game Boy (DMG-01) and first-generation Pokémon games. Built with Scala and Play Framework on the backend, consuming real-time data from PokéAPI. Includes 7 complete sections, server-side search in each, 3 interchangeable visual themes, and configurable pagination.',
+      es: 'Es una aplicación web completa construida de cero que combina desarrollo de software tradicional con inteligencia artificial. El proyecto tiene dos partes principales.\n\n1) Pokédex Web: una enciclopedia interactiva de Pokémon con estética retro de los años 90. El usuario puede buscar y explorar Pokémon, movimientos, tipos, habilidades, objetos y más, con un diseño visual cuidado y 3 temas de color diferentes.\n\n2) Chatbot con IA: un asistente conversacional que permite hacer preguntas en lenguaje natural como "¿Cuáles son las debilidades de Charizard?" o "¿Qué Pokémon aprende Rayo?". La IA razona paso a paso (ReAct) para dar la respuesta correcta consultando los datos en tiempo real.\n\nEl backend (API REST) está hecho en Scala con Play Framework; un servidor MCP en Python expone los datos como herramientas, y un agente ReAct (OpenAI SDK + FastAPI) las consume. Demuestra construir un sistema de principio a fin integrando un protocolo de IA emergente (MCP) y diseñando la interfaz solo con CSS puro, sin librerías externas.',
+      en: 'A complete web application built from scratch that combines traditional software development with artificial intelligence. The project has two main parts.\n\n1) Pokédex Web: an interactive Pokémon encyclopedia with a 90s retro aesthetic. Users can search and explore Pokémon, moves, types, abilities, items and more, with careful visual design and 3 different color themes.\n\n2) AI Chatbot: a conversational assistant that lets you ask natural-language questions like "What are Charizard\'s weaknesses?" or "Which Pokémon learns Thunderbolt?". The AI reasons step by step (ReAct) to give the correct answer, querying the data in real time.\n\nThe backend (REST API) is built in Scala with Play Framework; a Python MCP server exposes the data as tools, and a ReAct agent (OpenAI SDK + FastAPI) consumes them. It demonstrates building an end-to-end system integrating an emerging AI protocol (MCP) and designing the interface with pure CSS only, no external libraries.',
     },
     points: [
       {
-        title: { es: '7 secciones completas', en: '7 complete sections' },
+        title: { es: 'Sistema completo de principio a fin', en: 'Complete end-to-end system' },
         body: {
-          es: 'Pokédex, Movimientos, Tipos, Habilidades, Naturalezas, Objetos y Bayas — cada una con su propio listado y buscador.',
-          en: 'Pokédex, Moves, Types, Abilities, Natures, Items, and Berries — each with its own listing and search.',
+          es: 'Frontend, backend, API e IA, todo construido de cero e integrado.',
+          en: 'Frontend, backend, API and AI, all built from scratch and integrated.',
         },
       },
       {
-        title: { es: 'Buscador con filtrado server-side', en: 'Server-side search filtering' },
+        title: { es: 'Chatbot que razona (ReAct)', en: 'Reasoning chatbot (ReAct)' },
         body: {
-          es: 'Cada sección tiene su propio buscador que filtra los resultados directamente en el servidor.',
-          en: 'Each section has its own search bar that filters results directly on the server.',
+          es: 'Responde preguntas en lenguaje natural razonando paso a paso y consultando datos en tiempo real.',
+          en: 'Answers natural-language questions reasoning step by step and querying data in real time.',
         },
       },
       {
-        title: { es: '3 temas visuales', en: '3 visual themes' },
+        title: { es: 'Integración de MCP', en: 'MCP integration' },
         body: {
-          es: 'Normal (rojo retro), DMG (Game Boy verde LCD) y MONO (gris monocromático), cambiables al instante.',
-          en: 'Normal (retro red), DMG (Game Boy green LCD), and MONO (monochromatic grey), switchable instantly.',
+          es: 'Usa el Model Context Protocol para conectar el modelo de lenguaje con herramientas externas.',
+          en: 'Uses the Model Context Protocol to connect the language model with external tools.',
         },
       },
       {
-        title: { es: 'Paginación configurable', en: 'Configurable pagination' },
+        title: { es: 'Backend en Scala', en: 'Scala backend' },
         body: {
-          es: 'El usuario ajusta cuántos elementos ver por página en cada sección según su preferencia.',
-          en: 'The user adjusts how many items to display per page in each section according to their preference.',
+          es: 'API REST con Scala y Play Framework como fuente de datos de la Pokédex.',
+          en: 'REST API with Scala and Play Framework as the Pokédex data source.',
         },
       },
       {
-        title: { es: 'Modal de detalle por Pokémon', en: 'Pokémon detail modal' },
+        title: { es: 'Interfaz solo con CSS puro', en: 'Pure-CSS interface' },
         body: {
-          es: 'Stats, tipos, habilidades y barras de progreso animadas en un modal de detalle por cada Pokémon.',
-          en: 'Stats, types, abilities, and animated progress bars in a detail modal for each Pokémon.',
+          es: 'Estética retro de los 90 con 3 temas de color, sin librerías de UI externas.',
+          en: '90s retro aesthetic with 3 color themes, with no external UI libraries.',
         },
       },
     ],
-    badges: ['Scala', 'Play Framework', 'PokéAPI', 'CSS'],
+    badges: ['Scala', 'Play Framework', 'Spray JSON', 'Guice', 'SBT', 'Python', 'MCP', 'OpenAI SDK', 'FastAPI', 'Uvicorn', 'Requests'],
     demo: '#',
     repo: 'https://github.com/RenzoRamosDEV/Api-Pokemon-Scala-Web',
   },
