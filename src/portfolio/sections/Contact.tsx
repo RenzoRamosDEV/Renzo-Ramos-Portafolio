@@ -1,7 +1,24 @@
+import { useEffect } from 'react'
 import { useLanguage } from '../i18n/LanguageContext'
+
+const LI_BADGE_SRC = 'https://platform.linkedin.com/badges/js/profile.js'
 
 export function Contact() {
   const { t } = useLanguage()
+
+  // Inyecta profile.js para que LinkedIn genere el iframe del badge.
+  // El contenedor está en display:none, así que el iframe existe pero no se ve.
+  useEffect(() => {
+    const s = document.createElement('script')
+    s.src = LI_BADGE_SRC
+    s.async = true
+    s.defer = true
+    s.type = 'text/javascript'
+    document.body.appendChild(s)
+    return () => {
+      s.remove()
+    }
+  }, [])
 
   return (
     <section id="contacto" style={{ maxWidth: 1024, margin: '0 auto', padding: '48px 22px 60px' }}>
@@ -12,12 +29,34 @@ export function Contact() {
         <h2 style={{ margin: '0 auto', fontSize: 'clamp(28px,4vw,44px)', fontWeight: 600, letterSpacing: '-.02em', lineHeight: 1.08, maxWidth: '18ch' }}>
           {t('contact_h')}
         </h2>
+
         <div style={{ display: 'flex', gap: 14, justifyContent: 'center', flexWrap: 'wrap', marginTop: 34 }}>
           <a href="mailto:renzoramosivan@gmail.com" style={{ textDecoration: 'none', fontSize: 16, background: '#0071e3', color: '#fff', padding: '13px 28px', borderRadius: 999 }}>
             {t('contact_cta')}
           </a>
           <a href="https://www.linkedin.com/in/renzoinv04/" target="_blank" rel="noreferrer" style={{ textDecoration: 'none', fontSize: 16, border: '1px solid rgba(245,245,247,.3)', color: '#f5f5f7', padding: '13px 28px', borderRadius: 999 }}>
             LinkedIn
+          </a>
+        </div>
+      </div>
+
+      {/* Insignia oficial de LinkedIn: presente en el DOM pero oculta */}
+      <div style={{ display: 'none' }}>
+        <div
+          className="badge-base LI-profile-badge"
+          data-locale="es_ES"
+          data-size="large"
+          data-theme="light"
+          data-type="VERTICAL"
+          data-vanity="renzoinv04"
+          data-version="v1"
+        >
+          <a
+            className="badge-base__link LI-simple-link"
+            href="https://es.linkedin.com/in/renzoinv04?trk=profile-badge"
+            style={{ display: 'none' }}
+          >
+            Renzo Ramos
           </a>
         </div>
       </div>
