@@ -22,7 +22,16 @@
       "Bash(python3 /tmp/check_layout.py)",
       "Bash(npm list *)",
       "Bash(curl -s http://localhost:5174)",
-      "Read(//home/renzo-renzo-ramos/Workspace/Renzo/portafololio-renzo/docs/src/data/**)"
+      "Read(//home/renzo-renzo-ramos/Workspace/Renzo/portafololio-renzo/docs/src/data/**)",
+      "Bash(python3 -c ' *)",
+      "Bash(python3 -c \"import xml.dom.minidom as m; m.parse\\('public/sitemap.xml'\\)\")",
+      "Bash(python3 *)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" https://portafolio-renzoramos.com/google238dbe3bf08d982d.html)",
+      "Bash(curl -s https://portafolio-renzoramos.com/google238dbe3bf08d982d.html)",
+      "Bash(curl -s http://localhost:5173/renzo-ramos-desarrollador-de-software.html)",
+      "Bash(curl -s http://localhost:5173/renzo-ramos-desarrollador-de-software-en.html)",
+      "Bash(node *)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" http://localhost:5173/ --max-time 2)"
     ],
     "additionalDirectories": [
       "/home/renzo-ramos/Workspace/Renzo/portafololio-renzo/.claude",
