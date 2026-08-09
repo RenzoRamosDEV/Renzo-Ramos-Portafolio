@@ -15,6 +15,10 @@ Sitio web de una sola página, scrollable y **bilingüe (ES/EN)**, con animacion
 
 🌐 **Demo en vivo:** [portafolio-renzoramos.com](https://portafolio-renzoramos.com)
 
+> ⚠️ **Nota:** el asistente de IA está **desactivado de momento** en la web publicada
+> (el backend del chatbot no está desplegado). Todo lo demás funciona con normalidad,
+> y el chatbot puede ejecutarse en local siguiendo las instrucciones de este README.
+
 ---
 
 ## ✨ Características
@@ -23,7 +27,8 @@ Sitio web de una sola página, scrollable y **bilingüe (ES/EN)**, con animacion
 - **Bilingüe (ES/EN)** con cambio de idioma instantáneo y persistente (`localStorage`).
 - **Animaciones** con Framer Motion (reveals al hacer scroll, texto animado palabra a palabra).
 - **Asistente IA flotante** (burbuja de chat) que responde preguntas sobre Renzo usando un
-  backend propio con FastAPI + LangChain + OpenAI.
+  backend propio con FastAPI + LangChain + OpenAI. *Desactivado de momento en producción;
+  funciona en local.*
 - **SEO cuidado**: prerender de HTML en build (SSR estático), `sitemap.xml`, `robots.txt`,
   Open Graph, JSON-LD para el Knowledge Graph, `llms.txt` y páginas de aterrizaje indexables.
 - **Despliegue automático** a GitHub Pages con dominio propio en cada push a `main`.
