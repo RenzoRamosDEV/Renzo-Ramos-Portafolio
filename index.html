@@ -609,10 +609,38 @@
   .exp-list li { position: relative; padding-left: 16px; margin-bottom: 6px; }
   .exp-list li::before { content: ""; position: absolute; left: 0; top: 8px; width: 8px; height: 2px; background: var(--accent); }
   .exp-pair.mirror .exp-list { margin-left: auto; }
-  /* Bloque central de educación: texto + fotos en lugar de la tarjeta */
-  .exp-side.mid { width: 296px; margin-top: 26px; }
-  .exp-side.mid .kicker { font-family: "Oswald", sans-serif; font-weight: 600; font-size: 10px; letter-spacing: 3px; color: #888; }
-  .exp-side.mid h3 { margin-top: 10px; font-size: 26px; }
+  /* Educación: línea de tiempo */
+  .edu-tl {
+    position: relative; z-index: 1; max-width: 1200px; margin: 30px auto 0; padding: 70px 40px 0;
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px;
+  }
+  .edu-tl .rail { position: absolute; left: 40px; right: 40px; top: 70px; height: 2px; background: rgba(0,0,0,.1); }
+  .edu-tl .rail i { position: absolute; left: 0; top: 0; bottom: 0; width: 0; background: var(--accent); transition: width 1.6s cubic-bezier(.6,0,.2,1); }
+  .edu-tl.on .rail i { width: 100%; }
+  .edu-tl .step { position: relative; text-align: center; padding: 0 10px; }
+  .edu-tl .date {
+    position: absolute; left: 0; right: 0; top: -54px;
+    font-family: "Oswald", sans-serif; font-weight: 600; font-size: 12px; letter-spacing: 2.5px; color: #777;
+  }
+  .edu-tl .node {
+    width: 18px; height: 18px; border-radius: 50%; margin: -8px auto 0; background: #f4f4f4; border: 2px solid #bbb;
+    transition: background .4s, border-color .4s, box-shadow .4s;
+  }
+  .edu-tl.on .node { background: var(--accent); border-color: var(--accent); box-shadow: 0 0 0 6px rgba(207,132,83,.18); }
+  .edu-tl .body { opacity: 0; transform: translateY(14px); transition: opacity .6s, transform .6s; }
+  .edu-tl.on .body { opacity: 1; transform: none; }
+  .edu-tl.on .step:nth-child(3) .node, .edu-tl.on .step:nth-child(3) .body { transition-delay: .55s; }
+  .edu-tl.on .step:nth-child(4) .node, .edu-tl.on .step:nth-child(4) .body { transition-delay: 1.1s; }
+  .edu-tl h3 { font-family: "Anton", sans-serif; font-weight: 400; font-size: 46px; line-height: 1; margin-top: 30px; }
+  .edu-tl .degree { font-family: "Oswald", sans-serif; font-weight: 600; font-size: 12px; letter-spacing: 2px; color: var(--accent); margin: 12px 0 14px; }
+  .edu-tl p { font-family: "Bebas Neue", sans-serif; font-size: 18px; line-height: 23px; color: #444; max-width: 320px; margin: 0 auto; }
+  .edu-tl .place { display: inline-block; margin-top: 16px; font-family: "Oswald", sans-serif; font-size: 10px; letter-spacing: 2px; color: #777; border: 1px solid #ccc; border-radius: 20px; padding: 4px 10px; }
+  @media (prefers-reduced-motion: reduce) { .edu-tl .rail i, .edu-tl .node, .edu-tl .body { transition: none; } }
+  @media (max-width: 1000px) {
+    .edu-tl { grid-template-columns: 1fr; padding: 0 16px; gap: 50px; }
+    .edu-tl .rail { display: none; }
+    .edu-tl .date { position: static; margin-bottom: 10px; }
+  }
   .switch { height: 120px; display: flex; flex-direction: column; justify-content: center; gap: 10px; }
   .switch button { background: none; border: 0; cursor: pointer; padding: 2px; color: var(--accent); transition: transform .2s; }
   .switch button.back { color: #999; }
@@ -996,47 +1024,8 @@
 
   <h2>MI EDUCACIÓN: ESTUDIOS, CURSOS Y TODO LO QUE ME FORMÓ</h2>
 
-  <div class="exp-grid">
-    <div class="exp-side left">
-      <div class="badges"></div>
-      <div class="fade-swap" id="edu-l">
-        <h3 id="edu-l-h"></h3>
-        <p id="edu-l-p"></p>
-      </div>
-      <div class="duo">
-        <div class="a"><img src="media/renzo.png" alt=""></div>
-        <div class="b"><img src="media/renzo-garras.png" alt=""></div>
-      </div>
-    </div>
-
-    <div class="exp-center">
-      <div class="switch">
-        <button id="edu-next" aria-label="Siguiente estudio"><svg viewBox="0 0 80 12" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 6h72M70 1l6 5-6 5"/></svg></button>
-        <button class="back" id="edu-prev" aria-label="Estudio anterior"><svg viewBox="0 0 80 12" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M76 6H4M10 1 4 6l6 5"/></svg></button>
-      </div>
-      <div class="exp-side mid fade-swap" id="edu-card">
-        <div class="kicker" id="edu-kicker"></div>
-        <h3 id="edu-role"></h3>
-        <p><span id="edu-company"></span> · <span id="edu-place"></span> · <span id="edu-from"></span> – <span id="edu-to"></span></p>
-        <div class="duo">
-          <div class="a"><img src="media/renzo-camiseta.png" alt=""></div>
-          <div class="b"><img src="media/renzo-manos.png" alt=""></div>
-        </div>
-      </div>
-    </div>
-
-    <div class="exp-side right">
-      <div class="badges"></div>
-      <div class="fade-swap" id="edu-r">
-        <h3 id="edu-r-h"></h3>
-        <ul class="exp-list" id="edu-r-p"></ul>
-      </div>
-      <div class="duo">
-        <div class="a"><img src="media/renzo-manos.png" alt=""></div>
-        <div class="b"><img src="media/renzo-camiseta.png" alt=""></div>
-      </div>
-    </div>
-  </div>
+  <!-- Línea de tiempo: se rellena y enciende cada estudio al llegar a la sección -->
+  <div class="edu-tl" id="edu-tl"><div class="rail"><i></i></div></div>
 </section>
 
 <section class="certs" id="certificados">
@@ -1163,99 +1152,16 @@
     }
   ];
   const studies = [
-    {
-      "kicker": "EDUCACIÓN 01",
-      "role": "FORMACIÓN PROFESIONAL DE GRADO SUPERIOR (DAM)",
-      "place": "MADRID, ESPAÑA",
-      "company": "CESUR",
-      "from": "SEPT. 2024",
-      "to": "JUN. 2026",
-      "left": [
-        "QUÉ ESTUDIÉ :",
-        "Formación orientada al desarrollo de software con Java, Spring Boot, Kotlin, Python, HTML, CSS, Maven y Gradle."
-      ],
-      "right": [
-        "LO QUE HICE :",
-        [
-          "Desarrollo de aplicaciones backend y frontend",
-          "Implementación de APIs y servicios con Spring Boot",
-          "Gestión de dependencias y construcción de proyectos con Maven",
-          "Creación de interfaces web y aplicaciones multiplataforma",
-          "Aplicación de buenas prácticas de programación y estructura de proyectos"
-        ]
-      ]
-    },
-    {
-      "kicker": "EDUCACIÓN 02",
-      "role": "BOOTCAMP 42 MADRID · FUNDACIÓN TELEFÓNICA",
-      "place": "MADRID, ESPAÑA",
-      "company": "42 MADRID",
-      "from": "JUL. 2025",
-      "to": "AGO. 2025",
-      "left": [
-        "QUÉ ESTUDIÉ :",
-        "Formación intensiva basada en aprendizaje autónomo y colaborativo, centrada en C, Linux y scripting en Shell."
-      ],
-      "right": [
-        "LO QUE HICE :",
-        [
-          "Programas en C enfocados en eficiencia y control de memoria",
-          "Trabajo en Linux, terminal y automatización con Shell scripting",
-          "Resolución de problemas algorítmicos y optimización de soluciones",
-          "Aprendizaje peer-to-peer, con revisión y validación entre estudiantes",
-          "Lógica, debugging y trabajo colaborativo"
-        ]
-      ]
-    },
-    {
-      "kicker": "EDUCACIÓN 03",
-      "role": "FORMACIÓN EN DISEÑO GRÁFICO",
-      "place": "LIMA, PERÚ",
-      "company": "INSTITUTO SAN IGNACIO DE LOYOLA",
-      "from": "2021",
-      "to": "2022",
-      "left": [
-        "QUÉ ESTUDIÉ :",
-        "Herramientas de diseño y fundamentos visuales aplicados a entornos digitales con Adobe Illustrator, Photoshop e InDesign."
-      ],
-      "right": [
-        "LO QUE HICE :",
-        [
-          "Diseño de recursos gráficos con Illustrator",
-          "Edición y optimización de imágenes con Photoshop",
-          "Maquetación de documentos y piezas visuales con InDesign",
-          "Creación de elementos gráficos reutilizables",
-          "Composición, tipografía y color"
-        ]
-      ]
-    }
+    { center: 'ISIL', degree: 'FORMACIÓN EN DISEÑO GRÁFICO', from: '2021', to: '2022', place: 'LIMA, PERÚ',
+      text: 'Diseño gráfico con Illustrator, Photoshop e InDesign: composición, tipografía y color aplicados a piezas digitales.' },
+    { center: 'CESUR', degree: 'TÉCNICO SUPERIOR EN DAM', from: 'SEPT. 2024', to: 'JUN. 2026', place: 'MADRID, ESPAÑA',
+      text: 'Aplicaciones backend y frontend con Java, Spring Boot, Kotlin y Python: APIs, servicios y apps multiplataforma.' },
+    { center: '42 MADRID', degree: 'BOOTCAMP 42 MADRID · FUNDACIÓN TELEFÓNICA', from: 'JUL. 2025', to: 'AGO. 2025', place: 'MADRID, ESPAÑA',
+      text: 'Bootcamp intensivo de C, Linux y Shell con aprendizaje peer-to-peer: algoritmia, memoria y debugging.' },
   ];
 
   const listItems = xs => xs.map(x => `<li>${x}</li>`).join('');
 
-  function timeline(prefix, items) {
-    let idx = 0;
-    const el = id => document.getElementById(`${prefix}-${id}`);
-    const swapEls = [el('card'), el('l'), el('r')];
-    function render() {
-      const d = items[idx];
-      el('kicker').textContent = d.kicker; el('role').textContent = d.role; el('place').textContent = d.place;
-      el('company').textContent = d.company; el('from').textContent = d.from; el('to').textContent = d.to;
-      el('l-h').textContent = d.left[0]; el('l-p').textContent = d.left[1];
-      el('r-h').textContent = d.right[0]; el('r-p').innerHTML = listItems(d.right[1]);
-    }
-    function go(step) {
-      swapEls.forEach(e => e.classList.add('out'));
-      setTimeout(() => {
-        idx = (idx + step + items.length) % items.length;
-        render();
-        swapEls.forEach(e => e.classList.remove('out'));
-      }, 250);
-    }
-    el('next').onclick = () => go(1);
-    el('prev').onclick = () => go(-1);
-    render();
-  }
   // Experiencia: dos puestos a la vez (bloque a y b); las flechas avanzan de dos en dos
   (function () {
     let page = 0;
@@ -1286,7 +1192,19 @@
     document.getElementById('exp-prev').onclick = () => go(-1);
     render();
   })();
-  timeline('edu', studies);
+  // Educación: línea de tiempo que se enciende al entrar en pantalla
+  (function () {
+    const tl = document.getElementById('edu-tl');
+    tl.insertAdjacentHTML('beforeend', studies.map(s => `
+      <div class="step">
+        <div class="date">${s.from} — ${s.to}</div>
+        <div class="node"></div>
+        <div class="body"><h3>${s.center}</h3><div class="degree">${s.degree}</div><p>${s.text}</p><span class="place">${s.place}</span></div>
+      </div>`).join(''));
+    new IntersectionObserver((entries, obs) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('on'); obs.unobserve(e.target); } });
+    }, { threshold: 0.35 }).observe(tl);
+  })();
 
   // Certificados
   const certs = [
