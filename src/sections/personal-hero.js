@@ -27,7 +27,7 @@ export const renderPersonalHero = () => `<section class="personal-hero">
     </div>
     <div class="personal-photo">
       <div class="ring"></div>
-      <img src="media/renzo.png" alt="Renzo Ramos">
+      <img src="media/renzo-personal.png" alt="Renzo Ramos">
     </div>
   </div>
 </section>`;
