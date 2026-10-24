@@ -3,3 +3,22 @@ export const CONTACT_EMAIL = 'renzoramosivan@gmail.com';
 export const GITHUB_URL = 'https://github.com/RenzoRamosDEV';
 export const LINKEDIN_URL = 'https://www.linkedin.com/in/renzoinv04/';
 export const CV_URL = 'media/cv/cv-renzo-ramos.pdf';
+
+// Iconos de Icons8 (pack Windows 10) de los enlaces sociales
+export const GITHUB_ICON = 'media/icons/github.png';
+export const LINKEDIN_ICON = 'media/icons/linkedin.png';
+
+// Navegación: cabecera de la portada y pie de página
+export const HEADER_NAV = [
+  { href: '#proyectos', label: 'Proyectos' },
+  { href: '#experiencia', label: 'Experiencia' },
+  { href: '#educacion', label: 'Educación' },
+  { href: '#contacto', label: 'Contacto' },
+];
+export const FOOTER_NAV = [
+  { href: '#proyectos', label: 'PROYECTOS' },
+  { href: '#experiencia', label: 'EXPERIENCIA' },
+  { href: '#educacion', label: 'EDUCACIÓN' },
+  { href: '#certificados', label: 'CERTIFICADOS' },
+  { href: '#contacto', label: 'CONTACTO' },
+];

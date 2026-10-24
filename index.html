@@ -275,301 +275,33 @@
 </head>
 <body>
 
-<section class="hero">
-  <header>
-    <a class="logo" href="#"><img src="media/logo.png" alt="CJJ Renzo Ramos"></a>
+<div data-mount="hero"></div>
 
-    <nav class="main">
-      <a href="#proyectos">Proyectos</a>
-      <a href="#experiencia">Experiencia</a>
-      <a href="#educacion">Educación</a>
-      <a href="#contacto">Contacto</a>
-    </nav>
+<div data-mount="projects"></div>
 
-  </header>
+<div data-mount="bar-renzo"></div>
 
-  <div class="tags">
-    <a href="https://github.com/RenzoRamosDEV" target="_blank" rel="noopener"><img src="media/icons/github.png" alt="">GITHUB</a>
-    <a href="https://www.linkedin.com/in/renzoinv04/" target="_blank" rel="noopener"><img src="media/icons/linkedin.png" alt="">LINKEDIN</a>
-  </div>
+<div data-mount="experience"></div>
 
+<div data-mount="bar-ivan"></div>
 
-  <svg class="gear" viewBox="0 0 720 720" aria-hidden="true">
-    <!-- Aros exteriores: giran en sentido contrario al círculo, cada uno a su ritmo -->
-    <g>
-      <animateTransform attributeName="transform" type="rotate" from="360 360 360" to="0 360 360" dur="70s" repeatCount="indefinite"/>
-      <circle cx="360" cy="360" r="308" fill="none" stroke="rgba(207,132,83,.75)" stroke-width="2" stroke-dasharray="240 30 60 30" />
-    </g>
-    <g>
-      <animateTransform attributeName="transform" type="rotate" from="360 360 360" to="0 360 360" dur="110s" repeatCount="indefinite"/>
-      <circle cx="360" cy="360" r="324" fill="none" stroke="rgba(255,255,255,.25)" stroke-width="6" stroke-dasharray="3 9"/>
-    </g>
-    <g>
-      <animateTransform attributeName="transform" type="rotate" from="360 360 360" to="0 360 360" dur="45s" repeatCount="indefinite"/>
-      <circle cx="360" cy="360" r="342" fill="none" stroke="rgba(255,255,255,.35)" stroke-width="1.5" stroke-dasharray="520 80 160 80 260 80" stroke-linecap="round"/>
-      <circle cx="360" cy="378" r="4" fill="#cf8453" transform="rotate(30 360 360)"/>
-      <circle cx="360" cy="702" r="3" fill="#9a9a9a" transform="rotate(30 360 360)"/>
-    </g>
-  </svg>
-  <div class="circle"></div>
-  <svg class="gear inner" viewBox="0 0 720 720" aria-hidden="true">
-    <g>
-      <animateTransform attributeName="transform" type="rotate" from="0 360 360" to="360 360 360" dur="80s" repeatCount="indefinite"/>
-      <circle cx="360" cy="360" r="284" fill="none" stroke="rgba(255,255,255,.22)" stroke-width="1.5"/>
-      <g stroke="rgba(255,255,255,.3)" stroke-width="2.2" stroke-linecap="round"><line x1="614.0" y1="360.0" x2="638.0" y2="360.0"/><line x1="623.0" y1="383.0" x2="636.9" y2="384.2"/><line x1="620.0" y1="405.8" x2="633.8" y2="408.3"/><line x1="615.0" y1="428.3" x2="628.5" y2="432.0"/><line x1="608.1" y1="450.3" x2="621.2" y2="455.1"/><line x1="599.3" y1="471.6" x2="612.0" y2="477.5"/><line x1="580.0" y1="487.0" x2="600.8" y2="499.0"/><line x1="576.3" y1="511.4" x2="587.7" y2="519.5"/><line x1="562.2" y1="529.7" x2="573.0" y2="538.7"/><line x1="546.7" y1="546.7" x2="556.6" y2="556.6"/><line x1="529.7" y1="562.2" x2="538.7" y2="573.0"/><line x1="511.4" y1="576.3" x2="519.5" y2="587.7"/><line x1="487.0" y1="580.0" x2="499.0" y2="600.8"/><line x1="471.6" y1="599.3" x2="477.5" y2="612.0"/><line x1="450.3" y1="608.1" x2="455.1" y2="621.2"/><line x1="428.3" y1="615.0" x2="432.0" y2="628.5"/><line x1="405.8" y1="620.0" x2="408.3" y2="633.8"/><line x1="383.0" y1="623.0" x2="384.2" y2="636.9"/><line x1="360.0" y1="614.0" x2="360.0" y2="638.0"/><line x1="337.0" y1="623.0" x2="335.8" y2="636.9"/><line x1="314.2" y1="620.0" x2="311.7" y2="633.8"/><line x1="291.7" y1="615.0" x2="288.0" y2="628.5"/><line x1="269.7" y1="608.1" x2="264.9" y2="621.2"/><line x1="248.4" y1="599.3" x2="242.5" y2="612.0"/><line x1="233.0" y1="580.0" x2="221.0" y2="600.8"/><line x1="208.6" y1="576.3" x2="200.5" y2="587.7"/><line x1="190.3" y1="562.2" x2="181.3" y2="573.0"/><line x1="173.3" y1="546.7" x2="163.4" y2="556.6"/><line x1="157.8" y1="529.7" x2="147.0" y2="538.7"/><line x1="143.7" y1="511.4" x2="132.3" y2="519.5"/><line x1="140.0" y1="487.0" x2="119.2" y2="499.0"/><line x1="120.7" y1="471.6" x2="108.0" y2="477.5"/><line x1="111.9" y1="450.3" x2="98.8" y2="455.1"/><line x1="105.0" y1="428.3" x2="91.5" y2="432.0"/><line x1="100.0" y1="405.8" x2="86.2" y2="408.3"/><line x1="97.0" y1="383.0" x2="83.1" y2="384.2"/><line x1="106.0" y1="360.0" x2="82.0" y2="360.0"/><line x1="97.0" y1="337.0" x2="83.1" y2="335.8"/><line x1="100.0" y1="314.2" x2="86.2" y2="311.7"/><line x1="105.0" y1="291.7" x2="91.5" y2="288.0"/><line x1="111.9" y1="269.7" x2="98.8" y2="264.9"/><line x1="120.7" y1="248.4" x2="108.0" y2="242.5"/><line x1="140.0" y1="233.0" x2="119.2" y2="221.0"/><line x1="143.7" y1="208.6" x2="132.3" y2="200.5"/><line x1="157.8" y1="190.3" x2="147.0" y2="181.3"/><line x1="173.3" y1="173.3" x2="163.4" y2="163.4"/><line x1="190.3" y1="157.8" x2="181.3" y2="147.0"/><line x1="208.6" y1="143.7" x2="200.5" y2="132.3"/><line x1="233.0" y1="140.0" x2="221.0" y2="119.2"/><line x1="248.4" y1="120.7" x2="242.5" y2="108.0"/><line x1="269.7" y1="111.9" x2="264.9" y2="98.8"/><line x1="291.7" y1="105.0" x2="288.0" y2="91.5"/><line x1="314.2" y1="100.0" x2="311.7" y2="86.2"/><line x1="337.0" y1="97.0" x2="335.8" y2="83.1"/><line x1="360.0" y1="106.0" x2="360.0" y2="82.0"/><line x1="383.0" y1="97.0" x2="384.2" y2="83.1"/><line x1="405.8" y1="100.0" x2="408.3" y2="86.2"/><line x1="428.3" y1="105.0" x2="432.0" y2="91.5"/><line x1="450.3" y1="111.9" x2="455.1" y2="98.8"/><line x1="471.6" y1="120.7" x2="477.5" y2="108.0"/><line x1="487.0" y1="140.0" x2="499.0" y2="119.2"/><line x1="511.4" y1="143.7" x2="519.5" y2="132.3"/><line x1="529.7" y1="157.8" x2="538.7" y2="147.0"/><line x1="546.7" y1="173.3" x2="556.6" y2="163.4"/><line x1="562.2" y1="190.3" x2="573.0" y2="181.3"/><line x1="576.3" y1="208.6" x2="587.7" y2="200.5"/><line x1="580.0" y1="233.0" x2="600.8" y2="221.0"/><line x1="599.3" y1="248.4" x2="612.0" y2="242.5"/><line x1="608.1" y1="269.7" x2="621.2" y2="264.9"/><line x1="615.0" y1="291.7" x2="628.5" y2="288.0"/><line x1="620.0" y1="314.2" x2="633.8" y2="311.7"/><line x1="623.0" y1="337.0" x2="636.9" y2="335.8"/></g>
-      <circle cx="360" cy="360" r="248" fill="none" stroke="rgba(255,255,255,.14)" stroke-width="1"/>
-      <circle cx="360" cy="360" r="232" fill="none" stroke="rgba(255,255,255,.1)" stroke-width="1" stroke-dasharray="2 6"/>
-      <g fill="#2a2a2a" stroke="rgba(255,255,255,.3)" stroke-width="1.2"><circle cx="530.4" cy="530.4" r="5"/><circle cx="189.6" cy="530.4" r="5"/><circle cx="189.6" cy="189.6" r="5"/><circle cx="530.4" cy="189.6" r="5"/></g>
-    </g>
-  </svg>
-  <div class="orbit"></div>
-  <h1 class="title"><span>RENZO</span></h1>
-
-  <canvas class="smoke back" id="smoke-back"></canvas>
-
-  <img class="person" src="media/renzo.png" alt="Renzo">
-  <canvas class="smoke front" id="smoke-front"></canvas>
-
-
-  <div class="cta">
-    <div class="badge">
-      <svg class="ring" viewBox="0 0 104 104">
-        <defs><path id="circ" d="M12 52 a40 40 0 1 1 80 0 a40 40 0 1 1 -80 0"/></defs>
-        <text><textPath href="#circ" textLength="251" lengthAdjust="spacing">RENZO · RAMOS · RENZO · RAMOS · RENZO · RAMOS ·</textPath></text>
-      </svg>
-      <div class="core"><img src="media/emblem.png" alt=""></div>
-    </div>
-  </div>
-</section>
-
-<section class="projects" id="proyectos">
-  <div class="guide"></div>
-  <div class="bg-dots" aria-hidden="true"></div>
-  <div class="bg-word" aria-hidden="true">
-    <div class="row"><span> PROYECTOS · PROYECTOS · PROYECTOS · PROYECTOS · PROYECTOS · PROYECTOS ·</span><span> PROYECTOS · PROYECTOS · PROYECTOS · PROYECTOS · PROYECTOS · PROYECTOS ·</span></div>
-    <div class="row rev"><span> PROYECTOS · PROYECTOS · PROYECTOS · PROYECTOS · PROYECTOS · PROYECTOS ·</span><span> PROYECTOS · PROYECTOS · PROYECTOS · PROYECTOS · PROYECTOS · PROYECTOS ·</span></div>
-  </div>
-  <div class="wrap">
-    <div class="swap" id="pj-text">
-      <div class="kicker">PROYECTOS</div>
-      <div class="count"><b id="pj-num"></b> / <span id="pj-total"></span></div>
-      <h2 id="pj-name"></h2>
-      <div class="sub" id="pj-sub"></div>
-      <p id="pj-desc"></p>
-      <div class="stack" id="pj-stack"></div>
-      <div class="links">
-        <a class="btn-o solid" id="pj-live" href="#" target="_blank" rel="noopener">VER PROYECTO ↗</a>
-        <a class="btn-o" id="pj-code" href="#" target="_blank" rel="noopener">CÓDIGO</a>
-      </div>
-      <div class="nav">
-        <button id="pj-prev" aria-label="Proyecto anterior"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M15 4 7 12l8 8"/></svg></button>
-        <button id="pj-next" aria-label="Proyecto siguiente"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="m9 4 8 8-8 8"/></svg></button>
-      </div>
-    </div>
-    <div class="stage">
-      <div class="laptop" id="pj-laptop">
-        <div class="screen swap" id="pj-screen"></div>
-        <div class="base"></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<div class="name-bar" aria-hidden="true"><div class="track"><span>RENZO<i>✦</i>RENZO<i>✦</i>RENZO<i>✦</i>RENZO<i>✦</i>RENZO<i>✦</i>RENZO<i>✦</i>RENZO<i>✦</i>RENZO<i>✦</i>RENZO<i>✦</i>RENZO<i>✦</i>RENZO<i>✦</i>RENZO<i>✦</i>RENZO<i>✦</i>RENZO<i>✦</i>RENZO<i>✦</i>RENZO<i>✦</i>RENZO<i>✦</i>RENZO<i>✦</i></span><span>RENZO<i>✦</i>RENZO<i>✦</i>RENZO<i>✦</i>RENZO<i>✦</i>RENZO<i>✦</i>RENZO<i>✦</i>RENZO<i>✦</i>RENZO<i>✦</i>RENZO<i>✦</i>RENZO<i>✦</i>RENZO<i>✦</i>RENZO<i>✦</i>RENZO<i>✦</i>RENZO<i>✦</i>RENZO<i>✦</i>RENZO<i>✦</i>RENZO<i>✦</i>RENZO<i>✦</i></span></div></div>
-
-<section class="experience" id="experiencia">
-  <div class="bg-dots" aria-hidden="true"></div>
-  <div class="bg-word" aria-hidden="true">
-    <div class="row"><span> EXPERIENCIA · EXPERIENCIA · EXPERIENCIA · EXPERIENCIA · EXPERIENCIA · EXPERIENCIA ·</span><span> EXPERIENCIA · EXPERIENCIA · EXPERIENCIA · EXPERIENCIA · EXPERIENCIA · EXPERIENCIA ·</span></div>
-    <div class="row rev"><span> EXPERIENCIA · EXPERIENCIA · EXPERIENCIA · EXPERIENCIA · EXPERIENCIA · EXPERIENCIA ·</span><span> EXPERIENCIA · EXPERIENCIA · EXPERIENCIA · EXPERIENCIA · EXPERIENCIA · EXPERIENCIA ·</span></div>
-  </div>
-
-  <h2>MI EXPERIENCIA: EMPRESAS, ROLES Y TODO LO QUE NECESITAS SABER</h2>
-
-  <div class="exp-center">
-      <div class="switch">
-        <button id="exp-next" aria-label="Siguiente experiencia"><svg viewBox="0 0 80 12" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 6h72M70 1l6 5-6 5"/></svg></button>
-        <button class="back" id="exp-prev" aria-label="Experiencia anterior"><svg viewBox="0 0 80 12" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M76 6H4M10 1 4 6l6 5"/></svg></button>
-      </div>
-  </div>
-
-  <!-- Una tarjeta por puesto; el detalle se abre con VER MÁS -->
-  <div class="exp-pairs">
-    <div class="exp-pair">
-      <div class="exp-card fade-swap" id="exp-a-card">
-        <div class="kicker" id="exp-a-kicker"></div>
-        <div class="role" id="exp-a-role"></div>
-        <div class="tiles">
-          <div class="tile tall map">
-            <svg viewBox="0 0 120 130" aria-hidden="true">
-              <rect width="120" height="130" fill="#1e1e1e"/>
-              <g stroke="#3a3a3a" stroke-width="1.2" fill="none">
-                <path d="M-5 20 L60 45 L125 30"/><path d="M-5 70 L40 60 L80 85 L125 75"/><path d="M-5 110 L50 100 L125 120"/>
-                <path d="M20 -5 L30 60 L15 135"/><path d="M70 -5 L60 45 L80 85 L75 135"/><path d="M105 -5 L100 70 L110 135"/>
-              </g>
-              <g stroke="#2c2c2c" stroke-width=".7" fill="none">
-                <path d="M-5 40 L125 55"/><path d="M-5 90 L125 95"/><path d="M45 -5 L50 135"/><path d="M90 -5 L88 135"/>
-              </g>
-              <!-- El pin da vueltas por el mapa -->
-              <g>
-                <animateMotion dur="7.0s" repeatCount="indefinite" path="M0 0 C 22 -18, 34 18, 4 26 C -26 34, -34 -6, 0 0"/>
-                <path d="M72 30 a8 8 0 0 1 8 8 c0 6 -8 14 -8 14 s-8 -8 -8 -14 a8 8 0 0 1 8 -8z" fill="#cf8453"/>
-                <circle cx="72" cy="38" r="3" fill="#1e1e1e"/>
-              </g>
-            </svg>
-            <small id="exp-a-place"></small>
-          </div>
-          <div class="tile tall"><small>EMPRESA</small><strong id="exp-a-company"></strong></div>
-          <div class="tile"><small>DESDE</small><strong id="exp-a-from"></strong></div>
-          <div class="tile"><small>HASTA</small><strong id="exp-a-to"></strong></div>
-        </div>
-        <button class="cta-btn" id="exp-a-more" type="button">VER MÁS <span>→</span></button>
-      </div>
-    </div>
-    <div class="exp-pair mirror">
-      <div class="exp-card fade-swap" id="exp-b-card">
-        <div class="kicker" id="exp-b-kicker"></div>
-        <div class="role" id="exp-b-role"></div>
-        <div class="tiles">
-          <div class="tile tall map">
-            <svg viewBox="0 0 120 130" aria-hidden="true">
-              <rect width="120" height="130" fill="#1e1e1e"/>
-              <g stroke="#3a3a3a" stroke-width="1.2" fill="none">
-                <path d="M-5 20 L60 45 L125 30"/><path d="M-5 70 L40 60 L80 85 L125 75"/><path d="M-5 110 L50 100 L125 120"/>
-                <path d="M20 -5 L30 60 L15 135"/><path d="M70 -5 L60 45 L80 85 L75 135"/><path d="M105 -5 L100 70 L110 135"/>
-              </g>
-              <g stroke="#2c2c2c" stroke-width=".7" fill="none">
-                <path d="M-5 40 L125 55"/><path d="M-5 90 L125 95"/><path d="M45 -5 L50 135"/><path d="M90 -5 L88 135"/>
-              </g>
-              <!-- El pin da vueltas por el mapa -->
-              <g>
-                <animateMotion dur="8.5s" repeatCount="indefinite" path="M0 0 C -24 -14, -30 22, -4 28 C 22 34, 30 -8, 0 0"/>
-                <path d="M72 30 a8 8 0 0 1 8 8 c0 6 -8 14 -8 14 s-8 -8 -8 -14 a8 8 0 0 1 8 -8z" fill="#cf8453"/>
-                <circle cx="72" cy="38" r="3" fill="#1e1e1e"/>
-              </g>
-            </svg>
-            <small id="exp-b-place"></small>
-          </div>
-          <div class="tile tall"><small>EMPRESA</small><strong id="exp-b-company"></strong></div>
-          <div class="tile"><small>DESDE</small><strong id="exp-b-from"></strong></div>
-          <div class="tile"><small>HASTA</small><strong id="exp-b-to"></strong></div>
-        </div>
-        <button class="cta-btn" id="exp-b-more" type="button">VER MÁS <span>→</span></button>
-      </div>
-    </div>
-  </div>
-</section>
-
-<div class="name-bar" aria-hidden="true"><div class="track"><span>IVÁN<i>✦</i>IVÁN<i>✦</i>IVÁN<i>✦</i>IVÁN<i>✦</i>IVÁN<i>✦</i>IVÁN<i>✦</i>IVÁN<i>✦</i>IVÁN<i>✦</i>IVÁN<i>✦</i>IVÁN<i>✦</i>IVÁN<i>✦</i>IVÁN<i>✦</i>IVÁN<i>✦</i>IVÁN<i>✦</i>IVÁN<i>✦</i>IVÁN<i>✦</i>IVÁN<i>✦</i>IVÁN<i>✦</i>IVÁN<i>✦</i>IVÁN<i>✦</i></span><span>IVÁN<i>✦</i>IVÁN<i>✦</i>IVÁN<i>✦</i>IVÁN<i>✦</i>IVÁN<i>✦</i>IVÁN<i>✦</i>IVÁN<i>✦</i>IVÁN<i>✦</i>IVÁN<i>✦</i>IVÁN<i>✦</i>IVÁN<i>✦</i>IVÁN<i>✦</i>IVÁN<i>✦</i>IVÁN<i>✦</i>IVÁN<i>✦</i>IVÁN<i>✦</i>IVÁN<i>✦</i>IVÁN<i>✦</i>IVÁN<i>✦</i>IVÁN<i>✦</i></span></div></div>
-
-<section class="experience alt" id="educacion">
-  <div class="bg-dots" aria-hidden="true"></div>
-  <div class="bg-word" aria-hidden="true">
-    <div class="row"><span> EDUCACIÓN · EDUCACIÓN · EDUCACIÓN · EDUCACIÓN · EDUCACIÓN · EDUCACIÓN ·</span><span> EDUCACIÓN · EDUCACIÓN · EDUCACIÓN · EDUCACIÓN · EDUCACIÓN · EDUCACIÓN ·</span></div>
-    <div class="row rev"><span> EDUCACIÓN · EDUCACIÓN · EDUCACIÓN · EDUCACIÓN · EDUCACIÓN · EDUCACIÓN ·</span><span> EDUCACIÓN · EDUCACIÓN · EDUCACIÓN · EDUCACIÓN · EDUCACIÓN · EDUCACIÓN ·</span></div>
-  </div>
-
-  <h2>MI EDUCACIÓN: ESTUDIOS, CURSOS Y TODO LO QUE ME FORMÓ</h2>
-
-  <!-- Línea de tiempo: se rellena y enciende cada estudio al llegar a la sección -->
-  <div class="edu-tl" id="edu-tl"><div class="rail"><i></i></div></div>
-</section>
+<div data-mount="education"></div>
 
 <!-- Paso de educación (claro) a certificados (oscuro) con una trama de puntos que crece -->
 <canvas class="halftone" id="halftone" aria-hidden="true"></canvas>
 
-<section class="certs" id="certificados">
-  <div class="bg-dots" aria-hidden="true"></div>
-  <div class="bg-word" aria-hidden="true">
-    <div class="row"><span> CERTIFICADOS · CERTIFICADOS · CERTIFICADOS · CERTIFICADOS · CERTIFICADOS · CERTIFICADOS ·</span><span> CERTIFICADOS · CERTIFICADOS · CERTIFICADOS · CERTIFICADOS · CERTIFICADOS · CERTIFICADOS ·</span></div>
-    <div class="row rev"><span> CERTIFICADOS · CERTIFICADOS · CERTIFICADOS · CERTIFICADOS · CERTIFICADOS · CERTIFICADOS ·</span><span> CERTIFICADOS · CERTIFICADOS · CERTIFICADOS · CERTIFICADOS · CERTIFICADOS · CERTIFICADOS ·</span></div>
-  </div>
-  <h2>MIS <em>CERTIFICADOS</em></h2>
-  <div class="seals" id="seals"></div>
-</section>
+<div data-mount="certificates"></div>
 
-<div class="name-bar" aria-hidden="true"><div class="track"><span>RAMOS<i>✦</i>RAMOS<i>✦</i>RAMOS<i>✦</i>RAMOS<i>✦</i>RAMOS<i>✦</i>RAMOS<i>✦</i>RAMOS<i>✦</i>RAMOS<i>✦</i>RAMOS<i>✦</i>RAMOS<i>✦</i>RAMOS<i>✦</i>RAMOS<i>✦</i>RAMOS<i>✦</i>RAMOS<i>✦</i>RAMOS<i>✦</i>RAMOS<i>✦</i>RAMOS<i>✦</i>RAMOS<i>✦</i></span><span>RAMOS<i>✦</i>RAMOS<i>✦</i>RAMOS<i>✦</i>RAMOS<i>✦</i>RAMOS<i>✦</i>RAMOS<i>✦</i>RAMOS<i>✦</i>RAMOS<i>✦</i>RAMOS<i>✦</i>RAMOS<i>✦</i>RAMOS<i>✦</i>RAMOS<i>✦</i>RAMOS<i>✦</i>RAMOS<i>✦</i>RAMOS<i>✦</i>RAMOS<i>✦</i>RAMOS<i>✦</i>RAMOS<i>✦</i></span></div></div>
+<div data-mount="bar-ramos"></div>
 
-<section class="contact" id="contacto">
-  <div class="bg-dots" aria-hidden="true"></div>
-  <div class="bg-word" aria-hidden="true">
-    <div class="row"><span> CONTACTO · CONTACTO · CONTACTO · CONTACTO · CONTACTO · CONTACTO ·</span><span> CONTACTO · CONTACTO · CONTACTO · CONTACTO · CONTACTO · CONTACTO ·</span></div>
-    <div class="row rev"><span> CONTACTO · CONTACTO · CONTACTO · CONTACTO · CONTACTO · CONTACTO ·</span><span> CONTACTO · CONTACTO · CONTACTO · CONTACTO · CONTACTO · CONTACTO ·</span></div>
-  </div>
-  <div class="contact-grid">
-    <div>
-      <div class="status"><i></i>DISPONIBLE PARA NUEVOS PROYECTOS</div>
-      <h2>¿HABLAMOS?<br><em>ESCRÍBEME</em></h2>
-      <p class="lead">¿TIENES UNA IDEA, UN PROYECTO O UNA OFERTA? CUÉNTAMELO Y TE RESPONDO LO ANTES POSIBLE.</p>
-      <a class="mail" id="mail-link" href="#"><span id="mail-text"></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-      <div class="socials">
-        <a href="https://github.com/RenzoRamosDEV" target="_blank" rel="noopener"><img src="media/icons/github.png" alt="">GITHUB</a>
-        <a href="https://www.linkedin.com/in/renzoinv04/" target="_blank" rel="noopener"><img src="media/icons/linkedin.png" alt="">LINKEDIN</a>
-        <a href="media/cv/cv-renzo-ramos.pdf" target="_blank" rel="noopener">DESCARGAR CV</a>
-      </div>
-    </div>
-    <form class="form-card" id="contact-form">
-      <div class="kicker">MENSAJE</div>
-      <h3>CUÉNTAME TU IDEA</h3>
-      <label><span>NOMBRE</span><input name="name" required autocomplete="name"></label>
-      <label><span>EMAIL</span><input name="email" type="email" required autocomplete="email"></label>
-      <label><span>MENSAJE</span><textarea name="message" required></textarea></label>
-      <button type="submit">ENVIAR MENSAJE <span>→</span></button>
-    </form>
-  </div>
-</section>
+<div data-mount="contact"></div>
 
-<footer class="footer">
-  <div class="top">
-    <img class="logo" src="media/logo.png" alt="CJJ Renzo Ramos">
-    <nav>
-      <a href="#proyectos">PROYECTOS</a>
-      <a href="#experiencia">EXPERIENCIA</a>
-      <a href="#educacion">EDUCACIÓN</a>
-      <a href="#certificados">CERTIFICADOS</a>
-      <a href="#contacto">CONTACTO</a>
-    </nav>
-    <button class="to-top" id="to-top" aria-label="Volver arriba">
-      <svg class="spin" viewBox="0 0 104 104" aria-hidden="true">
-        <defs><path id="top-circ" d="M12 52 a40 40 0 1 1 80 0 a40 40 0 1 1 -80 0"/></defs>
-        <text><textPath href="#top-circ" textLength="251" lengthAdjust="spacing">VOLVER ARRIBA · VOLVER ARRIBA ·</textPath></text>
-      </svg>
-      <span class="core"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 19V5M6 11l6-6 6 6"/></svg></span>
-    </button>
-  </div>
-  <div class="bottom">
-    <span>© <span id="year"></span> RENZO RAMOS · TODOS LOS DERECHOS RESERVADOS</span>
-    <span>HECHO CON MIS <b>MANOS</b> Y MUCHOS <b>CAFÉS</b></span>
-  </div>
-</footer>
+<div data-mount="footer"></div>
 
 <!-- Detalle de un puesto: se abre con "VER MÁS" -->
-<div class="viewer" id="job-modal" role="dialog" aria-modal="true" aria-labelledby="jm-role">
-  <button class="close" id="jm-close" aria-label="Cerrar">×</button>
-  <div class="box job-box">
-    <div class="kicker" id="jm-kicker"></div>
-    <h4 id="jm-role"></h4>
-    <div class="job-meta" id="jm-meta"></div>
-    <h5 id="jm-h"></h5>
-    <p id="jm-p"></p>
-    <ul class="exp-list" id="jm-list"></ul>
-  </div>
-</div>
+<div data-mount="job-modal"></div>
 
-<div class="viewer" id="viewer" role="dialog" aria-modal="true" aria-labelledby="v-title">
-  <button class="close" id="v-close" aria-label="Cerrar">×</button>
-  <div class="box">
-    <div class="doc" id="v-doc"></div>
-    <div class="bar">
-      <div><h4 id="v-title"></h4><small id="v-meta"></small></div>
-      <div class="actions">
-        <a class="btn-o" id="v-cred" href="#" target="_blank" rel="noopener">VER CREDENCIAL ↗</a>
-        <a class="btn-o" id="v-open" href="#" target="_blank" rel="noopener">ABRIR EN PESTAÑA ↗</a>
-        <a class="btn-o solid" id="v-down" href="#" download>DESCARGAR</a>
-      </div>
-    </div>
-  </div>
-</div>
+<div data-mount="cert-viewer"></div>
 
 
 <script type="module" src="/src/main.js"></script>
