@@ -33,9 +33,9 @@
 }
 .personal-photo img {
   position: absolute; left: 50%; bottom: 0; height: 100%; transform: translateX(-50%);
-  filter: drop-shadow(0 20px 40px rgba(0,0,0,.6));
-  -webkit-mask-image: linear-gradient(to top, transparent 0, #000 90px);
-          mask-image: linear-gradient(to top, transparent 0, #000 90px);
+  /* Sin sombra: la máscara la recortaría en un rectángulo. La parte baja se funde con el fondo */
+  -webkit-mask-image: linear-gradient(to top, transparent 0, #000 170px);
+          mask-image: linear-gradient(to top, transparent 0, #000 170px);
 }
 
 /* Historia en capítulos */
