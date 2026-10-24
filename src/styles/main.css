@@ -1,0 +1,22 @@
+/* Punto de entrada de estilos. El orden importa: reproduce la cascada del CSS original. */
+@import './base/variables.css';
+@import './base/reset.css';
+@import './base/utilities.css';
+@import './animations/keyframes.css';
+@import './layout/header.css';
+@import './layout/background.css';
+@import './components/button.css';
+@import './components/badge.css';
+@import './components/name-bar.css';
+@import './components/shot.css';
+@import './components/exp-card.css';
+@import './components/halftone.css';
+@import './components/seal.css';
+@import './components/modal.css';
+@import './sections/hero.css';
+@import './sections/projects.css';
+@import './sections/experience.css';
+@import './sections/education.css';
+@import './sections/certificates.css';
+@import './sections/contact.css';
+@import './sections/footer.css';

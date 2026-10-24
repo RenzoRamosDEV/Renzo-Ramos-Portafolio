@@ -1,3 +1,5 @@
+import './styles/main.css';
+
 // Experiencia y educación
 const jobs = [
   {

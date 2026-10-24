@@ -1,0 +1,34 @@
+.exp-card {
+  width: 296px; margin-top: 26px; padding: 22px 20px 20px;
+  background: #1b1b1b; color: #fff; border-radius: 26px;
+  box-shadow: 0 30px 60px rgba(0,0,0,.25);
+}
+.exp-card .kicker { font-family: "Oswald", sans-serif; font-weight: 600; font-size: 10px; letter-spacing: 3px; color: var(--accent); }
+.exp-card .role { font-family: "Anton", sans-serif; font-size: 28px; line-height: 1.1; margin: 16px 0 22px; }
+.tiles { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.tile {
+  background: #232323; border: 1px solid #2f2f2f; border-radius: 16px;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  text-align: center; padding: 14px 8px; min-height: 76px;
+}
+.tile.tall { min-height: 130px; }
+.tile small { font-family: "Oswald", sans-serif; font-weight: 500; font-size: 10px; letter-spacing: 2.5px; color: #9a9a9a; }
+.tile strong { font-family: "Oswald", sans-serif; font-weight: 600; font-size: 16px; letter-spacing: 1px; margin-top: 8px; line-height: 1.2; }
+.tile.map { position: relative; overflow: hidden; padding: 0; justify-content: flex-end; align-items: flex-start; }
+.tile.map svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+.tile.map small { position: relative; margin: 0 0 10px 12px; color: #cfcfcf; }
+/* Pequeño zoom al pasar el ratón por cada recuadro de la tarjeta */
+.tile { transition: transform .25s cubic-bezier(.2,.8,.2,1), border-color .25s, background .25s; }
+.tile:hover { transform: scale(1.06); border-color: rgba(207,132,83,.6); background: #282828; position: relative; z-index: 1; }
+.tile.map svg { transition: transform .6s cubic-bezier(.2,.8,.2,1); }
+.tile.map:hover svg { transform: scale(1.18); }
+@media (prefers-reduced-motion: reduce) { .tile, .tile.map svg { transition: none; } .tile:hover, .tile.map:hover svg { transform: none; } }
+.exp-card .cta-btn {
+  margin-top: 14px; width: 100%; height: 48px; border: 0; border-radius: 24px; cursor: pointer;
+  background: var(--accent); color: #000; display: flex; align-items: center; justify-content: space-between;
+  padding: 0 18px; font-family: "Oswald", sans-serif; font-weight: 600; font-size: 13px; letter-spacing: 1.2px;
+  box-shadow: 0 8px 22px rgba(207,132,83,.35); text-decoration: none; transition: background .2s;
+}
+.exp-card .cta-btn:hover { background: #e09a6c; }
+
+.exp-card .cta-btn { font-family: "Oswald", sans-serif; }

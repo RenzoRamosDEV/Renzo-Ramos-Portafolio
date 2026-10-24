@@ -1,0 +1,16 @@
+.badge { position: relative; width: 104px; height: 104px; }
+.badge .ring {
+  position: absolute; inset: 0;
+  animation: spin 12s linear infinite;
+}
+.badge .ring text {
+  font-family: "Oswald", sans-serif; font-weight: 600;
+  font-size: 9.5px; letter-spacing: 0; fill: var(--accent);
+}
+.badge .core {
+  position: absolute; inset: 20px; border-radius: 50%;
+  background: radial-gradient(circle at 40% 35%, #3a3a3a, #161616);
+  display: grid; place-items: center;
+  box-shadow: 0 0 0 4px #1d1d1d;
+}
+.badge .core img { width: 58px; height: 58px; }

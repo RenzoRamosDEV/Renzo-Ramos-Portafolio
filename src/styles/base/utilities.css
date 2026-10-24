@@ -1,0 +1,2 @@
+.fade-swap { transition: opacity .25s; }
+.fade-swap.out { opacity: 0; }

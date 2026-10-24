@@ -1,0 +1,7 @@
+/* ---------- Certificados: sellos giratorios como la insignia de la portada ---------- */
+.certs { position: relative; overflow: hidden; background: #0b0b0b; padding: 50px 42px 110px; }
+.certs h2 { position: relative; z-index: 1; text-align: center; font-family: "Bebas Neue", sans-serif; font-weight: 400; font-size: 46px; color: #fff; margin-bottom: 50px; }
+.certs h2 em { font-style: normal; color: var(--accent); }
+.seals { position: relative; z-index: 1; display: flex; justify-content: center; gap: 70px; flex-wrap: wrap; }
+
+@media (max-width: 640px) { .certs { padding: 70px 16px 90px; } .seals { gap: 40px; } }

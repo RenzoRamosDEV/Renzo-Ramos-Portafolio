@@ -1,0 +1,9 @@
+/* Barras negras con texto desplazándose: "RENZO" antes de experiencia, "IVÁN" antes de educación y "RAMOS" antes de contacto */
+.name-bar { background: #000; overflow: hidden; padding: 4px 0; }
+.name-bar .track { display: flex; width: max-content; animation: word-slide 30s linear infinite; }
+.name-bar span {
+  font-family: "Anton", sans-serif; font-size: 12px; line-height: 1; color: #fff;
+  white-space: nowrap; letter-spacing: 2px;
+}
+.name-bar i { font-style: normal; color: var(--accent); margin: 0 14px; }
+@media (prefers-reduced-motion: reduce) { .name-bar .track { animation: none; } }

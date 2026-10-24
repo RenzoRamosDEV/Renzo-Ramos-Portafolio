@@ -1,0 +1,22 @@
+/* ---------- Header ---------- */
+header {
+  position: absolute; inset: 0 0 auto 0;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 20px 31px;
+  z-index: 20;
+}
+.logo { display: block; line-height: 0; }
+.logo img { height: 58px; width: auto; }
+
+nav.main { display: flex; gap: 62px; position: absolute; left: 50%; transform: translateX(-50%); }
+nav.main a {
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 23px; letter-spacing: .3px;
+  color: var(--muted); text-decoration: none;
+  transition: color .2s;
+}
+nav.main a:hover { color: var(--accent); }
+
+@media (max-width: 1100px) {
+  nav.main { display: none; }
+}

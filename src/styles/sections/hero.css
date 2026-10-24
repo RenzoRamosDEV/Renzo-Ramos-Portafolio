@@ -1,0 +1,107 @@
+.hero {
+  position: relative;
+  height: 100vh;
+  min-height: 720px;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse 55% 60% at 50% 45%, #262626 0%, #121212 45%, var(--bg) 80%);
+}
+
+/* Funde el final de la portada con el negro de la sección de abajo */
+.hero::after {
+  content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 340px;
+  background: linear-gradient(transparent, #000 55%);
+  z-index: 2; pointer-events: none;
+}
+
+/* ---------- Tags ---------- */
+.tags {
+  position: absolute; bottom: 52px; left: 31px;
+  display: flex; gap: 8px; z-index: 20;
+}
+.tags a {
+  font-family: "Oswald", sans-serif; font-weight: 600;
+  font-size: 11px; letter-spacing: 1.2px;
+  border: 1.5px solid #cfcfcf; border-radius: 30px;
+  padding: 8px 23px; color: #e6e6e6;
+  text-decoration: none; transition: background .2s, color .2s;
+}
+.tags a { display: inline-flex; align-items: center; gap: 8px; padding-left: 16px; }
+.tags a img { width: 18px; height: 18px; transition: filter .2s; }
+.tags a:hover { background: var(--accent); border-color: var(--accent); color: #000; }
+.tags a:hover img { filter: invert(1); }
+
+/* ---------- Center stage ---------- */
+.circle {
+  position: absolute; left: 50%; top: 155px;
+  width: 660px; height: 660px; margin-left: -330px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, #6a6a6a, #3a3a3a 55%, #262626);
+  box-shadow: inset 0 0 0 5px #262626, inset 0 10px 24px rgba(255,255,255,.08), inset 0 -18px 40px rgba(0,0,0,.45);
+  z-index: 1;
+}
+/* Círculo con muescas que gira en un sentido y aros exteriores que giran en el contrario */
+.gear {
+  position: absolute; left: 50%; top: 85px;
+  width: 800px; height: 800px; margin-left: -400px;
+  z-index: 1; pointer-events: none;
+}
+.gear.inner { z-index: 2; filter: none; }
+/* Arco que asoma al final de la portada; continúa en la sección de abajo (.projects .guide) */
+.orbit {
+  position: absolute; left: 50%; top: calc(100% - 215px);
+  width: 1100px; height: 1100px; margin-left: -550px;
+  border-radius: 50%; border: 1px solid rgba(255,255,255,.12);
+  z-index: 3; pointer-events: none;
+}
+.title {
+  position: absolute; left: 50%; top: 317px;
+  transform: translateX(-50%);
+  font-family: "Anton", sans-serif;
+  font-size: 260px; line-height: 1; letter-spacing: -4px;
+  color: #fff; z-index: 3; white-space: nowrap;
+  transform-origin: center;
+}
+.title span { display: inline-block; transform: scaleX(1.38); }
+
+.person {
+  position: absolute; left: 50%; bottom: -100px;
+  height: min(880px, calc(100vh - 20px)); transform: translateX(-52%);
+  z-index: 5; pointer-events: none;
+  filter: drop-shadow(0 20px 40px rgba(0,0,0,.6));
+  /* La parte baja de la foto se funde a negro solo en el borde, para que el arco no se vea a través de la sudadera */
+  -webkit-mask-image: linear-gradient(to top, transparent 100px, #000 170px);
+          mask-image: linear-gradient(to top, transparent 100px, #000 170px);
+}
+
+/* ---------- Smoke ---------- */
+.smoke {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  pointer-events: none;
+}
+.smoke.back { z-index: 4; }
+/* El humo se desvanece antes del final para no marcar el corte con la sección de abajo */
+.smoke {
+  -webkit-mask-image: linear-gradient(#000 65%, transparent 98%);
+          mask-image: linear-gradient(#000 65%, transparent 98%);
+}
+.smoke.front { z-index: 6; opacity: .55; }
+
+/* ---------- Bottom ---------- */
+.cta {
+  position: absolute; right: 40px; bottom: 48px; z-index: 20;
+  display: flex; align-items: center; gap: 24px;
+}
+
+@media (max-width: 1100px) {
+  .title { font-size: 20vw; letter-spacing: -3px; }
+}
+@media (max-width: 640px) {
+  .circle { width: 320px; height: 320px; margin-left: -160px; top: 150px; }
+  .gear { width: 389px; height: 389px; margin-left: -194px; top: 116px; }
+  .title { top: 230px; }
+  .person { height: 640px; bottom: -120px; }
+  .tags { left: 16px; bottom: 32px; }
+  .cta { right: 16px; bottom: 24px; }
+}

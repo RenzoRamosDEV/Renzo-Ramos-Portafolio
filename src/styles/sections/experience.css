@@ -1,0 +1,37 @@
+/* ---------- Sección 3: experiencia ---------- */
+.experience {
+  position: relative; overflow: hidden;
+  background: #f4f4f4; color: #111;
+  padding: 28px 0 60px; min-height: 760px;
+}
+
+.experience > h2, .experience > .exp-center, .experience > .exp-pairs { position: relative; z-index: 1; }
+/* Experiencia y educación: altura según el contenido y aire repartido arriba y abajo */
+#experiencia, #educacion { min-height: 0; padding: 80px 0 90px; }
+#educacion { padding-bottom: 30px; }
+#experiencia .exp-pairs { margin-top: 44px; }
+.experience h2 {
+  position: relative; text-align: center;
+  font-family: "Bebas Neue", sans-serif; font-weight: 400;
+  font-size: 46px; line-height: 60px; letter-spacing: .3px;
+  max-width: 640px; margin: 0 auto;
+}
+
+.exp-center { display: flex; flex-direction: column; align-items: center; }
+.exp-pairs {
+  position: relative; max-width: 1400px; margin: 10px auto 0; padding: 0 40px;
+  display: flex; justify-content: center; gap: 40px; flex-wrap: wrap;
+}
+.exp-pair .exp-card { margin-top: 0; flex: none; }
+
+.switch { height: 120px; display: flex; flex-direction: column; justify-content: center; gap: 10px; }
+.switch button { background: none; border: 0; cursor: pointer; padding: 2px; color: var(--accent); transition: transform .2s; }
+.switch button.back { color: #999; }
+.switch button:hover { transform: translateX(4px); }
+.switch button.back:hover { transform: translateX(-4px); color: #111; }
+.switch svg { width: 80px; height: 12px; display: block; }
+
+@media (max-width: 1000px) {
+  .exp-center { order: -1; }
+  .experience h2 { font-size: 34px; line-height: 42px; padding: 0 16px; }
+}

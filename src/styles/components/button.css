@@ -1,0 +1,7 @@
+.btn-o {
+  font-family: "Oswald", sans-serif; font-weight: 600; font-size: 12px; letter-spacing: 1.4px;
+  text-decoration: none; color: #e6e6e6; padding: 10px 16px; border-radius: 30px; border: 1.5px solid #e6e6e6;
+  transition: background .2s, color .2s, border-color .2s;
+}
+.btn-o:hover { background: var(--accent); border-color: var(--accent); color: #000; }
+.btn-o.solid { background: var(--accent); border-color: var(--accent); color: #000; }

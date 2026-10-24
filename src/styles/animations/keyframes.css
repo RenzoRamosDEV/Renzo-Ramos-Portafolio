@@ -1,0 +1,7 @@
+@keyframes spin { to { transform: rotate(360deg); } }
+
+@keyframes dots-drift { to { background-position: 140px 70px; } }
+
+@keyframes word-slide { to { transform: translateX(-50%); } }
+
+@keyframes status-pulse { 0% { box-shadow: 0 0 0 0 rgba(207,132,83,.7); } 70%, 100% { box-shadow: 0 0 0 10px rgba(207,132,83,0); } }

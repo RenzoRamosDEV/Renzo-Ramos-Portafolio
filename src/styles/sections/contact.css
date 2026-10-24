@@ -1,0 +1,57 @@
+/* ---------- Contacto ---------- */
+.contact { position: relative; overflow: hidden; background: #f4f4f4; color: #111; padding: 100px 42px 110px; }
+.contact-grid {
+  position: relative; z-index: 1; max-width: 1240px; margin: 0 auto;
+  display: grid; grid-template-columns: 1fr 420px; gap: 80px; align-items: center;
+}
+.contact .status {
+  display: inline-flex; align-items: center; gap: 10px; padding: 7px 14px; border-radius: 30px;
+  background: #111; color: #e6e6e6; font-family: "Oswald", sans-serif; font-weight: 600; font-size: 11px; letter-spacing: 2px;
+}
+.contact .status i { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); animation: status-pulse 2s ease-out infinite; }
+.contact h2 { font-family: "Anton", sans-serif; font-weight: 400; font-size: 120px; line-height: .95; margin: 26px 0 22px; }
+.contact h2 em { font-style: normal; color: transparent; -webkit-text-stroke: 2px var(--accent); }
+.contact .lead { font-family: "Bebas Neue", sans-serif; font-size: 22px; line-height: 28px; color: #444; max-width: 520px; }
+.contact .mail {
+  display: inline-flex; align-items: center; gap: 14px; margin-top: 34px; text-decoration: none; color: #111;
+  font-family: "Anton", sans-serif; font-size: 34px; border-bottom: 2px solid #111; padding-bottom: 6px;
+  transition: color .2s, border-color .2s;
+}
+.contact .mail:hover { color: var(--accent); border-color: var(--accent); }
+.contact .mail svg { width: 26px; height: 26px; transition: transform .3s; }
+.contact .mail:hover svg { transform: rotate(-45deg); }
+.contact .socials { display: flex; gap: 10px; margin-top: 30px; }
+.contact .socials a {
+  display: inline-flex; align-items: center; gap: 8px; text-decoration: none; color: #111;
+  border: 1.5px solid #111; border-radius: 30px; padding: 9px 16px;
+  font-family: "Oswald", sans-serif; font-weight: 600; font-size: 12px; letter-spacing: 1.2px;
+  transition: background .2s, border-color .2s;
+}
+.contact .socials a img { width: 16px; height: 16px; filter: invert(1); }
+.contact .socials a:hover { background: var(--accent); border-color: var(--accent); }
+
+.form-card { background: #1b1b1b; color: #fff; border-radius: 26px; padding: 28px 24px 24px; box-shadow: 0 30px 60px rgba(0,0,0,.25); }
+.form-card .kicker { font-family: "Oswald", sans-serif; font-weight: 600; font-size: 10px; letter-spacing: 3px; color: var(--accent); }
+.form-card h3 { font-family: "Anton", sans-serif; font-weight: 400; font-size: 28px; margin: 12px 0 20px; }
+.form-card label { display: block; margin-bottom: 12px; }
+.form-card label span { display: block; font-family: "Oswald", sans-serif; font-size: 10px; letter-spacing: 2.5px; color: #9a9a9a; margin: 0 0 6px 4px; }
+.form-card input, .form-card textarea {
+  width: 100%; background: #232323; border: 1px solid #2f2f2f; border-radius: 14px; color: #fff;
+  padding: 13px 14px; font: 500 14px "Oswald", sans-serif; letter-spacing: .5px; outline: none; transition: border-color .2s;
+}
+.form-card textarea { min-height: 120px; resize: vertical; }
+.form-card input:focus, .form-card textarea:focus { border-color: var(--accent); }
+.form-card button {
+  margin-top: 6px; width: 100%; height: 50px; border: 0; border-radius: 25px; cursor: pointer;
+  background: var(--accent); color: #000; display: flex; align-items: center; justify-content: space-between; padding: 0 20px;
+  font-family: "Oswald", sans-serif; font-weight: 600; font-size: 13px; letter-spacing: 1.2px;
+  box-shadow: 0 8px 22px rgba(207,132,83,.35); transition: background .2s;
+}
+.form-card button:hover { background: #e09a6c; }
+
+@media (max-width: 1000px) {
+  .contact { padding: 80px 16px 90px; }
+  .contact-grid { grid-template-columns: 1fr; gap: 50px; }
+  .contact h2 { font-size: 80px; }
+  .contact .mail { font-size: 24px; }
+}

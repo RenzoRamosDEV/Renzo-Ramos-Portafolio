@@ -1,0 +1,19 @@
+.seal { text-align: center; cursor: pointer; background: none; border: 0; color: inherit; font: inherit; }
+.seal .ring-wrap { position: relative; width: 230px; height: 230px; margin: 0 auto; transition: transform .35s; }
+.seal .ring { position: absolute; inset: 0; animation: spin 18s linear infinite; }
+.seal:nth-child(2) .ring { animation-direction: reverse; }
+.seal .ring text { font-family: "Oswald", sans-serif; font-weight: 600; font-size: 13px; fill: #bdbdbd; transition: fill .3s; }
+.seal .ring .dash { fill: none; stroke: rgba(255,255,255,.18); stroke-width: 1; stroke-dasharray: 3 6; }
+.seal .core {
+  position: absolute; inset: 50px; border-radius: 50%; display: grid; place-items: center;
+  background: radial-gradient(circle at 40% 35%, #3a3a3a, #121212);
+  box-shadow: 0 0 0 6px #1d1d1d, 0 20px 40px rgba(0,0,0,.6); transition: box-shadow .3s;
+}
+.seal .core b { font-family: "Anton", sans-serif; font-weight: 400; font-size: 54px; color: transparent; -webkit-text-stroke: 1.5px var(--accent); }
+.seal:hover .ring-wrap, .seal:focus-visible .ring-wrap { transform: scale(1.06); }
+.seal:hover .ring { animation-play-state: paused; }
+.seal:hover .ring text { fill: var(--accent); }
+.seal:hover .core { box-shadow: 0 0 0 6px var(--accent), 0 20px 40px rgba(0,0,0,.6); }
+.seal h3 { font-family: "Bebas Neue", sans-serif; font-weight: 400; font-size: 24px; color: #fff; margin-top: 26px; }
+.seal small { font-size: 11px; letter-spacing: 2px; color: #8a8a8a; }
+@media (prefers-reduced-motion: reduce) { .seal .ring { animation: none; } }

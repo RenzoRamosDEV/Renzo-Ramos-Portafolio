@@ -1,0 +1,27 @@
+/* Fondo animado en versión oscura (mismo que experiencia y educación) */
+.projects .bg-dots, .certs .bg-dots { background-image: radial-gradient(rgba(255,255,255,.1) 1px, transparent 1.6px); }
+.projects .bg-word span, .certs .bg-word span { -webkit-text-stroke-color: rgba(255,255,255,.06); }
+.projects .bg-word .row.rev span, .certs .bg-word .row.rev span { -webkit-text-stroke-color: rgba(207,132,83,.18); }
+
+/* Fondo animado: palabra gigante en contorno deslizándose + trama de puntos que se mueve */
+.bg-dots {
+  position: absolute; inset: 0; pointer-events: none;
+  background: radial-gradient(rgba(0,0,0,.13) 1px, transparent 1.6px) 0 0 / 14px 14px;
+  -webkit-mask-image: radial-gradient(ellipse 60% 55% at 50% 50%, #000 0%, transparent 75%);
+          mask-image: radial-gradient(ellipse 60% 55% at 50% 50%, #000 0%, transparent 75%);
+  animation: dots-drift 22s linear infinite;
+}
+
+.bg-word {
+  position: absolute; inset: 0; pointer-events: none; overflow: hidden;
+  display: flex; flex-direction: column; justify-content: center; gap: 10px;
+}
+.bg-word .row { display: flex; width: max-content; animation: word-slide 60s linear infinite; }
+.bg-word .row.rev { animation-direction: reverse; animation-duration: 75s; }
+.bg-word span {
+  font-family: "Anton", sans-serif; font-size: 230px; line-height: 1; white-space: nowrap;
+  color: transparent; -webkit-text-stroke: 1.5px rgba(0,0,0,.07);
+}
+.bg-word .row.rev span { -webkit-text-stroke-color: rgba(207,132,83,.16); }
+
+@media (prefers-reduced-motion: reduce) { .bg-dots, .bg-word .row { animation: none; } }
