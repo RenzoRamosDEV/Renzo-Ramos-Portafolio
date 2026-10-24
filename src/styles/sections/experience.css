@@ -1,7 +1,7 @@
 /* ---------- Sección 3: experiencia ---------- */
 .experience {
   position: relative; overflow: hidden;
-  background: #f4f4f4; color: #111;
+  background: var(--surface-light); color: #111;
   padding: 28px 0 60px; min-height: 760px;
 }
 

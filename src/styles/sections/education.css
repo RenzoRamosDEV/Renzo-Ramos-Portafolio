@@ -12,10 +12,10 @@
   font-family: "Oswald", sans-serif; font-weight: 600; font-size: 12px; letter-spacing: 2.5px; color: #777;
 }
 .edu-tl .node {
-  width: 18px; height: 18px; border-radius: 50%; margin: -8px auto 0; background: #f4f4f4; border: 2px solid #bbb;
+  width: 18px; height: 18px; border-radius: 50%; margin: -8px auto 0; background: var(--surface-light); border: 2px solid #bbb;
   transition: background .4s, border-color .4s, box-shadow .4s;
 }
-.edu-tl.on .node { background: var(--accent); border-color: var(--accent); box-shadow: 0 0 0 6px rgba(207,132,83,.18); }
+.edu-tl.on .node { background: var(--accent); border-color: var(--accent); box-shadow: 0 0 0 6px rgba(var(--accent-rgb),.18); }
 .edu-tl .body { opacity: 0; transform: translateY(14px); transition: opacity .6s, transform .6s; }
 .edu-tl.on .body { opacity: 1; transform: none; }
 .edu-tl.on .step:nth-child(3) .node, .edu-tl.on .step:nth-child(3) .body { transition-delay: .55s; }

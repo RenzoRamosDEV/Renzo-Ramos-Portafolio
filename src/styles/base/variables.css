@@ -1,7 +1,17 @@
 :root {
+  /* Acento (naranja del mechón) y sus variantes */
   --accent: #cf8453;
-  --grey: #4a4a4a;
+  --accent-rgb: 207,132,83;
+  --accent-hover: #e09a6c;
+  /* Fondos de página y de sección */
   --bg: #070707;
+  --surface-light: #f4f4f4;
+  --surface-dark: #0b0b0b;
+  /* Tarjetas oscuras (experiencia, formulario) */
+  --card: #1b1b1b;
+  --card-tile: #232323;
+  --card-line: #2f2f2f;
+  /* Texto */
   --text: #d9d9d9;
   --muted: #bdbdbd;
 }
