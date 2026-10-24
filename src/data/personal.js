@@ -2,7 +2,7 @@
 export const personal = {
   name: 'RENZO RAMOS',
   surname: 'DE LOS RÍOS',
-  tagline: 'Peruano en España, apasionado por el backend, la arquitectura de aplicaciones y la inteligencia artificial.',
+  tagline: 'Técnico Superior en Desarrollo de Aplicaciones Multiplataforma',
   facts: ['NACIDO EN PERÚ · 2004', 'EN ESPAÑA DESDE 2024', 'CESUR · 2026'],
   chapters: [
     { title: 'DE PERÚ A ESPAÑA', meta: '2004 — 2024',
