@@ -1,8 +1,9 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
 
   <!-- Primary Meta Tags -->
   <title>Renzo Ramos — Técnico Superior DAM & Junior AI Engineer</title>
@@ -268,9 +269,1288 @@
     ]
   }
   </script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Bebas+Neue&family=Oswald:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --accent: #cf8453;
+    --grey: #4a4a4a;
+    --bg: #070707;
+    --text: #d9d9d9;
+    --muted: #bdbdbd;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: "Oswald", sans-serif;
+    overflow-x: hidden;
+  }
+
+  .hero {
+    position: relative;
+    height: 100vh;
+    min-height: 720px;
+    overflow: hidden;
+    background:
+      radial-gradient(ellipse 55% 60% at 50% 45%, #262626 0%, #121212 45%, var(--bg) 80%);
+  }
+
+  /* Funde el final de la portada con el negro de la sección de abajo */
+  .hero::after {
+    content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 340px;
+    background: linear-gradient(transparent, #000 55%);
+    z-index: 2; pointer-events: none;
+  }
+
+  /* ---------- Header ---------- */
+  header {
+    position: absolute; inset: 0 0 auto 0;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 20px 31px;
+    z-index: 20;
+  }
+  .logo { display: block; line-height: 0; }
+  .logo img { height: 58px; width: auto; }
+
+  nav.main { display: flex; gap: 62px; position: absolute; left: 50%; transform: translateX(-50%); }
+  nav.main a {
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 23px; letter-spacing: .3px;
+    color: var(--muted); text-decoration: none;
+    transition: color .2s;
+  }
+  nav.main a:hover { color: var(--accent); }
+
+  .actions { display: flex; gap: 30px; align-items: center; }
+  .actions button { background: none; border: 0; color: #cfcfcf; cursor: pointer; }
+  .actions svg { width: 28px; height: 28px; display: block; }
+
+  /* ---------- Tags ---------- */
+  .tags {
+    position: absolute; bottom: 52px; left: 31px;
+    display: flex; gap: 8px; z-index: 20;
+  }
+  .tags a {
+    font-family: "Oswald", sans-serif; font-weight: 600;
+    font-size: 11px; letter-spacing: 1.2px;
+    border: 1.5px solid #cfcfcf; border-radius: 30px;
+    padding: 8px 23px; color: #e6e6e6;
+    text-decoration: none; transition: background .2s, color .2s;
+  }
+  .tags a { display: inline-flex; align-items: center; gap: 8px; padding-left: 16px; }
+  .tags a img { width: 18px; height: 18px; transition: filter .2s; }
+  .tags a:hover { background: var(--accent); border-color: var(--accent); color: #000; }
+  .tags a:hover img { filter: invert(1); }
+
+  /* ---------- Center stage ---------- */
+  .circle {
+    position: absolute; left: 50%; top: 155px;
+    width: 660px; height: 660px; margin-left: -330px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 35% 30%, #6a6a6a, #3a3a3a 55%, #262626);
+    box-shadow: inset 0 0 0 5px #262626, inset 0 10px 24px rgba(255,255,255,.08), inset 0 -18px 40px rgba(0,0,0,.45);
+    z-index: 1;
+  }
+  /* Círculo con muescas que gira en un sentido y aros exteriores que giran en el contrario */
+  .gear {
+    position: absolute; left: 50%; top: 85px;
+    width: 800px; height: 800px; margin-left: -400px;
+    z-index: 1; pointer-events: none;
+  }
+  .gear.inner { z-index: 2; filter: none; }
+  /* Arco que asoma al final de la portada; continúa en la sección de abajo (.projects .guide) */
+  .orbit {
+    position: absolute; left: 50%; top: calc(100% - 215px);
+    width: 1100px; height: 1100px; margin-left: -550px;
+    border-radius: 50%; border: 1px solid rgba(255,255,255,.12);
+    z-index: 3; pointer-events: none;
+  }
+  .title {
+    position: absolute; left: 50%; top: 317px;
+    transform: translateX(-50%);
+    font-family: "Anton", sans-serif;
+    font-size: 260px; line-height: 1; letter-spacing: -4px;
+    color: #fff; z-index: 3; white-space: nowrap;
+    transform-origin: center;
+  }
+  .title span { display: inline-block; transform: scaleX(1.38); }
+
+  .person {
+    position: absolute; left: 50%; bottom: -100px;
+    height: min(880px, calc(100vh - 20px)); transform: translateX(-52%);
+    z-index: 5; pointer-events: none;
+    filter: drop-shadow(0 20px 40px rgba(0,0,0,.6));
+    /* La parte baja de la foto se funde a negro (los últimos 100px quedan fuera de la portada) */
+    -webkit-mask-image: linear-gradient(to top, transparent 100px, #000 300px);
+            mask-image: linear-gradient(to top, transparent 100px, #000 300px);
+  }
+
+  /* ---------- Smoke ---------- */
+  .smoke {
+    position: absolute; inset: 0;
+    width: 100%; height: 100%;
+    pointer-events: none;
+  }
+  .smoke.back { z-index: 4; }
+  /* El humo se desvanece antes del final para no marcar el corte con la sección de abajo */
+  .smoke {
+    -webkit-mask-image: linear-gradient(#000 65%, transparent 98%);
+            mask-image: linear-gradient(#000 65%, transparent 98%);
+  }
+  .smoke.front { z-index: 6; opacity: .55; }
+
+  /* ---------- Bottom ---------- */
+  .cta {
+    position: absolute; right: 40px; bottom: 48px; z-index: 20;
+    display: flex; align-items: center; gap: 24px;
+  }
+  .badge { position: relative; width: 104px; height: 104px; }
+  .badge .ring {
+    position: absolute; inset: 0;
+    animation: spin 12s linear infinite;
+  }
+  .badge .ring text {
+    font-family: "Oswald", sans-serif; font-weight: 600;
+    font-size: 9.5px; letter-spacing: 0; fill: var(--accent);
+  }
+  .badge .core {
+    position: absolute; inset: 20px; border-radius: 50%;
+    background: radial-gradient(circle at 40% 35%, #3a3a3a, #161616);
+    display: grid; place-items: center;
+    box-shadow: 0 0 0 4px #1d1d1d;
+  }
+  .badge .core img { width: 58px; height: 58px; }
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  @media (max-width: 1100px) {
+    nav.main { display: none; }
+    .title { font-size: 20vw; letter-spacing: -3px; }
+  }
+  @media (max-width: 640px) {
+    .circle { width: 320px; height: 320px; margin-left: -160px; top: 150px; }
+    .gear { width: 389px; height: 389px; margin-left: -194px; top: 116px; }
+    .title { top: 230px; }
+    .person { height: 640px; bottom: -120px; }
+    .tags { left: 16px; bottom: 32px; }
+    .cta { right: 16px; bottom: 24px; }
+  }
+
+  /* ---------- Sección 2: proyectos (destacado con portátil 3D) ---------- */
+  .projects {
+    position: relative; overflow: hidden; min-height: 860px;
+    background: radial-gradient(ellipse 55% 55% at 65% 55%, #1c1c1c, #000 75%);
+  }
+  /* Mismo círculo que .orbit de la portada: así el arco continúa sin cortes */
+  .projects .guide {
+    position: absolute; left: 50%; top: -215px;
+    width: 1100px; height: 1100px; margin-left: -550px;
+    border-radius: 50%; border: 1px solid rgba(255,255,255,.12); pointer-events: none;
+  }
+  /* Fondo animado en versión oscura (mismo que experiencia y educación) */
+  .projects .bg-dots, .certs .bg-dots { background-image: radial-gradient(rgba(255,255,255,.1) 1px, transparent 1.6px); }
+  .projects .bg-word span, .certs .bg-word span { -webkit-text-stroke-color: rgba(255,255,255,.06); }
+  .projects .bg-word .row.rev span, .certs .bg-word .row.rev span { -webkit-text-stroke-color: rgba(207,132,83,.18); }
+  .projects .wrap {
+    position: relative; max-width: 1400px; margin: 0 auto; padding: 120px 42px 100px;
+    display: grid; grid-template-columns: 420px 1fr; gap: 60px; align-items: center;
+  }
+  .projects .kicker { font-family: "Oswald", sans-serif; font-weight: 600; font-size: 11px; letter-spacing: 3px; color: #9a9a9a; margin-bottom: 18px; }
+  .projects .count { font-family: "Anton", sans-serif; font-size: 22px; color: #6a6a6a; }
+  .projects .count b { color: var(--accent); font-size: 40px; font-weight: 400; }
+  .projects h2 { font-family: "Anton", sans-serif; font-weight: 400; font-size: 72px; line-height: 1; margin: 14px 0 20px; color: #fff; }
+  .projects .sub { font-family: "Oswald", sans-serif; font-weight: 600; font-size: 13px; letter-spacing: 2px; color: var(--accent); margin: -6px 0 18px; }
+  .projects p { font-family: "Bebas Neue", sans-serif; font-size: 21px; line-height: 27px; color: #cfcfcf; }
+  .projects .stack { display: flex; flex-wrap: wrap; gap: 8px; margin: 24px 0; }
+  .projects .stack span { font-size: 12px; letter-spacing: 1.5px; padding: 6px 12px; border-radius: 20px; background: #1f1f1f; border: 1px solid #333; }
+  .projects .links { display: flex; gap: 10px; }
+  .btn-o {
+    font-family: "Oswald", sans-serif; font-weight: 600; font-size: 12px; letter-spacing: 1.4px;
+    text-decoration: none; color: #e6e6e6; padding: 10px 16px; border-radius: 30px; border: 1.5px solid #e6e6e6;
+    transition: background .2s, color .2s, border-color .2s;
+  }
+  .btn-o:hover { background: var(--accent); border-color: var(--accent); color: #000; }
+  .btn-o.solid { background: var(--accent); border-color: var(--accent); color: #000; }
+  .projects .nav { display: flex; gap: 12px; margin-top: 34px; }
+  .projects .nav button {
+    width: 54px; height: 54px; border-radius: 50%; border: 1.5px solid #555; background: none; color: #fff;
+    cursor: pointer; display: grid; place-items: center; transition: background .2s, border-color .2s, color .2s;
+  }
+  .projects .nav button:hover { background: var(--accent); border-color: var(--accent); color: #000; }
+  .projects .nav svg { width: 20px; height: 20px; }
+  .projects .stage { perspective: 1400px; }
+  .projects .laptop { transform-style: preserve-3d; transition: transform .25s ease-out; transform: rotateY(-14deg) rotateX(6deg); }
+  .projects .screen {
+    position: relative; aspect-ratio: 16 / 10; overflow: hidden; background: #1a1a1a;
+    border: 12px solid #1a1a1a; border-bottom-width: 18px; border-radius: 16px 16px 6px 6px;
+    box-shadow: 0 50px 90px rgba(0,0,0,.7), 0 0 0 1px #333;
+  }
+  .projects .screen img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .projects .base { height: 16px; margin: 0 -5%; background: linear-gradient(#2c2c2c, #151515); border-radius: 0 0 14px 14px; }
+  .projects .shine { position: absolute; inset: 0; pointer-events: none; background: linear-gradient(115deg, rgba(255,255,255,.12), transparent 40%); }
+  .projects .swap { transition: opacity .3s, transform .3s; }
+  .projects .swap.out { opacity: 0; transform: translateY(10px); }
+
+  /* Captura de relleno mientras no haya imagen real del proyecto */
+  .shot { position: relative; width: 100%; height: 100%; overflow: hidden; background: var(--c1); }
+  .shot .bar { height: 9%; background: rgba(0,0,0,.35); display: flex; align-items: center; gap: 4%; padding-left: 4%; }
+  .shot .bar i { width: 3.5%; aspect-ratio: 1; border-radius: 50%; background: rgba(255,255,255,.5); }
+  .shot .sh-hero { position: absolute; left: 7%; top: 18%; width: 52%; }
+  .shot .sh-hero .t { height: 12px; background: #fff; border-radius: 3px; margin-bottom: 7%; width: 90%; }
+  .shot .sh-hero .t.s { width: 60%; height: 8px; opacity: .6; }
+  .shot .sh-hero .btn { width: 40%; height: 14px; border-radius: 10px; background: var(--c2); margin-top: 10%; }
+  .shot .blob { position: absolute; right: -8%; top: 14%; width: 46%; aspect-ratio: 1; border-radius: 50%; background: var(--c2); opacity: .9; }
+  .shot .cards { position: absolute; left: 7%; right: 7%; bottom: 7%; display: flex; gap: 5%; height: 26%; }
+  .shot .cards i { flex: 1; border-radius: 6px; background: rgba(255,255,255,.14); }
+
+  @media (max-width: 1000px) {
+    .projects .wrap { grid-template-columns: 1fr; padding: 80px 16px; }
+    .projects h2 { font-size: 52px; }
+  }
+
+  /* ---------- Sección 3: experiencia ---------- */
+  .experience {
+    position: relative; overflow: hidden;
+    background: #f4f4f4; color: #111;
+    padding: 28px 0 60px; min-height: 760px;
+  }
+  /* Barra negra entre experiencia y educación con mi nombre desplazándose */
+  .name-bar { background: #000; overflow: hidden; padding: 4px 0; }
+  .name-bar .track { display: flex; width: max-content; animation: word-slide 30s linear infinite; }
+  .name-bar span {
+    font-family: "Anton", sans-serif; font-size: 12px; line-height: 1; color: #fff;
+    white-space: nowrap; letter-spacing: 2px;
+  }
+  .name-bar i { font-style: normal; color: var(--accent); margin: 0 14px; }
+  @media (prefers-reduced-motion: reduce) { .name-bar .track { animation: none; } }
+  /* Fondo animado: palabra gigante en contorno deslizándose + trama de puntos que se mueve */
+  .bg-dots {
+    position: absolute; inset: 0; pointer-events: none;
+    background: radial-gradient(rgba(0,0,0,.13) 1px, transparent 1.6px) 0 0 / 14px 14px;
+    -webkit-mask-image: radial-gradient(ellipse 60% 55% at 50% 50%, #000 0%, transparent 75%);
+            mask-image: radial-gradient(ellipse 60% 55% at 50% 50%, #000 0%, transparent 75%);
+    animation: dots-drift 22s linear infinite;
+  }
+  @keyframes dots-drift { to { background-position: 140px 70px; } }
+  .bg-word {
+    position: absolute; inset: 0; pointer-events: none; overflow: hidden;
+    display: flex; flex-direction: column; justify-content: center; gap: 10px;
+  }
+  .bg-word .row { display: flex; width: max-content; animation: word-slide 60s linear infinite; }
+  .bg-word .row.rev { animation-direction: reverse; animation-duration: 75s; }
+  .bg-word span {
+    font-family: "Anton", sans-serif; font-size: 230px; line-height: 1; white-space: nowrap;
+    color: transparent; -webkit-text-stroke: 1.5px rgba(0,0,0,.07);
+  }
+  .bg-word .row.rev span { -webkit-text-stroke-color: rgba(207,132,83,.16); }
+  @keyframes word-slide { to { transform: translateX(-50%); } }
+  @media (prefers-reduced-motion: reduce) { .bg-dots, .bg-word .row { animation: none; } }
+  .experience > h2, .experience > .exp-center, .experience > .exp-pairs, .experience > .exp-grid { position: relative; z-index: 1; }
+  .experience h2 {
+    position: relative; text-align: center;
+    font-family: "Bebas Neue", sans-serif; font-weight: 400;
+    font-size: 46px; line-height: 60px; letter-spacing: .3px;
+    max-width: 640px; margin: 0 auto;
+  }
+  .exp-grid {
+    position: relative; max-width: 1340px; margin: 30px auto 0; padding: 0 40px;
+    display: grid; grid-template-columns: 1fr 296px 1fr; gap: 40px; align-items: start;
+  }
+  .exp-side { padding-top: 0; }
+  .exp-side.right { padding-left: 40px; }
+  .exp-side.left { padding-right: 40px; }
+  .badges { display: flex; gap: 10px; height: 120px; align-items: center; }
+  .badges img { width: 40px; height: 40px; border-radius: 50%; box-shadow: 0 6px 12px rgba(0,0,0,.3); }
+  .exp-side.right .badges { justify-content: flex-end; }
+  .badges .big { width: 120px; height: 120px; box-shadow: 0 0 0 4px #1a1a1a, 0 14px 30px rgba(0,0,0,.35); }
+  .exp-side h3 {
+    font-family: "Bebas Neue", sans-serif; font-weight: 400;
+    font-size: 17px; color: var(--accent); margin-top: 30px;
+  }
+  .exp-side p {
+    font-family: "Bebas Neue", sans-serif; font-size: 15.5px; line-height: 22px;
+    color: #333; margin-top: 18px; max-width: 360px; min-height: 66px;
+  }
+  .duo { position: relative; width: 200px; height: 240px; margin-top: 26px; }
+  .duo div {
+    position: absolute; overflow: hidden; background: #2a2a2a;
+  }
+  .duo img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(1) contrast(1.15); }
+  .duo .a { left: 0; top: 0; width: 120px; height: 146px; border-radius: 6px 0 0 0;
+    clip-path: polygon(0 0, 100% 0, 100% 62%, 54% 100%, 0 100%); }
+  .duo .b { left: 77px; top: 99px; width: 123px; height: 141px; border-radius: 0 0 8px 8px;
+    clip-path: polygon(46% 0, 100% 0, 100% 100%, 0 100%, 0 38%); }
+  .duo .a img { object-position: 50% 20%; }
+  .duo .b img { object-position: 50% 60%; }
+
+  .exp-center { display: flex; flex-direction: column; align-items: center; }
+  .exp-pairs {
+    position: relative; max-width: 1400px; margin: 10px auto 0; padding: 0 40px;
+    display: flex; justify-content: space-between; gap: 40px;
+  }
+  .exp-pair { display: flex; gap: 28px; align-items: flex-start; }
+  .exp-pair .exp-side { width: 320px; padding-top: 30px; }
+  .exp-pair .exp-side h3 { margin-top: 0; }
+  .exp-pair .exp-card { margin-top: 0; flex: none; }
+  .exp-pair.mirror .exp-side { text-align: right; }
+  .exp-pair.mirror .exp-side p { margin-left: auto; }
+  .exp-pair.mirror .duo { margin-left: auto; }
+  @media (max-width: 1300px) {
+    .exp-pairs { flex-direction: column; align-items: center; }
+    .exp-pair.mirror { flex-direction: row-reverse; }
+    .exp-pair.mirror .exp-side { text-align: left; }
+    .exp-pair.mirror .exp-side p, .exp-pair.mirror .duo { margin-left: 0; }
+  }
+  @media (max-width: 700px) {
+    .exp-pair, .exp-pair.mirror { flex-direction: column; align-items: center; }
+  }
+  .exp-list { list-style: none; margin-top: 14px; max-width: 360px; font-family: "Bebas Neue", sans-serif; font-size: 15px; line-height: 20px; color: #333; }
+  .exp-list li { position: relative; padding-left: 16px; margin-bottom: 6px; }
+  .exp-list li::before { content: ""; position: absolute; left: 0; top: 8px; width: 8px; height: 2px; background: var(--accent); }
+  .exp-pair.mirror .exp-list { margin-left: auto; }
+  /* Bloque central de educación: texto + fotos en lugar de la tarjeta */
+  .exp-side.mid { width: 296px; margin-top: 26px; }
+  .exp-side.mid .kicker { font-family: "Oswald", sans-serif; font-weight: 600; font-size: 10px; letter-spacing: 3px; color: #888; }
+  .exp-side.mid h3 { margin-top: 10px; font-size: 26px; }
+  .switch { height: 120px; display: flex; flex-direction: column; justify-content: center; gap: 10px; }
+  .switch button { background: none; border: 0; cursor: pointer; padding: 2px; color: var(--accent); transition: transform .2s; }
+  .switch button.back { color: #999; }
+  .switch button:hover { transform: translateX(4px); }
+  .switch button.back:hover { transform: translateX(-4px); color: #111; }
+  .switch svg { width: 80px; height: 12px; display: block; }
+
+  .exp-card {
+    width: 296px; margin-top: 26px; padding: 22px 20px 20px;
+    background: #1b1b1b; color: #fff; border-radius: 26px;
+    box-shadow: 0 30px 60px rgba(0,0,0,.25);
+  }
+  .exp-card .kicker { font-family: "Oswald", sans-serif; font-weight: 600; font-size: 10px; letter-spacing: 3px; color: var(--accent); }
+  .exp-card .role { font-family: "Anton", sans-serif; font-size: 28px; line-height: 1.1; margin: 16px 0 22px; }
+  .tiles { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .tile {
+    background: #232323; border: 1px solid #2f2f2f; border-radius: 16px;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    text-align: center; padding: 14px 8px; min-height: 76px;
+  }
+  .tile.tall { min-height: 130px; }
+  .tile small { font-family: "Oswald", sans-serif; font-weight: 500; font-size: 10px; letter-spacing: 2.5px; color: #9a9a9a; }
+  .tile strong { font-family: "Oswald", sans-serif; font-weight: 600; font-size: 16px; letter-spacing: 1px; margin-top: 8px; line-height: 1.2; }
+  .tile.map { position: relative; overflow: hidden; padding: 0; justify-content: flex-end; align-items: flex-start; }
+  .tile.map svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+  .tile.map small { position: relative; margin: 0 0 10px 12px; color: #cfcfcf; }
+  .exp-card .cta-btn {
+    margin-top: 14px; width: 100%; height: 48px; border: 0; border-radius: 24px; cursor: pointer;
+    background: var(--accent); color: #000; display: flex; align-items: center; justify-content: space-between;
+    padding: 0 18px; font-family: "Oswald", sans-serif; font-weight: 600; font-size: 13px; letter-spacing: 1.2px;
+    box-shadow: 0 8px 22px rgba(207,132,83,.35); text-decoration: none; transition: background .2s;
+  }
+  .exp-card .cta-btn:hover { background: #e09a6c; }
+  .fade-swap { transition: opacity .25s; }
+  .fade-swap.out { opacity: 0; }
+
+  @media (max-width: 1000px) {
+    .exp-grid { grid-template-columns: 1fr; }
+    .exp-side.right, .exp-side.left { padding: 0; }
+    .exp-center { order: -1; }
+    .experience h2 { font-size: 34px; line-height: 42px; padding: 0 16px; }
+  }
+
+  /* ---------- Certificados: sellos giratorios como la insignia de la portada ---------- */
+  .certs { position: relative; overflow: hidden; background: #0b0b0b; padding: 90px 42px 110px; }
+  .certs h2 { position: relative; z-index: 1; text-align: center; font-family: "Bebas Neue", sans-serif; font-weight: 400; font-size: 46px; color: #fff; margin-bottom: 50px; }
+  .certs h2 em { font-style: normal; color: var(--accent); }
+  .seals { position: relative; z-index: 1; display: flex; justify-content: center; gap: 70px; flex-wrap: wrap; }
+  .seal { text-align: center; cursor: pointer; background: none; border: 0; color: inherit; font: inherit; }
+  .seal .ring-wrap { position: relative; width: 230px; height: 230px; margin: 0 auto; transition: transform .35s; }
+  .seal .ring { position: absolute; inset: 0; animation: spin 18s linear infinite; }
+  .seal:nth-child(2) .ring { animation-direction: reverse; }
+  .seal .ring text { font-family: "Oswald", sans-serif; font-weight: 600; font-size: 13px; fill: #bdbdbd; transition: fill .3s; }
+  .seal .ring .dash { fill: none; stroke: rgba(255,255,255,.18); stroke-width: 1; stroke-dasharray: 3 6; }
+  .seal .core {
+    position: absolute; inset: 50px; border-radius: 50%; display: grid; place-items: center;
+    background: radial-gradient(circle at 40% 35%, #3a3a3a, #121212);
+    box-shadow: 0 0 0 6px #1d1d1d, 0 20px 40px rgba(0,0,0,.6); transition: box-shadow .3s;
+  }
+  .seal .core b { font-family: "Anton", sans-serif; font-weight: 400; font-size: 54px; color: transparent; -webkit-text-stroke: 1.5px var(--accent); }
+  .seal:hover .ring-wrap, .seal:focus-visible .ring-wrap { transform: scale(1.06); }
+  .seal:hover .ring { animation-play-state: paused; }
+  .seal:hover .ring text { fill: var(--accent); }
+  .seal:hover .core { box-shadow: 0 0 0 6px var(--accent), 0 20px 40px rgba(0,0,0,.6); }
+  .seal h3 { font-family: "Bebas Neue", sans-serif; font-weight: 400; font-size: 24px; color: #fff; margin-top: 26px; }
+  .seal small { font-size: 11px; letter-spacing: 2px; color: #8a8a8a; }
+  @media (prefers-reduced-motion: reduce) { .seal .ring { animation: none; } }
+
+  /* Visor de certificados (imagen o PDF) */
+  .viewer { position: fixed; inset: 0; z-index: 200; display: grid; place-items: center; padding: 16px; background: rgba(0,0,0,.85); backdrop-filter: blur(6px); opacity: 0; pointer-events: none; transition: opacity .3s; }
+  .viewer.open { opacity: 1; pointer-events: auto; }
+  .viewer .box { width: min(980px, 100%); background: #141414; border: 1px solid #2a2a2a; border-radius: 18px; overflow: hidden; transform: translateY(20px); transition: transform .3s; }
+  .viewer.open .box { transform: none; }
+  .viewer .doc { background: #222; display: grid; place-items: center; max-height: 70vh; overflow: auto; }
+  .viewer .doc img { max-width: 100%; max-height: 70vh; display: block; }
+  .viewer .doc iframe { width: 100%; height: 70vh; border: 0; background: #fff; }
+  .viewer .bar { display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 18px 24px; flex-wrap: wrap; }
+  .viewer h4 { font-family: "Anton", sans-serif; font-weight: 400; font-size: 26px; color: #fff; }
+  .viewer .bar small { font-family: "Bebas Neue", sans-serif; font-size: 17px; color: #9a9a9a; }
+  .viewer .actions { display: flex; gap: 10px; }
+  .viewer .close { position: absolute; top: 18px; right: 22px; width: 44px; height: 44px; border-radius: 50%; border: 1.5px solid #555; background: #000; color: #fff; font-size: 20px; cursor: pointer; }
+  @media (max-width: 640px) { .certs { padding: 70px 16px 90px; } .seals { gap: 40px; } }
+
+  /* ---------- Contacto ---------- */
+  .contact { position: relative; overflow: hidden; background: #f4f4f4; color: #111; padding: 100px 42px 110px; }
+  .contact-grid {
+    position: relative; z-index: 1; max-width: 1240px; margin: 0 auto;
+    display: grid; grid-template-columns: 1fr 420px; gap: 80px; align-items: center;
+  }
+  .contact .status {
+    display: inline-flex; align-items: center; gap: 10px; padding: 7px 14px; border-radius: 30px;
+    background: #111; color: #e6e6e6; font-family: "Oswald", sans-serif; font-weight: 600; font-size: 11px; letter-spacing: 2px;
+  }
+  .contact .status i { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); animation: status-pulse 2s ease-out infinite; }
+  @keyframes status-pulse { 0% { box-shadow: 0 0 0 0 rgba(207,132,83,.7); } 70%, 100% { box-shadow: 0 0 0 10px rgba(207,132,83,0); } }
+  .contact h2 { font-family: "Anton", sans-serif; font-weight: 400; font-size: 120px; line-height: .95; margin: 26px 0 22px; }
+  .contact h2 em { font-style: normal; color: transparent; -webkit-text-stroke: 2px var(--accent); }
+  .contact .lead { font-family: "Bebas Neue", sans-serif; font-size: 22px; line-height: 28px; color: #444; max-width: 520px; }
+  .contact .mail {
+    display: inline-flex; align-items: center; gap: 14px; margin-top: 34px; text-decoration: none; color: #111;
+    font-family: "Anton", sans-serif; font-size: 34px; border-bottom: 2px solid #111; padding-bottom: 6px;
+    transition: color .2s, border-color .2s;
+  }
+  .contact .mail:hover { color: var(--accent); border-color: var(--accent); }
+  .contact .mail svg { width: 26px; height: 26px; transition: transform .3s; }
+  .contact .mail:hover svg { transform: rotate(-45deg); }
+  .contact .socials { display: flex; gap: 10px; margin-top: 30px; }
+  .contact .socials a {
+    display: inline-flex; align-items: center; gap: 8px; text-decoration: none; color: #111;
+    border: 1.5px solid #111; border-radius: 30px; padding: 9px 16px;
+    font-family: "Oswald", sans-serif; font-weight: 600; font-size: 12px; letter-spacing: 1.2px;
+    transition: background .2s, border-color .2s;
+  }
+  .contact .socials a img { width: 16px; height: 16px; filter: invert(1); }
+  .contact .socials a:hover { background: var(--accent); border-color: var(--accent); }
+
+  .form-card { background: #1b1b1b; color: #fff; border-radius: 26px; padding: 28px 24px 24px; box-shadow: 0 30px 60px rgba(0,0,0,.25); }
+  .form-card .kicker { font-family: "Oswald", sans-serif; font-weight: 600; font-size: 10px; letter-spacing: 3px; color: var(--accent); }
+  .form-card h3 { font-family: "Anton", sans-serif; font-weight: 400; font-size: 28px; margin: 12px 0 20px; }
+  .form-card label { display: block; margin-bottom: 12px; }
+  .form-card label span { display: block; font-family: "Oswald", sans-serif; font-size: 10px; letter-spacing: 2.5px; color: #9a9a9a; margin: 0 0 6px 4px; }
+  .form-card input, .form-card textarea {
+    width: 100%; background: #232323; border: 1px solid #2f2f2f; border-radius: 14px; color: #fff;
+    padding: 13px 14px; font: 500 14px "Oswald", sans-serif; letter-spacing: .5px; outline: none; transition: border-color .2s;
+  }
+  .form-card textarea { min-height: 120px; resize: vertical; }
+  .form-card input:focus, .form-card textarea:focus { border-color: var(--accent); }
+  .form-card button {
+    margin-top: 6px; width: 100%; height: 50px; border: 0; border-radius: 25px; cursor: pointer;
+    background: var(--accent); color: #000; display: flex; align-items: center; justify-content: space-between; padding: 0 20px;
+    font-family: "Oswald", sans-serif; font-weight: 600; font-size: 13px; letter-spacing: 1.2px;
+    box-shadow: 0 8px 22px rgba(207,132,83,.35); transition: background .2s;
+  }
+  .form-card button:hover { background: #e09a6c; }
+
+  /* ---------- Footer ---------- */
+  .footer { position: relative; overflow: hidden; background: #000; color: #9a9a9a; padding: 22px 42px 0; }
+  .footer .top { position: relative; z-index: 1; display: flex; justify-content: space-between; align-items: center; gap: 30px; flex-wrap: wrap; }
+  .footer .top img.logo { height: 34px; }
+  .footer nav { display: flex; gap: 28px; flex-wrap: wrap; }
+  .footer nav a { font-family: "Bebas Neue", sans-serif; font-size: 17px; color: #cfcfcf; text-decoration: none; transition: color .2s; }
+  .footer nav a:hover { color: var(--accent); }
+  .to-top { position: relative; width: 64px; height: 64px; border: 0; background: none; cursor: pointer; }
+  .to-top svg.spin { position: absolute; inset: 0; animation: spin 12s linear infinite; }
+  .to-top svg.spin text { font-family: "Oswald", sans-serif; font-weight: 600; font-size: 13px; fill: var(--accent); }
+  .to-top .core {
+    position: absolute; inset: 14px; border-radius: 50%; display: grid; place-items: center; color: #fff;
+    background: radial-gradient(circle at 40% 35%, #3a3a3a, #161616); box-shadow: 0 0 0 4px #1d1d1d; transition: background .2s, color .2s;
+  }
+  .to-top:hover .core { background: var(--accent); color: #000; }
+  .to-top .core svg { width: 16px; height: 16px; }
+  .footer .bottom {
+    position: relative; z-index: 1; display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap;
+    border-top: 1px solid #1f1f1f; margin-top: 18px; padding: 12px 0 14px; font-family: "Oswald", sans-serif; font-size: 11px; letter-spacing: 1.5px;
+  }
+  .footer .bottom b { color: var(--accent); font-weight: 600; }
+
+  @media (max-width: 1000px) {
+    .contact { padding: 80px 16px 90px; }
+    .contact-grid { grid-template-columns: 1fr; gap: 50px; }
+    .contact h2 { font-size: 80px; }
+    .contact .mail { font-size: 24px; }
+    .footer { padding: 22px 16px 0; }
+  }
+</style>
 </head>
 <body>
-  <div id="root"></div>
-  <script type="module" src="/src/main.tsx"></script>
+
+<section class="hero">
+  <header>
+    <a class="logo" href="#"><img src="media/logo.png" alt="CJJ Renzo Ramos"></a>
+
+    <nav class="main">
+      <a href="#proyectos">Proyectos</a>
+      <a href="#experiencia">Experiencia</a>
+      <a href="#educacion">Educación</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+
+    <div class="actions">
+      <button aria-label="Buscar">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+      </button>
+      <button aria-label="Menú">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <div class="tags">
+    <a href="https://github.com/RenzoRamosDEV" target="_blank" rel="noopener"><img src="media/icons/github.png" alt="">GITHUB</a>
+    <a href="https://www.linkedin.com/in/renzoinv04/" target="_blank" rel="noopener"><img src="media/icons/linkedin.png" alt="">LINKEDIN</a>
+    <a href="media/cv/cv-renzo-ramos.pdf" target="_blank" rel="noopener">CV</a>
+  </div>
+
+
+  <svg class="gear" viewBox="0 0 720 720" aria-hidden="true">
+    <!-- Aros exteriores: giran en sentido contrario al círculo, cada uno a su ritmo -->
+    <g>
+      <animateTransform attributeName="transform" type="rotate" from="360 360 360" to="0 360 360" dur="70s" repeatCount="indefinite"/>
+      <circle cx="360" cy="360" r="308" fill="none" stroke="rgba(207,132,83,.75)" stroke-width="2" stroke-dasharray="240 30 60 30" />
+    </g>
+    <g>
+      <animateTransform attributeName="transform" type="rotate" from="360 360 360" to="0 360 360" dur="110s" repeatCount="indefinite"/>
+      <circle cx="360" cy="360" r="324" fill="none" stroke="rgba(255,255,255,.25)" stroke-width="6" stroke-dasharray="3 9"/>
+    </g>
+    <g>
+      <animateTransform attributeName="transform" type="rotate" from="360 360 360" to="0 360 360" dur="45s" repeatCount="indefinite"/>
+      <circle cx="360" cy="360" r="342" fill="none" stroke="rgba(255,255,255,.35)" stroke-width="1.5" stroke-dasharray="520 80 160 80 260 80" stroke-linecap="round"/>
+      <circle cx="360" cy="378" r="4" fill="#cf8453" transform="rotate(30 360 360)"/>
+      <circle cx="360" cy="702" r="3" fill="#9a9a9a" transform="rotate(30 360 360)"/>
+    </g>
+  </svg>
+  <div class="circle"></div>
+  <svg class="gear inner" viewBox="0 0 720 720" aria-hidden="true">
+    <g>
+      <animateTransform attributeName="transform" type="rotate" from="0 360 360" to="360 360 360" dur="80s" repeatCount="indefinite"/>
+      <circle cx="360" cy="360" r="284" fill="none" stroke="rgba(255,255,255,.22)" stroke-width="1.5"/>
+      <g stroke="rgba(255,255,255,.3)" stroke-width="2.2" stroke-linecap="round"><line x1="614.0" y1="360.0" x2="638.0" y2="360.0"/><line x1="623.0" y1="383.0" x2="636.9" y2="384.2"/><line x1="620.0" y1="405.8" x2="633.8" y2="408.3"/><line x1="615.0" y1="428.3" x2="628.5" y2="432.0"/><line x1="608.1" y1="450.3" x2="621.2" y2="455.1"/><line x1="599.3" y1="471.6" x2="612.0" y2="477.5"/><line x1="580.0" y1="487.0" x2="600.8" y2="499.0"/><line x1="576.3" y1="511.4" x2="587.7" y2="519.5"/><line x1="562.2" y1="529.7" x2="573.0" y2="538.7"/><line x1="546.7" y1="546.7" x2="556.6" y2="556.6"/><line x1="529.7" y1="562.2" x2="538.7" y2="573.0"/><line x1="511.4" y1="576.3" x2="519.5" y2="587.7"/><line x1="487.0" y1="580.0" x2="499.0" y2="600.8"/><line x1="471.6" y1="599.3" x2="477.5" y2="612.0"/><line x1="450.3" y1="608.1" x2="455.1" y2="621.2"/><line x1="428.3" y1="615.0" x2="432.0" y2="628.5"/><line x1="405.8" y1="620.0" x2="408.3" y2="633.8"/><line x1="383.0" y1="623.0" x2="384.2" y2="636.9"/><line x1="360.0" y1="614.0" x2="360.0" y2="638.0"/><line x1="337.0" y1="623.0" x2="335.8" y2="636.9"/><line x1="314.2" y1="620.0" x2="311.7" y2="633.8"/><line x1="291.7" y1="615.0" x2="288.0" y2="628.5"/><line x1="269.7" y1="608.1" x2="264.9" y2="621.2"/><line x1="248.4" y1="599.3" x2="242.5" y2="612.0"/><line x1="233.0" y1="580.0" x2="221.0" y2="600.8"/><line x1="208.6" y1="576.3" x2="200.5" y2="587.7"/><line x1="190.3" y1="562.2" x2="181.3" y2="573.0"/><line x1="173.3" y1="546.7" x2="163.4" y2="556.6"/><line x1="157.8" y1="529.7" x2="147.0" y2="538.7"/><line x1="143.7" y1="511.4" x2="132.3" y2="519.5"/><line x1="140.0" y1="487.0" x2="119.2" y2="499.0"/><line x1="120.7" y1="471.6" x2="108.0" y2="477.5"/><line x1="111.9" y1="450.3" x2="98.8" y2="455.1"/><line x1="105.0" y1="428.3" x2="91.5" y2="432.0"/><line x1="100.0" y1="405.8" x2="86.2" y2="408.3"/><line x1="97.0" y1="383.0" x2="83.1" y2="384.2"/><line x1="106.0" y1="360.0" x2="82.0" y2="360.0"/><line x1="97.0" y1="337.0" x2="83.1" y2="335.8"/><line x1="100.0" y1="314.2" x2="86.2" y2="311.7"/><line x1="105.0" y1="291.7" x2="91.5" y2="288.0"/><line x1="111.9" y1="269.7" x2="98.8" y2="264.9"/><line x1="120.7" y1="248.4" x2="108.0" y2="242.5"/><line x1="140.0" y1="233.0" x2="119.2" y2="221.0"/><line x1="143.7" y1="208.6" x2="132.3" y2="200.5"/><line x1="157.8" y1="190.3" x2="147.0" y2="181.3"/><line x1="173.3" y1="173.3" x2="163.4" y2="163.4"/><line x1="190.3" y1="157.8" x2="181.3" y2="147.0"/><line x1="208.6" y1="143.7" x2="200.5" y2="132.3"/><line x1="233.0" y1="140.0" x2="221.0" y2="119.2"/><line x1="248.4" y1="120.7" x2="242.5" y2="108.0"/><line x1="269.7" y1="111.9" x2="264.9" y2="98.8"/><line x1="291.7" y1="105.0" x2="288.0" y2="91.5"/><line x1="314.2" y1="100.0" x2="311.7" y2="86.2"/><line x1="337.0" y1="97.0" x2="335.8" y2="83.1"/><line x1="360.0" y1="106.0" x2="360.0" y2="82.0"/><line x1="383.0" y1="97.0" x2="384.2" y2="83.1"/><line x1="405.8" y1="100.0" x2="408.3" y2="86.2"/><line x1="428.3" y1="105.0" x2="432.0" y2="91.5"/><line x1="450.3" y1="111.9" x2="455.1" y2="98.8"/><line x1="471.6" y1="120.7" x2="477.5" y2="108.0"/><line x1="487.0" y1="140.0" x2="499.0" y2="119.2"/><line x1="511.4" y1="143.7" x2="519.5" y2="132.3"/><line x1="529.7" y1="157.8" x2="538.7" y2="147.0"/><line x1="546.7" y1="173.3" x2="556.6" y2="163.4"/><line x1="562.2" y1="190.3" x2="573.0" y2="181.3"/><line x1="576.3" y1="208.6" x2="587.7" y2="200.5"/><line x1="580.0" y1="233.0" x2="600.8" y2="221.0"/><line x1="599.3" y1="248.4" x2="612.0" y2="242.5"/><line x1="608.1" y1="269.7" x2="621.2" y2="264.9"/><line x1="615.0" y1="291.7" x2="628.5" y2="288.0"/><line x1="620.0" y1="314.2" x2="633.8" y2="311.7"/><line x1="623.0" y1="337.0" x2="636.9" y2="335.8"/></g>
+      <circle cx="360" cy="360" r="248" fill="none" stroke="rgba(255,255,255,.14)" stroke-width="1"/>
+      <circle cx="360" cy="360" r="232" fill="none" stroke="rgba(255,255,255,.1)" stroke-width="1" stroke-dasharray="2 6"/>
+      <g fill="#2a2a2a" stroke="rgba(255,255,255,.3)" stroke-width="1.2"><circle cx="530.4" cy="530.4" r="5"/><circle cx="189.6" cy="530.4" r="5"/><circle cx="189.6" cy="189.6" r="5"/><circle cx="530.4" cy="189.6" r="5"/></g>
+    </g>
+  </svg>
+  <div class="orbit"></div>
+  <h1 class="title"><span>RENZO</span></h1>
+
+  <canvas class="smoke back" id="smoke-back"></canvas>
+
+  <img class="person" src="media/renzo.png" alt="Renzo">
+  <canvas class="smoke front" id="smoke-front"></canvas>
+
+
+  <div class="cta">
+    <div class="badge">
+      <svg class="ring" viewBox="0 0 104 104">
+        <defs><path id="circ" d="M12 52 a40 40 0 1 1 80 0 a40 40 0 1 1 -80 0"/></defs>
+        <text><textPath href="#circ" textLength="251" lengthAdjust="spacing">RENZO · RAMOS · RENZO · RAMOS · RENZO · RAMOS ·</textPath></text>
+      </svg>
+      <div class="core"><img src="media/emblem.png" alt=""></div>
+    </div>
+  </div>
+</section>
+
+<section class="projects" id="proyectos">
+  <div class="guide"></div>
+  <div class="bg-dots" aria-hidden="true"></div>
+  <div class="bg-word" aria-hidden="true">
+    <div class="row"><span> PROYECTOS · PROYECTOS · PROYECTOS · PROYECTOS · PROYECTOS · PROYECTOS ·</span><span> PROYECTOS · PROYECTOS · PROYECTOS · PROYECTOS · PROYECTOS · PROYECTOS ·</span></div>
+    <div class="row rev"><span> PROYECTOS · PROYECTOS · PROYECTOS · PROYECTOS · PROYECTOS · PROYECTOS ·</span><span> PROYECTOS · PROYECTOS · PROYECTOS · PROYECTOS · PROYECTOS · PROYECTOS ·</span></div>
+  </div>
+  <div class="wrap">
+    <div class="swap" id="pj-text">
+      <div class="kicker">PROYECTOS</div>
+      <div class="count"><b id="pj-num"></b> / <span id="pj-total"></span></div>
+      <h2 id="pj-name"></h2>
+      <div class="sub" id="pj-sub"></div>
+      <p id="pj-desc"></p>
+      <div class="stack" id="pj-stack"></div>
+      <div class="links">
+        <a class="btn-o solid" id="pj-live" href="#" target="_blank" rel="noopener">VER PROYECTO ↗</a>
+        <a class="btn-o" id="pj-code" href="#" target="_blank" rel="noopener">CÓDIGO</a>
+      </div>
+      <div class="nav">
+        <button id="pj-prev" aria-label="Proyecto anterior"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M15 4 7 12l8 8"/></svg></button>
+        <button id="pj-next" aria-label="Proyecto siguiente"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="m9 4 8 8-8 8"/></svg></button>
+      </div>
+    </div>
+    <div class="stage">
+      <div class="laptop" id="pj-laptop">
+        <div class="screen swap" id="pj-screen"></div>
+        <div class="base"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="experience" id="experiencia">
+  <div class="bg-dots" aria-hidden="true"></div>
+  <div class="bg-word" aria-hidden="true">
+    <div class="row"><span> EXPERIENCIA · EXPERIENCIA · EXPERIENCIA · EXPERIENCIA · EXPERIENCIA · EXPERIENCIA ·</span><span> EXPERIENCIA · EXPERIENCIA · EXPERIENCIA · EXPERIENCIA · EXPERIENCIA · EXPERIENCIA ·</span></div>
+    <div class="row rev"><span> EXPERIENCIA · EXPERIENCIA · EXPERIENCIA · EXPERIENCIA · EXPERIENCIA · EXPERIENCIA ·</span><span> EXPERIENCIA · EXPERIENCIA · EXPERIENCIA · EXPERIENCIA · EXPERIENCIA · EXPERIENCIA ·</span></div>
+  </div>
+
+  <h2>MI EXPERIENCIA: EMPRESAS, ROLES Y TODO LO QUE NECESITAS SABER</h2>
+
+  <div class="exp-center">
+      <div class="switch">
+        <button id="exp-next" aria-label="Siguiente experiencia"><svg viewBox="0 0 80 12" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 6h72M70 1l6 5-6 5"/></svg></button>
+        <button class="back" id="exp-prev" aria-label="Experiencia anterior"><svg viewBox="0 0 80 12" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M76 6H4M10 1 4 6l6 5"/></svg></button>
+      </div>
+  </div>
+
+  <!-- Cada puesto: bloque de texto + fotos junto a su tarjeta con ubicación, cargo y fechas -->
+  <div class="exp-pairs">
+    <div class="exp-pair">
+      <div class="exp-side fade-swap" id="exp-a-side">
+        <h3 id="exp-a-h"></h3>
+        <p id="exp-a-p"></p>
+        <ul class="exp-list" id="exp-a-list"></ul>
+        <div class="duo">
+          <div class="a"><img src="media/renzo-camiseta.png" alt=""></div>
+          <div class="b"><img src="media/renzo-manos.png" alt=""></div>
+        </div>
+      </div>
+      <div class="exp-card fade-swap" id="exp-a-card">
+        <div class="kicker" id="exp-a-kicker"></div>
+        <div class="role" id="exp-a-role"></div>
+        <div class="tiles">
+          <div class="tile tall map">
+            <svg viewBox="0 0 120 130" aria-hidden="true">
+              <rect width="120" height="130" fill="#1e1e1e"/>
+              <g stroke="#3a3a3a" stroke-width="1.2" fill="none">
+                <path d="M-5 20 L60 45 L125 30"/><path d="M-5 70 L40 60 L80 85 L125 75"/><path d="M-5 110 L50 100 L125 120"/>
+                <path d="M20 -5 L30 60 L15 135"/><path d="M70 -5 L60 45 L80 85 L75 135"/><path d="M105 -5 L100 70 L110 135"/>
+              </g>
+              <g stroke="#2c2c2c" stroke-width=".7" fill="none">
+                <path d="M-5 40 L125 55"/><path d="M-5 90 L125 95"/><path d="M45 -5 L50 135"/><path d="M90 -5 L88 135"/>
+              </g>
+              <circle cx="60" cy="68" r="9" fill="none" stroke="#fff" stroke-width="1.6"/>
+              <path d="M72 30 a8 8 0 0 1 8 8 c0 6 -8 14 -8 14 s-8 -8 -8 -14 a8 8 0 0 1 8 -8z" fill="#cf8453"/>
+              <circle cx="72" cy="38" r="3" fill="#1e1e1e"/>
+            </svg>
+            <small id="exp-a-place"></small>
+          </div>
+          <div class="tile tall"><small>EMPRESA</small><strong id="exp-a-company"></strong></div>
+          <div class="tile"><small>DESDE</small><strong id="exp-a-from"></strong></div>
+          <div class="tile"><small>HASTA</small><strong id="exp-a-to"></strong></div>
+        </div>
+        <a class="cta-btn" href="#contacto">VER MÁS <span>→</span></a>
+      </div>
+    </div>
+    <div class="exp-pair mirror">
+      <div class="exp-card fade-swap" id="exp-b-card">
+        <div class="kicker" id="exp-b-kicker"></div>
+        <div class="role" id="exp-b-role"></div>
+        <div class="tiles">
+          <div class="tile tall map">
+            <svg viewBox="0 0 120 130" aria-hidden="true">
+              <rect width="120" height="130" fill="#1e1e1e"/>
+              <g stroke="#3a3a3a" stroke-width="1.2" fill="none">
+                <path d="M-5 20 L60 45 L125 30"/><path d="M-5 70 L40 60 L80 85 L125 75"/><path d="M-5 110 L50 100 L125 120"/>
+                <path d="M20 -5 L30 60 L15 135"/><path d="M70 -5 L60 45 L80 85 L75 135"/><path d="M105 -5 L100 70 L110 135"/>
+              </g>
+              <g stroke="#2c2c2c" stroke-width=".7" fill="none">
+                <path d="M-5 40 L125 55"/><path d="M-5 90 L125 95"/><path d="M45 -5 L50 135"/><path d="M90 -5 L88 135"/>
+              </g>
+              <circle cx="60" cy="68" r="9" fill="none" stroke="#fff" stroke-width="1.6"/>
+              <path d="M72 30 a8 8 0 0 1 8 8 c0 6 -8 14 -8 14 s-8 -8 -8 -14 a8 8 0 0 1 8 -8z" fill="#cf8453"/>
+              <circle cx="72" cy="38" r="3" fill="#1e1e1e"/>
+            </svg>
+            <small id="exp-b-place"></small>
+          </div>
+          <div class="tile tall"><small>EMPRESA</small><strong id="exp-b-company"></strong></div>
+          <div class="tile"><small>DESDE</small><strong id="exp-b-from"></strong></div>
+          <div class="tile"><small>HASTA</small><strong id="exp-b-to"></strong></div>
+        </div>
+        <a class="cta-btn" href="#contacto">VER MÁS <span>→</span></a>
+      </div>
+      <div class="exp-side fade-swap" id="exp-b-side">
+        <h3 id="exp-b-h"></h3>
+        <p id="exp-b-p"></p>
+        <ul class="exp-list" id="exp-b-list"></ul>
+        <div class="duo">
+          <div class="a"><img src="media/renzo-garras.png" alt=""></div>
+          <div class="b"><img src="media/renzo.png" alt=""></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="name-bar" aria-hidden="true"><div class="track"><span>RENZO RAMOS<i>✦</i>RENZO RAMOS<i>✦</i>RENZO RAMOS<i>✦</i>RENZO RAMOS<i>✦</i>RENZO RAMOS<i>✦</i>RENZO RAMOS<i>✦</i>RENZO RAMOS<i>✦</i>RENZO RAMOS<i>✦</i></span><span>RENZO RAMOS<i>✦</i>RENZO RAMOS<i>✦</i>RENZO RAMOS<i>✦</i>RENZO RAMOS<i>✦</i>RENZO RAMOS<i>✦</i>RENZO RAMOS<i>✦</i>RENZO RAMOS<i>✦</i>RENZO RAMOS<i>✦</i></span></div></div>
+
+<section class="experience alt" id="educacion">
+  <div class="bg-dots" aria-hidden="true"></div>
+  <div class="bg-word" aria-hidden="true">
+    <div class="row"><span> EDUCACIÓN · EDUCACIÓN · EDUCACIÓN · EDUCACIÓN · EDUCACIÓN · EDUCACIÓN ·</span><span> EDUCACIÓN · EDUCACIÓN · EDUCACIÓN · EDUCACIÓN · EDUCACIÓN · EDUCACIÓN ·</span></div>
+    <div class="row rev"><span> EDUCACIÓN · EDUCACIÓN · EDUCACIÓN · EDUCACIÓN · EDUCACIÓN · EDUCACIÓN ·</span><span> EDUCACIÓN · EDUCACIÓN · EDUCACIÓN · EDUCACIÓN · EDUCACIÓN · EDUCACIÓN ·</span></div>
+  </div>
+
+  <h2>MI EDUCACIÓN: ESTUDIOS, CURSOS Y TODO LO QUE ME FORMÓ</h2>
+
+  <div class="exp-grid">
+    <div class="exp-side left">
+      <div class="badges"></div>
+      <div class="fade-swap" id="edu-l">
+        <h3 id="edu-l-h"></h3>
+        <p id="edu-l-p"></p>
+      </div>
+      <div class="duo">
+        <div class="a"><img src="media/renzo.png" alt=""></div>
+        <div class="b"><img src="media/renzo-garras.png" alt=""></div>
+      </div>
+    </div>
+
+    <div class="exp-center">
+      <div class="switch">
+        <button id="edu-next" aria-label="Siguiente estudio"><svg viewBox="0 0 80 12" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 6h72M70 1l6 5-6 5"/></svg></button>
+        <button class="back" id="edu-prev" aria-label="Estudio anterior"><svg viewBox="0 0 80 12" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M76 6H4M10 1 4 6l6 5"/></svg></button>
+      </div>
+      <div class="exp-side mid fade-swap" id="edu-card">
+        <div class="kicker" id="edu-kicker"></div>
+        <h3 id="edu-role"></h3>
+        <p><span id="edu-company"></span> · <span id="edu-place"></span> · <span id="edu-from"></span> – <span id="edu-to"></span></p>
+        <div class="duo">
+          <div class="a"><img src="media/renzo-camiseta.png" alt=""></div>
+          <div class="b"><img src="media/renzo-manos.png" alt=""></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="exp-side right">
+      <div class="badges"></div>
+      <div class="fade-swap" id="edu-r">
+        <h3 id="edu-r-h"></h3>
+        <ul class="exp-list" id="edu-r-p"></ul>
+      </div>
+      <div class="duo">
+        <div class="a"><img src="media/renzo-manos.png" alt=""></div>
+        <div class="b"><img src="media/renzo-camiseta.png" alt=""></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="certs" id="certificados">
+  <div class="bg-dots" aria-hidden="true"></div>
+  <div class="bg-word" aria-hidden="true">
+    <div class="row"><span> CERTIFICADOS · CERTIFICADOS · CERTIFICADOS · CERTIFICADOS · CERTIFICADOS · CERTIFICADOS ·</span><span> CERTIFICADOS · CERTIFICADOS · CERTIFICADOS · CERTIFICADOS · CERTIFICADOS · CERTIFICADOS ·</span></div>
+    <div class="row rev"><span> CERTIFICADOS · CERTIFICADOS · CERTIFICADOS · CERTIFICADOS · CERTIFICADOS · CERTIFICADOS ·</span><span> CERTIFICADOS · CERTIFICADOS · CERTIFICADOS · CERTIFICADOS · CERTIFICADOS · CERTIFICADOS ·</span></div>
+  </div>
+  <h2>MIS <em>CERTIFICADOS</em></h2>
+  <div class="seals" id="seals"></div>
+</section>
+
+<section class="contact" id="contacto">
+  <div class="bg-dots" aria-hidden="true"></div>
+  <div class="bg-word" aria-hidden="true">
+    <div class="row"><span> CONTACTO · CONTACTO · CONTACTO · CONTACTO · CONTACTO · CONTACTO ·</span><span> CONTACTO · CONTACTO · CONTACTO · CONTACTO · CONTACTO · CONTACTO ·</span></div>
+    <div class="row rev"><span> CONTACTO · CONTACTO · CONTACTO · CONTACTO · CONTACTO · CONTACTO ·</span><span> CONTACTO · CONTACTO · CONTACTO · CONTACTO · CONTACTO · CONTACTO ·</span></div>
+  </div>
+  <div class="contact-grid">
+    <div>
+      <div class="status"><i></i>DISPONIBLE PARA NUEVOS PROYECTOS</div>
+      <h2>¿HABLAMOS?<br><em>ESCRÍBEME</em></h2>
+      <p class="lead">¿TIENES UNA IDEA, UN PROYECTO O UNA OFERTA? CUÉNTAMELO Y TE RESPONDO LO ANTES POSIBLE.</p>
+      <a class="mail" id="mail-link" href="#"><span id="mail-text"></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <div class="socials">
+        <a href="https://github.com/RenzoRamosDEV" target="_blank" rel="noopener"><img src="media/icons/github.png" alt="">GITHUB</a>
+        <a href="https://www.linkedin.com/in/renzoinv04/" target="_blank" rel="noopener"><img src="media/icons/linkedin.png" alt="">LINKEDIN</a>
+        <a href="media/cv/cv-renzo-ramos.pdf" target="_blank" rel="noopener">DESCARGAR CV</a>
+      </div>
+    </div>
+    <form class="form-card" id="contact-form">
+      <div class="kicker">MENSAJE</div>
+      <h3>CUÉNTAME TU IDEA</h3>
+      <label><span>NOMBRE</span><input name="name" required autocomplete="name"></label>
+      <label><span>EMAIL</span><input name="email" type="email" required autocomplete="email"></label>
+      <label><span>MENSAJE</span><textarea name="message" required></textarea></label>
+      <button type="submit">ENVIAR MENSAJE <span>→</span></button>
+    </form>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="top">
+    <img class="logo" src="media/logo.png" alt="CJJ Renzo Ramos">
+    <nav>
+      <a href="#proyectos">PROYECTOS</a>
+      <a href="#experiencia">EXPERIENCIA</a>
+      <a href="#educacion">EDUCACIÓN</a>
+      <a href="#certificados">CERTIFICADOS</a>
+      <a href="#contacto">CONTACTO</a>
+    </nav>
+    <button class="to-top" id="to-top" aria-label="Volver arriba">
+      <svg class="spin" viewBox="0 0 104 104" aria-hidden="true">
+        <defs><path id="top-circ" d="M12 52 a40 40 0 1 1 80 0 a40 40 0 1 1 -80 0"/></defs>
+        <text><textPath href="#top-circ" textLength="251" lengthAdjust="spacing">VOLVER ARRIBA · VOLVER ARRIBA ·</textPath></text>
+      </svg>
+      <span class="core"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 19V5M6 11l6-6 6 6"/></svg></span>
+    </button>
+  </div>
+  <div class="bottom">
+    <span>© <span id="year"></span> RENZO RAMOS · TODOS LOS DERECHOS RESERVADOS</span>
+    <span>HECHO CON <b>CÓDIGO</b> Y UNA MÁSCARA</span>
+  </div>
+</footer>
+
+<div class="viewer" id="viewer" role="dialog" aria-modal="true" aria-labelledby="v-title">
+  <button class="close" id="v-close" aria-label="Cerrar">×</button>
+  <div class="box">
+    <div class="doc" id="v-doc"></div>
+    <div class="bar">
+      <div><h4 id="v-title"></h4><small id="v-meta"></small></div>
+      <div class="actions">
+        <a class="btn-o" id="v-cred" href="#" target="_blank" rel="noopener">VER CREDENCIAL ↗</a>
+        <a class="btn-o" id="v-open" href="#" target="_blank" rel="noopener">ABRIR EN PESTAÑA ↗</a>
+        <a class="btn-o solid" id="v-down" href="#" download>DESCARGAR</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<script>
+
+  // Experiencia y educación
+  const jobs = [
+    {
+      "kicker": "EXPERIENCIA 01",
+      "role": "JUNIOR AI ENGINEER · AI & DATA",
+      "place": "MADRID, ESPAÑA",
+      "company": "TUIO",
+      "from": "JUN. 2026",
+      "to": "ACTUALIDAD",
+      "left": [
+        "QUÉ HAGO :",
+        "Desarrollo de soluciones con Python, LiteLLM, LangChain, LangGraph, Temporal.io, Claude Code/OpenCode y Spec-Driven Development."
+      ],
+      "list": [
+        "Diseñar e implementar soluciones basadas en modelos de Machine Learning e IA generativa para optimizar procesos clave del negocio",
+        "Colaborar con los equipos de producto, growth, IA y Data Science para entender necesidades y aportar soluciones técnicas",
+        "Diseñar, desarrollar y mantener APIs, MCPs y herramientas (tools) consumibles por agentes inteligentes y otros sistemas",
+        "Automatizar procesos internos mediante modelos predictivos y generación de contenido basada en IA",
+        "Documentar y testear el código para garantizar calidad, trazabilidad y mantenibilidad",
+        "Explorar nuevas herramientas y tecnologías emergentes, aplicando la innovación de forma pragmática"
+      ]
+    },
+    {
+      "kicker": "EXPERIENCIA 02",
+      "role": "JUNIOR FULL STACK DEVELOPER",
+      "place": "MADRID, ESPAÑA",
+      "company": "SEIDOR",
+      "from": "SEPT. 2025",
+      "to": "JUN. 2026",
+      "left": [
+        "QUÉ HICE :",
+        "Desarrollo de soluciones con Java, XML, HTML, CSS, JavaScript y Maven."
+      ],
+      "list": [
+        "Desarrollo de componentes reutilizables y contribuibles en AEM",
+        "Creación de Modals para componentes con Java",
+        "Gestión y contribución de páginas con contenido multimedia mediante AEM Assets (DAM)",
+        "Resolución de incidencias backend y optimización de funcionalidades existentes",
+        "Elaboración de documentación técnica para soporte y mantenimiento de proyectos"
+      ]
+    }
+  ];
+  const studies = [
+    {
+      "kicker": "EDUCACIÓN 01",
+      "role": "FORMACIÓN PROFESIONAL DE GRADO SUPERIOR (DAM)",
+      "place": "MADRID, ESPAÑA",
+      "company": "CESUR",
+      "from": "SEPT. 2024",
+      "to": "JUN. 2026",
+      "left": [
+        "QUÉ ESTUDIÉ :",
+        "Formación orientada al desarrollo de software con Java, Spring Boot, Kotlin, Python, HTML, CSS, Maven y Gradle."
+      ],
+      "right": [
+        "LO QUE HICE :",
+        [
+          "Desarrollo de aplicaciones backend y frontend",
+          "Implementación de APIs y servicios con Spring Boot",
+          "Gestión de dependencias y construcción de proyectos con Maven",
+          "Creación de interfaces web y aplicaciones multiplataforma",
+          "Aplicación de buenas prácticas de programación y estructura de proyectos"
+        ]
+      ]
+    },
+    {
+      "kicker": "EDUCACIÓN 02",
+      "role": "BOOTCAMP 42 MADRID · FUNDACIÓN TELEFÓNICA",
+      "place": "MADRID, ESPAÑA",
+      "company": "42 MADRID",
+      "from": "JUL. 2025",
+      "to": "AGO. 2025",
+      "left": [
+        "QUÉ ESTUDIÉ :",
+        "Formación intensiva basada en aprendizaje autónomo y colaborativo, centrada en C, Linux y scripting en Shell."
+      ],
+      "right": [
+        "LO QUE HICE :",
+        [
+          "Programas en C enfocados en eficiencia y control de memoria",
+          "Trabajo en Linux, terminal y automatización con Shell scripting",
+          "Resolución de problemas algorítmicos y optimización de soluciones",
+          "Aprendizaje peer-to-peer, con revisión y validación entre estudiantes",
+          "Lógica, debugging y trabajo colaborativo"
+        ]
+      ]
+    },
+    {
+      "kicker": "EDUCACIÓN 03",
+      "role": "FORMACIÓN EN DISEÑO GRÁFICO",
+      "place": "LIMA, PERÚ",
+      "company": "INSTITUTO SAN IGNACIO DE LOYOLA",
+      "from": "2021",
+      "to": "2022",
+      "left": [
+        "QUÉ ESTUDIÉ :",
+        "Herramientas de diseño y fundamentos visuales aplicados a entornos digitales con Adobe Illustrator, Photoshop e InDesign."
+      ],
+      "right": [
+        "LO QUE HICE :",
+        [
+          "Diseño de recursos gráficos con Illustrator",
+          "Edición y optimización de imágenes con Photoshop",
+          "Maquetación de documentos y piezas visuales con InDesign",
+          "Creación de elementos gráficos reutilizables",
+          "Composición, tipografía y color"
+        ]
+      ]
+    }
+  ];
+
+  const listItems = xs => xs.map(x => `<li>${x}</li>`).join('');
+
+  function timeline(prefix, items) {
+    let idx = 0;
+    const el = id => document.getElementById(`${prefix}-${id}`);
+    const swapEls = [el('card'), el('l'), el('r')];
+    function render() {
+      const d = items[idx];
+      el('kicker').textContent = d.kicker; el('role').textContent = d.role; el('place').textContent = d.place;
+      el('company').textContent = d.company; el('from').textContent = d.from; el('to').textContent = d.to;
+      el('l-h').textContent = d.left[0]; el('l-p').textContent = d.left[1];
+      el('r-h').textContent = d.right[0]; el('r-p').innerHTML = listItems(d.right[1]);
+    }
+    function go(step) {
+      swapEls.forEach(e => e.classList.add('out'));
+      setTimeout(() => {
+        idx = (idx + step + items.length) % items.length;
+        render();
+        swapEls.forEach(e => e.classList.remove('out'));
+      }, 250);
+    }
+    el('next').onclick = () => go(1);
+    el('prev').onclick = () => go(-1);
+    render();
+  }
+  // Experiencia: dos puestos a la vez (bloque a y b); las flechas avanzan de dos en dos
+  (function () {
+    let page = 0;
+    const pages = Math.ceil(jobs.length / 2);
+    const ids = ['a', 'b'];
+    const el = (g, id) => document.getElementById(`exp-${g}-${id}`);
+    const swapEls = ids.flatMap(g => [el(g, 'side'), el(g, 'card')]);
+    function render() {
+      ids.forEach((g, i) => {
+        const d = jobs[(page * 2 + i) % jobs.length];
+        el(g, 'kicker').textContent = d.kicker; el(g, 'role').textContent = d.role; el(g, 'place').textContent = d.place;
+        el(g, 'company').textContent = d.company; el(g, 'from').textContent = d.from; el(g, 'to').textContent = d.to;
+        el(g, 'h').textContent = d.left[0]; el(g, 'p').textContent = d.left[1];
+        el(g, 'list').innerHTML = listItems(d.list);
+      });
+    }
+    function go(step) {
+      swapEls.forEach(e => e.classList.add('out'));
+      setTimeout(() => {
+        page = (page + step + pages) % pages;
+        render();
+        swapEls.forEach(e => e.classList.remove('out'));
+      }, 250);
+    }
+    // Con dos puestos caben en una sola página: las flechas sobran
+    if (pages < 2) document.querySelector('#experiencia .exp-center').style.display = 'none';
+    document.getElementById('exp-next').onclick = () => go(1);
+    document.getElementById('exp-prev').onclick = () => go(-1);
+    render();
+  })();
+  timeline('edu', studies);
+
+  // Certificados
+  const certs = [
+    {
+      "title": "SPRING BOOT ESENCIAL",
+      "org": "LINKEDIN LEARNING",
+      "year": "MAY. 2026",
+      "file": "media/certificados/cert-linkedin-springboot.pdf",
+      "credential": "https://www.linkedin.com/learning/certificates/7b7c86e65a375f5a2e3f6dd941c68683bfbda364592dacc893275a5e0a80eef6?trk=share_certificate"
+    },
+    {
+      "title": "PROFESIONAL DE INTELIGENCIA ARTIFICIAL",
+      "org": "GOOGLE",
+      "year": "ABR. 2026",
+      "file": "media/certificados/cert-google-ia.pdf",
+      "credential": "https://www.coursera.org/account/accomplishments/professional-cert/certificate/XKQE5SSM3EDZ"
+    },
+    {
+      "title": "DESARROLLO CON INTELIGENCIA ARTIFICIAL",
+      "org": "BIG SCHOOL",
+      "year": "MAR. 2026",
+      "file": "media/certificados/cert-bigschool-ia.pdf",
+      "credential": ""
+    }
+  ];
+  (function () {
+    const $ = id => document.getElementById(id);
+    const pad = n => String(n).padStart(2, '0');
+    const isPdf = f => /\.pdf($|\?)/i.test(f);
+
+
+    $('seals').innerHTML = certs.map((c, i) => `
+      <button class="seal" data-i="${i}" aria-label="Ver certificado ${c.title}">
+        <span class="ring-wrap" style="display:block">
+          <svg class="ring" viewBox="0 0 230 230" aria-hidden="true">
+            <defs><path id="seal-path-${i}" d="M20 115 a95 95 0 1 1 190 0 a95 95 0 1 1 -190 0"/></defs>
+            <circle class="dash" cx="115" cy="115" r="80"/>
+            <text><textPath href="#seal-path-${i}" textLength="595" lengthAdjust="spacing">${c.title} · ${c.org} · ${c.year} · </textPath></text>
+          </svg>
+          <span class="core"><b>${pad(i + 1)}</b></span>
+        </span>
+        <h3>${c.title}</h3><small>${c.org} · ${c.year}</small>
+      </button>`).join('');
+
+    const viewer = $('viewer');
+    function open(c) {
+      $('v-doc').innerHTML = isPdf(c.file) ? `<iframe src="${c.file}" title="${c.title}"></iframe>` : `<img src="${c.file}" alt="${c.title}">`;
+      $('v-title').textContent = c.title;
+      $('v-meta').textContent = `${c.org} · ${c.year}`;
+      $('v-open').href = c.file; $('v-down').href = c.file;
+      $('v-cred').href = c.credential; $('v-cred').style.display = c.credential ? '' : 'none';
+      viewer.classList.add('open');
+    }
+    const close = () => viewer.classList.remove('open');
+    $('seals').addEventListener('click', e => { const b = e.target.closest('.seal'); if (b) open(certs[b.dataset.i]); });
+    $('v-close').onclick = close;
+    viewer.addEventListener('click', e => { if (e.target === viewer) close(); });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') close(); });
+  })();
+
+  // Proyectos
+  const projects = [
+    {
+      "name": "BOOQI",
+      "sub": "SISTEMA DE GESTIÓN DE RESERVAS DE EVENTOS",
+      "image": "img/projects/booqui.jpg",
+      "desc": "Plataforma web para descubrir eventos, comprar entradas y gestionar reservas, con arquitectura de microservicios y panel de administración.",
+      "stack": [
+        "Java",
+        "Spring Boot",
+        "Spring Data JPA",
+        "Maven",
+        "Lombok",
+        "MapStruct",
+        "OpenAPI / Swagger",
+        "JUnit 5",
+        "Pitest",
+        "MySQL",
+        "React",
+        "Vite",
+        "Bootstrap",
+        "Axios",
+        "Docker",
+        "Docker Compose"
+      ],
+      "live": "https://renzoramosdev.github.io/Booqui-Sistema-Gestion-Reservas-Eventos/",
+      "code": "https://github.com/RenzoRamosDEV/Booqui-Sistema-Gestion-Reservas-Eventos"
+    },
+    {
+      "name": "REDACTOR IA",
+      "sub": "REFORMULACIÓN DE TEXTOS CON IA",
+      "image": "img/projects/redactor-ia.jpg",
+      "desc": "Herramienta web para mejorar o reformular textos con IA: eliges el tono, ajustas la intensidad y recibes una versión mejorada en segundos.",
+      "stack": [
+        "React",
+        "Vite",
+        "Tailwind CSS",
+        "i18next",
+        "TypeScript",
+        "Node.js",
+        "Express",
+        "Gemini",
+        "Groq SDK",
+        "helmet",
+        "express-rate-limit"
+      ],
+      "live": "",
+      "code": "https://github.com/RenzoRamosDEV/Redactor-IA"
+    },
+    {
+      "name": "POKÉDEX RETRO",
+      "sub": "+ CHATBOT REACT (MCP)",
+      "image": "img/projects/pokedex.jpg",
+      "desc": "Aplicación web completa que combina una Pokédex retro con un chatbot de IA que razona paso a paso (ReAct) y consulta los datos en tiempo real vía MCP.",
+      "stack": [
+        "Scala",
+        "Play Framework",
+        "Spray JSON",
+        "Guice",
+        "SBT",
+        "Python",
+        "MCP",
+        "OpenAI SDK",
+        "FastAPI",
+        "Uvicorn",
+        "Requests"
+      ],
+      "live": "",
+      "code": "https://github.com/RenzoRamosDEV/Api-Pokemon-Scala-Web"
+    }
+  ];
+  (function () {
+    const $ = id => document.getElementById(id);
+    const pad = n => String(n).padStart(2, '0');
+    const shot = p => p.image
+      ? `<img src="${p.image}" alt="${p.name}">`
+      : `<div class="shot" style="--c1:${p.c1};--c2:${p.c2}"><div class="bar"><i></i><i></i><i></i></div><div class="blob"></div>
+         <div class="sh-hero"><div class="t"></div><div class="t s"></div><div class="btn"></div></div><div class="cards"><i></i><i></i><i></i></div></div>`;
+    let i = 0;
+    $('pj-total').textContent = pad(projects.length);
+    function render() {
+      const p = projects[i];
+      $('pj-num').textContent = pad(i + 1); $('pj-name').textContent = p.name; $('pj-sub').textContent = p.sub; $('pj-desc').textContent = p.desc;
+      const shown = p.stack.slice(0, 8), rest = p.stack.length - shown.length;
+      $('pj-stack').innerHTML = shown.map(t => `<span>${t.toUpperCase()}</span>`).join('') + (rest > 0 ? `<span>+${rest}</span>` : '');
+      $('pj-screen').innerHTML = shot(p) + '<div class="shine"></div>';
+      $('pj-live').href = p.live || '#'; $('pj-live').style.display = p.live ? '' : 'none';
+      $('pj-code').href = p.code;
+    }
+    const swaps = [$('pj-text'), $('pj-screen')];
+    const go = step => {
+      swaps.forEach(e => e.classList.add('out'));
+      setTimeout(() => { i = (i + step + projects.length) % projects.length; render(); swaps.forEach(e => e.classList.remove('out')); }, 260);
+    };
+    $('pj-next').onclick = () => go(1);
+    $('pj-prev').onclick = () => go(-1);
+    render();
+
+    // El portátil se inclina siguiendo el ratón
+    const sec = $('proyectos'), laptop = $('pj-laptop');
+    sec.addEventListener('mousemove', e => {
+      const r = sec.getBoundingClientRect();
+      const x = (e.clientX - r.left) / r.width - 0.5, y = (e.clientY - r.top) / r.height - 0.5;
+      laptop.style.transform = `rotateY(${-14 + x * 22}deg) rotateX(${6 - y * 14}deg)`;
+    });
+    sec.addEventListener('mouseleave', () => laptop.style.transform = '');
+  })();
+
+  // Detiene el giro del engranaje si el usuario prefiere menos movimiento
+  if (matchMedia('(prefers-reduced-motion: reduce)').matches)
+    document.querySelectorAll('svg.gear').forEach(svg => svg.pauseAnimations());
+
+  // Humo: nubes grises difuminadas que flotan despacio, unas detrás de la figura y otras delante
+  const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // Textura de una bocanada de humo irregular, generada una sola vez
+  function makePuff(size) {
+    const c = document.createElement('canvas');
+    c.width = c.height = size;
+    const g = c.getContext('2d');
+    g.filter = `blur(${size * 0.06}px)`;
+    for (let i = 0; i < 14; i++) {
+      const r = size * (0.12 + Math.random() * 0.18);
+      const x = size / 2 + (Math.random() - 0.5) * size * 0.4;
+      const y = size / 2 + (Math.random() - 0.5) * size * 0.3;
+      const grad = g.createRadialGradient(x, y, 0, x, y, r);
+      grad.addColorStop(0, 'rgba(200,200,200,0.14)');
+      grad.addColorStop(1, 'rgba(210,210,210,0)');
+      g.fillStyle = grad;
+      g.beginPath(); g.arc(x, y, r, 0, Math.PI * 2); g.fill();
+    }
+    return c;
+  }
+  const puffs = Array.from({ length: 4 }, () => makePuff(512));
+
+  function smokeLayer(canvas, opts) {
+    const ctx = canvas.getContext('2d');
+    let W, H, clouds = [];
+
+    function resize() {
+      W = canvas.clientWidth; H = canvas.clientHeight;
+      canvas.width = W; canvas.height = H;
+    }
+
+    function makeCloud(initial) {
+      const size = opts.size[0] + Math.random() * (opts.size[1] - opts.size[0]);
+      return {
+        x: initial ? Math.random() * (W + size) - size : -size,
+        y: H * (opts.band[0] + Math.random() * (opts.band[1] - opts.band[0])) - size / 2,
+        size,
+        vx: 0.15 + Math.random() * 0.45,
+        vy: (Math.random() - 0.5) * 0.12,
+        rot: Math.random() * Math.PI * 2,
+        vr: (Math.random() - 0.5) * 0.0012,
+        alpha: opts.alpha * (0.5 + Math.random() * 0.5),
+        sprite: puffs[(Math.random() * puffs.length) | 0],
+        life: initial ? Math.random() : 0,
+      };
+    }
+
+    function frame() {
+      ctx.clearRect(0, 0, W, H);
+      for (let i = 0; i < clouds.length; i++) {
+        const c = clouds[i];
+        if (!reduceMotion) {
+          c.x += c.vx; c.y += c.vy; c.rot += c.vr;
+          c.life = Math.min(1, c.life + 0.004);
+        }
+        if (c.x > W) clouds[i] = makeCloud(false);
+        ctx.save();
+        ctx.globalAlpha = c.alpha * c.life;
+        ctx.translate(c.x + c.size / 2, c.y + c.size / 2);
+        ctx.rotate(c.rot);
+        ctx.drawImage(c.sprite, -c.size / 2, -c.size / 2, c.size, c.size);
+        ctx.restore();
+      }
+      if (!reduceMotion) requestAnimationFrame(frame);
+    }
+
+    resize();
+    clouds = Array.from({ length: opts.count }, () => makeCloud(true));
+    window.addEventListener('resize', resize);
+    requestAnimationFrame(frame);
+  }
+
+  smokeLayer(document.getElementById('smoke-back'),  { count: 14, size: [380, 760], band: [0.25, 0.95], alpha: 0.4 });
+  smokeLayer(document.getElementById('smoke-front'), { count: 7,  size: [420, 700], band: [0.8, 1.05], alpha: 0.5 });
+
+  // Contacto: el formulario abre el correo del visitante con el mensaje ya escrito
+  const CONTACT_EMAIL = 'renzoramosivan@gmail.com';
+  (function () {
+    const $ = id => document.getElementById(id);
+    $('mail-text').textContent = CONTACT_EMAIL.toUpperCase();
+    $('mail-link').href = `mailto:${CONTACT_EMAIL}`;
+    $('contact-form').addEventListener('submit', e => {
+      e.preventDefault();
+      const f = new FormData(e.target);
+      const subject = `Contacto desde la web — ${f.get('name')}`;
+      const body = `${f.get('message')}\n\n— ${f.get('name')} (${f.get('email')})`;
+      window.location.href = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    });
+    $('year').textContent = new Date().getFullYear();
+    $('to-top').onclick = () => window.scrollTo({ top: 0, behavior: 'smooth' });
+  })();
+</script>
 </body>
 </html>
