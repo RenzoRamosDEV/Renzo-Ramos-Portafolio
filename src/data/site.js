@@ -17,6 +17,7 @@ export const HEADER_NAV = [
   { href: '#experiencia', label: 'Experiencia' },
   { href: '#educacion', label: 'Educación' },
   { href: '#contacto', label: 'Contacto' },
+  { href: 'personal.html', label: 'Personal' },
 ];
 export const FOOTER_NAV = [
   { href: '#proyectos', label: 'PROYECTOS' },
