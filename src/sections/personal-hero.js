@@ -4,6 +4,8 @@ import { LOGO, HEADER_NAV } from '../data/site.js';
 import { navLinks } from '../components/nav-links.js';
 import { sectionBackground } from '../components/section-background.js';
 
+const randomPhoto = () => personal.photos[Math.floor(Math.random() * personal.photos.length)];
+
 // Los enlaces del menú llevan a las secciones de la página principal
 const homeNav = HEADER_NAV.map(i => ({ ...i, href: `./${i.href}` }));
 
@@ -27,7 +29,7 @@ export const renderPersonalHero = () => `<section class="personal-hero">
     </div>
     <div class="personal-photo">
       <div class="ring"></div>
-      <img src="media/renzo-personal.png" alt="Renzo Ramos">
+      <img src="${randomPhoto()}" alt="Renzo Ramos">
     </div>
   </div>
 </section>`;
