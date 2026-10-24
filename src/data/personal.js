@@ -3,8 +3,6 @@ export const personal = {
   name: 'RENZO RAMOS',
   surname: 'DE LOS RÍOS',
   tagline: 'Técnico Superior en Desarrollo de Aplicaciones Multiplataforma',
-  // Fotos de la portada: cada vez que se abre la página sale una al azar
-  photos: ['media/renzo-personal.png', 'media/renzo-personal-2.png'],
   facts: ['NACIDO EN PERÚ · 2004', 'EN ESPAÑA DESDE 2024', 'CESUR · 2026'],
   chapters: [
     { title: 'DE PERÚ A ESPAÑA', meta: '2004 — 2024',
