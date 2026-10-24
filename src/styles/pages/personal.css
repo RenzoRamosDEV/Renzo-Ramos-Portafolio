@@ -1,0 +1,75 @@
+/* ---------- Página personal (personal.html) ---------- */
+
+/* Portada oscura */
+.personal-hero {
+  position: relative; overflow: hidden; min-height: 100vh;
+  background: radial-gradient(ellipse 55% 60% at 65% 50%, #262626 0%, #121212 45%, var(--bg) 80%);
+  display: flex; align-items: center;
+}
+.personal-hero .bg-dots { background-image: radial-gradient(rgba(255,255,255,.1) 1px, transparent 1.6px); }
+.personal-hero .bg-word span { -webkit-text-stroke-color: rgba(255,255,255,.06); }
+.personal-hero .bg-word .row.rev span { -webkit-text-stroke-color: rgba(var(--accent-rgb),.18); }
+.personal-wrap {
+  position: relative; z-index: 1; width: 100%; max-width: 1300px; margin: 0 auto; padding: 130px 42px 80px;
+  display: grid; grid-template-columns: 1fr 460px; gap: 60px; align-items: center;
+}
+.personal-intro .kicker { font-family: "Oswald", sans-serif; font-weight: 600; font-size: 11px; letter-spacing: 3px; color: var(--accent); }
+.personal-intro h1 { font-family: "Anton", sans-serif; font-weight: 400; font-size: 104px; line-height: 1; color: #fff; margin: 18px 0 24px; }
+.personal-intro h1 em { font-style: normal; color: transparent; -webkit-text-stroke: 2px var(--accent); }
+.personal-intro p { font-family: "Bebas Neue", sans-serif; font-size: 24px; line-height: 30px; color: #cfcfcf; max-width: 560px; }
+.personal-intro .facts { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 28px; }
+.personal-intro .facts span {
+  font-family: "Oswald", sans-serif; font-weight: 600; font-size: 11px; letter-spacing: 1.8px;
+  padding: 8px 14px; border-radius: 20px; background: var(--card-tile); border: 1px solid #333; color: #e6e6e6;
+}
+.personal-intro .facts span.hl { background: var(--accent); border-color: var(--accent); color: #000; }
+
+/* Foto con aro giratorio detrás */
+.personal-photo { position: relative; height: 560px; }
+.personal-photo .ring {
+  position: absolute; left: 50%; top: 50%; width: 440px; height: 440px; margin: -230px 0 0 -220px;
+  border-radius: 50%; border: 2px dashed rgba(var(--accent-rgb),.6);
+  animation: spin 40s linear infinite;
+}
+.personal-photo img {
+  position: absolute; left: 50%; bottom: 0; height: 100%; transform: translateX(-50%);
+  filter: drop-shadow(0 20px 40px rgba(0,0,0,.6));
+  -webkit-mask-image: linear-gradient(to top, transparent 0, #000 90px);
+          mask-image: linear-gradient(to top, transparent 0, #000 90px);
+}
+
+/* Historia en capítulos */
+.personal-story { position: relative; overflow: hidden; background: var(--surface-light); color: #111; padding: 90px 42px 100px; }
+.personal-story h2 {
+  position: relative; z-index: 1; text-align: center; font-family: "Bebas Neue", sans-serif; font-weight: 400;
+  font-size: 46px; line-height: 60px; max-width: 700px; margin: 0 auto 50px;
+}
+.story-list { position: relative; z-index: 1; max-width: 1150px; margin: 0 auto; border-top: 1px solid #ccc; }
+.story-row {
+  position: relative; display: grid; grid-template-columns: 90px 280px 1fr; gap: 30px; align-items: start;
+  padding: 32px 10px; border-bottom: 1px solid #ccc;
+  opacity: 0; transform: translateY(16px); transition: opacity .6s, transform .6s, padding .3s, background .3s;
+}
+.story-row.on { opacity: 1; transform: none; }
+.story-row::after { content: ""; position: absolute; left: 0; bottom: -1px; height: 2px; width: 0; background: var(--accent); transition: width .5s; }
+.story-row:hover { padding-left: 26px; background: #fff; }
+.story-row:hover::after { width: 100%; }
+.story-row .n { font-family: "Anton", sans-serif; font-size: 40px; line-height: 1; color: transparent; -webkit-text-stroke: 1.2px var(--accent); }
+.story-row h3 { font-family: "Anton", sans-serif; font-weight: 400; font-size: 32px; line-height: 1; }
+.story-row .meta { font-family: "Oswald", sans-serif; font-weight: 600; font-size: 11px; letter-spacing: 1.5px; color: var(--accent); margin-top: 10px; }
+.story-row p { font-family: "Bebas Neue", sans-serif; font-size: 20px; line-height: 26px; color: #444; }
+
+@media (prefers-reduced-motion: reduce) {
+  .personal-photo .ring { animation: none; }
+  .story-row { opacity: 1; transform: none; transition: none; }
+}
+@media (max-width: 1000px) {
+  .personal-wrap { grid-template-columns: 1fr; padding: 120px 16px 60px; }
+  .personal-intro h1 { font-size: 72px; }
+  .personal-photo { height: 440px; }
+  .personal-photo .ring { width: 340px; height: 340px; margin: -180px 0 0 -170px; }
+  .personal-story { padding: 70px 16px 80px; }
+  .personal-story h2 { font-size: 34px; line-height: 42px; }
+  .story-row { grid-template-columns: 50px 1fr; }
+  .story-row p { grid-column: 2; }
+}

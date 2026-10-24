@@ -5,11 +5,12 @@ import { circleText } from '../svg/circle-text.js';
 import { arrowUp } from '../svg/icons.js';
 import { $ } from '../utils/dom.js';
 
-export const renderFooter = () => `<footer class="footer">
+// nav: enlaces del pie (por defecto, a las secciones de esta misma página)
+export const renderFooter = (nav = FOOTER_NAV) => `<footer class="footer">
   <div class="top">
     <img class="logo" src="${LOGO.src}" alt="${LOGO.alt}">
     <nav>
-      ${navLinks(FOOTER_NAV, '      ')}
+      ${navLinks(nav, '      ')}
     </nav>
     <button class="to-top" id="to-top" aria-label="Volver arriba">
       ${circleText({ cls: 'spin', size: 104, radius: 40, pathId: 'top-circ', textLength: 251, text: 'VOLVER ARRIBA · VOLVER ARRIBA ·', ariaHidden: true })}
