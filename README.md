@@ -35,18 +35,21 @@ npm run preview   # sirve dist/ para comprobar el build
 ## Estructura
 
 ```
-index.html                 Esqueleto: <head> (SEO, fuentes) y un marcador <div data-mount="…"> por sección
+index.html                 Página principal: <head> (SEO, fuentes) y un marcador <div data-mount="…"> por sección
+personal.html              Página personal (mi historia); misma estructura, entrada en src/personal.js
 public/                    Archivos estáticos que Vite copia tal cual a dist/
 ├── media/                 Logo, foto, emblema, iconos, certificados (PDF) y CV
 ├── img/                   Capturas de proyectos e imágenes de las páginas SEO
 └── *.html, robots.txt…    Páginas de aterrizaje SEO, sitemap, manifest, CNAME
 src/
-├── main.js                Punto de entrada: importa los estilos, monta las secciones y arranca su comportamiento
+├── main.js                Punto de entrada de la página principal: importa los estilos, monta las secciones y arranca su comportamiento
+├── personal.js            Punto de entrada de la página personal
 ├── data/                  Contenido de la web (lo que se edita para actualizarla)
 │   ├── projects.js        Proyectos del carrusel
 │   ├── experience.js      Puestos de experiencia
 │   ├── education.js       Estudios de la línea de tiempo
 │   ├── certificates.js    Certificados
+│   ├── personal.js        Texto de la página personal (frase, datos y capítulos)
 │   └── site.js            Email, enlaces (GitHub, LinkedIn, CV), logo, iconos y navegación
 ├── sections/              Una por sección: render…() devuelve su markup e init…() le da comportamiento
 ├── components/            Piezas reutilizables: reciben datos y devuelven markup
@@ -59,7 +62,8 @@ src/
     ├── animations/        Keyframes compartidos
     ├── layout/            Cabecera y fondo animado de las secciones
     ├── components/        Un archivo por componente
-    └── sections/          Un archivo por sección
+    ├── sections/          Un archivo por sección
+    └── pages/             Estilos propios de páginas extra (personal.css, que solo carga personal.html)
 ```
 
 ### Cómo arranca la página
@@ -114,7 +118,7 @@ Todo el contenido está en `src/data/`. No hace falta tocar componentes ni estil
 
 Si `credential` está vacío, el visor oculta el botón **VER CREDENCIAL**.
 
-**Email, enlaces y navegación** están en `site.js`.
+**Email, enlaces y navegación** están en `site.js`. **El texto de la página personal** está en `personal.js`.
 
 ## Crear un componente
 
@@ -140,7 +144,7 @@ Las clases, ids y atributos existentes no se renombran: el CSS y el JavaScript d
 
 Se despliega solo a **GitHub Pages** con [`deploy.yml`](.github/workflows/deploy.yml) en cada push a `main`:
 
-1. `npm ci` + `npm run build`.
+1. `npm ci` + `npm run build`, que genera las dos páginas (declaradas en `vite.config.ts`).
 2. Se publica `dist/` bajo el dominio propio [portafolio-renzoramos.com](https://portafolio-renzoramos.com), configurado en `public/CNAME`.
 
 ## Asistente de IA (`chatbot/`)
