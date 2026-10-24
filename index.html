@@ -549,6 +549,7 @@
   .experience > h2, .experience > .exp-center, .experience > .exp-pairs { position: relative; z-index: 1; }
   /* Experiencia y educación: altura según el contenido y aire repartido arriba y abajo */
   #experiencia, #educacion { min-height: 0; padding: 80px 0 90px; }
+  #educacion { padding-bottom: 30px; }
   #experiencia .exp-pairs { margin-top: 44px; }
   .experience h2 {
     position: relative; text-align: center;
@@ -646,12 +647,12 @@
   }
 
   .halftone {
-    display: block; width: 100%; height: 220px;
-    background: linear-gradient(#f4f4f4 0%, #f4f4f4 25%, #8a8a8a 80%, #0b0b0b 100%);
+    display: block; width: 100%; height: 140px;
+    background: linear-gradient(#f4f4f4 0%, #f4f4f4 15%, #8a8a8a 75%, #0b0b0b 100%);
   }
 
   /* ---------- Certificados: sellos giratorios como la insignia de la portada ---------- */
-  .certs { position: relative; overflow: hidden; background: #0b0b0b; padding: 90px 42px 110px; }
+  .certs { position: relative; overflow: hidden; background: #0b0b0b; padding: 50px 42px 110px; }
   .certs h2 { position: relative; z-index: 1; text-align: center; font-family: "Bebas Neue", sans-serif; font-weight: 400; font-size: 46px; color: #fff; margin-bottom: 50px; }
   .certs h2 em { font-style: normal; color: var(--accent); }
   .seals { position: relative; z-index: 1; display: flex; justify-content: center; gap: 70px; flex-wrap: wrap; }
@@ -1206,7 +1207,7 @@
       const gap = 11, rowH = gap * 0.866;          // rejilla hexagonal
       const maxR = gap * 0.62;                     // suficiente para que se toquen y tapen el fondo
       for (let row = 0, y = 0; y < h + gap; row++, y = row * rowH) {
-        const t = Math.min(1, Math.max(0, (y / h - 0.12) / 0.8));
+        const t = Math.min(1, Math.max(0, (y / h - 0.05) / 0.85));
         const r = maxR * t * t * (3 - 2 * t);      // crecimiento suave (smoothstep)
         if (r < 0.35) continue;
         const off = row % 2 ? gap / 2 : 0;
