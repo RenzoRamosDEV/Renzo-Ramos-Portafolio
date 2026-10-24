@@ -1,55 +1,9 @@
 import './styles/main.css';
-
-// Experiencia y educación
-const jobs = [
-  {
-    "kicker": "EXPERIENCIA 01",
-    "role": "JUNIOR AI ENGINEER · AI & DATA",
-    "place": "MADRID, ESPAÑA",
-    "company": "TUIO",
-    "from": "JUN. 2026",
-    "to": "ACTUALIDAD",
-    "left": [
-      "QUÉ HAGO :",
-      "Desarrollo de soluciones con Python, LiteLLM, LangChain, LangGraph, Temporal.io, Claude Code/OpenCode y Spec-Driven Development."
-    ],
-    "list": [
-      "Diseñar e implementar soluciones basadas en modelos de Machine Learning e IA generativa para optimizar procesos clave del negocio",
-      "Colaborar con los equipos de producto, growth, IA y Data Science para entender necesidades y aportar soluciones técnicas",
-      "Diseñar, desarrollar y mantener APIs, MCPs y herramientas (tools) consumibles por agentes inteligentes y otros sistemas",
-      "Automatizar procesos internos mediante modelos predictivos y generación de contenido basada en IA",
-      "Documentar y testear el código para garantizar calidad, trazabilidad y mantenibilidad",
-      "Explorar nuevas herramientas y tecnologías emergentes, aplicando la innovación de forma pragmática"
-    ]
-  },
-  {
-    "kicker": "EXPERIENCIA 02",
-    "role": "JUNIOR FULL STACK DEVELOPER",
-    "place": "MADRID, ESPAÑA",
-    "company": "SEIDOR",
-    "from": "SEPT. 2025",
-    "to": "JUN. 2026",
-    "left": [
-      "QUÉ HICE :",
-      "Desarrollo de soluciones con Java, XML, HTML, CSS, JavaScript y Maven."
-    ],
-    "list": [
-      "Desarrollo de componentes reutilizables y contribuibles en AEM",
-      "Creación de Modals para componentes con Java",
-      "Gestión y contribución de páginas con contenido multimedia mediante AEM Assets (DAM)",
-      "Resolución de incidencias backend y optimización de funcionalidades existentes",
-      "Elaboración de documentación técnica para soporte y mantenimiento de proyectos"
-    ]
-  }
-];
-const studies = [
-  { center: 'ISIL', degree: 'FORMACIÓN EN DISEÑO GRÁFICO', from: '2021', to: '2022', place: 'LIMA, PERÚ',
-    text: 'Diseño gráfico con Illustrator, Photoshop e InDesign: composición, tipografía y color aplicados a piezas digitales.' },
-  { center: 'CESUR', degree: 'TÉCNICO SUPERIOR EN DAM', from: 'SEPT. 2024', to: 'JUN. 2026', place: 'MADRID, ESPAÑA',
-    text: 'Aplicaciones backend y frontend con Java, Spring Boot, Kotlin y Python: APIs, servicios y apps multiplataforma.' },
-  { center: '42 MADRID', degree: 'BOOTCAMP 42 MADRID · FUNDACIÓN TELEFÓNICA', from: 'JUL. 2025', to: 'AGO. 2025', place: 'MADRID, ESPAÑA',
-    text: 'Bootcamp intensivo de C, Linux y Shell con aprendizaje peer-to-peer: algoritmia, memoria y debugging.' },
-];
+import { jobs } from './data/experience.js';
+import { studies } from './data/education.js';
+import { certs } from './data/certificates.js';
+import { projects } from './data/projects.js';
+import { CONTACT_EMAIL } from './data/site.js';
 
 const listItems = xs => xs.map(x => `<li>${x}</li>`).join('');
 
@@ -141,35 +95,10 @@ const listItems = xs => xs.map(x => `<li>${x}</li>`).join('');
   }, { threshold: 0.35 }).observe(tl);
 })();
 
-// Certificados
-const certs = [
-  {
-    "title": "SPRING BOOT ESENCIAL",
-    "org": "LINKEDIN LEARNING",
-    "year": "MAY. 2026",
-    "file": "media/certificados/cert-linkedin-springboot.pdf",
-    "credential": "https://www.linkedin.com/learning/certificates/7b7c86e65a375f5a2e3f6dd941c68683bfbda364592dacc893275a5e0a80eef6?trk=share_certificate"
-  },
-  {
-    "title": "PROFESIONAL DE INTELIGENCIA ARTIFICIAL",
-    "org": "GOOGLE",
-    "year": "ABR. 2026",
-    "file": "media/certificados/cert-google-ia.pdf",
-    "credential": "https://www.coursera.org/account/accomplishments/professional-cert/certificate/XKQE5SSM3EDZ"
-  },
-  {
-    "title": "DESARROLLO CON INTELIGENCIA ARTIFICIAL",
-    "org": "BIG SCHOOL",
-    "year": "MAR. 2026",
-    "file": "media/certificados/cert-bigschool-ia.pdf",
-    "credential": ""
-  }
-];
 (function () {
   const $ = id => document.getElementById(id);
   const pad = n => String(n).padStart(2, '0');
   const isPdf = f => /\.pdf($|\?)/i.test(f);
-
 
   $('seals').innerHTML = certs.map((c, i) => `
     <button class="seal" data-i="${i}" aria-label="Ver certificado ${c.title}">
@@ -200,77 +129,6 @@ const certs = [
   document.addEventListener('keydown', e => { if (e.key === 'Escape') close(); });
 })();
 
-// Proyectos
-const projects = [
-  {
-    "name": "BOOQI",
-    "sub": "SISTEMA DE GESTIÓN DE RESERVAS DE EVENTOS",
-    "image": "img/projects/booqui.jpg",
-    "desc": "Plataforma web para descubrir eventos, comprar entradas y gestionar reservas, con arquitectura de microservicios y panel de administración.",
-    "stack": [
-      "Java",
-      "Spring Boot",
-      "Spring Data JPA",
-      "Maven",
-      "Lombok",
-      "MapStruct",
-      "OpenAPI / Swagger",
-      "JUnit 5",
-      "Pitest",
-      "MySQL",
-      "React",
-      "Vite",
-      "Bootstrap",
-      "Axios",
-      "Docker",
-      "Docker Compose"
-    ],
-    "live": "https://renzoramosdev.github.io/Booqui-Sistema-Gestion-Reservas-Eventos/",
-    "code": "https://github.com/RenzoRamosDEV/Booqui-Sistema-Gestion-Reservas-Eventos"
-  },
-  {
-    "name": "REDACTOR IA",
-    "sub": "REFORMULACIÓN DE TEXTOS CON IA",
-    "image": "img/projects/redactor-ia.jpg",
-    "desc": "Herramienta web para mejorar o reformular textos con IA: eliges el tono, ajustas la intensidad y recibes una versión mejorada en segundos.",
-    "stack": [
-      "React",
-      "Vite",
-      "Tailwind CSS",
-      "i18next",
-      "TypeScript",
-      "Node.js",
-      "Express",
-      "Gemini",
-      "Groq SDK",
-      "helmet",
-      "express-rate-limit"
-    ],
-    "live": "",
-    "code": "https://github.com/RenzoRamosDEV/Redactor-IA"
-  },
-  {
-    "name": "POKÉDEX RETRO",
-    "sub": "+ CHATBOT REACT (MCP)",
-    "image": "img/projects/pokedex.jpg",
-    "desc": "Aplicación web completa que combina una Pokédex retro con un chatbot de IA que razona paso a paso (ReAct) y consulta los datos en tiempo real vía MCP.",
-    "stack": [
-      "Scala",
-      "Play Framework",
-      "Spray JSON",
-      "Guice",
-      "SBT",
-      "Python",
-      "MCP",
-      "OpenAI SDK",
-      "FastAPI",
-      "Uvicorn",
-      "Requests"
-    ],
-    "live": "",
-    "code": "https://github.com/RenzoRamosDEV/Api-Pokemon-Scala-Web"
-  }
-];
 (function () {
   const $ = id => document.getElementById(id);
   const pad = n => String(n).padStart(2, '0');
@@ -389,7 +247,6 @@ smokeLayer(document.getElementById('smoke-back'),  { count: 14, size: [380, 760]
 smokeLayer(document.getElementById('smoke-front'), { count: 7,  size: [420, 700], band: [0.8, 1.05], alpha: 0.5 });
 
 // Contacto: el formulario abre el correo del visitante con el mensaje ya escrito
-const CONTACT_EMAIL = 'renzoramosivan@gmail.com';
 (function () {
   const $ = id => document.getElementById(id);
   $('mail-text').textContent = CONTACT_EMAIL.toUpperCase();
