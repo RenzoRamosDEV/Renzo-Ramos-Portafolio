@@ -546,69 +546,23 @@
   .bg-word .row.rev span { -webkit-text-stroke-color: rgba(207,132,83,.16); }
   @keyframes word-slide { to { transform: translateX(-50%); } }
   @media (prefers-reduced-motion: reduce) { .bg-dots, .bg-word .row { animation: none; } }
-  .experience > h2, .experience > .exp-center, .experience > .exp-pairs, .experience > .exp-grid { position: relative; z-index: 1; }
+  .experience > h2, .experience > .exp-center, .experience > .exp-pairs { position: relative; z-index: 1; }
   .experience h2 {
     position: relative; text-align: center;
     font-family: "Bebas Neue", sans-serif; font-weight: 400;
     font-size: 46px; line-height: 60px; letter-spacing: .3px;
     max-width: 640px; margin: 0 auto;
   }
-  .exp-grid {
-    position: relative; max-width: 1340px; margin: 30px auto 0; padding: 0 40px;
-    display: grid; grid-template-columns: 1fr 296px 1fr; gap: 40px; align-items: start;
-  }
-  .exp-side { padding-top: 0; }
-  .exp-side.right { padding-left: 40px; }
-  .exp-side.left { padding-right: 40px; }
-  .badges { display: flex; gap: 10px; height: 120px; align-items: center; }
-  .badges img { width: 40px; height: 40px; border-radius: 50%; box-shadow: 0 6px 12px rgba(0,0,0,.3); }
-  .exp-side.right .badges { justify-content: flex-end; }
-  .badges .big { width: 120px; height: 120px; box-shadow: 0 0 0 4px #1a1a1a, 0 14px 30px rgba(0,0,0,.35); }
-  .exp-side h3 {
-    font-family: "Bebas Neue", sans-serif; font-weight: 400;
-    font-size: 17px; color: var(--accent); margin-top: 30px;
-  }
-  .exp-side p {
-    font-family: "Bebas Neue", sans-serif; font-size: 15.5px; line-height: 22px;
-    color: #333; margin-top: 18px; max-width: 360px; min-height: 66px;
-  }
-  .duo { position: relative; width: 200px; height: 240px; margin-top: 26px; }
-  .duo div {
-    position: absolute; overflow: hidden; background: #2a2a2a;
-  }
-  .duo img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(1) contrast(1.15); }
-  .duo .a { left: 0; top: 0; width: 120px; height: 146px; border-radius: 6px 0 0 0;
-    clip-path: polygon(0 0, 100% 0, 100% 62%, 54% 100%, 0 100%); }
-  .duo .b { left: 77px; top: 99px; width: 123px; height: 141px; border-radius: 0 0 8px 8px;
-    clip-path: polygon(46% 0, 100% 0, 100% 100%, 0 100%, 0 38%); }
-  .duo .a img { object-position: 50% 20%; }
-  .duo .b img { object-position: 50% 60%; }
 
   .exp-center { display: flex; flex-direction: column; align-items: center; }
   .exp-pairs {
     position: relative; max-width: 1400px; margin: 10px auto 0; padding: 0 40px;
-    display: flex; justify-content: space-between; gap: 40px;
+    display: flex; justify-content: center; gap: 40px; flex-wrap: wrap;
   }
-  .exp-pair { display: flex; gap: 28px; align-items: flex-start; }
-  .exp-pair .exp-side { width: 320px; align-self: center; }
-  .exp-pair .exp-side h3 { margin-top: 0; }
   .exp-pair .exp-card { margin-top: 0; flex: none; }
-  .exp-pair.mirror .exp-side { text-align: right; }
-  .exp-pair.mirror .exp-side p { margin-left: auto; }
-  .exp-pair.mirror .duo { margin-left: auto; }
-  @media (max-width: 1300px) {
-    .exp-pairs { flex-direction: column; align-items: center; }
-    .exp-pair.mirror { flex-direction: row-reverse; }
-    .exp-pair.mirror .exp-side { text-align: left; }
-    .exp-pair.mirror .exp-side p, .exp-pair.mirror .duo { margin-left: 0; }
-  }
-  @media (max-width: 700px) {
-    .exp-pair, .exp-pair.mirror { flex-direction: column; align-items: center; }
-  }
   .exp-list { list-style: none; margin-top: 14px; max-width: 360px; font-family: "Bebas Neue", sans-serif; font-size: 15px; line-height: 20px; color: #333; }
   .exp-list li { position: relative; padding-left: 16px; margin-bottom: 6px; }
   .exp-list li::before { content: ""; position: absolute; left: 0; top: 8px; width: 8px; height: 2px; background: var(--accent); }
-  .exp-pair.mirror .exp-list { margin-left: auto; }
   /* Educación: línea de tiempo */
   .edu-tl {
     position: relative; z-index: 1; max-width: 1200px; margin: 30px auto 0; padding: 70px 40px 0;
@@ -678,8 +632,6 @@
   .fade-swap.out { opacity: 0; }
 
   @media (max-width: 1000px) {
-    .exp-grid { grid-template-columns: 1fr; }
-    .exp-side.right, .exp-side.left { padding: 0; }
     .exp-center { order: -1; }
     .experience h2 { font-size: 34px; line-height: 42px; padding: 0 16px; }
   }
@@ -944,15 +896,9 @@
       </div>
   </div>
 
-  <!-- Cada puesto: bloque de texto + fotos junto a su tarjeta con ubicación, cargo y fechas -->
+  <!-- Una tarjeta por puesto; el detalle se abre con VER MÁS -->
   <div class="exp-pairs">
     <div class="exp-pair">
-      <div class="exp-side fade-swap" id="exp-a-side">
-        <div class="duo">
-          <div class="a"><img src="media/renzo-camiseta.png" alt=""></div>
-          <div class="b"><img src="media/renzo-manos.png" alt=""></div>
-        </div>
-      </div>
       <div class="exp-card fade-swap" id="exp-a-card">
         <div class="kicker" id="exp-a-kicker"></div>
         <div class="role" id="exp-a-role"></div>
@@ -1006,12 +952,6 @@
           <div class="tile"><small>HASTA</small><strong id="exp-b-to"></strong></div>
         </div>
         <button class="cta-btn" id="exp-b-more" type="button">VER MÁS <span>→</span></button>
-      </div>
-      <div class="exp-side fade-swap" id="exp-b-side">
-        <div class="duo">
-          <div class="a"><img src="media/renzo-garras.png" alt=""></div>
-          <div class="b"><img src="media/renzo.png" alt=""></div>
-        </div>
       </div>
     </div>
   </div>
@@ -1185,7 +1125,7 @@
     const pages = Math.ceil(jobs.length / 2);
     const ids = ['a', 'b'];
     const el = (g, id) => document.getElementById(`exp-${g}-${id}`);
-    const swapEls = ids.flatMap(g => [el(g, 'side'), el(g, 'card')]);
+    const swapEls = ids.map(g => el(g, 'card'));
     function render() {
       ids.forEach((g, i) => {
         const d = jobs[(page * 2 + i) % jobs.length];
