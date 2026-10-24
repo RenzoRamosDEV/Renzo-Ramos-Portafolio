@@ -1,5 +1,5 @@
 // Pie de página: logo, navegación, botón de volver arriba y créditos
-import { FOOTER_NAV } from '../data/site.js';
+import { LOGO, FOOTER_NAV } from '../data/site.js';
 import { navLinks } from '../components/nav-links.js';
 import { circleText } from '../svg/circle-text.js';
 import { arrowUp } from '../svg/icons.js';
@@ -7,7 +7,7 @@ import { $ } from '../utils/dom.js';
 
 export const renderFooter = () => `<footer class="footer">
   <div class="top">
-    <img class="logo" src="media/logo.png" alt="CJJ Renzo Ramos">
+    <img class="logo" src="${LOGO.src}" alt="${LOGO.alt}">
     <nav>
       ${navLinks(FOOTER_NAV, '      ')}
     </nav>

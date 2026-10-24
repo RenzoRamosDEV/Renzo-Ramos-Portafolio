@@ -1,5 +1,5 @@
 // Portada: cabecera, enlaces sociales, aros giratorios, nombre, foto, humo e insignia
-import { HEADER_NAV, GITHUB_URL, LINKEDIN_URL, GITHUB_ICON, LINKEDIN_ICON } from '../data/site.js';
+import { LOGO, HEADER_NAV, GITHUB_URL, LINKEDIN_URL, GITHUB_ICON, LINKEDIN_ICON } from '../data/site.js';
 import { navLinks } from '../components/nav-links.js';
 import { socialLink } from '../components/social-link.js';
 import { outerRings, innerDial } from '../svg/rings.js';
@@ -7,7 +7,7 @@ import { circleText } from '../svg/circle-text.js';
 
 export const renderHero = () => `<section class="hero">
   <header>
-    <a class="logo" href="#"><img src="media/logo.png" alt="CJJ Renzo Ramos"></a>
+    <a class="logo" href="#"><img src="${LOGO.src}" alt="${LOGO.alt}"></a>
 
     <nav class="main">
       ${navLinks(HEADER_NAV, '      ')}
