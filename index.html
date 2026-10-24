@@ -382,9 +382,9 @@
     height: min(880px, calc(100vh - 20px)); transform: translateX(-52%);
     z-index: 5; pointer-events: none;
     filter: drop-shadow(0 20px 40px rgba(0,0,0,.6));
-    /* La parte baja de la foto se funde a negro (los últimos 100px quedan fuera de la portada) */
-    -webkit-mask-image: linear-gradient(to top, transparent 100px, #000 300px);
-            mask-image: linear-gradient(to top, transparent 100px, #000 300px);
+    /* La parte baja de la foto se funde a negro solo en el borde, para que el arco no se vea a través de la sudadera */
+    -webkit-mask-image: linear-gradient(to top, transparent 100px, #000 170px);
+            mask-image: linear-gradient(to top, transparent 100px, #000 170px);
   }
 
   /* ---------- Smoke ---------- */
