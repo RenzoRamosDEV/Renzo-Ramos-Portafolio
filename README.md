@@ -2,194 +2,150 @@
 
 # Portfolio de Renzo Ramos
 
-**Sitio personal de una sola página, bilingüe y con un asistente de IA que responde sobre mi perfil.**
+**Sitio personal de una sola página con estética de portada de película: humo, aros que giran y animaciones en blanco, negro y naranja.**
 
 [**portafolio-renzoramos.com →**](https://portafolio-renzoramos.com)
 
 [![Deploy to GitHub Pages](https://github.com/RenzoRamosDEV/Renzo-Ramos-Portafolio/actions/workflows/deploy.yml/badge.svg)](https://github.com/RenzoRamosDEV/Renzo-Ramos-Portafolio/actions/workflows/deploy.yml)
-[![React](https://img.shields.io/badge/React-19-61DAFB?logo=react&logoColor=white)](https://react.dev/)
-[![TypeScript](https://img.shields.io/badge/TypeScript-6.0-3178C6?logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
 [![Vite](https://img.shields.io/badge/Vite-8-646CFF?logo=vite&logoColor=white)](https://vitejs.dev/)
-[![Tailwind](https://img.shields.io/badge/Tailwind-3.4-06B6D4?logo=tailwindcss&logoColor=white)](https://tailwindcss.com/)
-[![FastAPI](https://img.shields.io/badge/FastAPI-chatbot-009688?logo=fastapi&logoColor=white)](https://fastapi.tiangolo.com/)
+[![JavaScript](https://img.shields.io/badge/JavaScript-vanilla-F7DF1E?logo=javascript&logoColor=black)](https://developer.mozilla.org/docs/Web/JavaScript)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
 </div>
 
-> [!NOTE]
-> El **asistente de IA está desactivado** en la web publicada: el backend del chatbot no está desplegado. Todo lo demás funciona con normalidad, y el asistente se puede levantar en local siguiendo este README.
-
 ---
 
-## El sitio
+## Tecnología
 
-<div align="center">
-
-<img src="docs/screenshots/hero.jpg" alt="Portada del portfolio con el titular «Hola, soy Renzo», los enlaces a GitHub, LinkedIn y currículum, y la navegación por secciones" width="100%">
-
-</div>
-
-| Proyectos | Ficha de proyecto |
-|:---:|:---:|
-| <img src="docs/screenshots/proyectos.jpg" alt="Rejilla con las tarjetas de Booqi, Redactor IA y Pokédex" width="100%"> | <img src="docs/screenshots/proyecto-detalle.jpg" alt="Ficha de Booqi con descripción, enlaces al repositorio y a la demo, y carrusel de capturas" width="100%"> |
-| Tres proyectos destacados, cada uno con su stack. | Descripción, enlaces al repo y a la demo, y galería navegable. |
-
-| Stack | Experiencia y formación |
-|:---:|:---:|
-| <img src="docs/screenshots/stack.jpg" alt="Iconos del stack agrupados en backend, frontend e inteligencia artificial" width="100%"> | <img src="docs/screenshots/experiencia.jpg" alt="Cronología de experiencia profesional con puesto, empresa, fechas y responsabilidades" width="100%"> |
-| Agrupado en backend, frontend e IA. | Cronología con puesto, empresa, fechas y responsabilidades. |
-
-| Certificados | Contacto |
-|:---:|:---:|
-| <img src="docs/screenshots/certificados.jpg" alt="Tarjetas de los certificados de LinkedIn Learning, Google y BIG School con vista previa" width="100%"> | <img src="docs/screenshots/contacto.jpg" alt="Sección final con la llamada a la acción «¿Construimos algo que escale?» y el pie de página" width="100%"> |
-| Vista previa de cada credencial, enlazada al PDF. | Cierre con llamada a la acción y pie de página. |
-
----
-
-## Características
-
-| | |
-|---|---|
-| 📜 | **SPA scrollable** con secciones de portada, proyectos, stack, experiencia, educación, certificados y contacto |
-| 🌍 | **Bilingüe ES/EN** con cambio instantáneo y persistente en `localStorage` |
-| ✨ | **Animaciones** con Framer Motion: reveals al hacer scroll y texto animado palabra a palabra |
-| 🤖 | **Asistente de IA flotante** que responde preguntas sobre mi perfil, con backend propio en FastAPI + LangChain + OpenAI |
-| 🔍 | **SEO cuidado**: prerender del HTML en build, `sitemap.xml`, `robots.txt`, Open Graph, JSON-LD, `llms.txt` y páginas de aterrizaje indexables |
-| 🚀 | **Despliegue automático** a GitHub Pages con dominio propio en cada push a `main` |
-| 🛡️ | **Rate limiting** del asistente por IP en el backend, con un contador de cortesía en el frontend |
-
----
-
-## Arquitectura
-
-El repositorio contiene **dos piezas independientes**:
-
-| Pieza | Ruta | Tecnología | Función |
-|---|---|---|---|
-| **Frontend** | [`src/`](src/) | React 19 · TypeScript · Vite · Tailwind | SPA estática desplegada en GitHub Pages |
-| **Chatbot** | [`chatbot/`](chatbot/) | Python · FastAPI · LangChain · OpenAI | API `POST /chat` que alimenta al asistente |
-
-El frontend es 100 % estático y no tiene backend propio: el asistente consume el del chatbot vía `fetch`, por defecto `http://localhost:8000/chat` en desarrollo.
-
-### Cómo funciona el asistente
-
-1. Al arrancar, el backend concatena todos los `chatbot/knowledge/*.md` y los inyecta en el `SYSTEM_PROMPT`, con reglas anti-inyección. Al ser un prefijo fijo, OpenAI lo cachea y abarata las llamadas.
-2. Cada `POST /chat` recibe `{message, thread_id}`. El historial se mantiene por sesión en RAM, acotado a `MAX_HISTORY` mensajes.
-3. **Rate limit**: máximo `MAX_QUESTIONS` (6) preguntas por IP cada `RATE_WINDOW` (6 h). Si el LLM falla —por ejemplo, cuota agotada— devuelve un mensaje amable con estado 200.
-
-### Estructura
-
-```
-├── index.html                    # Punto de entrada de Vite
-├── prerender.js                  # Prerender SSR del HTML en build (SEO)
-├── public/                       # Favicons, sitemap, robots, OG image, CNAME…
-├── src/
-│   ├── main.tsx                  # Render de <App/>
-│   ├── App.tsx                   # Monta <PortfolioSite/>
-│   ├── entry-server.tsx          # Entrada SSR para el prerender
-│   ├── assets/                   # Imágenes y PDFs (stack/ projects/ certs/ cv/)
-│   └── portfolio/
-│       ├── PortfolioSite.tsx     # Sitio scrollable: secciones + ChatWidget
-│       ├── sections/             # Hero · Projects · ProjectDetail · Stack
-│       │                           ExperienceEducation · Certificates · Contact
-│       ├── components/
-│       │   ├── layout/           # Navbar, Footer
-│       │   ├── ui/               # Chip, PillButton, ScrollIndicator, SectionTitle
-│       │   ├── motion/           # WordsPullUp
-│       │   └── chat/             # ChatWidget + useChat + markdown + CSS
-│       ├── data/                 # Datos bilingües: projects, experience, stack…
-│       ├── i18n/                 # LanguageContext + translations
-│       ├── hooks/                # useInView
-│       └── styles/               # globals.css (Tailwind)
-└── chatbot/
-    ├── server.py                 # FastAPI: endpoint POST /chat
-    ├── config.py                 # Modelo, límites, CORS
-    ├── knowledge.py              # Carga knowledge/*.md → SYSTEM_PROMPT
-    ├── llm.py                    # Llamada a OpenAI + mensajes de error
-    ├── history.py                # Historial por sesión (RAM)
-    ├── ratelimit.py              # Límite por IP (ventana deslizante)
-    ├── schemas.py                # Modelos Pydantic
-    └── knowledge/                # Base de conocimiento en Markdown
-```
-
----
+- **HTML, CSS y JavaScript sin frameworks.** El JavaScript son módulos ES nativos.
+- **Vite** como servidor de desarrollo y para el build.
+- **Canvas 2D** para el humo de la portada y la trama de puntos entre educación y certificados.
+- **SVG** (con animaciones SMIL) para los aros, el mini mapa, los sellos y las insignias.
+- **Google Fonts:** Anton, Bebas Neue y Oswald. **Icons8** para los iconos de GitHub y LinkedIn.
 
 ## Puesta en marcha
 
-**Requisitos:** Node.js ≥ 20 y npm. Para el chatbot, además, Python ≥ 3.10 y una API key de OpenAI.
-
-### Frontend
-
 ```bash
 npm install
-npm run dev        # → http://localhost:5173
+npm run dev       # servidor de desarrollo en http://localhost:5173
+npm run build     # genera dist/
+npm run preview   # sirve dist/ para comprobar el build
 ```
 
-### Chatbot
+## Estructura
 
-```bash
-cd chatbot
-python3 -m venv .venv
-.venv/bin/pip install -r requirements.txt
-cp .env.example .env               # rellena OPENAI_API_KEY y SYSTEM_PROMPT
-.venv/bin/uvicorn server:app --port 8000
+```
+index.html                 Esqueleto: <head> (SEO, fuentes) y un marcador <div data-mount="…"> por sección
+public/                    Archivos estáticos que Vite copia tal cual a dist/
+├── media/                 Logo, foto, emblema, iconos, certificados (PDF) y CV
+├── img/                   Capturas de proyectos e imágenes de las páginas SEO
+└── *.html, robots.txt…    Páginas de aterrizaje SEO, sitemap, manifest, CNAME
+src/
+├── main.js                Punto de entrada: importa los estilos, monta las secciones y arranca su comportamiento
+├── data/                  Contenido de la web (lo que se edita para actualizarla)
+│   ├── projects.js        Proyectos del carrusel
+│   ├── experience.js      Puestos de experiencia
+│   ├── education.js       Estudios de la línea de tiempo
+│   ├── certificates.js    Certificados
+│   └── site.js            Email, enlaces (GitHub, LinkedIn, CV), logo, iconos y navegación
+├── sections/              Una por sección: render…() devuelve su markup e init…() le da comportamiento
+├── components/            Piezas reutilizables: reciben datos y devuelven markup
+├── svg/                   Generadores de SVG: aros, mini mapa, texto circular, iconos
+├── canvas/                Animaciones en canvas: humo y trama de puntos
+├── utils/                 Helpers: DOM, formato, variables CSS, movimiento reducido, viewport
+└── styles/
+    ├── main.css           Importa todo lo demás en el orden de la cascada
+    ├── base/              Variables (colores), reset y utilidades
+    ├── animations/        Keyframes compartidos
+    ├── layout/            Cabecera y fondo animado de las secciones
+    ├── components/        Un archivo por componente
+    └── sections/          Un archivo por sección
 ```
 
-El frontend apunta a `http://localhost:8000/chat` (ver [`useChat.ts`](src/portfolio/components/chat/useChat.ts)). Con ambos procesos corriendo, el asistente funciona en local.
+### Cómo arranca la página
 
-### Scripts
+`index.html` solo contiene marcadores como `<div data-mount="projects"></div>`. `src/main.js` hace dos pasos:
 
-| Script | Qué hace |
-|---|---|
-| `npm run dev` | Servidor de desarrollo de Vite |
-| `npm run build` | `tsc` + build cliente + build SSR + prerender a `dist/` |
-| `npm run build:spa` | Build solo SPA, sin prerender |
-| `npm run preview` | Previsualizar el build de producción |
+1. **Monta el markup** de cada sección en su marcador, en el orden de la página (`mount('projects', renderProjects())`).
+2. **Arranca el comportamiento** (carruseles, ventanas, canvas, observadores) llamando a los `init…()` en un orden fijo.
 
----
+No cambies ese orden sin motivo: de él dependen los listeners de teclado de las ventanas y el momento en que se miden los canvas.
 
-## Guía rápida de edición
+## Editar el contenido
 
-| Quiero… | Toco… |
-|---|---|
-| Editar textos o traducciones | `src/portfolio/data/*` y `src/portfolio/i18n/translations.ts` |
-| Añadir un proyecto | `src/portfolio/data/projects.ts` + imágenes en `src/assets/projects/` |
-| Añadir tecnología al stack | `src/portfolio/data/stack.ts` + icono en `src/assets/stack/` |
-| Editar experiencia o formación | `src/portfolio/data/experience.ts`, `education.ts` |
-| Añadir un certificado | `src/portfolio/data/certificates.ts` + PDF en `src/assets/certs/` |
-| Editar la UI del asistente | `src/portfolio/components/chat/` |
-| Editar lo que **sabe** el asistente | `chatbot/knowledge/*.md` — un `.md` nuevo se añade solo |
-| Editar la lógica del asistente | `chatbot/server.py` y módulos vecinos |
+Todo el contenido está en `src/data/`. No hace falta tocar componentes ni estilos.
 
-### Variables de entorno del chatbot
+**Añadir un proyecto** (`projects.js`): añade un objeto al array. El carrusel y el contador se actualizan solos.
 
-En `chatbot/.env`, que **nunca se sube a git**. Hay plantilla en [`chatbot/.env.example`](chatbot/.env.example).
+```js
+{
+  "name": "MI PROYECTO",
+  "sub": "SUBTÍTULO EN NARANJA",
+  "image": "img/projects/mi-proyecto.jpg",   // captura 16:10 en public/img/projects/
+  "desc": "Descripción corta.",
+  "stack": ["React", "Node.js"],             // se muestran 8 y un "+N" con el resto
+  "live": "https://…",                       // vacío ("") oculta el botón VER PROYECTO
+  "code": "https://github.com/…"
+}
+```
 
-| Variable | Obligatoria | Descripción |
-|---|:---:|---|
-| `OPENAI_API_KEY` | ✅ | API key de OpenAI |
-| `OPENAI_MODEL` | ❌ | Modelo a usar (por defecto `gpt-4o-mini`) |
-| `SYSTEM_PROMPT` | ✅ | Prompt de sistema con las reglas; el conocimiento se inyecta dentro |
+**Añadir un puesto** (`experience.js`): las tarjetas se muestran de dos en dos. Con tres o más aparecen las flechas para pasar de página.
 
-### Estado en `localStorage`
+```js
+{
+  "kicker": "EXPERIENCIA 03", "role": "PUESTO", "place": "CIUDAD, PAÍS", "company": "EMPRESA",
+  "from": "ENE. 2027", "to": "ACTUALIDAD",
+  "left": ["QUÉ HAGO :", "Resumen que abre la ventana de VER MÁS."],
+  "list": ["Tarea 1", "Tarea 2"]
+}
+```
 
-| Clave | Contenido |
-|---|---|
-| `pf-lang` | Idioma del sitio: `'es'` \| `'en'` |
-| `pf-chat-thread` | ID de conversación del asistente |
-| `pf-chat-msgs` | Mensajes visibles del chat, que persisten al recargar |
-| `pf-chat-rate` | Contador de cortesía del rate limit; la barrera real es el backend |
+**Añadir un estudio** (`education.js`): se añade un hito a la línea de tiempo. La rejilla está pensada para tres en escritorio.
 
----
+```js
+{ center: 'CENTRO', degree: 'TÍTULO', from: '2027', to: '2028', place: 'CIUDAD, PAÍS', text: 'Dos líneas de qué hiciste.' }
+```
+
+**Añadir un certificado** (`certificates.js`): guarda el PDF (o una imagen) en `public/media/certificados/` y añade:
+
+```js
+{ "title": "NOMBRE", "org": "PLATAFORMA", "year": "MES. AÑO", "file": "media/certificados/archivo.pdf", "credential": "https://…" }
+```
+
+Si `credential` está vacío, el visor oculta el botón **VER CREDENCIAL**.
+
+**Email, enlaces y navegación** están en `site.js`.
+
+## Crear un componente
+
+1. Crea `src/components/mi-componente.js` con una función que reciba datos y devuelva el markup:
+
+   ```js
+   // Qué es y dónde se usa
+   export const miComponente = ({ titulo }) => `<div class="mi-componente">${titulo}</div>`;
+   ```
+
+2. Si necesita estilos, crea `src/styles/components/mi-componente.css` y añade su `@import` en `src/styles/main.css` dentro del bloque de componentes. El orden de los imports reproduce la cascada: no lo cambies sin comprobar que no se pisan reglas.
+3. Úsalo desde la sección que corresponda (`src/sections/…`) dentro de su `render…()`. Si necesita comportamiento, añádelo en el `init…()` de la sección.
+
+Las clases, ids y atributos existentes no se renombran: el CSS y el JavaScript dependen de ellos. Los archivos nuevos van en kebab-case.
+
+## Estilos
+
+- **Colores:** en `src/styles/base/variables.css`. Los SVG y canvas que usan el naranja o el fondo oscuro los leen de ahí con `cssVar()` (`src/utils/theme.js`).
+- **Puntos de corte:** 1100px (se oculta el menú de la portada), 1000px (secciones a una columna) y 640px (portada en móvil). CSS no permite variables en las media queries, así que están escritos en cada archivo.
+- **Movimiento reducido:** con `prefers-reduced-motion` se paran el humo, los aros, los pines del mapa, las barras de texto, los fondos animados, los sellos y las transiciones de la línea de tiempo.
 
 ## Despliegue
 
-El frontend se despliega solo a **GitHub Pages** con [`deploy.yml`](.github/workflows/deploy.yml) en cada push a `main`:
+Se despliega solo a **GitHub Pages** con [`deploy.yml`](.github/workflows/deploy.yml) en cada push a `main`:
 
-1. `npm ci` + `npm run build`, que incluye el prerender para SEO.
+1. `npm ci` + `npm run build`.
 2. Se publica `dist/` bajo el dominio propio [portafolio-renzoramos.com](https://portafolio-renzoramos.com), configurado en `public/CNAME`.
 
-El chatbot es un servicio aparte y no forma parte de este despliegue.
+## Asistente de IA (`chatbot/`)
+
+El repo conserva el backend del asistente (FastAPI + LangChain + OpenAI) de la versión anterior de la web. Es un servicio aparte y **esta web no lo usa**.
 
 ---
 
