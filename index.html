@@ -621,6 +621,12 @@
   .tile.map { position: relative; overflow: hidden; padding: 0; justify-content: flex-end; align-items: flex-start; }
   .tile.map svg { position: absolute; inset: 0; width: 100%; height: 100%; }
   .tile.map small { position: relative; margin: 0 0 10px 12px; color: #cfcfcf; }
+  /* Pequeño zoom al pasar el ratón por cada recuadro de la tarjeta */
+  .tile { transition: transform .25s cubic-bezier(.2,.8,.2,1), border-color .25s, background .25s; }
+  .tile:hover { transform: scale(1.06); border-color: rgba(207,132,83,.6); background: #282828; position: relative; z-index: 1; }
+  .tile.map svg { transition: transform .6s cubic-bezier(.2,.8,.2,1); }
+  .tile.map:hover svg { transform: scale(1.18); }
+  @media (prefers-reduced-motion: reduce) { .tile, .tile.map svg { transition: none; } .tile:hover, .tile.map:hover svg { transform: none; } }
   .exp-card .cta-btn {
     margin-top: 14px; width: 100%; height: 48px; border: 0; border-radius: 24px; cursor: pointer;
     background: var(--accent); color: #000; display: flex; align-items: center; justify-content: space-between;
