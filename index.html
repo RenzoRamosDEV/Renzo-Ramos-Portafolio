@@ -590,7 +590,7 @@
     display: flex; justify-content: space-between; gap: 40px;
   }
   .exp-pair { display: flex; gap: 28px; align-items: flex-start; }
-  .exp-pair .exp-side { width: 320px; padding-top: 30px; }
+  .exp-pair .exp-side { width: 320px; align-self: center; }
   .exp-pair .exp-side h3 { margin-top: 0; }
   .exp-pair .exp-card { margin-top: 0; flex: none; }
   .exp-pair.mirror .exp-side { text-align: right; }
@@ -721,6 +721,16 @@
   .viewer h4 { font-family: "Anton", sans-serif; font-weight: 400; font-size: 26px; color: #fff; }
   .viewer .bar small { font-family: "Bebas Neue", sans-serif; font-size: 17px; color: #9a9a9a; }
   .viewer .actions { display: flex; gap: 10px; }
+  .job-box { width: min(680px, 100%); padding: 34px 34px 30px; max-height: 85vh; overflow: auto; color: #e6e6e6; }
+  .job-box .kicker { font-family: "Oswald", sans-serif; font-weight: 600; font-size: 10px; letter-spacing: 3px; color: var(--accent); }
+  .job-box h4 { font-size: 40px; line-height: 1.05; margin: 12px 0 16px; }
+  .job-box .job-meta { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 24px; }
+  .job-box .job-meta span { font-family: "Oswald", sans-serif; font-size: 11px; letter-spacing: 1.5px; padding: 6px 12px; border-radius: 20px; background: #232323; border: 1px solid #333; }
+  .job-box .job-meta span.hl { background: var(--accent); border-color: var(--accent); color: #000; font-weight: 600; }
+  .job-box h5 { font-family: "Bebas Neue", sans-serif; font-weight: 400; font-size: 20px; color: var(--accent); }
+  .job-box p { font-family: "Bebas Neue", sans-serif; font-size: 19px; line-height: 25px; color: #cfcfcf; margin-top: 8px; }
+  .job-box .exp-list { max-width: none; color: #cfcfcf; font-size: 17px; line-height: 23px; margin-top: 18px; }
+  .exp-card .cta-btn { font-family: "Oswald", sans-serif; }
   .viewer .close { position: absolute; top: 18px; right: 22px; width: 44px; height: 44px; border-radius: 50%; border: 1.5px solid #555; background: #000; color: #fff; font-size: 20px; cursor: pointer; }
   @media (max-width: 640px) { .certs { padding: 70px 16px 90px; } .seals { gap: 40px; } }
 
@@ -938,9 +948,6 @@
   <div class="exp-pairs">
     <div class="exp-pair">
       <div class="exp-side fade-swap" id="exp-a-side">
-        <h3 id="exp-a-h"></h3>
-        <p id="exp-a-p"></p>
-        <ul class="exp-list" id="exp-a-list"></ul>
         <div class="duo">
           <div class="a"><img src="media/renzo-camiseta.png" alt=""></div>
           <div class="b"><img src="media/renzo-manos.png" alt=""></div>
@@ -970,7 +977,7 @@
           <div class="tile"><small>DESDE</small><strong id="exp-a-from"></strong></div>
           <div class="tile"><small>HASTA</small><strong id="exp-a-to"></strong></div>
         </div>
-        <a class="cta-btn" href="#contacto">VER MÁS <span>→</span></a>
+        <button class="cta-btn" id="exp-a-more" type="button">VER MÁS <span>→</span></button>
       </div>
     </div>
     <div class="exp-pair mirror">
@@ -998,12 +1005,9 @@
           <div class="tile"><small>DESDE</small><strong id="exp-b-from"></strong></div>
           <div class="tile"><small>HASTA</small><strong id="exp-b-to"></strong></div>
         </div>
-        <a class="cta-btn" href="#contacto">VER MÁS <span>→</span></a>
+        <button class="cta-btn" id="exp-b-more" type="button">VER MÁS <span>→</span></button>
       </div>
       <div class="exp-side fade-swap" id="exp-b-side">
-        <h3 id="exp-b-h"></h3>
-        <p id="exp-b-p"></p>
-        <ul class="exp-list" id="exp-b-list"></ul>
         <div class="duo">
           <div class="a"><img src="media/renzo-garras.png" alt=""></div>
           <div class="b"><img src="media/renzo.png" alt=""></div>
@@ -1091,6 +1095,19 @@
   </div>
 </footer>
 
+<!-- Detalle de un puesto: se abre con "VER MÁS" -->
+<div class="viewer" id="job-modal" role="dialog" aria-modal="true" aria-labelledby="jm-role">
+  <button class="close" id="jm-close" aria-label="Cerrar">×</button>
+  <div class="box job-box">
+    <div class="kicker" id="jm-kicker"></div>
+    <h4 id="jm-role"></h4>
+    <div class="job-meta" id="jm-meta"></div>
+    <h5 id="jm-h"></h5>
+    <p id="jm-p"></p>
+    <ul class="exp-list" id="jm-list"></ul>
+  </div>
+</div>
+
 <div class="viewer" id="viewer" role="dialog" aria-modal="true" aria-labelledby="v-title">
   <button class="close" id="v-close" aria-label="Cerrar">×</button>
   <div class="box">
@@ -1174,10 +1191,26 @@
         const d = jobs[(page * 2 + i) % jobs.length];
         el(g, 'kicker').textContent = d.kicker; el(g, 'role').textContent = d.role; el(g, 'place').textContent = d.place;
         el(g, 'company').textContent = d.company; el(g, 'from').textContent = d.from; el(g, 'to').textContent = d.to;
-        el(g, 'h').textContent = d.left[0]; el(g, 'p').textContent = d.left[1];
-        el(g, 'list').innerHTML = listItems(d.list);
+        current[g] = d;
       });
     }
+
+    // "VER MÁS": abre el detalle del puesto en una ventana
+    const current = {};
+    const modal = document.getElementById('job-modal');
+    const $m = id => document.getElementById(`jm-${id}`);
+    function openJob(d) {
+      $m('kicker').textContent = d.kicker; $m('role').textContent = d.role;
+      $m('meta').innerHTML = `<span class="hl">${d.company}</span><span>${d.from} — ${d.to}</span><span>${d.place}</span>`;
+      $m('h').textContent = d.left[0]; $m('p').textContent = d.left[1];
+      $m('list').innerHTML = listItems(d.list);
+      modal.classList.add('open');
+    }
+    const closeJob = () => modal.classList.remove('open');
+    ids.forEach(g => el(g, 'more').onclick = () => openJob(current[g]));
+    $m('close').onclick = closeJob;
+    modal.addEventListener('click', e => { if (e.target === modal) closeJob(); });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeJob(); });
     function go(step) {
       swapEls.forEach(e => e.classList.add('out'));
       setTimeout(() => {
