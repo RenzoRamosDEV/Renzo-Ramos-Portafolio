@@ -5,6 +5,10 @@
 .footer nav { display: flex; gap: 28px; flex-wrap: wrap; }
 .footer nav a { font-family: "Bebas Neue", sans-serif; font-size: 17px; color: #cfcfcf; text-decoration: none; transition: color .2s; }
 .footer nav a:hover { color: var(--accent); }
+/* En pantallas anchas, el menú del pie va centrado respecto a la página (no entre el logo y el botón) */
+@media (min-width: 1001px) {
+  .footer nav { position: absolute; left: 50%; transform: translateX(-50%); }
+}
 .to-top { position: relative; width: 64px; height: 64px; border: 0; background: none; cursor: pointer; }
 .to-top svg.spin { position: absolute; inset: 0; animation: spin 12s linear infinite; }
 .to-top svg.spin text { font-family: "Oswald", sans-serif; font-weight: 600; font-size: 13px; fill: var(--accent); }
