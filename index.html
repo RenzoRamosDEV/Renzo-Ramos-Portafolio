@@ -919,8 +919,12 @@
               <g stroke="#2c2c2c" stroke-width=".7" fill="none">
                 <path d="M-5 40 L125 55"/><path d="M-5 90 L125 95"/><path d="M45 -5 L50 135"/><path d="M90 -5 L88 135"/>
               </g>
-              <path d="M72 30 a8 8 0 0 1 8 8 c0 6 -8 14 -8 14 s-8 -8 -8 -14 a8 8 0 0 1 8 -8z" fill="#cf8453"/>
-              <circle cx="72" cy="38" r="3" fill="#1e1e1e"/>
+              <!-- El pin da vueltas por el mapa -->
+              <g>
+                <animateMotion dur="7.0s" repeatCount="indefinite" path="M0 0 C 22 -18, 34 18, 4 26 C -26 34, -34 -6, 0 0"/>
+                <path d="M72 30 a8 8 0 0 1 8 8 c0 6 -8 14 -8 14 s-8 -8 -8 -14 a8 8 0 0 1 8 -8z" fill="#cf8453"/>
+                <circle cx="72" cy="38" r="3" fill="#1e1e1e"/>
+              </g>
             </svg>
             <small id="exp-a-place"></small>
           </div>
@@ -946,8 +950,12 @@
               <g stroke="#2c2c2c" stroke-width=".7" fill="none">
                 <path d="M-5 40 L125 55"/><path d="M-5 90 L125 95"/><path d="M45 -5 L50 135"/><path d="M90 -5 L88 135"/>
               </g>
-              <path d="M72 30 a8 8 0 0 1 8 8 c0 6 -8 14 -8 14 s-8 -8 -8 -14 a8 8 0 0 1 8 -8z" fill="#cf8453"/>
-              <circle cx="72" cy="38" r="3" fill="#1e1e1e"/>
+              <!-- El pin da vueltas por el mapa -->
+              <g>
+                <animateMotion dur="8.5s" repeatCount="indefinite" path="M0 0 C -24 -14, -30 22, -4 28 C 22 34, 30 -8, 0 0"/>
+                <path d="M72 30 a8 8 0 0 1 8 8 c0 6 -8 14 -8 14 s-8 -8 -8 -14 a8 8 0 0 1 8 -8z" fill="#cf8453"/>
+                <circle cx="72" cy="38" r="3" fill="#1e1e1e"/>
+              </g>
             </svg>
             <small id="exp-b-place"></small>
           </div>
@@ -1350,9 +1358,9 @@
     sec.addEventListener('mouseleave', () => laptop.style.transform = '');
   })();
 
-  // Detiene el giro del engranaje si el usuario prefiere menos movimiento
+  // Detiene el giro del engranaje y los pines del mapa si el usuario prefiere menos movimiento
   if (matchMedia('(prefers-reduced-motion: reduce)').matches)
-    document.querySelectorAll('svg.gear').forEach(svg => svg.pauseAnimations());
+    document.querySelectorAll('svg.gear, .tile.map svg').forEach(svg => svg.pauseAnimations());
 
   // Humo: nubes grises difuminadas que flotan despacio, unas detrás de la figura y otras delante
   const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
