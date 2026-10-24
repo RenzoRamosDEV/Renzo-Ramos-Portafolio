@@ -1,3 +1,5 @@
+import { cssVar } from '../utils/theme.js';
+
 // Mini mapa de las tarjetas de experiencia: plano de calles y un pin que da vueltas (animateMotion)
 export const miniMap = ({ dur, path }) => `<svg viewBox="0 0 120 130" aria-hidden="true">
               <rect width="120" height="130" fill="#1e1e1e"/>
@@ -11,7 +13,7 @@ export const miniMap = ({ dur, path }) => `<svg viewBox="0 0 120 130" aria-hidde
               <!-- El pin da vueltas por el mapa -->
               <g>
                 <animateMotion dur="${dur}" repeatCount="indefinite" path="${path}"/>
-                <path d="M72 30 a8 8 0 0 1 8 8 c0 6 -8 14 -8 14 s-8 -8 -8 -14 a8 8 0 0 1 8 -8z" fill="#cf8453"/>
+                <path d="M72 30 a8 8 0 0 1 8 8 c0 6 -8 14 -8 14 s-8 -8 -8 -14 a8 8 0 0 1 8 -8z" fill="${cssVar('--accent')}"/>
                 <circle cx="72" cy="38" r="3" fill="#1e1e1e"/>
               </g>
             </svg>`;

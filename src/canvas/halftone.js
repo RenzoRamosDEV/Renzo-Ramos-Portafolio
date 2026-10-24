@@ -1,3 +1,5 @@
+import { cssVar } from '../utils/theme.js';
+
 // Trama de puntos entre educación y certificados: círculos completos que crecen
 // de forma continua hacia abajo hasta cubrir todo de negro
 export function initHalftone(c) {
@@ -8,7 +10,7 @@ export function initHalftone(c) {
     c.width = w * dpr; c.height = h * dpr;
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     ctx.clearRect(0, 0, w, h);
-    ctx.fillStyle = '#0b0b0b';
+    ctx.fillStyle = cssVar('--surface-dark');
     const gap = 11, rowH = gap * 0.866;          // rejilla hexagonal
     const maxR = gap * 0.62;                     // suficiente para que se toquen y tapen el fondo
     for (let row = 0, y = 0; y < h + gap; row++, y = row * rowH) {

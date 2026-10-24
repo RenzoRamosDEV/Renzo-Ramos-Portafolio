@@ -1,10 +1,12 @@
+import { cssVar } from '../utils/theme.js';
+
 // Aros de la portada (animaciones SMIL): los exteriores giran en un sentido y el dial interior en el contrario
 
 export const outerRings = () => `<svg class="gear" viewBox="0 0 720 720" aria-hidden="true">
     <!-- Aros exteriores: giran en sentido contrario al círculo, cada uno a su ritmo -->
     <g>
       <animateTransform attributeName="transform" type="rotate" from="360 360 360" to="0 360 360" dur="70s" repeatCount="indefinite"/>
-      <circle cx="360" cy="360" r="308" fill="none" stroke="rgba(207,132,83,.75)" stroke-width="2" stroke-dasharray="240 30 60 30" />
+      <circle cx="360" cy="360" r="308" fill="none" stroke="rgba(${cssVar('--accent-rgb')},.75)" stroke-width="2" stroke-dasharray="240 30 60 30" />
     </g>
     <g>
       <animateTransform attributeName="transform" type="rotate" from="360 360 360" to="0 360 360" dur="110s" repeatCount="indefinite"/>
@@ -13,7 +15,7 @@ export const outerRings = () => `<svg class="gear" viewBox="0 0 720 720" aria-hi
     <g>
       <animateTransform attributeName="transform" type="rotate" from="360 360 360" to="0 360 360" dur="45s" repeatCount="indefinite"/>
       <circle cx="360" cy="360" r="342" fill="none" stroke="rgba(255,255,255,.35)" stroke-width="1.5" stroke-dasharray="520 80 160 80 260 80" stroke-linecap="round"/>
-      <circle cx="360" cy="378" r="4" fill="#cf8453" transform="rotate(30 360 360)"/>
+      <circle cx="360" cy="378" r="4" fill="${cssVar('--accent')}" transform="rotate(30 360 360)"/>
       <circle cx="360" cy="702" r="3" fill="#9a9a9a" transform="rotate(30 360 360)"/>
     </g>
   </svg>`;
