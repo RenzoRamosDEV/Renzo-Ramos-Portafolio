@@ -645,6 +645,12 @@
     .experience h2 { font-size: 34px; line-height: 42px; padding: 0 16px; }
   }
 
+  .halftone { display: flex; flex-direction: column; background: #f4f4f4; }
+  .halftone i {
+    display: block; height: 14px;
+    background: radial-gradient(circle, #0b0b0b var(--r), transparent calc(var(--r) + .6px)) var(--x) 0 / 14px 14px repeat-x;
+  }
+
   /* ---------- Certificados: sellos giratorios como la insignia de la portada ---------- */
   .certs { position: relative; overflow: hidden; background: #0b0b0b; padding: 90px 42px 110px; }
   .certs h2 { position: relative; z-index: 1; text-align: center; font-family: "Bebas Neue", sans-serif; font-weight: 400; font-size: 46px; color: #fff; margin-bottom: 50px; }
@@ -987,6 +993,9 @@
   <!-- Línea de tiempo: se rellena y enciende cada estudio al llegar a la sección -->
   <div class="edu-tl" id="edu-tl"><div class="rail"><i></i></div></div>
 </section>
+
+<!-- Paso de educación (claro) a certificados (oscuro) con una trama de puntos que crece -->
+<div class="halftone" aria-hidden="true"><i style="--r:0.6px;--x:0"></i><i style="--r:0.9px;--x:7px"></i><i style="--r:1.4px;--x:0"></i><i style="--r:2.0px;--x:7px"></i><i style="--r:2.7px;--x:0"></i><i style="--r:3.5px;--x:7px"></i><i style="--r:4.3px;--x:0"></i><i style="--r:5.2px;--x:7px"></i><i style="--r:6.2px;--x:0"></i><i style="--r:7.2px;--x:7px"></i><i style="--r:8.2px;--x:0"></i><i style="--r:9.3px;--x:7px"></i><i style="--r:10.4px;--x:0"></i></div>
 
 <section class="certs" id="certificados">
   <div class="bg-dots" aria-hidden="true"></div>
