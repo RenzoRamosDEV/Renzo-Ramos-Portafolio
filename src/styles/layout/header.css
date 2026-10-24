@@ -17,6 +17,10 @@ nav.main a {
 }
 nav.main a:hover { color: var(--accent); }
 
+/* Pantallas medianas: enlaces más juntos para que el menú no pise el logo */
+@media (max-width: 1300px) {
+  nav.main { gap: 32px; }
+}
 @media (max-width: 1100px) {
   nav.main { display: none; }
 }
