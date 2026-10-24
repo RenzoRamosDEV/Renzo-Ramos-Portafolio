@@ -38,7 +38,7 @@ npm run preview   # sirve dist/ para comprobar el build
 index.html                 Página principal: <head> (SEO, fuentes) y un marcador <div data-mount="…"> por sección
 personal.html              Página personal (mi historia); misma estructura, entrada en src/personal.js
 public/                    Archivos estáticos que Vite copia tal cual a dist/
-├── media/                 Logo, foto, emblema, iconos, certificados (PDF) y CV
+├── media/                 Logo, fotos, emblema, iconos, certificados (PDF) y CV (ahora sin enlazar)
 ├── img/                   Capturas de proyectos e imágenes de las páginas SEO
 └── *.html, robots.txt…    Páginas de aterrizaje SEO, sitemap, manifest, CNAME
 src/
@@ -50,7 +50,7 @@ src/
 │   ├── education.js       Estudios de la línea de tiempo
 │   ├── certificates.js    Certificados
 │   ├── personal.js        Texto de la página personal (frase, datos y capítulos)
-│   └── site.js            Email, enlaces (GitHub, LinkedIn, CV), logo, iconos y navegación
+│   └── site.js            Email, enlaces (GitHub, LinkedIn), logo, iconos y navegación
 ├── sections/              Una por sección: render…() devuelve su markup e init…() le da comportamiento
 ├── components/            Piezas reutilizables: reciben datos y devuelven markup
 ├── svg/                   Generadores de SVG: aros, mini mapa, texto circular, iconos

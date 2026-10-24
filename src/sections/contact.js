@@ -1,5 +1,5 @@
 // Contacto: email, enlaces y formulario que abre el correo del visitante
-import { CONTACT_EMAIL, GITHUB_URL, LINKEDIN_URL, CV_URL, GITHUB_ICON, LINKEDIN_ICON } from '../data/site.js';
+import { CONTACT_EMAIL, GITHUB_URL, LINKEDIN_URL, GITHUB_ICON, LINKEDIN_ICON } from '../data/site.js';
 import { sectionBackground } from '../components/section-background.js';
 import { socialLink } from '../components/social-link.js';
 import { arrowRight } from '../svg/icons.js';
@@ -16,7 +16,6 @@ export const renderContact = () => `<section class="contact" id="contacto">
       <div class="socials">
         ${socialLink({ href: GITHUB_URL, icon: GITHUB_ICON, label: 'GITHUB' })}
         ${socialLink({ href: LINKEDIN_URL, icon: LINKEDIN_ICON, label: 'LINKEDIN' })}
-        ${socialLink({ href: CV_URL, label: 'DESCARGAR CV' })}
       </div>
     </div>
     <form class="form-card" id="contact-form">
