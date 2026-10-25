@@ -7,6 +7,7 @@ import { projects } from '../src/data/projects.js';
 import { jobs } from '../src/data/experience.js';
 import { certs } from '../src/data/certificates.js';
 import { faq } from '../src/data/faq.js';
+import { niceCase } from './text.js';
 
 const SITE = 'https://portafolio-renzoramos.com';
 const ID = {
@@ -27,7 +28,6 @@ const image = (path, w, h, caption, extra = {}) => ({
 // "MAY. 2026" → "2026-05"
 const MONTHS = { ENE: '01', FEB: '02', MAR: '03', ABR: '04', MAY: '05', JUN: '06', JUL: '07', AGO: '08', SEPT: '09', SEP: '09', OCT: '10', NOV: '11', DIC: '12' };
 const isoMonth = s => { const [m, y] = s.replace('.', '').split(/\s+/); return MONTHS[m] ? `${y}-${MONTHS[m]}` : undefined; };
-const titleCase = s => s.toLowerCase().replace(/(^|\s)(\p{L})/gu, (m, sp, c) => sp + c.toUpperCase());
 
 const current = jobs.find(j => j.to === 'ACTUALIDAD');
 
@@ -57,8 +57,8 @@ function person() {
     hasCredential: [
       { '@type': 'EducationalOccupationalCredential', name: 'Técnico Superior en Desarrollo de Aplicaciones Multiplataforma (DAM)', credentialCategory: 'degree', recognizedBy: { '@type': 'EducationalOrganization', name: 'CESUR Madrid' } },
       ...certs.map(c => ({
-        '@type': 'EducationalOccupationalCredential', name: titleCase(c.title), credentialCategory: 'certificate',
-        recognizedBy: { '@type': 'Organization', name: titleCase(c.org) }, dateCreated: isoMonth(c.year), url: c.credential || undefined,
+        '@type': 'EducationalOccupationalCredential', name: niceCase(c.title), credentialCategory: 'certificate',
+        recognizedBy: { '@type': 'Organization', name: niceCase(c.org) }, dateCreated: isoMonth(c.year), url: c.credential || undefined,
       })),
     ],
     knowsLanguage: ['es', 'en'],
@@ -81,7 +81,7 @@ function person() {
 
 function project(p) {
   const base = {
-    '@id': `${SITE}/#proyecto-${slug(p.title)}`, name: p.title, alternateName: `${p.title} — ${titleCase(p.sub)}`,
+    '@id': `${SITE}/#proyecto-${slug(p.title)}`, name: p.title, alternateName: `${p.title} — ${niceCase(p.sub)}`,
     description: p.desc, url: p.live || `${SITE}/#proyectos`, dateCreated: p.created, inLanguage: 'es',
     author: { '@id': ID.person }, creator: { '@id': ID.person }, keywords: p.stack.join(', '),
     image: (p.images || []).map(i => image(i.src, 1536, 800, i.alt, { name: `${p.title}: ${i.alt}` })),

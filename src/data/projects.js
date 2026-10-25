@@ -1,7 +1,8 @@
 // Proyectos del carrusel. "images" son las capturas que se van pasando en la pantalla del portátil:
 // cada una con su "src" (1536×800, en public/img/projects/) y su "alt". Sin capturas, se dibuja una de relleno.
 // "title" (nombre con mayúsculas normales), "created" (fecha de creación del repositorio) y "languages"
-// solo se usan en los datos estructurados (JSON-LD, vite/structured-data.js)
+// solo se usan en los datos estructurados (JSON-LD, vite/structured-data.js); "details" (descripción larga) solo
+// en llms-full.txt (vite/llms.js)
 export const projects = [
   {
     "name": "AGENTBOARD",
@@ -19,6 +20,7 @@ export const projects = [
       { "src": "img/projects/agentboard/agentboard-precios-y-presupuestos.jpg", "alt": "Precios por modelo y presupuestos mensuales configurables en AgentBoard" }
     ],
     "desc": "App de escritorio que reúne qué hacen Claude Code, Codex, Copilot, Cursor, Gemini y OpenCode, y cuánto cuestan, leyendo sus logs en local. Nada sale del ordenador.",
+    "details": "Aplicación de escritorio que reúne qué hacen Claude Code, Codex, Copilot, Cursor, Gemini y OpenCode, y cuánto cuestan, leyendo los logs que ya tienen en el ordenador (local, privado y de solo lectura). Muestra coste, tokens, sesiones, actividad, herramientas, modelos y proyectos, con presupuestos y avisos. Tauri 2 + Rust, caché SQLite, interfaz React + TypeScript + Vite y servidor MCP con 20 herramientas.",
     "stack": [
       "Tauri 2",
       "Rust",
@@ -46,6 +48,7 @@ export const projects = [
       { "src": "img/projects/brainy/brainy-leccion-division-animada.jpg", "alt": "Lección animada de Brainy que explica una división de tres cifras paso a paso" }
     ],
     "desc": "Web en español para aprender jugando: lecciones animadas paso a paso, quizzes y taller de ortografía de Matemáticas, Lengua, Ciencias, Sociales e Inglés, con puntos, niveles y ranking.",
+    "details": "Web en español para aprender jugando, con lecciones animadas paso a paso, quizzes y un taller de ortografía de Matemáticas, Lengua, Ciencias, Sociales e Inglés, con puntos, niveles y ranking. React 19 + TypeScript + Vite + Tailwind CSS, Framer Motion, Supabase y Vitest. Se actualiza constantemente. Código privado.",
     "stack": [
       "React",
       "TypeScript",
@@ -72,6 +75,7 @@ export const projects = [
       { "src": "img/projects/pokedex/pokedex-retro-objetos.jpg", "alt": "Listado de objetos de Pokédex Retro con su categoría, precio y efecto" }
     ],
     "desc": "Pokédex estilo Game Boy sobre PokéAPI, sin frameworks ni build, con un chat de IA (Claude u OpenAI) que responde con datos reales y un servidor MCP.",
+    "details": "Pokédex estática con estética Game Boy sobre PokéAPI v2, sin frameworks ni build (JavaScript con módulos ES, HTML y CSS), publicada en GitHub Pages. Tres temas, CSP estricta y WCAG 2.1 AA. Incluye un chat con Claude u OpenAI que usa la clave del visitante desde el navegador (agente principal, subagentes y skills) y un servidor MCP en Node.js con 12 herramientas para consultarla desde Claude. Tests e2e con Playwright y mutation testing con Stryker.",
     "stack": [
       "JavaScript",
       "HTML",
@@ -108,6 +112,7 @@ export const projects = [
       { "src": "img/projects/booqi/booqi-panel-administracion.jpg", "alt": "Panel de administración de Booqi con usuarios, eventos y ventas" }
     ],
     "desc": "Plataforma web para descubrir eventos, comprar entradas y gestionar reservas, con arquitectura de microservicios y panel de administración.",
+    "details": "Plataforma web para descubrir eventos, comprar entradas (con ticket en PDF) y gestionar reservas, más un panel de administración. Arquitectura de microservicios en Java/Spring Boot (usuarios, eventos, reservas, pagos), MySQL, OpenAPI/Swagger, JUnit 5 y Pitest, frontend React + Vite + Bootstrap, orquestado con Docker Compose. Proyecto en equipo (con Melanie Gabriela Cárdenas Hidalgo).",
     "stack": [
       "Java",
       "Spring Boot",
