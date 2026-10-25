@@ -3,12 +3,13 @@ import { LOGO, FOOTER_NAV } from '../data/site.js';
 import { navLinks } from '../components/nav-links.js';
 import { circleText } from '../svg/circle-text.js';
 import { arrowUp } from '../svg/icons.js';
+import { picture } from '../components/picture.js';
 import { $ } from '../utils/dom.js';
 
 // nav: enlaces del pie (por defecto, a las secciones de esta misma página)
 export const renderFooter = (nav = FOOTER_NAV) => `<footer class="footer">
   <div class="top">
-    <img class="logo" src="${LOGO.src}" alt="${LOGO.alt}">
+    ${picture({ ...LOGO, cls: 'logo', sizes: '150px' })}
     <nav>
       ${navLinks(nav, '      ')}
     </nav>

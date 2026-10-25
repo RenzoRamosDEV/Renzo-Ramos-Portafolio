@@ -34,7 +34,7 @@
   animation: spin 40s linear infinite;
 }
 .personal-photo img {
-  position: absolute; left: 50%; bottom: 0; height: 100%; transform: translateX(-50%);
+  position: absolute; left: 50%; bottom: 0; height: 100%; width: auto; transform: translateX(-50%);
   /* Sin sombra: la máscara la recortaría en un rectángulo. La parte baja se funde con el fondo */
   -webkit-mask-image: linear-gradient(to top, transparent 0, #000 170px);
           mask-image: linear-gradient(to top, transparent 0, #000 170px);

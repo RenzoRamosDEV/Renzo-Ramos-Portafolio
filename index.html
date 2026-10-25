@@ -17,6 +17,11 @@
 
   <link rel="canonical" href="https://portafolio-renzoramos.com/">
 
+  <!-- Imagen principal (LCP): la foto de la portada se pide antes que el resto -->
+  <link rel="preload" as="image" type="image/webp" fetchpriority="high"
+        imagesrcset="opt/media/renzo-ramos-desarrollador-ia-madrid-portada-480.webp 480w, opt/media/renzo-ramos-desarrollador-ia-madrid-portada-931.webp 931w"
+        imagesizes="(max-width: 640px) 460px, 630px">
+
   <!-- Favicons & PWA -->
   <link rel="icon" href="/favicon.ico" sizes="32x32">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
@@ -73,27 +78,68 @@
         "image": [
           {
             "@type": "ImageObject",
+            "@id": "https://portafolio-renzoramos.com/#foto-portada",
+            "contentUrl": "https://portafolio-renzoramos.com/media/renzo-ramos-desarrollador-ia-madrid-portada.png",
+            "url": "https://portafolio-renzoramos.com/",
+            "name": "Renzo Ramos, Junior AI Engineer y desarrollador de software en Madrid",
+            "caption": "Renzo Ramos, Junior AI Engineer en Madrid, con máscara blanca y sudadera negra",
+            "width": 931,
+            "height": 1302,
+            "creator": {
+              "@id": "https://portafolio-renzoramos.com/#renzo"
+            },
+            "creditText": "Renzo Ramos",
+            "copyrightNotice": "© Renzo Ramos. Todos los derechos reservados.",
+            "license": "https://portafolio-renzoramos.com/licencia-imagenes.html",
+            "acquireLicensePage": "https://portafolio-renzoramos.com/licencia-imagenes.html"
+          },
+          {
+            "@type": "ImageObject",
             "contentUrl": "https://portafolio-renzoramos.com/img/renzo-ramos-ingeniero-inteligencia-artificial-madrid.jpg",
             "url": "https://portafolio-renzoramos.com/renzo-ramos-ingeniero-inteligencia-artificial-madrid.html",
             "width": 1200,
-            "height": 1200
+            "height": 1200,
+            "creator": {
+              "@id": "https://portafolio-renzoramos.com/#renzo"
+            },
+            "creditText": "Renzo Ramos",
+            "copyrightNotice": "© Renzo Ramos. Todos los derechos reservados.",
+            "license": "https://portafolio-renzoramos.com/licencia-imagenes.html",
+            "acquireLicensePage": "https://portafolio-renzoramos.com/licencia-imagenes.html"
           },
           {
             "@type": "ImageObject",
             "contentUrl": "https://portafolio-renzoramos.com/img/renzo-ramos-ingeniero-de-software.jpg",
             "url": "https://portafolio-renzoramos.com/renzo-ramos-ingeniero-de-software.html",
             "width": 1068,
-            "height": 1200
+            "height": 1200,
+            "creator": {
+              "@id": "https://portafolio-renzoramos.com/#renzo"
+            },
+            "creditText": "Renzo Ramos",
+            "copyrightNotice": "© Renzo Ramos. Todos los derechos reservados.",
+            "license": "https://portafolio-renzoramos.com/licencia-imagenes.html",
+            "acquireLicensePage": "https://portafolio-renzoramos.com/licencia-imagenes.html"
           },
           {
             "@type": "ImageObject",
             "contentUrl": "https://portafolio-renzoramos.com/img/renzo-ramos-junior-ai-engineer-madrid.jpg",
             "url": "https://portafolio-renzoramos.com/renzo-ramos-junior-ai-engineer-madrid.html",
             "width": 957,
-            "height": 1049
+            "height": 1049,
+            "creator": {
+              "@id": "https://portafolio-renzoramos.com/#renzo"
+            },
+            "creditText": "Renzo Ramos",
+            "copyrightNotice": "© Renzo Ramos. Todos los derechos reservados.",
+            "license": "https://portafolio-renzoramos.com/licencia-imagenes.html",
+            "acquireLicensePage": "https://portafolio-renzoramos.com/licencia-imagenes.html"
           }
         ],
-        "jobTitle": ["Técnico Superior en DAM", "Junior AI Engineer"],
+        "jobTitle": [
+          "Técnico Superior en DAM",
+          "Junior AI Engineer"
+        ],
         "description": "Técnico Superior en Desarrollo de Aplicaciones Multiplataforma (DAM) y Junior AI Engineer. Construyo soluciones de IA con Python, LangChain, LangGraph y MCP, además de APIs mantenibles con Java y Spring Boot.",
         "email": "renzoramosivan@gmail.com",
         "telephone": "+34623971177",
@@ -120,7 +166,10 @@
             "name": "Instituto San Ignacio de Loyola"
           }
         ],
-        "knowsLanguage": ["es", "en"],
+        "knowsLanguage": [
+          "es",
+          "en"
+        ],
         "knowsAbout": [
           "Java",
           "Python",
@@ -168,19 +217,28 @@
             "@type": "EducationalOccupationalCredential",
             "name": "Professional Artificial Intelligence",
             "credentialCategory": "certificate",
-            "recognizedBy": { "@type": "Organization", "name": "Google" }
+            "recognizedBy": {
+              "@type": "Organization",
+              "name": "Google"
+            }
           },
           {
             "@type": "EducationalOccupationalCredential",
             "name": "Essential Spring Boot",
             "credentialCategory": "certificate",
-            "recognizedBy": { "@type": "Organization", "name": "LinkedIn Learning" }
+            "recognizedBy": {
+              "@type": "Organization",
+              "name": "LinkedIn Learning"
+            }
           },
           {
             "@type": "EducationalOccupationalCredential",
             "name": "AI-Assisted Development",
             "credentialCategory": "certificate",
-            "recognizedBy": { "@type": "Organization", "name": "Big School" }
+            "recognizedBy": {
+              "@type": "Organization",
+              "name": "Big School"
+            }
           }
         ],
         "sameAs": [
@@ -194,7 +252,10 @@
         "url": "https://portafolio-renzoramos.com/",
         "name": "Renzo Ramos Portafolio",
         "alternateName": "Renzo Ramos",
-        "inLanguage": ["es", "en"],
+        "inLanguage": [
+          "es",
+          "en"
+        ],
         "author": {
           "@id": "https://portafolio-renzoramos.com/#renzo"
         }
@@ -224,10 +285,31 @@
         "@id": "https://portafolio-renzoramos.com/#project-booqui",
         "name": "Booqi — Sistema de Gestión de Reservas de Eventos",
         "description": "Plataforma web para descubrir eventos, comprar entradas y gestionar reservas, con arquitectura de microservicios y panel de administración.",
-        "image": "https://portafolio-renzoramos.com/img/projects/booqi/02.jpg",
+        "image": {
+          "@type": "ImageObject",
+          "contentUrl": "https://portafolio-renzoramos.com/img/projects/booqi/booqi-inicio-eventos.jpg",
+          "url": "https://portafolio-renzoramos.com/img/projects/booqi/booqi-inicio-eventos.jpg",
+          "name": "Booqi — Sistema de Gestión de Reservas de Eventos",
+          "caption": "Página de inicio de Booqi con el buscador de eventos y las categorías destacadas",
+          "description": "Página de inicio de Booqi con el buscador de eventos y las categorías destacadas",
+          "width": 1536,
+          "height": 800,
+          "creator": {
+            "@id": "https://portafolio-renzoramos.com/#renzo"
+          },
+          "creditText": "Renzo Ramos",
+          "copyrightNotice": "© Renzo Ramos. Todos los derechos reservados.",
+          "license": "https://portafolio-renzoramos.com/licencia-imagenes.html",
+          "acquireLicensePage": "https://portafolio-renzoramos.com/licencia-imagenes.html"
+        },
         "codeRepository": "https://github.com/RenzoRamosDEV/Booqui-TFG",
-        "programmingLanguage": ["Java", "React"],
-        "author": { "@id": "https://portafolio-renzoramos.com/#renzo" },
+        "programmingLanguage": [
+          "Java",
+          "React"
+        ],
+        "author": {
+          "@id": "https://portafolio-renzoramos.com/#renzo"
+        },
         "url": "https://portafolio-renzoramos.com/#proyectos"
       },
       {
@@ -235,11 +317,29 @@
         "@id": "https://portafolio-renzoramos.com/#project-brainy",
         "name": "Brainy — Plataforma educativa interactiva",
         "description": "Web en español para aprender jugando con lecciones animadas, quizzes y taller de ortografía de Matemáticas, Lengua, Ciencias, Sociales e Inglés.",
-        "image": "https://portafolio-renzoramos.com/img/projects/brainy/02.jpg",
+        "image": {
+          "@type": "ImageObject",
+          "contentUrl": "https://portafolio-renzoramos.com/img/projects/brainy/brainy-inicio-alumno.jpg",
+          "url": "https://portafolio-renzoramos.com/img/projects/brainy/brainy-inicio-alumno.jpg",
+          "name": "Brainy — Plataforma educativa interactiva",
+          "caption": "Inicio de Brainy con puntos, niveles, ranking y los mundos de Matemáticas y Lengua",
+          "description": "Inicio de Brainy con puntos, niveles, ranking y los mundos de Matemáticas y Lengua",
+          "width": 1536,
+          "height": 800,
+          "creator": {
+            "@id": "https://portafolio-renzoramos.com/#renzo"
+          },
+          "creditText": "Renzo Ramos",
+          "copyrightNotice": "© Renzo Ramos. Todos los derechos reservados.",
+          "license": "https://portafolio-renzoramos.com/licencia-imagenes.html",
+          "acquireLicensePage": "https://portafolio-renzoramos.com/licencia-imagenes.html"
+        },
         "applicationCategory": "EducationalApplication",
         "operatingSystem": "Web",
         "inLanguage": "es",
-        "author": { "@id": "https://portafolio-renzoramos.com/#renzo" },
+        "author": {
+          "@id": "https://portafolio-renzoramos.com/#renzo"
+        },
         "url": "https://renzoramosdev.github.io/Brainy-Site/"
       },
       {
@@ -247,10 +347,31 @@
         "@id": "https://portafolio-renzoramos.com/#project-agentboard",
         "name": "AgentBoard — Panel de coste y actividad de agentes de IA",
         "description": "Aplicación de escritorio que muestra el coste y la actividad de Claude Code, Codex, Copilot, Cursor, Gemini y OpenCode leyendo sus logs en local.",
-        "image": "https://portafolio-renzoramos.com/img/projects/agentboard/01.jpg",
+        "image": {
+          "@type": "ImageObject",
+          "contentUrl": "https://portafolio-renzoramos.com/img/projects/agentboard/agentboard-resumen-coste-agentes-ia.jpg",
+          "url": "https://portafolio-renzoramos.com/img/projects/agentboard/agentboard-resumen-coste-agentes-ia.jpg",
+          "name": "AgentBoard — Panel de coste y actividad de agentes de IA",
+          "caption": "Resumen de AgentBoard con el coste, las sesiones y el gasto diario por agente",
+          "description": "Resumen de AgentBoard con el coste, las sesiones y el gasto diario por agente",
+          "width": 1536,
+          "height": 800,
+          "creator": {
+            "@id": "https://portafolio-renzoramos.com/#renzo"
+          },
+          "creditText": "Renzo Ramos",
+          "copyrightNotice": "© Renzo Ramos. Todos los derechos reservados.",
+          "license": "https://portafolio-renzoramos.com/licencia-imagenes.html",
+          "acquireLicensePage": "https://portafolio-renzoramos.com/licencia-imagenes.html"
+        },
         "codeRepository": "https://github.com/RenzoRamosDEV/AgentBoard",
-        "programmingLanguage": ["Rust", "TypeScript"],
-        "author": { "@id": "https://portafolio-renzoramos.com/#renzo" },
+        "programmingLanguage": [
+          "Rust",
+          "TypeScript"
+        ],
+        "author": {
+          "@id": "https://portafolio-renzoramos.com/#renzo"
+        },
         "url": "https://renzoramosdev.github.io/AgentBoard/"
       },
       {
@@ -258,10 +379,32 @@
         "@id": "https://portafolio-renzoramos.com/#project-pokedex",
         "name": "Pokédex Retro",
         "description": "Pokédex estática con estética Game Boy sobre PokéAPI, con chat de IA (Claude u OpenAI) en el navegador y servidor MCP con 12 herramientas.",
-        "image": "https://portafolio-renzoramos.com/img/projects/pokedex/01.jpg",
+        "image": {
+          "@type": "ImageObject",
+          "contentUrl": "https://portafolio-renzoramos.com/img/projects/pokedex/pokedex-retro-listado-pokemon.jpg",
+          "url": "https://portafolio-renzoramos.com/img/projects/pokedex/pokedex-retro-listado-pokemon.jpg",
+          "name": "Pokédex Retro",
+          "caption": "Pokédex Retro con estética Game Boy mostrando el listado de Pokémon de PokéAPI",
+          "description": "Pokédex Retro con estética Game Boy mostrando el listado de Pokémon de PokéAPI",
+          "width": 1536,
+          "height": 800,
+          "creator": {
+            "@id": "https://portafolio-renzoramos.com/#renzo"
+          },
+          "creditText": "Renzo Ramos",
+          "copyrightNotice": "© Renzo Ramos. Todos los derechos reservados.",
+          "license": "https://portafolio-renzoramos.com/licencia-imagenes.html",
+          "acquireLicensePage": "https://portafolio-renzoramos.com/licencia-imagenes.html"
+        },
         "codeRepository": "https://github.com/RenzoRamosDEV/Pokedex-Retro",
-        "programmingLanguage": ["JavaScript", "HTML", "CSS"],
-        "author": { "@id": "https://portafolio-renzoramos.com/#renzo" },
+        "programmingLanguage": [
+          "JavaScript",
+          "HTML",
+          "CSS"
+        ],
+        "author": {
+          "@id": "https://portafolio-renzoramos.com/#renzo"
+        },
         "url": "https://portafolio-renzoramos.com/#proyectos"
       },
       {

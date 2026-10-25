@@ -3,13 +3,14 @@ import { personal } from '../data/personal.js';
 import { LOGO, HEADER_NAV } from '../data/site.js';
 import { navLinks } from '../components/nav-links.js';
 import { sectionBackground } from '../components/section-background.js';
+import { picture } from '../components/picture.js';
 
 // Los enlaces del menú llevan a las secciones de la página principal
 const homeNav = HEADER_NAV.map(i => ({ ...i, href: `./${i.href}` }));
 
 export const renderPersonalHero = () => `<section class="personal-hero">
   <header>
-    <a class="logo" href="./"><img src="${LOGO.src}" alt="${LOGO.alt}"></a>
+    <a class="logo" href="./">${picture({ ...LOGO, sizes: '250px', loading: 'eager' })}</a>
 
     <nav class="main">
       ${navLinks(homeNav, '      ')}
@@ -28,7 +29,8 @@ export const renderPersonalHero = () => `<section class="personal-hero">
     </div>
     <div class="personal-photo">
       <div class="ring"></div>
-      <img src="media/renzo-personal.png" alt="Renzo Ramos de los Ríos, desarrollador de software e IA en Madrid, saludando con las manos">
+      ${picture({ src: 'media/renzo-ramos-de-los-rios-sobre-mi.png', w: 1040, h: 966, priority: true, sizes: '(max-width: 1000px) 480px, 610px',
+        alt: 'Renzo Ramos de los Ríos, desarrollador de software e IA en Madrid, saludando con las manos' })}
     </div>
   </div>
 </section>`;

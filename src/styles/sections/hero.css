@@ -66,7 +66,7 @@
 
 .person {
   position: absolute; left: 50%; bottom: -100px;
-  height: min(880px, calc(100vh - 20px)); transform: translateX(-52%);
+  height: min(880px, calc(100vh - 20px)); width: auto; transform: translateX(-52%);
   z-index: 5; pointer-events: none;
   /* La parte baja de la foto se funde a negro solo en el borde, para que el arco no se vea a través de la sudadera */
   -webkit-mask-image: linear-gradient(to top, transparent 100px, #000 170px);

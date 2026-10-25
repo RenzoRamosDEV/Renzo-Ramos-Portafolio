@@ -34,7 +34,7 @@ export const renderProjects = () => `<section class="projects" id="proyectos">
     </div>
     <div class="stage">
       <div class="laptop" id="pj-laptop">
-        <div class="screen swap" id="pj-screen">${projectShot(first)}<div class="shine"></div></div>
+        <div class="screen swap" id="pj-screen">${projectShot(first, true)}<div class="shine"></div></div>
         <div class="base"></div>
       </div>
     </div>

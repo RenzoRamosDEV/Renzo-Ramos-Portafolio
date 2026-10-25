@@ -1,7 +1,7 @@
 /* ---------- Footer ---------- */
 .footer { position: relative; overflow: hidden; background: #000; color: #9a9a9a; padding: 22px 42px 0; }
 .footer .top { position: relative; z-index: 1; display: flex; justify-content: space-between; align-items: center; gap: 30px; flex-wrap: wrap; }
-.footer .top img.logo { height: 34px; }
+.footer .top img.logo { height: 34px; width: auto; }
 .footer nav { display: flex; gap: 28px; flex-wrap: wrap; }
 .footer nav a { font-family: "Bebas Neue", sans-serif; font-size: 17px; color: #cfcfcf; text-decoration: none; transition: color .2s; }
 .footer nav a:hover { color: var(--accent); }

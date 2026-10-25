@@ -5,3 +5,5 @@ body {
   font-family: "Oswald", sans-serif;
   overflow-x: hidden;
 }
+/* <picture> no crea caja: la <img> de dentro se maqueta como si estuviera sola */
+picture { display: contents; }
