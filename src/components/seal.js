@@ -3,7 +3,8 @@ import { circleText } from '../svg/circle-text.js';
 import { pad } from '../utils/format.js';
 
 export const seal = (c, i) => `
-      <button class="seal" data-i="${i}" aria-label="Ver certificado ${c.title}">
+      <button class="seal" data-i="${i}">
+        <span class="sr-only">Ver certificado</span>
         <span class="ring-wrap" style="display:block">
           ${circleText({
             cls: 'ring', size: 230, radius: 95, pathId: `seal-path-${i}`, textLength: 595, ariaHidden: true,

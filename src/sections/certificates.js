@@ -13,7 +13,7 @@ export const renderCertificates = () => `<section class="certs" id="certificados
 </section>`;
 
 export const renderCertViewer = () => modal({
-  id: 'viewer', labelledBy: 'v-title', closeId: 'v-close', boxClass: 'box',
+  id: 'viewer', labelledBy: 'v-title', label: 'Visor de certificado', closeId: 'v-close', boxClass: 'box',
   content: `
     <div class="doc" id="v-doc"></div>
     <div class="bar">

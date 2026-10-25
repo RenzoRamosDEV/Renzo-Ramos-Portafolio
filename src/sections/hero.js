@@ -10,7 +10,7 @@ export const renderHero = () => `<section class="hero">
   <header>
     <a class="logo" href="#">${picture({ ...LOGO, sizes: '250px', loading: 'eager' })}</a>
 
-    <nav class="main">
+    <nav class="main" aria-label="Principal">
       ${navLinks(HEADER_NAV, '      ')}
     </nav>
 

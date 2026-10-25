@@ -10,7 +10,7 @@ import { $ } from '../utils/dom.js';
 export const renderFooter = (nav = FOOTER_NAV) => `<footer class="footer">
   <div class="top">
     ${picture({ ...LOGO, cls: 'logo', sizes: '150px' })}
-    <nav>
+    <nav aria-label="Secciones del portafolio">
       ${navLinks(nav, '      ')}
     </nav>
     <button class="to-top" id="to-top" aria-label="Volver arriba">
