@@ -52,6 +52,8 @@ export function initExperience() {
   const current = {};
   const pairs = document.querySelector('#experiencia .exp-pairs');
   let openSlot = null;
+  const tablet = matchMedia('(min-width: 700px) and (max-width: 1000px)');
+  let restoreTimer;
   function openJob(g) {
     const d = current[g], $d = id => el(g, `d-${id}`);
     $d('kicker').textContent = d.kicker; $d('role').textContent = d.role;
@@ -59,6 +61,8 @@ export function initExperience() {
     $d('h').textContent = d.left[0]; $d('p').textContent = d.left[1];
     $d('list').innerHTML = listItems(d.list);
     closeJob(false);
+    clearTimeout(restoreTimer);
+    pairs.querySelectorAll('.closing').forEach(p => p.classList.remove('closing'));
     openSlot = g;
     pairs.classList.add('detail');
     el(g, 'card').parentElement.classList.add('open');
@@ -70,8 +74,14 @@ export function initExperience() {
   function closeJob(focus = true) {
     if (!openSlot) return;
     const g = openSlot; openSlot = null;
-    pairs.classList.remove('detail');
-    el(g, 'card').parentElement.classList.remove('open');
+    const pair = el(g, 'card').parentElement;
+    pair.classList.remove('open');
+    // En tablet la otra tarjeta vuelve cuando el detalle ya se ha recogido (si no, no cabrían y saltaría de fila)
+    clearTimeout(restoreTimer);
+    if (tablet.matches) {
+      pair.classList.add('closing');
+      restoreTimer = setTimeout(() => { pair.classList.remove('closing'); if (!openSlot) pairs.classList.remove('detail'); }, 600);
+    } else pairs.classList.remove('detail');
     el(g, 'detail').setAttribute('aria-hidden', 'true');
     el(g, 'more').setAttribute('aria-expanded', 'false');
     if (focus) el(g, 'more').focus({ preventScroll: true });

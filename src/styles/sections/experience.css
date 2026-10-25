@@ -83,7 +83,9 @@
   .exp-pair { flex-direction: row; align-items: flex-start; }
   .exp-pair.open { max-width: none; }
   /* La otra tarjeta se quita al instante: si se desvaneciera, durante la animación no cabrían y la abierta saltaría de fila */
-  .exp-pairs.detail .exp-pair:not(.open) { display: none; }
+  .exp-pairs.detail .exp-pair:not(.open):not(.closing) { display: none; }
+  /* La que se está cerrando sigue visible mientras su detalle se recoge */
+  .exp-pairs.detail .exp-pair.closing { max-width: none; opacity: 1; overflow: visible; pointer-events: auto; }
   .exp-detail { width: 0; max-height: none; transition: width .6s cubic-bezier(.22,1,.36,1); }
   .exp-pair.open .exp-detail { width: min(624px, 100vw - 376px); max-height: none; }
   .exp-detail-card { width: calc(min(624px, 100vw - 376px) - 24px); height: auto; min-height: var(--card-h, auto); margin: 0 0 0 24px; transform: translateX(-100%); }
