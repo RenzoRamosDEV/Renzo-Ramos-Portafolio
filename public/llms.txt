@@ -74,11 +74,12 @@
   herramienta web que mejora o reformula textos con IA (control de tono, intensidad e instrucciones).
   Frontend React + Vite + TailwindCSS + i18next (ES/EN); backend Node.js + Express con Google
   Generative AI (Gemini) y Groq SDK, con medidas de seguridad (helmet, CORS, rate limiting).
-- [Pokédex Retro + Chatbot ReAct (MCP)](https://github.com/RenzoRamosDEV/Pokedex-Retro):
-  app web completa que combina una Pokédex retro (interfaz en CSS puro, 3 temas) con un chatbot de
-  IA que razona paso a paso (ReAct) y consulta datos en tiempo real. Backend API REST en Scala +
-  Play Framework; servidor MCP en Python expone los datos como herramientas; agente ReAct con
-  OpenAI SDK + FastAPI. Integra el Model Context Protocol (MCP).
+- [Pokédex Retro](https://github.com/RenzoRamosDEV/Pokedex-Retro):
+  Pokédex estática con estética Game Boy sobre PokéAPI v2, sin frameworks ni build (JavaScript con
+  módulos ES, HTML y CSS), publicada en GitHub Pages. Tres temas, CSP estricta y WCAG 2.1 AA. Incluye
+  un chat con Claude u OpenAI que usa la clave del visitante desde el navegador (agente principal,
+  subagentes y skills) y un servidor MCP en Node.js con 12 herramientas para consultarla desde Claude.
+  Tests e2e con Playwright y mutation testing con Stryker.
   Demo: https://renzoramosdev.github.io/Pokedex-Retro/index.html
 
 ## Notas

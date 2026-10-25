@@ -39,26 +39,28 @@ export const projects = [
   },
   {
     "name": "POKÉDEX RETRO",
-    "sub": "+ CHATBOT REACT (MCP)",
+    "sub": "POKÉDEX GAME BOY CON CHAT DE IA Y SERVIDOR MCP",
     "images": [
       "img/projects/pokedex/01.jpg",
       "img/projects/pokedex/02.jpg",
       "img/projects/pokedex/03.jpg",
       "img/projects/pokedex/04.jpg"
     ],
-    "desc": "Aplicación web completa que combina una Pokédex retro con un chatbot de IA que razona paso a paso (ReAct) y consulta los datos en tiempo real vía MCP.",
+    "desc": "Pokédex estilo Game Boy sobre PokéAPI, sin frameworks ni build, con un chat de IA (Claude u OpenAI) que responde con datos reales y un servidor MCP para consultarla desde Claude.",
     "stack": [
-      "Scala",
-      "Play Framework",
-      "Spray JSON",
-      "Guice",
-      "SBT",
-      "Python",
+      "JavaScript",
+      "HTML",
+      "CSS",
+      "Node.js",
+      "PokéAPI",
       "MCP",
-      "OpenAI SDK",
-      "FastAPI",
-      "Uvicorn",
-      "Requests"
+      "Claude API",
+      "OpenAI API",
+      "Playwright",
+      "Stryker",
+      "axe",
+      "GitHub Actions",
+      "GitHub Pages"
     ],
     "live": "https://renzoramosdev.github.io/Pokedex-Retro/index.html",
     "code": "https://github.com/RenzoRamosDEV/Pokedex-Retro"
