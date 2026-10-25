@@ -181,3 +181,12 @@ los canvas no contienen texto; `sameAs` a GitHub y LinkedIn en el JSON-LD.
 en Informática… administración de sistemas, redes, soporte técnico" y las prácticas hablan de soporte informático,
 mientras el resto de la web dice Técnico Superior en DAM y Junior Full Stack Developer en SEIDOR. Para buscadores y
 asistentes de IA conviene que todo cuente lo mismo. No lo he cambiado porque es texto personal: TODO decidirlo.
+
+## Fase 7 — SEA (Google Ads) y medición: descartada
+
+Decisión del 25/10/2026: **no se hace**. Es un portafolio para conseguir trabajo; a los reclutadores se les llega
+por LinkedIn, por búsquedas del nombre y por enlaces directos, no por anuncios. Google Analytics/Ads obligaría a
+un banner de cookies (RGPD/LSSI) y a cargar JavaScript de Google, a costa del diseño y de la velocidad.
+Alternativas gratuitas, sin cookies y sin código en la web: **Google Search Console** (búsquedas, impresiones,
+clics e imágenes; la web ya está verificada) y **Cloudflare Web Analytics** (el dominio ya pasa por Cloudflare).
+No se crean `seo/sea-plan.md` ni etiquetas de medición; la CSP sigue permitiendo solo el propio dominio.
