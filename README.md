@@ -53,6 +53,7 @@ src/
 │   ├── certificates.js    Certificados
 │   ├── personal.js        Texto de la página personal (frase, datos y capítulos)
 │   ├── faq.js             Preguntas frecuentes (sección visible y FAQPage del JSON-LD)
+│   ├── profile.js         Perfil resumido: bloque "Sobre mí en 30 segundos" y llms.txt / llms-full.txt
 │   └── site.js            Email, enlaces (GitHub, LinkedIn), logo, iconos y navegación
 ├── sections/              Una por sección: render…() devuelve su markup e init…() le da comportamiento
 ├── components/            Piezas reutilizables: reciben datos y devuelven markup
@@ -174,6 +175,7 @@ Las clases, ids y atributos existentes no se renombran: el CSS y el JavaScript d
 | `prerender.js` | Mete el markup de cada sección en el HTML (build y dev). |
 | `sitemap.js` | Genera `dist/sitemap.xml` con todas las páginas e imágenes. |
 | `structured-data.js` | Genera el JSON-LD de la portada desde `src/data/` (lo inserta el prerender). |
+| `llms.js` | Genera `llms.txt` y `llms-full.txt` (para asistentes de IA) desde `src/data/`. |
 | `inline-css.js` | En el build, el CSS va dentro de un `<style>` en cada HTML (sin hojas bloqueantes). |
 | `security-meta.js` | En el build, añade CSP y Referrer-Policy como `<meta>`. Si algún día se carga algo de otro dominio (un script de analítica, una fuente…), hay que añadirlo a la CSP o el navegador lo bloqueará. |
 
