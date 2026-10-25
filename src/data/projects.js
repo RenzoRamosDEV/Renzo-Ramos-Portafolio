@@ -2,32 +2,30 @@
 // "image" es una sola captura; si no hay ninguna, se dibuja una captura de relleno
 export const projects = [
   {
-    "name": "POKÉDEX RETRO",
-    "sub": "POKÉDEX GAME BOY CON CHAT DE IA Y SERVIDOR MCP",
+    "name": "AGENTBOARD",
+    "sub": "PANEL DE COSTE Y ACTIVIDAD DE AGENTES DE IA",
     "images": [
-      "img/projects/pokedex/01.jpg",
-      "img/projects/pokedex/02.jpg",
-      "img/projects/pokedex/03.jpg",
-      "img/projects/pokedex/04.jpg"
+      "img/projects/agentboard/01.jpg",
+      "img/projects/agentboard/02.jpg",
+      "img/projects/agentboard/03.jpg",
+      "img/projects/agentboard/04.jpg",
+      "img/projects/agentboard/05.jpg",
+      "img/projects/agentboard/06.jpg",
+      "img/projects/agentboard/07.jpg"
     ],
-    "desc": "Pokédex estilo Game Boy sobre PokéAPI, sin frameworks ni build, con un chat de IA (Claude u OpenAI) que responde con datos reales y un servidor MCP.",
+    "desc": "App de escritorio que reúne qué hacen Claude Code, Codex, Copilot, Cursor, Gemini y OpenCode, y cuánto cuestan, leyendo sus logs en local. Nada sale del ordenador.",
     "stack": [
-      "JavaScript",
-      "HTML",
-      "CSS",
-      "Node.js",
-      "PokéAPI",
+      "Tauri 2",
+      "Rust",
+      "React",
+      "TypeScript",
+      "Vite",
+      "SQLite",
       "MCP",
-      "Claude API",
-      "OpenAI API",
-      "Playwright",
-      "Stryker",
-      "axe",
-      "GitHub Actions",
-      "GitHub Pages"
+      "OpenSpec"
     ],
-    "live": "https://renzoramosdev.github.io/Pokedex-Retro/index.html",
-    "code": "https://github.com/RenzoRamosDEV/Pokedex-Retro"
+    "live": "https://renzoramosdev.github.io/AgentBoard/",
+    "code": "https://github.com/RenzoRamosDEV/AgentBoard"
   },
   {
     "name": "BRAINY",
@@ -54,30 +52,32 @@ export const projects = [
     "code": ""
   },
   {
-    "name": "AGENTBOARD",
-    "sub": "PANEL DE COSTE Y ACTIVIDAD DE AGENTES DE IA",
+    "name": "POKÉDEX RETRO",
+    "sub": "POKÉDEX GAME BOY CON CHAT DE IA Y SERVIDOR MCP",
     "images": [
-      "img/projects/agentboard/01.jpg",
-      "img/projects/agentboard/02.jpg",
-      "img/projects/agentboard/03.jpg",
-      "img/projects/agentboard/04.jpg",
-      "img/projects/agentboard/05.jpg",
-      "img/projects/agentboard/06.jpg",
-      "img/projects/agentboard/07.jpg"
+      "img/projects/pokedex/01.jpg",
+      "img/projects/pokedex/02.jpg",
+      "img/projects/pokedex/03.jpg",
+      "img/projects/pokedex/04.jpg"
     ],
-    "desc": "App de escritorio que reúne qué hacen Claude Code, Codex, Copilot, Cursor, Gemini y OpenCode, y cuánto cuestan, leyendo sus logs en local. Nada sale del ordenador.",
+    "desc": "Pokédex estilo Game Boy sobre PokéAPI, sin frameworks ni build, con un chat de IA (Claude u OpenAI) que responde con datos reales y un servidor MCP.",
     "stack": [
-      "Tauri 2",
-      "Rust",
-      "React",
-      "TypeScript",
-      "Vite",
-      "SQLite",
+      "JavaScript",
+      "HTML",
+      "CSS",
+      "Node.js",
+      "PokéAPI",
       "MCP",
-      "OpenSpec"
+      "Claude API",
+      "OpenAI API",
+      "Playwright",
+      "Stryker",
+      "axe",
+      "GitHub Actions",
+      "GitHub Pages"
     ],
-    "live": "https://renzoramosdev.github.io/AgentBoard/",
-    "code": "https://github.com/RenzoRamosDEV/AgentBoard"
+    "live": "https://renzoramosdev.github.io/Pokedex-Retro/index.html",
+    "code": "https://github.com/RenzoRamosDEV/Pokedex-Retro"
   },
   {
     "name": "BOOQI",
