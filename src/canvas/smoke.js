@@ -3,25 +3,13 @@ import { prefersReducedMotion } from '../utils/motion.js';
 
 // Se fijan al iniciar el humo (mismo momento que en el script original)
 let reduceMotion, puffs;
+// El humo solo se anima mientras la portada está en pantalla (fuera de ella no se ve y gastaría CPU)
+let heroVisible = true;
 
-// Textura de una bocanada de humo irregular, generada una sola vez
-function makePuff(size) {
-  const c = document.createElement('canvas');
-  c.width = c.height = size;
-  const g = c.getContext('2d');
-  g.filter = `blur(${size * 0.06}px)`;
-  for (let i = 0; i < 14; i++) {
-    const r = size * (0.12 + Math.random() * 0.18);
-    const x = size / 2 + (Math.random() - 0.5) * size * 0.4;
-    const y = size / 2 + (Math.random() - 0.5) * size * 0.3;
-    const grad = g.createRadialGradient(x, y, 0, x, y, r);
-    grad.addColorStop(0, 'rgba(200,200,200,0.14)');
-    grad.addColorStop(1, 'rgba(210,210,210,0)');
-    g.fillStyle = grad;
-    g.beginPath(); g.arc(x, y, r, 0, Math.PI * 2); g.fill();
-  }
-  return c;
-}
+// Texturas de las bocanadas de humo (512×512, transparentes). Antes se calculaban en cada visita con un
+// desenfoque de canvas (≈1,8 s de CPU en móvil); ahora vienen precalculadas: scripts/smoke-textures.mjs las regenera
+const PUFFS = [1, 2, 3, 4].map(n => `opt/media/humo/humo-${n}-512.webp`);
+const loadPuff = src => { const img = new Image(); img.src = src; return img.decode().then(() => img); };
 
 function smokeLayer(canvas, opts) {
   const ctx = canvas.getContext('2d');
@@ -64,8 +52,10 @@ function smokeLayer(canvas, opts) {
       ctx.drawImage(c.sprite, -c.size / 2, -c.size / 2, c.size, c.size);
       ctx.restore();
     }
-    if (!reduceMotion) requestAnimationFrame(frame);
+    if (!reduceMotion) requestAnimationFrame(heroVisible ? frame : waitForHero);
   }
+  // Mientras la portada no se ve, comprueba cada fotograma si ha vuelto sin dibujar nada
+  function waitForHero() { requestAnimationFrame(heroVisible ? frame : waitForHero); }
 
   resize();
   clouds = Array.from({ length: opts.count }, () => makeCloud(true));
@@ -73,9 +63,10 @@ function smokeLayer(canvas, opts) {
   requestAnimationFrame(frame);
 }
 
-export function initSmoke() {
+export async function initSmoke() {
   reduceMotion = prefersReducedMotion();
-  puffs = Array.from({ length: 4 }, () => makePuff(512));
+  puffs = await Promise.all(PUFFS.map(loadPuff));
+  new IntersectionObserver(([e]) => { heroVisible = e.isIntersecting; }).observe(document.querySelector('.hero'));
   smokeLayer(document.getElementById('smoke-back'),  { count: 14, size: [380, 760], band: [0.25, 0.95], alpha: 0.4 });
   smokeLayer(document.getElementById('smoke-front'), { count: 7,  size: [420, 700], band: [0.8, 1.05], alpha: 0.5 });
 }
