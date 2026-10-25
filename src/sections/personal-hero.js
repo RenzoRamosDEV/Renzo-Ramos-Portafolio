@@ -20,14 +20,15 @@ export const renderPersonalHero = () => `<section class="personal-hero">
 
   <div class="personal-wrap">
     <div class="personal-intro">
-      <div class="kicker">PERSONAL · SOBRE MÍ</div>
+      <!-- Migas de pan: Inicio › Sobre mí (también en el JSON-LD de personal.html) -->
+      <nav class="kicker" aria-label="Migas de pan"><a href="./">INICIO</a> · <span aria-current="page">SOBRE MÍ</span></nav>
       <h1>${personal.name}<br><em>${personal.surname}</em></h1>
       <p>${personal.tagline}</p>
       <div class="facts">${personal.facts.map((f, i) => `<span${i === 0 ? ' class="hl"' : ''}>${f}</span>`).join('')}</div>
     </div>
     <div class="personal-photo">
       <div class="ring"></div>
-      <img src="media/renzo-personal.png" alt="Renzo Ramos">
+      <img src="media/renzo-personal.png" alt="Renzo Ramos de los Ríos, desarrollador de software e IA en Madrid, saludando con las manos">
     </div>
   </div>
 </section>`;

@@ -14,6 +14,8 @@
   display: grid; grid-template-columns: 1fr 460px; gap: 60px; align-items: center;
 }
 .personal-intro .kicker { font-family: "Oswald", sans-serif; font-weight: 600; font-size: 11px; letter-spacing: 3px; color: var(--accent); }
+.personal-intro .kicker a { color: inherit; text-decoration: none; }
+.personal-intro .kicker a:hover, .personal-intro .kicker a:focus-visible { text-decoration: underline; text-underline-offset: 3px; }
 .personal-intro h1 { font-family: "Anton", sans-serif; font-weight: 400; font-size: 104px; line-height: 1; color: #fff; margin: 18px 0 24px; }
 .personal-intro h1 em { font-style: normal; color: transparent; -webkit-text-stroke: 2px var(--accent); }
 .personal-intro p { font-family: "Bebas Neue", sans-serif; font-size: 24px; line-height: 30px; color: #cfcfcf; max-width: 560px; }
