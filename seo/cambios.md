@@ -177,10 +177,11 @@ los canvas no contienen texto; `sameAs` a GitHub y LinkedIn en el JSON-LD.
 - Frase-resumen al principio de cada sección (proyectos, experiencia…): cambiaría el diseño de todas; las respuestas
   directas están en "Sobre mí en 30 segundos" y en las preguntas frecuentes.
 
-**Inconsistencia a revisar (texto del usuario):** en "Sobre mí", el capítulo "Formación" dice "Formación Profesional
-en Informática… administración de sistemas, redes, soporte técnico" y las prácticas hablan de soporte informático,
-mientras el resto de la web dice Técnico Superior en DAM y Junior Full Stack Developer en SEIDOR. Para buscadores y
-asistentes de IA conviene que todo cuente lo mismo. No lo he cambiado porque es texto personal: TODO decidirlo.
+**Inconsistencia resuelta (25/10/2026, decisión de Renzo):** en "Sobre mí", los capítulos "Formación" y "Prácticas"
+hablaban de "FP en Informática… sistemas, redes, soporte técnico" y de soporte informático, mientras el resto de la
+web dice Técnico Superior en DAM. Se reescriben en `src/data/personal.js` para DAM (con lo que ya dice la tarjeta de
+CESUR en Educación) y se conservan sus frases sobre competencias; también cambian en `llms-full.txt`, que se genera
+de esos datos.
 
 ## Fase 7 — SEA (Google Ads) y medición: descartada
 

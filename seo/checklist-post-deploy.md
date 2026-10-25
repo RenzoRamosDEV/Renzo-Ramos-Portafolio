@@ -59,7 +59,5 @@ La web ya está verificada con el archivo `google238dbe3bf08d982d.html` (no lo b
       `seo/lighthouse-comparativa.md`. Los datos de usuarios reales (CrUX) tardan semanas en aparecer.
 
 ## Pendiente de decidir
-- [ ] **Texto de "Sobre mí":** el capítulo "Formación" habla de "FP en Informática… sistemas, redes, soporte" y el
-      resto de la web de Técnico Superior en DAM. Conviene que todo cuente lo mismo.
 - [ ] **Icono SVG del favicon:** hace falta el logo en vectorial.
 - [ ] **Competidores / referencias** para comparar posicionamiento (sección 0 del encargo).
