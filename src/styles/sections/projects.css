@@ -18,10 +18,9 @@
   max-width: 640px; margin: 0 auto; padding-top: 80px;
 }
 .projects .wrap {
-  position: relative; max-width: 1400px; margin: 0 auto; padding: 50px 42px 100px;
+  position: relative; max-width: 1480px; margin: 0 auto; padding: 50px clamp(70px, 8vw, 120px) 100px;
   display: grid; grid-template-columns: 420px 1fr; gap: 60px; align-items: center;
 }
-.projects .kicker { font-family: "Oswald", sans-serif; font-weight: 600; font-size: 11px; letter-spacing: 3px; color: #9a9a9a; margin-bottom: 18px; }
 .projects .count { font-family: "Anton", sans-serif; font-size: 22px; color: #6a6a6a; }
 .projects .count b { color: var(--accent); font-size: 40px; font-weight: 400; }
 /* Etiqueta opcional del proyecto (p. ej. "ACTUALIZACIONES CONSTANTES"), debajo del nombre */
@@ -39,13 +38,16 @@
 .projects .stack span { font-size: 12px; letter-spacing: 1.5px; padding: 6px 12px; border-radius: 20px; background: #1f1f1f; border: 1px solid #333; }
 .projects .links { display: flex; gap: 10px; }
 
-.projects .nav { display: flex; gap: 12px; margin-top: 34px; }
-.projects .nav button {
-  width: 54px; height: 54px; border-radius: 50%; border: 1.5px solid #555; background: none; color: #fff;
+/* Flechas a los lados de la sección (centradas con el contenido; el padding de abajo es 50px mayor que el de arriba) */
+.projects .pj-arrow {
+  position: absolute; top: calc(50% - 25px); transform: translateY(-50%); z-index: 2;
+  width: 54px; height: 54px; border-radius: 50%; border: 1.5px solid #555; background: rgba(0,0,0,.35); color: #fff;
   cursor: pointer; display: grid; place-items: center; transition: background .2s, border-color .2s, color .2s;
 }
-.projects .nav button:hover { background: var(--accent); border-color: var(--accent); color: #000; }
-.projects .nav svg { width: 20px; height: 20px; }
+.projects .pj-arrow.prev { left: clamp(10px, 1.5vw, 28px); }
+.projects .pj-arrow.next { right: clamp(10px, 1.5vw, 28px); }
+.projects .pj-arrow:hover { background: var(--accent); border-color: var(--accent); color: #000; }
+.projects .pj-arrow svg { width: 20px; height: 20px; }
 .projects .stage { perspective: 1400px; }
 .projects .laptop { transform-style: preserve-3d; transition: transform .25s ease-out; transform: rotateY(-14deg) rotateX(6deg); }
 .projects .screen {
@@ -83,6 +85,13 @@
 
 @media (max-width: 1000px) {
   .projects .wrap { grid-template-columns: 1fr; padding: 40px 16px 80px; }
+  /* En móvil, a los lados del portátil: su centro queda a 80px (padding) + 16px (base) + media pantalla del fondo */
+  .projects .pj-arrow {
+    top: auto; transform: none; width: 44px; height: 44px; background: rgba(0,0,0,.6);
+    bottom: calc(80px + 16px + ((100vw - 32px) / 1.92 + 30px) / 2 - 22px);
+  }
+  .projects .pj-arrow.prev { left: 6px; }
+  .projects .pj-arrow.next { right: 6px; }
   .projects .pj-name { font-size: 52px; }
   .projects .projects-title { font-size: 34px; line-height: 42px; padding: 60px 16px 0; }
 }

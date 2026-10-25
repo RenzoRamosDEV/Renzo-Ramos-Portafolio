@@ -17,7 +17,6 @@ export const renderProjects = () => `<section class="projects" id="proyectos">
   <h2 class="projects-title">MIS PROYECTOS: APPS, WEBS Y TODO LO QUE HE CONSTRUIDO</h2>
   <div class="wrap">
     <div class="swap" id="pj-text">
-      <div class="kicker">PROYECTOS</div>
       <div class="count"><b id="pj-num">${pad(1)}</b> / <span id="pj-total">${pad(projects.length)}</span></div>
       <h3 class="pj-name" id="pj-name">${first.name}</h3>
       <div class="pj-tag" id="pj-tag"${hidden(first.tag)}><i></i><span id="pj-tag-text">${first.tag || ''}</span></div>
@@ -28,11 +27,10 @@ export const renderProjects = () => `<section class="projects" id="proyectos">
         <a class="btn-o solid" id="pj-live" href="${first.live || '#'}"${hidden(first.live)} target="_blank" rel="noopener">VER PROYECTO ↗</a>
         <a class="btn-o" id="pj-code" href="${first.code || '#'}"${hidden(first.code)} target="_blank" rel="noopener">CÓDIGO</a>
       </div>
-      <div class="nav">
-        <button id="pj-prev" aria-label="Proyecto anterior">${chevronLeft}</button>
-        <button id="pj-next" aria-label="Proyecto siguiente">${chevronRight}</button>
-      </div>
     </div>
+    <!-- Flechas para cambiar de proyecto, a los lados -->
+    <button class="pj-arrow prev" id="pj-prev" aria-label="Proyecto anterior">${chevronLeft}</button>
+    <button class="pj-arrow next" id="pj-next" aria-label="Proyecto siguiente">${chevronRight}</button>
     <div class="stage">
       <div class="laptop" id="pj-laptop">
         <div class="screen swap" id="pj-screen">${projectShot(first, true)}<div class="shine"></div></div>
