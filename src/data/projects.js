@@ -1,9 +1,20 @@
-// Proyectos del carrusel. Si un proyecto no tiene "image", se dibuja una captura de relleno
+// Proyectos del carrusel. "images" (varias capturas) se van pasando en la pantalla del portátil;
+// "image" es una sola captura; si no hay ninguna, se dibuja una captura de relleno
 export const projects = [
   {
     "name": "BOOQI",
     "sub": "SISTEMA DE GESTIÓN DE RESERVAS DE EVENTOS",
-    "image": "img/projects/booqui.jpg",
+    "images": [
+      "img/projects/booqi/01.jpg",
+      "img/projects/booqi/02.jpg",
+      "img/projects/booqi/03.jpg",
+      "img/projects/booqi/04.jpg",
+      "img/projects/booqi/05.jpg",
+      "img/projects/booqi/06.jpg",
+      "img/projects/booqi/07.jpg",
+      "img/projects/booqi/08.jpg",
+      "img/projects/booqi/09.jpg"
+    ],
     "desc": "Plataforma web para descubrir eventos, comprar entradas y gestionar reservas, con arquitectura de microservicios y panel de administración.",
     "stack": [
       "Java",

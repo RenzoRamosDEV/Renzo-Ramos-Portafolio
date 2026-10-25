@@ -6,6 +6,7 @@ import { stackPills } from '../components/stack-pills.js';
 import { chevronLeft, chevronRight } from '../svg/icons.js';
 import { $ } from '../utils/dom.js';
 import { pad } from '../utils/format.js';
+import { prefersReducedMotion } from '../utils/motion.js';
 
 export const renderProjects = () => `<section class="projects" id="proyectos">
   <div class="guide"></div>
@@ -46,7 +47,28 @@ export function initProjects() {
     $('pj-screen').innerHTML = projectShot(p) + '<div class="shine"></div>';
     $('pj-live').href = p.live || '#'; $('pj-live').style.display = p.live ? '' : 'none';
     $('pj-code').href = p.code;
+    startSlides();
   }
+
+  // Si el proyecto tiene varias capturas, se van pasando en la pantalla mientras la sección está a la vista
+  const SLIDE_MS = prefersReducedMotion() ? 5000 : 4200;
+  let timer = null, visible = false;
+  function startSlides() {
+    clearInterval(timer);
+    const slides = $('pj-screen').querySelectorAll('.slide');
+    if (slides.length < 2) return;
+    const dots = $('pj-screen').querySelectorAll('.slide-dots i');
+    $('pj-screen').style.setProperty('--slide-ms', `${SLIDE_MS + 900}ms`);
+    let n = 0;
+    timer = setInterval(() => {
+      if (!visible || document.hidden) return;
+      slides[n].classList.remove('on'); dots[n].classList.remove('on');
+      n = (n + 1) % slides.length;
+      slides[n].classList.add('on'); dots[n].classList.add('on');
+    }, SLIDE_MS);
+  }
+  new IntersectionObserver(([e]) => visible = e.isIntersecting).observe($('pj-screen'));
+
   const swaps = [$('pj-text'), $('pj-screen')];
   const go = step => {
     swaps.forEach(e => e.classList.add('out'));

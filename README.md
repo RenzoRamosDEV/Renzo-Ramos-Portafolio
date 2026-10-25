@@ -86,6 +86,8 @@ Todo el contenido está en `src/data/`. No hace falta tocar componentes ni estil
   "name": "MI PROYECTO",
   "sub": "SUBTÍTULO EN NARANJA",
   "image": "img/projects/mi-proyecto.jpg",   // captura 16:10 en public/img/projects/
+  // o, en vez de "image", varias capturas que se van pasando en el portátil:
+  // "images": ["img/projects/mi-proyecto/01.jpg", "img/projects/mi-proyecto/02.jpg"],
   "desc": "Descripción corta.",
   "stack": ["React", "Node.js"],             // se muestran 8 y un "+N" con el resto
   "live": "https://…",                       // vacío ("") oculta el botón VER PROYECTO
