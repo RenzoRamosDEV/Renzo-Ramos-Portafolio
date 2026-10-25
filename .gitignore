@@ -31,3 +31,6 @@ __pycache__/
 *.sw?
 
 dist-server
+
+# Versiones WebP generadas por scripts/images.mjs (npm run images)
+public/opt/
