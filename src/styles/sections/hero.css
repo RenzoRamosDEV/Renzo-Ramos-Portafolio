@@ -96,6 +96,15 @@
 @media (max-width: 1100px) {
   .title { font-size: 20vw; letter-spacing: -3px; }
 }
+/* Tablet: círculo y nombre más grandes, con el nombre centrado en el círculo */
+@media (min-width: 641px) and (max-width: 1000px) {
+  /* Centro del círculo según el alto de pantalla; la foto empieza 50px por debajo, así la cabeza queda bajo el nombre */
+  .hero { --c-mid: max(100svh - 830px, 400px); }
+  .person { height: min(880px, 100svh + 50px - var(--c-mid)); }
+  .circle { width: 760px; height: 760px; margin-left: -380px; top: calc(var(--c-mid) - 380px); }
+  .gear { width: 921px; height: 921px; margin-left: -460px; top: calc(var(--c-mid) - 460px); }
+  .title { font-size: 25vw; top: calc(var(--c-mid) - 12.5vw); }
+}
 @media (max-width: 640px) {
   /* Móvil: círculo y nombre más grandes, colocados según dónde empieza la foto (que va pegada abajo),
      para que el nombre quede siempre sobre la cabeza también en móviles de pantalla baja */
