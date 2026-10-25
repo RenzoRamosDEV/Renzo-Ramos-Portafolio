@@ -76,11 +76,15 @@
     ]
   }
   </script>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Anton&family=Bebas+Neue&family=Oswald:wght@500;600&display=swap" rel="stylesheet">
+  <!-- Fuentes autoalojadas (src/styles/base/fonts.css): se precargan las que se ven nada más abrir -->
+  <link rel="preload" href="/fonts/anton-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/bebas-neue-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/oswald-latin.woff2" as="font" type="font/woff2" crossorigin>
 </head>
 <body>
+<a class="skip-link" href="#contenido">Saltar al contenido</a>
+
+<main id="contenido" tabindex="-1">
 
 <div data-mount="personal-hero"></div>
 
@@ -89,6 +93,8 @@
 <div data-mount="personal-story"></div>
 
 <div data-mount="bar-ramos"></div>
+
+</main>
 
 <div data-mount="footer"></div>
 

@@ -79,3 +79,51 @@ compresión WebP dentro de las fotos.
 
 **Fuera del repo (ver checklist post-deploy):** la caché de imágenes la marca Cloudflare/GitHub Pages
 (`max-age=14400`, 4 h); se puede alargar con una regla de caché en Cloudflare.
+
+## Fase 4 — SEO técnico
+
+**Resultado (Lighthouse, build local; los datos de producción serán algo mejores porque Cloudflare comprime con brotli):**
+
+| Página | Rendimiento | Accesibilidad | LCP | CLS | FCP |
+|---|---|---|---|---|---|
+| `/` móvil: inicio → fin de fase | 62 → **86** | 96 → **100** | 5,5 s → 2,9 s (2,6 s con brotli) | 0,173 → **0** | 2,6 s → **1,5 s** |
+| `/personal.html` móvil | 51 → **98** | 100 → 100 | 5,7 s → **2,3 s** | 0,827 → **0** | 2,5 s → **1,2 s** |
+| `/` escritorio | 80 → **90** | 96 → **100** | 1,1 s → **0,6 s** | 0,165 → **0** | 0,7 s → **0,3 s** |
+
+El TBT medido en local varía entre ejecuciones (0,3–8 s) porque depende de la carga del equipo y de que el
+humo se dibuja por software en Chrome sin GPU; en navegadores reales se dibuja por GPU.
+
+| Archivo | Cambio | Por qué |
+|---|---|---|
+| `public/fonts/*.woff2` (6), `src/styles/base/fonts.css` (nuevos), `src/styles/main.css` | Anton, Bebas Neue y Oswald 500/600 autoalojadas (latin + latin-ext, `font-display: swap`, mismos `unicode-range` que Google). | Fuera la petición bloqueante a Google Fonts y el CLS de 0,84 que causaba en "Sobre mí". |
+| `index.html`, `personal.html` | Quitados `preconnect` y CSS de Google Fonts; `preload` de los 3 WOFF2 latin; `<main id="contenido">` y enlace "Saltar al contenido". | Render y accesibilidad. |
+| `vite/inline-css.js` (nuevo) | En el build, el CSS (≈6 KB con brotli) va en un `<style>` dentro de cada HTML. | Sin hojas de estilo bloqueantes. |
+| `src/canvas/smoke.js`, `public/media/humo/*.png` (4, nuevas), `scripts/smoke-textures.mjs` (nuevo) | Las 4 texturas del humo se cargan como imágenes (WebP, generadas una vez con el mismo algoritmo) en vez de calcularse en cada visita; el humo deja de dibujarse mientras la portada no se ve. | Calcularlas costaba ≈1,8 s de CPU en móvil. Mismo aspecto. |
+| `public/404.html` (nueva) | 404 con el estilo de la web, `noindex` y enlaces a inicio, proyectos, experiencia, Sobre mí y contacto. | GitHub Pages la sirve para cualquier URL que no exista. |
+| `src/sections/hero.js`, `personal-hero.js`, `footer.js` | `aria-label` en los `<nav>` ("Principal", "Secciones del portafolio"). | Landmarks con nombre. |
+| `src/components/modal.js`, `src/sections/certificates.js` | El visor tiene nombre ("Visor de certificado") aunque su título esté vacío. | Fallo `aria-dialog-name` de Lighthouse. |
+| `src/components/seal.js` | Sin `aria-label`: el nombre del sello es su texto visible, con "Ver certificado" delante solo para lectores de pantalla. | Fallo `label-content-name-mismatch`. |
+| `src/styles/base/utilities.css` | Estilos del enlace "Saltar al contenido" (solo aparece con el teclado) y foco visible naranja con teclado (`:focus-visible`). | Teclado. |
+| `vite/security-meta.js` (nuevo), `public/*.html` | CSP (todo desde el propio dominio) y `Referrer-Policy: strict-origin-when-cross-origin` como `<meta>`, justo tras el `charset`. Solo en el build. | GitHub Pages no permite cabeceras HTTP propias. Sin violaciones en la prueba. |
+| `public/robots.txt` | `Disallow: /assets/*.map`. | |
+
+**Queda como está, a propósito:** el botón "Volver arriba" se llama "Volver arriba" aunque el aro dice
+"VOLVER ARRIBA · VOLVER ARRIBA ·". Lighthouse lo avisa, pero no baja la puntuación (100) y repetir el texto
+sería peor para los lectores de pantalla.
+
+### Redirecciones y dominio (comprobado en el dominio real)
+- `http://` → `https://` y `www` → sin `www`: ya responden **301** a `https://portafolio-renzoramos.com/`.
+- Configuración: `public/CNAME` con `portafolio-renzoramos.com`; en GitHub → Settings → Pages: dominio propio
+  y **Enforce HTTPS** activado; en DNS (Cloudflare), registros A/AAAA del dominio raíz a GitHub Pages y
+  `www` como CNAME a `renzoramosdev.github.io`. Pasos en `seo/checklist-post-deploy.md`.
+
+### Propuesta: rutas propias por sección (no implementada)
+Hoy hay una página principal con anclas (`/#proyectos`, `/#experiencia`…). Con el prerender, todo su contenido
+ya es HTML indexable, así que dividirla **no es necesario** para que se lea. Solo compensaría para posicionar
+cada proyecto por su propia búsqueda (p. ej. "AgentBoard coste agentes IA"). Plan si se quiere:
+1. Una página por proyecto: `/proyectos/agentboard/`, `/proyectos/brainy/`, `/proyectos/pokedex-retro/`,
+   `/proyectos/booqi/`, generadas por el mismo prerender a partir de `src/data/projects.js` (texto, todas las
+   capturas con alt, enlaces, `SoftwareSourceCode` propio).
+2. El carrusel de la portada no cambia; cada proyecto añade un enlace "Ver ficha del proyecto".
+3. Los anclas actuales (`/#proyectos`, etc.) siguen funcionando: no hace falta ninguna redirección.
+4. Añadir las rutas al sitemap (`vite/sitemap.js`) y a `llms.txt`.
