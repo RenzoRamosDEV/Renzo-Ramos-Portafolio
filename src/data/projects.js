@@ -1,8 +1,13 @@
 // Proyectos del carrusel. "images" son las capturas que se van pasando en la pantalla del portátil:
-// cada una con su "src" (1536×800, en public/img/projects/) y su "alt". Sin capturas, se dibuja una de relleno
+// cada una con su "src" (1536×800, en public/img/projects/) y su "alt". Sin capturas, se dibuja una de relleno.
+// "title" (nombre con mayúsculas normales), "created" (fecha de creación del repositorio) y "languages"
+// solo se usan en los datos estructurados (JSON-LD, vite/structured-data.js)
 export const projects = [
   {
     "name": "AGENTBOARD",
+    "title": "AgentBoard",
+    "created": "2026-09-25",
+    "languages": ["Rust", "TypeScript"],
     "sub": "PANEL DE COSTE Y ACTIVIDAD DE AGENTES DE IA",
     "images": [
       { "src": "img/projects/agentboard/agentboard-resumen-coste-agentes-ia.jpg", "alt": "Resumen de AgentBoard con el coste, las sesiones y el gasto diario por agente" },
@@ -29,6 +34,9 @@ export const projects = [
   },
   {
     "name": "BRAINY",
+    "title": "Brainy",
+    "created": "2026-10-12",
+    "languages": ["TypeScript"],
     "sub": "PLATAFORMA EDUCATIVA INTERACTIVA",
     "tag": "ACTUALIZACIONES CONSTANTES",
     "images": [
@@ -53,6 +61,9 @@ export const projects = [
   },
   {
     "name": "POKÉDEX RETRO",
+    "title": "Pokédex Retro",
+    "created": "2026-10-23",
+    "languages": ["JavaScript", "HTML", "CSS"],
     "sub": "POKÉDEX GAME BOY CON CHAT DE IA Y SERVIDOR MCP",
     "images": [
       { "src": "img/projects/pokedex/pokedex-retro-listado-pokemon.jpg", "alt": "Pokédex Retro con estética Game Boy mostrando el listado de Pokémon de PokéAPI" },
@@ -81,6 +92,9 @@ export const projects = [
   },
   {
     "name": "BOOQI",
+    "title": "Booqi",
+    "created": "2026-05-13",
+    "languages": ["Java", "TypeScript"],
     "sub": "SISTEMA DE GESTIÓN DE RESERVAS DE EVENTOS",
     "images": [
       { "src": "img/projects/booqi/booqi-iniciar-sesion.jpg", "alt": "Pantalla de inicio de sesión de Booqi, la plataforma de reservas de eventos" },
