@@ -1,17 +1,17 @@
-// Proyectos del carrusel. "images" (varias capturas) se van pasando en la pantalla del portátil;
-// "image" es una sola captura; si no hay ninguna, se dibuja una captura de relleno
+// Proyectos del carrusel. "images" son las capturas que se van pasando en la pantalla del portátil:
+// cada una con su "src" (1536×800, en public/img/projects/) y su "alt". Sin capturas, se dibuja una de relleno
 export const projects = [
   {
     "name": "AGENTBOARD",
     "sub": "PANEL DE COSTE Y ACTIVIDAD DE AGENTES DE IA",
     "images": [
-      "img/projects/agentboard/01.jpg",
-      "img/projects/agentboard/02.jpg",
-      "img/projects/agentboard/03.jpg",
-      "img/projects/agentboard/04.jpg",
-      "img/projects/agentboard/05.jpg",
-      "img/projects/agentboard/06.jpg",
-      "img/projects/agentboard/07.jpg"
+      { "src": "img/projects/agentboard/agentboard-resumen-coste-agentes-ia.jpg", "alt": "Resumen de AgentBoard con el coste, las sesiones y el gasto diario por agente" },
+      { "src": "img/projects/agentboard/agentboard-coste-por-agente.jpg", "alt": "AgentBoard con el coste y las llamadas de cada agente: Claude Code, Codex y OpenCode" },
+      { "src": "img/projects/agentboard/agentboard-coste-por-proyecto.jpg", "alt": "Tabla de AgentBoard con el coste y las sesiones de cada proyecto de código" },
+      { "src": "img/projects/agentboard/agentboard-proyectos-y-sesiones.jpg", "alt": "Lista de proyectos en AgentBoard con sus agentes, ramas, tiempo activo y coste" },
+      { "src": "img/projects/agentboard/agentboard-servidores-mcp.jpg", "alt": "AgentBoard mostrando las llamadas y los errores de cada servidor MCP" },
+      { "src": "img/projects/agentboard/agentboard-tipos-de-agente.jpg", "alt": "Coste y uso por tipo de agente y subagente en el panel de AgentBoard" },
+      { "src": "img/projects/agentboard/agentboard-precios-y-presupuestos.jpg", "alt": "Precios por modelo y presupuestos mensuales configurables en AgentBoard" }
     ],
     "desc": "App de escritorio que reúne qué hacen Claude Code, Codex, Copilot, Cursor, Gemini y OpenCode, y cuánto cuestan, leyendo sus logs en local. Nada sale del ordenador.",
     "stack": [
@@ -32,10 +32,10 @@ export const projects = [
     "sub": "PLATAFORMA EDUCATIVA INTERACTIVA",
     "tag": "ACTUALIZACIONES CONSTANTES",
     "images": [
-      "img/projects/brainy/01.jpg",
-      "img/projects/brainy/02.jpg",
-      "img/projects/brainy/03.jpg",
-      "img/projects/brainy/04.jpg"
+      { "src": "img/projects/brainy/brainy-iniciar-sesion.jpg", "alt": "Pantalla de entrada de Brainy, la web educativa en español para aprender jugando" },
+      { "src": "img/projects/brainy/brainy-inicio-alumno.jpg", "alt": "Inicio de Brainy con puntos, niveles, ranking y los mundos de Matemáticas y Lengua" },
+      { "src": "img/projects/brainy/brainy-mis-lecciones.jpg", "alt": "Mis lecciones en Brainy con el progreso de cada lección por asignatura" },
+      { "src": "img/projects/brainy/brainy-leccion-division-animada.jpg", "alt": "Lección animada de Brainy que explica una división de tres cifras paso a paso" }
     ],
     "desc": "Web en español para aprender jugando: lecciones animadas paso a paso, quizzes y taller de ortografía de Matemáticas, Lengua, Ciencias, Sociales e Inglés, con puntos, niveles y ranking.",
     "stack": [
@@ -55,10 +55,10 @@ export const projects = [
     "name": "POKÉDEX RETRO",
     "sub": "POKÉDEX GAME BOY CON CHAT DE IA Y SERVIDOR MCP",
     "images": [
-      "img/projects/pokedex/01.jpg",
-      "img/projects/pokedex/02.jpg",
-      "img/projects/pokedex/03.jpg",
-      "img/projects/pokedex/04.jpg"
+      { "src": "img/projects/pokedex/pokedex-retro-listado-pokemon.jpg", "alt": "Pokédex Retro con estética Game Boy mostrando el listado de Pokémon de PokéAPI" },
+      { "src": "img/projects/pokedex/pokedex-retro-ficha-bulbasaur.jpg", "alt": "Ficha de Bulbasaur en Pokédex Retro con sus tipos, habilidades y estadísticas base" },
+      { "src": "img/projects/pokedex/pokedex-retro-habilidades.jpg", "alt": "Sección de habilidades de Pokédex Retro con la descripción de cada habilidad" },
+      { "src": "img/projects/pokedex/pokedex-retro-objetos.jpg", "alt": "Listado de objetos de Pokédex Retro con su categoría, precio y efecto" }
     ],
     "desc": "Pokédex estilo Game Boy sobre PokéAPI, sin frameworks ni build, con un chat de IA (Claude u OpenAI) que responde con datos reales y un servidor MCP.",
     "stack": [
@@ -83,15 +83,15 @@ export const projects = [
     "name": "BOOQI",
     "sub": "SISTEMA DE GESTIÓN DE RESERVAS DE EVENTOS",
     "images": [
-      "img/projects/booqi/01.jpg",
-      "img/projects/booqi/02.jpg",
-      "img/projects/booqi/03.jpg",
-      "img/projects/booqi/04.jpg",
-      "img/projects/booqi/05.jpg",
-      "img/projects/booqi/06.jpg",
-      "img/projects/booqi/07.jpg",
-      "img/projects/booqi/08.jpg",
-      "img/projects/booqi/09.jpg"
+      { "src": "img/projects/booqi/booqi-iniciar-sesion.jpg", "alt": "Pantalla de inicio de sesión de Booqi, la plataforma de reservas de eventos" },
+      { "src": "img/projects/booqi/booqi-inicio-eventos.jpg", "alt": "Página de inicio de Booqi con el buscador de eventos y las categorías destacadas" },
+      { "src": "img/projects/booqi/booqi-contacto.jpg", "alt": "Formulario de contacto de Booqi para dudas sobre entradas y eventos" },
+      { "src": "img/projects/booqi/booqi-detalle-evento.jpg", "alt": "Detalle de un evento en Booqi con fecha, lugar y compra de entradas" },
+      { "src": "img/projects/booqi/booqi-carrito.jpg", "alt": "Carrito de Booqi con entradas para dos eventos y el resumen del pedido" },
+      { "src": "img/projects/booqi/booqi-pago.jpg", "alt": "Pantalla de pago de Booqi con tarjeta de crédito, débito o PayPal" },
+      { "src": "img/projects/booqi/booqi-pago-completado-entradas-qr.jpg", "alt": "Pago completado en Booqi con las entradas compradas y sus códigos QR" },
+      { "src": "img/projects/booqi/booqi-mis-reservas.jpg", "alt": "Mis reservas en Booqi con las entradas confirmadas de cada evento" },
+      { "src": "img/projects/booqi/booqi-panel-administracion.jpg", "alt": "Panel de administración de Booqi con usuarios, eventos y ventas" }
     ],
     "desc": "Plataforma web para descubrir eventos, comprar entradas y gestionar reservas, con arquitectura de microservicios y panel de administración.",
     "stack": [
