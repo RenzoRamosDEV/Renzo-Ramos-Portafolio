@@ -13,7 +13,7 @@ export const renderProjects = () => `<section class="projects" id="proyectos">
   <div class="wrap">
     <div class="swap" id="pj-text">
       <div class="kicker">PROYECTOS</div>
-      <div class="count"><b id="pj-num"></b> / <span id="pj-total"></span></div>
+      <div class="count"><b id="pj-num"></b> / <span id="pj-total"></span><span class="pj-tag" id="pj-tag"><i></i><span id="pj-tag-text"></span></span></div>
       <h2 id="pj-name"></h2>
       <div class="sub" id="pj-sub"></div>
       <p id="pj-desc"></p>
@@ -43,6 +43,7 @@ export function initProjects() {
     const p = projects[i];
     $('pj-num').textContent = pad(i + 1); $('pj-name').textContent = p.name; $('pj-sub').textContent = p.sub; $('pj-desc').textContent = p.desc;
     $('pj-stack').innerHTML = stackPills(p.stack);
+    $('pj-tag-text').textContent = p.tag || ''; $('pj-tag').style.display = p.tag ? '' : 'none';
     $('pj-screen').innerHTML = projectShot(p) + '<div class="shine"></div>';
     $('pj-live').href = p.live || '#'; $('pj-live').style.display = p.live ? '' : 'none';
     $('pj-code').href = p.code || '#'; $('pj-code').style.display = p.code ? '' : 'none';

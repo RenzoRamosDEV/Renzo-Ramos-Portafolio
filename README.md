@@ -85,6 +85,7 @@ Todo el contenido está en `src/data/`. No hace falta tocar componentes ni estil
 {
   "name": "MI PROYECTO",
   "sub": "SUBTÍTULO EN NARANJA",
+  "tag": "ACTUALIZACIONES CONSTANTES",        // opcional: etiqueta junto al número
   "image": "img/projects/mi-proyecto.jpg",   // captura 16:10 en public/img/projects/
   // o, en vez de "image", varias capturas que se van pasando en el portátil:
   // "images": ["img/projects/mi-proyecto/01.jpg", "img/projects/mi-proyecto/02.jpg"],

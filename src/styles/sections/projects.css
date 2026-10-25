@@ -17,6 +17,14 @@
 .projects .kicker { font-family: "Oswald", sans-serif; font-weight: 600; font-size: 11px; letter-spacing: 3px; color: #9a9a9a; margin-bottom: 18px; }
 .projects .count { font-family: "Anton", sans-serif; font-size: 22px; color: #6a6a6a; }
 .projects .count b { color: var(--accent); font-size: 40px; font-weight: 400; }
+/* Etiqueta opcional del proyecto (p. ej. "ACTUALIZACIONES CONSTANTES"), junto al número */
+.projects .pj-tag {
+  display: inline-flex; align-items: center; gap: 8px; margin-left: 16px; padding: 6px 12px; border-radius: 30px; vertical-align: 10px;
+  background: rgba(var(--accent-rgb),.12); border: 1px solid rgba(var(--accent-rgb),.45); color: #e6e6e6;
+  font-family: "Oswald", sans-serif; font-weight: 600; font-size: 10px; letter-spacing: 2px;
+}
+.projects .pj-tag i { width: 7px; height: 7px; border-radius: 50%; background: var(--accent); animation: status-pulse 2s ease-out infinite; }
+@media (prefers-reduced-motion: reduce) { .projects .pj-tag i { animation: none; } }
 .projects h2 { font-family: "Anton", sans-serif; font-weight: 400; font-size: 72px; line-height: 1; margin: 14px 0 20px; color: #fff; }
 .projects .sub { font-family: "Oswald", sans-serif; font-weight: 600; font-size: 13px; letter-spacing: 2px; color: var(--accent); margin: -6px 0 18px; }
 .projects p { font-family: "Bebas Neue", sans-serif; font-size: 21px; line-height: 27px; color: #cfcfcf; }

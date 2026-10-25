@@ -68,6 +68,7 @@ export const projects = [
   {
     "name": "BRAINY",
     "sub": "PLATAFORMA EDUCATIVA INTERACTIVA",
+    "tag": "ACTUALIZACIONES CONSTANTES",
     "images": [
       "img/projects/brainy/01.jpg",
       "img/projects/brainy/02.jpg",
