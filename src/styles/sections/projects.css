@@ -39,18 +39,26 @@
   box-shadow: 0 50px 90px rgba(0,0,0,.7), 0 0 0 1px #333;
 }
 .projects .screen img { width: 100%; height: 100%; object-fit: cover; display: block; }
-/* Varias capturas: cada una entra con un fundido y se desplaza despacio de izquierda a derecha
-   (son más anchas que la pantalla), y luego da paso a la siguiente */
-.projects .slides { position: absolute; inset: 0; background: #141218; }
-.projects .slides .slide { position: absolute; inset: 0; object-position: 100% 0; opacity: 0; transition: opacity .9s ease; }
-.projects .slides .slide.on { opacity: 1; animation: shot-pan var(--slide-ms, 4200ms) ease-in-out forwards; }
-@keyframes shot-pan { from { object-position: 0% 0; transform: scale(1.04); } to { object-position: 100% 0; transform: scale(1); } }
+/* Varias capturas: cada una se queda quieta y el cambio alterna entre deslizamiento lateral
+   (la nueva empuja a la anterior) y scroll de navegador (la nueva sube desde abajo) */
+.projects .slides { position: absolute; inset: 0; background: #141218; isolation: isolate; overflow: hidden; }
+.projects .slides .slide { position: absolute; inset: 0; object-position: center top; opacity: 0; }
+.projects .slides .slide.cur { opacity: 1; z-index: 1; }
+.projects .slides .slide.out { opacity: 1; z-index: 1; }
+.projects .slides .slide.in { opacity: 1; z-index: 2; }
+.projects .fx-slide .slide.out { animation: shot-push-out .8s cubic-bezier(.7,0,.2,1) forwards; }
+.projects .fx-slide .slide.in { animation: shot-push-in .8s cubic-bezier(.7,0,.2,1) forwards; }
+.projects .fx-scroll .slide.out { animation: shot-scroll-out .8s cubic-bezier(.7,0,.2,1) forwards; }
+.projects .fx-scroll .slide.in { animation: shot-scroll-in .8s cubic-bezier(.7,0,.2,1) forwards; }
+@keyframes shot-push-out { to { transform: translateX(-100%); } }
+@keyframes shot-push-in { from { transform: translateX(100%); } to { transform: none; } }
+@keyframes shot-scroll-out { to { transform: translateY(-30%); opacity: .2; } }
+@keyframes shot-scroll-in { from { transform: translateY(100%); } to { transform: none; } }
 .projects .slide-dots { position: absolute; left: 50%; bottom: 10px; transform: translateX(-50%); display: flex; gap: 6px; padding: 5px 8px; border-radius: 10px; background: rgba(0,0,0,.45); z-index: 1; }
 .projects .slide-dots i { width: 6px; height: 6px; border-radius: 50%; background: rgba(255,255,255,.35); transition: background .3s, width .3s; }
 .projects .slide-dots i.on { width: 16px; border-radius: 3px; background: var(--accent); }
 @media (prefers-reduced-motion: reduce) {
-  .projects .slides .slide { transition: none; }
-  .projects .slides .slide.on { animation: none; object-position: 50% 0; }
+  .projects .slides .slide { animation: none !important; }
 }
 .projects .base { height: 16px; margin: 0 -5%; background: linear-gradient(#2c2c2c, #151515); border-radius: 0 0 14px 14px; }
 .projects .shine { position: absolute; inset: 0; pointer-events: none; background: linear-gradient(115deg, rgba(255,255,255,.12), transparent 40%); }

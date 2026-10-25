@@ -6,7 +6,6 @@ import { stackPills } from '../components/stack-pills.js';
 import { chevronLeft, chevronRight } from '../svg/icons.js';
 import { $ } from '../utils/dom.js';
 import { pad } from '../utils/format.js';
-import { prefersReducedMotion } from '../utils/motion.js';
 
 export const renderProjects = () => `<section class="projects" id="proyectos">
   <div class="guide"></div>
@@ -50,22 +49,27 @@ export function initProjects() {
     startSlides();
   }
 
-  // Si el proyecto tiene varias capturas, se van pasando en la pantalla mientras la sección está a la vista
-  const SLIDE_MS = prefersReducedMotion() ? 5000 : 4200;
+  // Si el proyecto tiene varias capturas, cada una se queda quieta unos segundos y el cambio
+  // alterna entre deslizamiento lateral y scroll hacia arriba (solo mientras la sección está a la vista)
+  const SLIDE_MS = 3500, FX = ['fx-slide', 'fx-scroll'], FX_MS = 850;
   let timer = null, visible = false;
   function startSlides() {
     clearInterval(timer);
+    const box = $('pj-screen').querySelector('.slides');
     const slides = $('pj-screen').querySelectorAll('.slide');
     if (slides.length < 2) return;
     const dots = $('pj-screen').querySelectorAll('.slide-dots i');
-    $('pj-screen').style.setProperty('--slide-ms', `${SLIDE_MS + 900}ms`);
-    let n = 0;
+    let n = 0, k = 0;
     timer = setInterval(() => {
       if (!visible || document.hidden) return;
-      slides[n].classList.remove('on'); dots[n].classList.remove('on');
+      const prev = slides[n];
       n = (n + 1) % slides.length;
-      slides[n].classList.add('on'); dots[n].classList.add('on');
-    }, SLIDE_MS);
+      const next = slides[n];
+      box.classList.remove(...FX); void box.offsetWidth; box.classList.add(FX[k++ % FX.length]);
+      prev.className = 'slide out'; next.className = 'slide in';
+      dots.forEach((d, j) => d.classList.toggle('on', j === n));
+      setTimeout(() => { prev.className = 'slide'; if (next.classList.contains('in')) next.className = 'slide cur'; }, FX_MS);
+    }, SLIDE_MS + FX_MS);
   }
   new IntersectionObserver(([e]) => visible = e.isIntersecting).observe($('pj-screen'));
 

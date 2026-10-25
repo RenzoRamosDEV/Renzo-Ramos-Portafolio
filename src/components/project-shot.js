@@ -1,6 +1,6 @@
 // Pantalla del portátil: varias capturas que se van pasando, una sola captura o, si no hay, una captura de relleno
 export const projectShot = p => p.images?.length
-  ? `<div class="slides">${p.images.map((src, n) => `<img class="slide${n ? '' : ' on'}" src="${src}" alt="${n ? '' : p.name}"${n ? ' loading="lazy" aria-hidden="true"' : ''} decoding="async">`).join('')}</div>
+  ? `<div class="slides">${p.images.map((src, n) => `<img class="slide${n ? '' : ' cur'}" src="${src}" alt="${n ? '' : p.name}"${n ? ' loading="lazy" aria-hidden="true"' : ''} decoding="async">`).join('')}</div>
          <div class="slide-dots" aria-hidden="true">${p.images.map((_, n) => `<i${n ? '' : ' class="on"'}></i>`).join('')}</div>`
   : p.image
   ? `<img src="${p.image}" alt="${p.name}">`
