@@ -21,7 +21,7 @@
 - **Vite** como servidor de desarrollo y para el build.
 - **Canvas 2D** para el humo de la portada y la trama de puntos entre educación y certificados.
 - **SVG** (con animaciones SMIL) para los aros, el mini mapa, los sellos y las insignias.
-- **Google Fonts:** Anton, Bebas Neue y Oswald. **Icons8** para los iconos de GitHub y LinkedIn.
+- **Fuentes autoalojadas** (`public/fonts/`, licencia OFL): Anton, Bebas Neue y Oswald. **Icons8** para los iconos de GitHub y LinkedIn.
 
 ## Puesta en marcha
 
@@ -162,6 +162,17 @@ Las clases, ids y atributos existentes no se renombran: el CSS y el JavaScript d
 - **Colores:** en `src/styles/base/variables.css`. Los SVG y canvas que usan el naranja o el fondo oscuro los leen de ahí con `cssVar()` (`src/utils/theme.js`).
 - **Puntos de corte:** 1100px (se oculta el menú de la portada), 1000px (secciones a una columna) y 640px (portada en móvil). CSS no permite variables en las media queries, así que están escritos en cada archivo.
 - **Movimiento reducido:** con `prefers-reduced-motion` se paran el humo, los aros, los pines del mapa, las barras de texto, los fondos animados, los sellos y las transiciones de la línea de tiempo.
+
+## Build: plugins de Vite (`vite/`)
+
+| Plugin | Qué hace |
+|---|---|
+| `prerender.js` | Mete el markup de cada sección en el HTML (build y dev). |
+| `sitemap.js` | Genera `dist/sitemap.xml` con todas las páginas e imágenes. |
+| `inline-css.js` | En el build, el CSS va dentro de un `<style>` en cada HTML (sin hojas bloqueantes). |
+| `security-meta.js` | En el build, añade CSP y Referrer-Policy como `<meta>`. Si algún día se carga algo de otro dominio (un script de analítica, una fuente…), hay que añadirlo a la CSP o el navegador lo bloqueará. |
+
+Las páginas estáticas de `public/` (404, licencia de imágenes y fotos) llevan su CSP escrita a mano.
 
 ## Despliegue
 
