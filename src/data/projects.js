@@ -90,24 +90,29 @@ export const projects = [
     "code": ""
   },
   {
-    "name": "REDACTOR IA",
-    "sub": "REFORMULACIÓN DE TEXTOS CON IA",
-    "image": "img/projects/redactor-ia.jpg",
-    "desc": "Herramienta web para mejorar o reformular textos con IA: eliges el tono, ajustas la intensidad y recibes una versión mejorada en segundos.",
-    "stack": [
-      "React",
-      "Vite",
-      "Tailwind CSS",
-      "i18next",
-      "TypeScript",
-      "Node.js",
-      "Express",
-      "Gemini",
-      "Groq SDK",
-      "helmet",
-      "express-rate-limit"
+    "name": "AGENTBOARD",
+    "sub": "PANEL DE COSTE Y ACTIVIDAD DE AGENTES DE IA",
+    "images": [
+      "img/projects/agentboard/01.jpg",
+      "img/projects/agentboard/02.jpg",
+      "img/projects/agentboard/03.jpg",
+      "img/projects/agentboard/04.jpg",
+      "img/projects/agentboard/05.jpg",
+      "img/projects/agentboard/06.jpg",
+      "img/projects/agentboard/07.jpg"
     ],
-    "live": "",
-    "code": "https://github.com/RenzoRamosDEV/Redactor-IA"
+    "desc": "App de escritorio que reúne qué hacen Claude Code, Codex, Copilot, Cursor, Gemini y OpenCode, y cuánto cuestan, leyendo sus logs en local. Nada sale del ordenador.",
+    "stack": [
+      "Tauri 2",
+      "Rust",
+      "React",
+      "TypeScript",
+      "Vite",
+      "SQLite",
+      "MCP",
+      "OpenSpec"
+    ],
+    "live": "https://renzoramosdev.github.io/AgentBoard/",
+    "code": "https://github.com/RenzoRamosDEV/AgentBoard"
   }
 ];

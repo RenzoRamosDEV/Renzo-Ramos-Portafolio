@@ -70,10 +70,11 @@
   eventos, reservas, pagos), MySQL, OpenAPI/Swagger, JUnit 5 y Pitest, frontend React + Vite +
   Bootstrap, orquestado con Docker Compose. Proyecto en equipo (con Melanie Gabriela Cárdenas Hidalgo).
   Demo: https://renzoramosdev.github.io/Booqui-TFG/
-- [Redactor IA — Reformulación de Textos con IA](https://github.com/RenzoRamosDEV/Redactor-IA):
-  herramienta web que mejora o reformula textos con IA (control de tono, intensidad e instrucciones).
-  Frontend React + Vite + TailwindCSS + i18next (ES/EN); backend Node.js + Express con Google
-  Generative AI (Gemini) y Groq SDK, con medidas de seguridad (helmet, CORS, rate limiting).
+- [AgentBoard — Panel de coste y actividad de agentes de IA](https://github.com/RenzoRamosDEV/AgentBoard):
+  aplicación de escritorio que reúne qué hacen Claude Code, Codex, Copilot, Cursor, Gemini y OpenCode,
+  y cuánto cuestan, leyendo los logs que ya tienen en el ordenador (local, privado y de solo lectura).
+  Tauri 2 + Rust, caché SQLite, interfaz React + TypeScript + Vite y servidor MCP con 20 herramientas.
+  Web: https://renzoramosdev.github.io/AgentBoard/
 - [Pokédex Retro](https://github.com/RenzoRamosDEV/Pokedex-Retro):
   Pokédex estática con estética Game Boy sobre PokéAPI v2, sin frameworks ni build (JavaScript con
   módulos ES, HTML y CSS), publicada en GitHub Pages. Tres temas, CSP estricta y WCAG 2.1 AA. Incluye
