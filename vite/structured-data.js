@@ -100,7 +100,7 @@ export function homeJsonLd({ lastModified }) {
     },
     {
       '@type': 'ProfilePage', '@id': ID.page, url: `${SITE}/`,
-      name: 'Junior AI Engineer y Desarrollador en Madrid | Renzo Ramos',
+      name: 'Renzo Ramos - Portafolio | Junior AI Engineer en Madrid',
       description: 'Portafolio de Renzo Ramos, Junior AI Engineer y desarrollador de software en Madrid: agentes de IA con Python y LangChain y APIs con Java.',
       inLanguage: 'es-ES', isPartOf: { '@id': ID.website }, about: { '@id': ID.person }, mainEntity: { '@id': ID.person },
       primaryImageOfPage: { '@id': ID.photo }, breadcrumb: { '@id': ID.breadcrumb }, dateModified: lastModified,
