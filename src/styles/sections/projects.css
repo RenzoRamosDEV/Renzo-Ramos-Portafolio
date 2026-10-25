@@ -51,7 +51,7 @@
 /* Varias capturas: cada una se queda quieta y el cambio alterna entre deslizamiento lateral
    (la nueva empuja a la anterior) y scroll de navegador (la nueva sube desde abajo) */
 .projects .slides { position: absolute; inset: 0; background: #141218; isolation: isolate; overflow: hidden; }
-.projects .slides .slide { position: absolute; inset: 0; object-fit: contain; opacity: 0; }
+.projects .slides .slide { position: absolute; inset: 0; opacity: 0; }
 .projects .slides .slide.cur { opacity: 1; z-index: 1; }
 .projects .slides .slide.out { opacity: 1; z-index: 1; }
 .projects .slides .slide.in { opacity: 1; z-index: 2; }
