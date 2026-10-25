@@ -64,4 +64,5 @@ Protocol (MCP)**, un protocolo emergente que conecta modelos de lenguaje con her
 - Servidor MCP: Python · MCP (Model Context Protocol) · Requests
 - Agente ReAct / Chatbot: Python · OpenAI SDK · FastAPI · Uvicorn · MCP · python-dotenv
 
-- 📦 Repositorio: https://github.com/RenzoRamosDEV/Api-Pokemon-Scala-Web
+- 📦 Repositorio: https://github.com/RenzoRamosDEV/Pokedex-Retro
+- 🌐 Demo: https://renzoramosdev.github.io/Pokedex-Retro/index.html

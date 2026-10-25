@@ -86,7 +86,8 @@ Pokédex interactiva con estética retro inspirada en la Game Boy original (DMG-
 
 **Tecnologías:** Scala · Play Framework · PokéAPI · CSS
 
-- Repositorio: https://github.com/RenzoRamosDEV/Api-Pokemon-Scala-Web
+- Repositorio: https://github.com/RenzoRamosDEV/Pokedex-Retro
+- Demo: https://renzoramosdev.github.io/Pokedex-Retro/index.html
 
 ---
 
