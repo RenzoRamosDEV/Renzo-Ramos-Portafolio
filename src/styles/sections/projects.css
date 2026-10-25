@@ -95,6 +95,13 @@
   .projects .pj-name { font-size: 52px; }
   .projects .projects-title { font-size: 34px; line-height: 42px; padding: 60px 16px 0; }
 }
+/* Móvil: igual que en tablet, el portátil deja un hueco a cada lado para las flechas */
+@media (max-width: 640px) {
+  .projects .stage { padding: 0 34px; }
+  .projects .pj-arrow { width: 38px; height: 38px; bottom: calc(80px + 16px + ((100vw - 100px) / 1.92 + 30px) / 2 - 19px); }
+  .projects .pj-arrow.prev { left: 6px; }
+  .projects .pj-arrow.next { right: 6px; }
+}
 /* Tablet: el portátil deja sitio a los lados para las flechas (no las tapa ni se sale por la derecha al inclinarse) */
 @media (min-width: 641px) and (max-width: 1000px) {
   .projects .stage { padding: 0 72px; }
