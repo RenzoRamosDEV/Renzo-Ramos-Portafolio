@@ -27,6 +27,7 @@ async function pages(root) {
       loc: '/', files: ['index.html', 'src'], priority: '1.0', changefreq: 'monthly',
       images: [
         { loc: '/media/renzo-ramos-desarrollador-ia-madrid-portada.png', title: 'Renzo Ramos, Junior AI Engineer y desarrollador de software en Madrid', caption: 'Renzo Ramos, Junior AI Engineer en Madrid, con máscara blanca y sudadera negra' },
+        { loc: '/media/renzo-ramos-logo.png', title: 'Logo de Renzo Ramos', caption: 'Logo de Renzo Ramos: su nombre con un emblema circular con la letra R' },
         { loc: '/img/og/renzo-ramos-junior-ai-engineer-madrid-portafolio.jpg', title: 'Portafolio de Renzo Ramos', caption: 'Portada del portafolio de Renzo Ramos, Junior AI Engineer y desarrollador de software en Madrid' },
         ...projects.flatMap(p => (p.images || []).map(img => ({ loc: `/${img.src}`, title: `${p.name} — proyecto de Renzo Ramos`, caption: img.alt }))),
       ],
@@ -35,6 +36,7 @@ async function pages(root) {
       loc: '/personal.html', files: ['personal.html', 'src/sections/personal-hero.js', 'src/sections/personal-story.js', 'src/data/personal.js'], priority: '0.6', changefreq: 'yearly',
       images: [
         { loc: '/media/renzo-ramos-de-los-rios-sobre-mi.png', title: 'Renzo Ramos de los Ríos, sobre mí', caption: 'Renzo Ramos de los Ríos, desarrollador de software e IA en Madrid, saludando con las manos' },
+        { loc: '/media/renzo-ramos-logo.png', title: 'Logo de Renzo Ramos', caption: 'Logo de Renzo Ramos: su nombre con un emblema circular con la letra R' },
         { loc: '/img/og/renzo-ramos-sobre-mi.jpg', title: 'Sobre mí — Renzo Ramos', caption: 'Renzo Ramos de los Ríos, desarrollador de software e IA en Madrid' },
       ],
     },

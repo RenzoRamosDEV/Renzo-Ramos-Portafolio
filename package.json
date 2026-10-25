@@ -9,7 +9,9 @@
     "dev": "vite",
     "prebuild": "npm run images",
     "build": "vite build",
-    "preview": "vite preview"
+    "postbuild": "npm run seo:check",
+    "preview": "vite preview",
+    "seo:check": "node scripts/seo-check.mjs"
   },
   "dependencies": {
     "framer-motion": "^12.40.0",
