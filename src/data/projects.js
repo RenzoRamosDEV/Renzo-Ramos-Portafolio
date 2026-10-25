@@ -4,6 +4,7 @@ export const projects = [
   {
     "name": "BOOQI",
     "sub": "SISTEMA DE GESTIÓN DE RESERVAS DE EVENTOS",
+    "tag": "MEJORAS PRÓXIMAMENTE",
     "images": [
       "img/projects/booqi/01.jpg",
       "img/projects/booqi/02.jpg",
