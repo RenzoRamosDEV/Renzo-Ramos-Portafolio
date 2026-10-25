@@ -102,7 +102,7 @@
   .hero { --c-top: max(100svh - 700px, 90px); }
   .circle { width: 560px; height: 560px; margin-left: -280px; top: calc(var(--c-top) - 40px); }
   .gear { width: 681px; height: 681px; margin-left: -340px; top: calc(var(--c-top) - 100px); }
-  .title { font-size: 26vw; top: calc(var(--c-top) + 200px - 13vw); }
+  .title { font-size: 31vw; top: calc(var(--c-top) + 200px - 15.5vw); }
   .person { height: min(640px, 100svh - 150px); bottom: -120px; }
   .tags { left: 16px; bottom: 32px; }
   .cta { right: 16px; bottom: 24px; }
