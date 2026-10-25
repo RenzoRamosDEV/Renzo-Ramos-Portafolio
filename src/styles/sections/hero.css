@@ -97,10 +97,13 @@
   .title { font-size: 20vw; letter-spacing: -3px; }
 }
 @media (max-width: 640px) {
-  .circle { width: 320px; height: 320px; margin-left: -160px; top: 150px; }
-  .gear { width: 389px; height: 389px; margin-left: -194px; top: 116px; }
-  .title { top: 230px; }
-  .person { height: 640px; bottom: -120px; }
+  /* Móvil: círculo y nombre más grandes, colocados según dónde empieza la foto (que va pegada abajo),
+     para que el nombre quede siempre sobre la cabeza también en móviles de pantalla baja */
+  .hero { --c-top: max(100svh - 700px, 90px); }
+  .circle { width: 400px; height: 400px; margin-left: -200px; top: var(--c-top); }
+  .gear { width: 486px; height: 486px; margin-left: -243px; top: calc(var(--c-top) - 43px); }
+  .title { font-size: 26vw; top: calc(var(--c-top) + 200px - 13vw); }
+  .person { height: min(640px, 100svh - 150px); bottom: -120px; }
   .tags { left: 16px; bottom: 32px; }
   .cta { right: 16px; bottom: 24px; }
 }
