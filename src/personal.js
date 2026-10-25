@@ -2,6 +2,7 @@
 import './styles/main.css';
 import './styles/pages/personal.css';
 import { mountSlots } from './utils/dom.js';
+import { initAnchorLinks } from './utils/anchors.js';
 import { personalSlots } from './pages/personal-page.js';
 import { initPersonalStory } from './sections/personal-story.js';
 import { initFooter } from './sections/footer.js';
@@ -10,3 +11,4 @@ mountSlots(personalSlots);
 
 initPersonalStory();
 initFooter();
+initAnchorLinks();

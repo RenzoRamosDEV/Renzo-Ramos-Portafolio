@@ -2,6 +2,7 @@
 // en el mismo orden que el script original (importa para listeners y animaciones)
 import './styles/main.css';
 import { mountSlots } from './utils/dom.js';
+import { initAnchorLinks } from './utils/anchors.js';
 import { prefersReducedMotion } from './utils/motion.js';
 import { homeSlots } from './pages/home-page.js';
 import { initProjects } from './sections/projects.js';
@@ -30,3 +31,4 @@ if (prefersReducedMotion())
 initSmoke();
 initContact();
 initFooter();
+initAnchorLinks();
