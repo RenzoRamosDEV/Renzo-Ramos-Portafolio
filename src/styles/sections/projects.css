@@ -43,7 +43,7 @@
 .projects .laptop { transform-style: preserve-3d; transition: transform .25s ease-out; transform: rotateY(-14deg) rotateX(6deg); }
 .projects .screen {
   /* Misma forma que las capturas de los proyectos (≈1,92:1) para que se vean enteras */
-  position: relative; aspect-ratio: 1.92 / 1; overflow: hidden; background: #1a1a1a;
+  position: relative; box-sizing: content-box; aspect-ratio: 1.92 / 1; overflow: hidden; background: #1a1a1a;
   border: 12px solid #1a1a1a; border-bottom-width: 18px; border-radius: 16px 16px 6px 6px;
   box-shadow: 0 50px 90px rgba(0,0,0,.7), 0 0 0 1px #333;
 }
