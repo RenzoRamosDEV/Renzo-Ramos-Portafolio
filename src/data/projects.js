@@ -2,43 +2,6 @@
 // "image" es una sola captura; si no hay ninguna, se dibuja una captura de relleno
 export const projects = [
   {
-    "name": "BOOQI",
-    "sub": "SISTEMA DE GESTIÓN DE RESERVAS DE EVENTOS",
-    "tag": "MEJORAS PRÓXIMAMENTE",
-    "images": [
-      "img/projects/booqi/01.jpg",
-      "img/projects/booqi/02.jpg",
-      "img/projects/booqi/03.jpg",
-      "img/projects/booqi/04.jpg",
-      "img/projects/booqi/05.jpg",
-      "img/projects/booqi/06.jpg",
-      "img/projects/booqi/07.jpg",
-      "img/projects/booqi/08.jpg",
-      "img/projects/booqi/09.jpg"
-    ],
-    "desc": "Plataforma web para descubrir eventos, comprar entradas y gestionar reservas, con arquitectura de microservicios y panel de administración.",
-    "stack": [
-      "Java",
-      "Spring Boot",
-      "Spring Data JPA",
-      "Maven",
-      "Lombok",
-      "MapStruct",
-      "OpenAPI / Swagger",
-      "JUnit 5",
-      "Pitest",
-      "MySQL",
-      "React",
-      "Vite",
-      "Bootstrap",
-      "Axios",
-      "Docker",
-      "Docker Compose"
-    ],
-    "live": "https://renzoramosdev.github.io/Booqui-TFG/",
-    "code": "https://github.com/RenzoRamosDEV/Booqui-TFG"
-  },
-  {
     "name": "POKÉDEX RETRO",
     "sub": "POKÉDEX GAME BOY CON CHAT DE IA Y SERVIDOR MCP",
     "images": [
@@ -115,5 +78,41 @@ export const projects = [
     ],
     "live": "https://renzoramosdev.github.io/AgentBoard/",
     "code": "https://github.com/RenzoRamosDEV/AgentBoard"
+  },
+  {
+    "name": "BOOQI",
+    "sub": "SISTEMA DE GESTIÓN DE RESERVAS DE EVENTOS",
+    "images": [
+      "img/projects/booqi/01.jpg",
+      "img/projects/booqi/02.jpg",
+      "img/projects/booqi/03.jpg",
+      "img/projects/booqi/04.jpg",
+      "img/projects/booqi/05.jpg",
+      "img/projects/booqi/06.jpg",
+      "img/projects/booqi/07.jpg",
+      "img/projects/booqi/08.jpg",
+      "img/projects/booqi/09.jpg"
+    ],
+    "desc": "Plataforma web para descubrir eventos, comprar entradas y gestionar reservas, con arquitectura de microservicios y panel de administración.",
+    "stack": [
+      "Java",
+      "Spring Boot",
+      "Spring Data JPA",
+      "Maven",
+      "Lombok",
+      "MapStruct",
+      "OpenAPI / Swagger",
+      "JUnit 5",
+      "Pitest",
+      "MySQL",
+      "React",
+      "Vite",
+      "Bootstrap",
+      "Axios",
+      "Docker",
+      "Docker Compose"
+    ],
+    "live": "https://renzoramosdev.github.io/Booqui-TFG/",
+    "code": "https://github.com/RenzoRamosDEV/Booqui-TFG"
   }
 ];
