@@ -30,6 +30,7 @@ npm install
 npm run dev       # servidor de desarrollo en http://localhost:5173 (antes genera las imágenes WebP)
 npm run build     # genera dist/ (antes genera las imágenes WebP)
 npm run images    # solo genera las versiones WebP en public/opt/ (no se suben al repo)
+npm run seo:check # comprueba el SEO de dist/ (se ejecuta solo después de build y lo hace fallar si algo no cumple)
 npm run preview   # sirve dist/ para comprobar el build
 ```
 
@@ -179,6 +180,13 @@ Las clases, ids y atributos existentes no se renombran: el CSS y el JavaScript d
 | `security-meta.js` | En el build, añade CSP y Referrer-Policy como `<meta>`. Si algún día se carga algo de otro dominio (un script de analítica, una fuente…), hay que añadirlo a la CSP o el navegador lo bloqueará. |
 
 Las páginas estáticas de `public/` (404, licencia de imágenes y fotos) llevan su CSP escrita a mano.
+
+## Comprobación SEO (`npm run seo:check`)
+
+`scripts/seo-check.mjs` revisa `dist/` después de cada build: alt y dimensiones de todas las imágenes, peso de las
+versiones WebP, title/description/canonical únicos y con buena longitud, un solo H1, sitemap completo, JSON-LD
+válido, CSP, `robots.txt`, `llms.txt` y 404. Si algo falla, el build (y el despliegue) se para y dice qué arreglar.
+Toda la documentación SEO está en [`seo/`](seo/).
 
 ## Despliegue
 

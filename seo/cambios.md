@@ -199,3 +199,30 @@ contenido que la web no muestra). "Sobre mí en 30 segundos" se queda como secci
 Después, también a petición de Renzo, se quita el bloque "Sobre mí en 30 segundos" (`src/components/summary.js`,
 `src/sections/summary.js`, `summary.css`). `src/data/profile.js` se mantiene solo como fuente de `llms.txt` y
 `llms-full.txt` (que ya no enlazan a esa sección). La portada vuelve a tener exactamente la estructura original.
+
+## Fase 8 — Entregables
+
+| Archivo | Qué es |
+|---|---|
+| `scripts/seo-check.mjs` (nuevo), `package.json` | `npm run seo:check`, que se ejecuta solo tras cada `npm run build` (`postbuild`, también en GitHub Actions). Falla el build si: alguna `<img>` no tiene `alt` o `width`/`height`, o no existe; alguna versión WebP no existe o pesa más de 150 KB (300 KB la imagen principal); alguna página indexable no tiene title (50-60 car.), description (140-160) o canonical absoluto, o los repite; no tiene exactamente un `<h1>`; no está en el sitemap; alguna imagen con `alt` no está en el sitemap de imágenes; el sitemap apunta a algo que no existe; un JSON-LD no es JSON válido; falta la CSP, `lang="es"`, `llms.txt`, `llms-full.txt` o la 404; o `robots.txt` no declara el sitemap o bloquea la web. Probado rompiendo el build a propósito (detecta y sale con código 1). |
+| `vite/sitemap.js` | El logo se añade al sitemap de imágenes (lo exigió el propio `seo:check`). |
+| `seo/lighthouse-antes*.json`, `seo/lighthouse-despues*.json`, `seo/lighthouse-comparativa.md` | Medición final antes/después en las mismas condiciones (brotli, 3 pasadas en móvil). Sustituyen a los informes de la auditoría inicial, que se hicieron sin compresión. |
+| `seo/checklist-post-deploy.md` | Pasos manuales tras publicar: Search Console, Bing, validar datos estructurados, Cloudflare, LinkedIn y medición en producción. |
+
+### Otros cambios hechos durante la fase 8 (a petición de Renzo)
+- `vite/prerender.js`: en `npm run dev` el CSS se enlaza también en el `<head>`. Con el prerender, al recargar en
+  local se veía un instante la página sin estilos (Vite aplicaba el CSS desde JavaScript). En producción no
+  pasaba (CSS en línea).
+- `src/sections/projects.js`, `src/styles/sections/projects.css`: título de sección "MIS PROYECTOS: APPS, WEBS Y
+  TODO LO QUE HE CONSTRUIDO", con el mismo estilo que el de experiencia; el nombre de cada proyecto pasa de `h2`
+  a `h3` (mismo aspecto).
+- Preguntas frecuentes y "Sobre mí en 30 segundos" retirados (ver arriba).
+
+### Resumen de entregables del encargo
+1. Código en la rama `seo/optimizacion`, en commits pequeños por fase.
+2. `seo/inventario.md` (estado antes) y `seo/cambios.md` (este archivo).
+3. `seo/keywords.md`.
+4. `seo/lighthouse-antes.json`, `seo/lighthouse-despues.json` y `seo/lighthouse-comparativa.md`.
+5. `seo/sea-plan.md`: **no se hace** (fase 7 descartada, ver arriba).
+6. `seo/checklist-post-deploy.md`.
+7. `npm run seo:check`.
