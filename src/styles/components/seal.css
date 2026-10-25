@@ -1,4 +1,4 @@
-.seal { text-align: center; cursor: pointer; background: none; border: 0; color: inherit; font: inherit; }
+.seal { flex: 0 0 340px; max-width: 100%; text-align: center; cursor: pointer; background: none; border: 0; color: inherit; font: inherit; }
 .seal .ring-wrap { position: relative; width: 230px; height: 230px; margin: 0 auto; transition: transform .35s; }
 .seal .ring { position: absolute; inset: 0; animation: spin 18s linear infinite; }
 .seal:nth-child(2) .ring { animation-direction: reverse; }
