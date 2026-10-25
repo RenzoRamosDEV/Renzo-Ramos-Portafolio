@@ -52,6 +52,16 @@ export const projects = [
     "code": ""
   },
   {
+    "name": "DUELO",
+    "sub": "",
+    "c1": "#1b1b1b",
+    "c2": "#cf8453",
+    "desc": "",
+    "stack": [],
+    "live": "",
+    "code": ""
+  },
+  {
     "name": "POKÉDEX RETRO",
     "sub": "POKÉDEX GAME BOY CON CHAT DE IA Y SERVIDOR MCP",
     "images": [
