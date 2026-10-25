@@ -2,6 +2,7 @@
 import { personal } from '../data/personal.js';
 import { LOGO, HEADER_NAV } from '../data/site.js';
 import { navLinks } from '../components/nav-links.js';
+import { menuToggle } from '../components/menu-toggle.js';
 import { sectionBackground } from '../components/section-background.js';
 import { picture } from '../components/picture.js';
 
@@ -12,9 +13,11 @@ export const renderPersonalHero = () => `<section class="personal-hero">
   <header>
     <a class="logo" href="./">${picture({ ...LOGO, sizes: '250px', loading: 'eager' })}</a>
 
-    <nav class="main" aria-label="Principal">
+    <nav class="main" id="main-nav" aria-label="Principal">
       ${navLinks(homeNav, '      ')}
     </nav>
+
+    ${menuToggle()}
   </header>
 
   ${sectionBackground('PERSONAL')}

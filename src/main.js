@@ -3,6 +3,7 @@
 import './styles/main.css';
 import { mountSlots } from './utils/dom.js';
 import { initAnchorLinks } from './utils/anchors.js';
+import { initMenu } from './utils/menu.js';
 import { prefersReducedMotion } from './utils/motion.js';
 import { homeSlots } from './pages/home-page.js';
 import { initProjects } from './sections/projects.js';
@@ -32,3 +33,4 @@ initSmoke();
 initContact();
 initFooter();
 initAnchorLinks();
+initMenu();

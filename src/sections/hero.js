@@ -1,6 +1,7 @@
 // Portada: cabecera, enlaces sociales, aros giratorios, nombre, foto, humo e insignia
 import { LOGO, HEADER_NAV, GITHUB_URL, LINKEDIN_URL, GITHUB_ICON, LINKEDIN_ICON } from '../data/site.js';
 import { navLinks } from '../components/nav-links.js';
+import { menuToggle } from '../components/menu-toggle.js';
 import { socialLink } from '../components/social-link.js';
 import { outerRings, innerDial } from '../svg/rings.js';
 import { circleText } from '../svg/circle-text.js';
@@ -10,9 +11,11 @@ export const renderHero = () => `<section class="hero">
   <header>
     <a class="logo" href="#">${picture({ ...LOGO, sizes: '250px', loading: 'eager' })}</a>
 
-    <nav class="main" aria-label="Principal">
+    <nav class="main" id="main-nav" aria-label="Principal">
       ${navLinks(HEADER_NAV, '      ')}
     </nav>
+
+    ${menuToggle()}
 
   </header>
 
