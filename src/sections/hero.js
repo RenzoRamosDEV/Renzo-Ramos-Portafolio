@@ -25,7 +25,8 @@ export const renderHero = () => `<section class="hero">
   <div class="circle"></div>
   ${innerDial()}
   <div class="orbit"></div>
-  <h1 class="title"><span>RENZO</span></h1>
+  <!-- Se ve "RENZO"; el resto del H1 (quién es y dónde) lo leen buscadores y lectores de pantalla -->
+  <h1 class="title"><span>RENZO</span><span class="sr-only"> Ramos, Junior AI Engineer y desarrollador de software en Madrid</span></h1>
 
   <canvas class="smoke back" id="smoke-back"></canvas>
 
