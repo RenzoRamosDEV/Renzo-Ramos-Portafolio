@@ -100,8 +100,8 @@
   /* Móvil: círculo y nombre más grandes, colocados según dónde empieza la foto (que va pegada abajo),
      para que el nombre quede siempre sobre la cabeza también en móviles de pantalla baja */
   .hero { --c-top: max(100svh - 700px, 90px); }
-  .circle { width: 400px; height: 400px; margin-left: -200px; top: var(--c-top); }
-  .gear { width: 486px; height: 486px; margin-left: -243px; top: calc(var(--c-top) - 43px); }
+  .circle { width: 480px; height: 480px; margin-left: -240px; top: calc(var(--c-top) - 40px); }
+  .gear { width: 584px; height: 584px; margin-left: -292px; top: calc(var(--c-top) - 92px); }
   .title { font-size: 26vw; top: calc(var(--c-top) + 200px - 13vw); }
   .person { height: min(640px, 100svh - 150px); bottom: -120px; }
   .tags { left: 16px; bottom: 32px; }
