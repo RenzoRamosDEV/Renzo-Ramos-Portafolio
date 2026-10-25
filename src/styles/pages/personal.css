@@ -40,6 +40,22 @@
           mask-image: linear-gradient(to top, transparent 0, #000 170px);
 }
 
+/* Flecha para bajar a "Mi historia" */
+.scroll-hint {
+  position: absolute; left: 50%; bottom: 28px; z-index: 2; transform: translateX(-50%);
+  display: flex; flex-direction: column; align-items: center; gap: 8px; min-width: 44px; padding: 4px;
+  color: #cfcfcf; text-decoration: none; transition: color .2s;
+}
+.scroll-hint span { font-family: "Oswald", sans-serif; font-weight: 600; font-size: 10px; letter-spacing: 3px; }
+.scroll-hint svg {
+  width: 38px; height: 38px; padding: 8px; border-radius: 50%; border: 1.5px solid rgba(var(--accent-rgb), .7);
+  color: var(--accent); animation: hint-bounce 1.8s ease-in-out infinite;
+}
+.scroll-hint:hover, .scroll-hint:focus-visible { color: var(--accent); }
+/* En pantallas estrechas la portada ocupa más que la pantalla y la flecha quedaría fuera de la vista */
+@media (max-width: 1000px) { .scroll-hint { display: none; } }
+@keyframes hint-bounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(8px); } }
+
 /* Historia en capítulos */
 .personal-story { position: relative; overflow: hidden; background: var(--surface-light); color: #111; padding: 90px 42px 100px; }
 .personal-story h2 {
@@ -63,6 +79,7 @@
 
 @media (prefers-reduced-motion: reduce) {
   .personal-photo .ring { animation: none; }
+  .scroll-hint svg { animation: none; }
   .story-row { opacity: 1; transform: none; transition: none; }
 }
 @media (max-width: 1000px) {

@@ -5,6 +5,7 @@ import { navLinks } from '../components/nav-links.js';
 import { menuToggle } from '../components/menu-toggle.js';
 import { sectionBackground } from '../components/section-background.js';
 import { picture } from '../components/picture.js';
+import { arrowDown } from '../svg/icons.js';
 
 // Los enlaces del menú llevan a las secciones de la página principal
 const homeNav = HEADER_NAV.map(i => ({ ...i, href: `./${i.href}` }));
@@ -36,4 +37,7 @@ export const renderPersonalHero = () => `<section class="personal-hero">
         alt: 'Renzo Ramos de los Ríos, desarrollador de software e IA en Madrid, saludando con las manos' })}
     </div>
   </div>
+
+  <!-- Indica que hay más contenido debajo: lleva a "Mi historia" -->
+  <a class="scroll-hint" href="#historia" aria-label="Bajar a Mi historia"><span>DESLIZA</span>${arrowDown}</a>
 </section>`;

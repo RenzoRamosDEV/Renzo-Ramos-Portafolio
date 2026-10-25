@@ -4,7 +4,7 @@ import { sectionBackground } from '../components/section-background.js';
 import { storyRow } from '../components/story-row.js';
 import { onceInViewport } from '../utils/viewport.js';
 
-export const renderPersonalStory = () => `<section class="personal-story">
+export const renderPersonalStory = () => `<section class="personal-story" id="historia">
   ${sectionBackground('MI HISTORIA')}
   <h2>MI HISTORIA: DE DÓNDE VENGO Y HACIA DÓNDE VOY</h2>
   <div class="story-list">${personal.chapters.map(storyRow).join('')}
