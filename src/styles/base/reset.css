@@ -5,5 +5,7 @@ body {
   font-family: "Oswald", sans-serif;
   overflow-x: hidden;
 }
-/* <picture> no crea caja: la <img> de dentro se maqueta como si estuviera sola */
+/* <picture> no crea caja: la <img> de dentro se maqueta como si estuviera sola. Sus <source> no se pintan
+   (con display: contents contarían como un hijo más en contenedores flex o grid y moverían la imagen) */
 picture { display: contents; }
+picture > source { display: none; }
