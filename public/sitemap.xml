@@ -108,4 +108,15 @@
       <image:caption>Renzo Ramos · Ingeniero de Software · Técnico Superior DAM · Madrid, España</image:caption>
     </image:image>
   </url>
+  <url>
+    <loc>https://portafolio-renzoramos.com/renzo-ramos-junior-ai-engineer-madrid.html</loc>
+    <lastmod>2026-10-25</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+    <image:image>
+      <image:loc>https://portafolio-renzoramos.com/img/renzo-ramos-junior-ai-engineer-madrid.jpg</image:loc>
+      <image:title>Renzo Ramos — Junior AI Engineer y Desarrollador de Software en Madrid</image:title>
+      <image:caption>Renzo Ramos · Junior AI Engineer · Desarrollador de Software · Madrid, España</image:caption>
+    </image:image>
+  </url>
 </urlset>
