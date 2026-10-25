@@ -91,7 +91,7 @@ Todo el contenido está en `src/data/`. No hace falta tocar componentes ni estil
   "desc": "Descripción corta.",
   "stack": ["React", "Node.js"],             // se muestran 8 y un "+N" con el resto
   "live": "https://…",                       // vacío ("") oculta el botón VER PROYECTO
-  "code": "https://github.com/…"
+  "code": "https://github.com/…"            // vacío ("") oculta el botón CÓDIGO
 }
 ```
 

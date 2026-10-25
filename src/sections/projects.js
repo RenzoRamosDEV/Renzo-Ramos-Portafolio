@@ -45,7 +45,7 @@ export function initProjects() {
     $('pj-stack').innerHTML = stackPills(p.stack);
     $('pj-screen').innerHTML = projectShot(p) + '<div class="shine"></div>';
     $('pj-live').href = p.live || '#'; $('pj-live').style.display = p.live ? '' : 'none';
-    $('pj-code').href = p.code;
+    $('pj-code').href = p.code || '#'; $('pj-code').style.display = p.code ? '' : 'none';
     startSlides();
   }
 

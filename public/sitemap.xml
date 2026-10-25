@@ -21,7 +21,11 @@
     </image:image>
     <image:image>
       <image:loc>https://portafolio-renzoramos.com/img/projects/pokedex/01.jpg</image:loc>
-      <image:title>Pokédex Retro + Chatbot ReAct (MCP)</image:title>
+      <image:title>Pokédex Retro</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://portafolio-renzoramos.com/img/projects/brainy/02.jpg</image:loc>
+      <image:title>Brainy — Plataforma educativa interactiva</image:title>
     </image:image>
   </url>
   <url>

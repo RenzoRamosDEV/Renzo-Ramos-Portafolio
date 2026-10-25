@@ -66,6 +66,29 @@ export const projects = [
     "code": "https://github.com/RenzoRamosDEV/Pokedex-Retro"
   },
   {
+    "name": "BRAINY",
+    "sub": "PLATAFORMA EDUCATIVA INTERACTIVA",
+    "images": [
+      "img/projects/brainy/01.jpg",
+      "img/projects/brainy/02.jpg",
+      "img/projects/brainy/03.jpg",
+      "img/projects/brainy/04.jpg"
+    ],
+    "desc": "Web en español para aprender jugando: lecciones animadas paso a paso, quizzes y taller de ortografía de Matemáticas, Lengua, Ciencias, Sociales e Inglés, con puntos, niveles y ranking.",
+    "stack": [
+      "React",
+      "TypeScript",
+      "Vite",
+      "Tailwind CSS",
+      "Framer Motion",
+      "Supabase",
+      "Vitest",
+      "GitHub Pages"
+    ],
+    "live": "https://renzoramosdev.github.io/Brainy-Site/",
+    "code": ""
+  },
+  {
     "name": "REDACTOR IA",
     "sub": "REFORMULACIÓN DE TEXTOS CON IA",
     "image": "img/projects/redactor-ia.jpg",

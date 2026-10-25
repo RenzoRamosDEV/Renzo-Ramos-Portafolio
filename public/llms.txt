@@ -81,6 +81,10 @@
   subagentes y skills) y un servidor MCP en Node.js con 12 herramientas para consultarla desde Claude.
   Tests e2e con Playwright y mutation testing con Stryker.
   Demo: https://renzoramosdev.github.io/Pokedex-Retro/index.html
+- [Brainy — Plataforma educativa interactiva](https://renzoramosdev.github.io/Brainy-Site/):
+  web en español para aprender jugando, con lecciones animadas paso a paso, quizzes y un taller de
+  ortografía de Matemáticas, Lengua, Ciencias, Sociales e Inglés, con puntos, niveles y ranking.
+  React 19 + TypeScript + Vite + Tailwind CSS, Framer Motion, Supabase y Vitest. Código privado.
 
 ## Notas
 
