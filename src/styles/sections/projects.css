@@ -10,8 +10,15 @@
   border-radius: 50%; border: 1px solid rgba(255,255,255,.12); pointer-events: none;
 }
 
+/* Título de la sección, como el de experiencia y educación (en blanco sobre el fondo oscuro) */
+.projects .projects-title {
+  position: relative; z-index: 1; text-align: center; color: #fff;
+  font-family: "Bebas Neue", sans-serif; font-weight: 400;
+  font-size: 46px; line-height: 60px; letter-spacing: .3px;
+  max-width: 640px; margin: 0 auto; padding-top: 80px;
+}
 .projects .wrap {
-  position: relative; max-width: 1400px; margin: 0 auto; padding: 120px 42px 100px;
+  position: relative; max-width: 1400px; margin: 0 auto; padding: 50px 42px 100px;
   display: grid; grid-template-columns: 420px 1fr; gap: 60px; align-items: center;
 }
 .projects .kicker { font-family: "Oswald", sans-serif; font-weight: 600; font-size: 11px; letter-spacing: 3px; color: #9a9a9a; margin-bottom: 18px; }
@@ -25,7 +32,7 @@
 }
 .projects .pj-tag i { width: 7px; height: 7px; border-radius: 50%; background: var(--accent); animation: status-pulse 2s ease-out infinite; }
 @media (prefers-reduced-motion: reduce) { .projects .pj-tag i { animation: none; } }
-.projects h2 { font-family: "Anton", sans-serif; font-weight: 400; font-size: 72px; line-height: 1; margin: 14px 0 20px; color: #fff; }
+.projects .pj-name { font-family: "Anton", sans-serif; font-weight: 400; font-size: 72px; line-height: 1; margin: 14px 0 20px; color: #fff; }
 .projects .sub { font-family: "Oswald", sans-serif; font-weight: 600; font-size: 13px; letter-spacing: 2px; color: var(--accent); margin: -6px 0 18px; }
 .projects p { font-family: "Bebas Neue", sans-serif; font-size: 21px; line-height: 27px; color: #cfcfcf; }
 .projects .stack { display: flex; flex-wrap: wrap; gap: 8px; margin: 24px 0; }
@@ -75,6 +82,7 @@
 .projects .swap.out { opacity: 0; transform: translateY(10px); }
 
 @media (max-width: 1000px) {
-  .projects .wrap { grid-template-columns: 1fr; padding: 80px 16px; }
-  .projects h2 { font-size: 52px; }
+  .projects .wrap { grid-template-columns: 1fr; padding: 40px 16px 80px; }
+  .projects .pj-name { font-size: 52px; }
+  .projects .projects-title { font-size: 34px; line-height: 42px; padding: 60px 16px 0; }
 }

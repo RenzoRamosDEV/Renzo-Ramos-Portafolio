@@ -14,11 +14,12 @@ const hidden = on => on ? '' : ' style="display:none"';
 export const renderProjects = () => `<section class="projects" id="proyectos">
   <div class="guide"></div>
   ${sectionBackground('PROYECTOS')}
+  <h2 class="projects-title">MIS PROYECTOS: APPS, WEBS Y TODO LO QUE HE CONSTRUIDO</h2>
   <div class="wrap">
     <div class="swap" id="pj-text">
       <div class="kicker">PROYECTOS</div>
       <div class="count"><b id="pj-num">${pad(1)}</b> / <span id="pj-total">${pad(projects.length)}</span></div>
-      <h2 id="pj-name">${first.name}</h2>
+      <h3 class="pj-name" id="pj-name">${first.name}</h3>
       <div class="pj-tag" id="pj-tag"${hidden(first.tag)}><i></i><span id="pj-tag-text">${first.tag || ''}</span></div>
       <div class="sub" id="pj-sub">${first.sub}</div>
       <p id="pj-desc">${first.desc}</p>
