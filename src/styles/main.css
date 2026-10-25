@@ -1,4 +1,5 @@
 /* Punto de entrada de estilos. El orden importa: reproduce la cascada del CSS original. */
+@import './base/fonts.css';
 @import './base/variables.css';
 @import './base/reset.css';
 @import './base/utilities.css';
