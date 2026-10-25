@@ -22,6 +22,6 @@ export const FOOTER_NAV = [
   { href: '#proyectos', label: 'PROYECTOS' },
   { href: '#experiencia', label: 'EXPERIENCIA' },
   { href: '#educacion', label: 'EDUCACIÓN' },
-  { href: '#certificados', label: 'CERTIFICADOS' },
   { href: '#contacto', label: 'CONTACTO' },
+  { href: 'personal.html', label: 'PERSONAL' },
 ];
