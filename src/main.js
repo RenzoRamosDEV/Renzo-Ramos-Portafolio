@@ -6,7 +6,7 @@ import { prefersReducedMotion } from './utils/motion.js';
 import { nameBar } from './components/name-bar.js';
 import { renderHero } from './sections/hero.js';
 import { renderProjects, initProjects } from './sections/projects.js';
-import { renderExperience, renderJobDrawer, initExperience } from './sections/experience.js';
+import { renderExperience, initExperience } from './sections/experience.js';
 import { renderEducation, initEducation } from './sections/education.js';
 import { renderCertificates, renderCertViewer, initCertificates } from './sections/certificates.js';
 import { renderContact, initContact } from './sections/contact.js';
@@ -25,7 +25,6 @@ mount('certificates', renderCertificates());
 mount('bar-ramos', nameBar('RAMOS', 18));
 mount('contact', renderContact());
 mount('footer', renderFooter());
-mount('job-drawer', renderJobDrawer());
 mount('cert-viewer', renderCertViewer());
 
 // 2. Comportamiento

@@ -36,12 +36,48 @@
   .experience h2 { font-size: 34px; line-height: 42px; padding: 0 16px; }
 }
 
-/* Detalle de un puesto ("VER MÁS"), dentro del panel lateral */
-.job-panel .kicker { font-family: "Oswald", sans-serif; font-weight: 600; font-size: 10px; letter-spacing: 3px; color: var(--accent); }
-.job-panel h4 { font-family: "Anton", sans-serif; font-weight: 400; font-size: 36px; line-height: 1.05; color: #fff; margin: 14px 44px 18px 0; }
-.job-panel .job-meta { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 24px; }
-.job-panel .job-meta span { font-family: "Oswald", sans-serif; font-size: 11px; letter-spacing: 1.5px; padding: 6px 12px; border-radius: 20px; background: var(--card-tile); border: 1px solid #333; }
-.job-panel .job-meta span.hl { background: var(--accent); border-color: var(--accent); color: #000; font-weight: 600; }
-.job-panel h5 { font-family: "Bebas Neue", sans-serif; font-weight: 400; font-size: 20px; color: var(--accent); }
-.job-panel p { font-family: "Bebas Neue", sans-serif; font-size: 19px; line-height: 25px; color: #cfcfcf; margin-top: 8px; }
-.job-panel .exp-list { max-width: none; color: #cfcfcf; font-size: 17px; line-height: 23px; margin-top: 18px; }
+/* Detalle de un puesto ("VER MÁS"): una card que sale desde detrás de su tarjeta y se queda al lado,
+   mientras la otra tarjeta se aparta y la pareja se recoloca en el centro */
+.exp-pair { display: flex; align-items: flex-start; transition: opacity .35s, max-width .6s cubic-bezier(.22,1,.36,1); max-width: 800px; }
+.exp-pair .exp-card { position: relative; z-index: 2; }
+.exp-pairs { transition: gap .6s cubic-bezier(.22,1,.36,1); }
+.exp-pairs.detail { gap: 0; }
+.exp-pairs.detail .exp-pair:not(.open) { max-width: 0; opacity: 0; overflow: hidden; pointer-events: none; }
+.exp-detail { position: relative; z-index: 1; width: 0; transition: width .6s cubic-bezier(.22,1,.36,1); }
+.exp-pair.open .exp-detail { width: 444px; }
+.exp-detail-card {
+  position: relative; width: 420px; max-height: 500px; overflow-y: auto; margin-left: 24px; padding: 22px 22px 22px;
+  scrollbar-width: thin; scrollbar-color: #444 transparent;
+  background: var(--card); color: #e6e6e6; border-radius: 26px; box-shadow: 0 30px 60px rgba(0,0,0,.25);
+  opacity: 0; visibility: hidden; transform: translateX(-100%);
+  transition: transform .6s cubic-bezier(.22,1,.36,1), opacity .3s, visibility 0s .6s;
+}
+.exp-pair.open .exp-detail-card { opacity: 1; visibility: visible; transform: none; transition: transform .6s cubic-bezier(.22,1,.36,1), opacity .3s; }
+.exp-detail-card > :not(.exp-detail-close) { opacity: 0; transform: translateX(-16px); transition: opacity .3s, transform .4s; }
+.exp-pair.open .exp-detail-card > :not(.exp-detail-close) { opacity: 1; transform: none; transition: opacity .4s .3s, transform .5s .3s cubic-bezier(.22,1,.36,1); }
+.exp-detail-close {
+  position: absolute; top: 16px; right: 16px; width: 34px; height: 34px; border-radius: 50%;
+  border: 1px solid var(--card-line); background: var(--card-tile); color: #fff; font-size: 18px; cursor: pointer; transition: border-color .2s, color .2s;
+}
+.exp-detail-close:hover, .exp-detail-close:focus-visible { border-color: var(--accent); color: var(--accent); }
+.exp-detail-card .kicker { font-family: "Oswald", sans-serif; font-weight: 600; font-size: 10px; letter-spacing: 3px; color: var(--accent); }
+.exp-detail-card h4 { font-family: "Anton", sans-serif; font-weight: 400; font-size: 28px; line-height: 1.1; color: #fff; margin: 16px 40px 14px 0; }
+.exp-detail-card .job-meta { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 16px; }
+.exp-detail-card .job-meta span { font-family: "Oswald", sans-serif; font-size: 10px; letter-spacing: 1.5px; padding: 5px 10px; border-radius: 20px; background: var(--card-tile); border: 1px solid var(--card-line); }
+.exp-detail-card .job-meta span.hl { background: var(--accent); border-color: var(--accent); color: #000; font-weight: 600; }
+.exp-detail-card h5 { font-family: "Bebas Neue", sans-serif; font-weight: 400; font-size: 18px; color: var(--accent); }
+.exp-detail-card p { font-family: "Bebas Neue", sans-serif; font-size: 16px; line-height: 21px; color: #cfcfcf; margin-top: 4px; }
+.exp-detail-card .exp-list { max-width: none; color: #cfcfcf; font-size: 14px; line-height: 18px; margin-top: 12px; }
+.exp-detail-card .exp-list li { margin-bottom: 5px; }
+.exp-detail-card .exp-list li:last-child { margin-bottom: 0; }
+
+/* Pantallas estrechas: la card de detalle sale hacia abajo, debajo de su tarjeta */
+@media (max-width: 760px) {
+  .exp-pair { flex-direction: column; align-items: center; }
+  .exp-detail { width: 296px; max-height: 0; transition: max-height .6s cubic-bezier(.22,1,.36,1); }
+  .exp-pair.open .exp-detail { width: 296px; max-height: 1400px; }
+  .exp-detail-card { width: 100%; max-height: none; margin: 16px 0 0; transform: translateY(-40px); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .exp-pair, .exp-pairs, .exp-detail, .exp-detail-card, .exp-detail-card > * { transition: none !important; }
+}
