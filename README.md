@@ -42,7 +42,8 @@ public/                    Archivos estáticos que Vite copia tal cual a dist/
 ├── img/                   Capturas de proyectos e imágenes de las páginas SEO
 └── *.html, robots.txt…    Páginas de aterrizaje SEO, sitemap, manifest, CNAME
 src/
-├── main.js                Punto de entrada de la página principal: importa los estilos, monta las secciones y arranca su comportamiento
+├── main.js                Punto de entrada de la página principal: importa los estilos y arranca el comportamiento
+├── pages/                 Qué sección va en cada marcador de index.html y personal.html (lo usa el prerender)
 ├── personal.js            Punto de entrada de la página personal
 ├── data/                  Contenido de la web (lo que se edita para actualizarla)
 │   ├── projects.js        Proyectos del carrusel
@@ -68,12 +69,19 @@ src/
 
 ### Cómo arranca la página
 
-`index.html` solo contiene marcadores como `<div data-mount="projects"></div>`. `src/main.js` hace dos pasos:
+`index.html` y `personal.html` solo contienen marcadores como `<div data-mount="projects"></div>`.
 
-1. **Monta el markup** de cada sección en su marcador, en el orden de la página (`mount('projects', renderProjects())`).
-2. **Arranca el comportamiento** (carruseles, ventanas, canvas, observadores) llamando a los `init…()` en un orden fijo.
+1. **Prerender (build y `npm run dev`).** El plugin [`vite/prerender.js`](vite/prerender.js) sustituye cada marcador
+   por el markup de su sección, generado en Node con las mismas funciones `render…()`. Qué sección va en cada
+   marcador está en `src/pages/home-page.js` y `src/pages/personal-page.js`. Así el contenido llega ya en el
+   HTML: lo leen Google y los rastreadores de IA que no ejecutan JavaScript.
+2. **Comportamiento.** `src/main.js` (y `src/personal.js`) llaman a los `init…()` en un orden fijo: carruseles,
+   ventanas, canvas y observadores trabajan sobre ese HTML. Si un marcador llegara sin prerenderizar,
+   `mountSlots()` lo monta en el navegador.
 
-No cambies ese orden sin motivo: de él dependen los listeners de teclado de las ventanas y el momento en que se miden los canvas.
+Las funciones `render…()` no pueden usar `document` ni `window` (se ejecutan en Node); los colores los leen con
+`cssVar()`, que fuera del navegador toma los valores de `styles/base/variables.css`. No cambies el orden de los
+`init…()` sin motivo: de él dependen los listeners de teclado de las ventanas y el momento en que se miden los canvas.
 
 ## Editar el contenido
 

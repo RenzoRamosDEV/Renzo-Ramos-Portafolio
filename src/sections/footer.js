@@ -18,7 +18,7 @@ export const renderFooter = (nav = FOOTER_NAV) => `<footer class="footer">
     </button>
   </div>
   <div class="bottom">
-    <span>© <span id="year"></span> RENZO RAMOS · TODOS LOS DERECHOS RESERVADOS</span>
+    <span>© <span id="year">${new Date().getFullYear()}</span> RENZO RAMOS · TODOS LOS DERECHOS RESERVADOS</span>
     <span>HECHO CON MIS <b>MANOS</b> Y MUCHOS <b>CAFÉS</b></span>
   </div>
 </footer>`;

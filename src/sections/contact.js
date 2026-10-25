@@ -12,7 +12,7 @@ export const renderContact = () => `<section class="contact" id="contacto">
       <div class="status"><i></i>DISPONIBLE PARA NUEVOS PROYECTOS</div>
       <h2>¿HABLAMOS?<br><em>ESCRÍBEME</em></h2>
       <p class="lead">¿TIENES UNA IDEA, UN PROYECTO O UNA OFERTA? CUÉNTAMELO Y TE RESPONDO LO ANTES POSIBLE.</p>
-      <a class="mail" id="mail-link" href="#"><span id="mail-text"></span>${arrowRight}</a>
+      <a class="mail" id="mail-link" href="mailto:${CONTACT_EMAIL}"><span id="mail-text">${CONTACT_EMAIL.toUpperCase()}</span>${arrowRight}</a>
       <div class="socials">
         ${socialLink({ href: GITHUB_URL, icon: GITHUB_ICON, label: 'GITHUB' })}
         ${socialLink({ href: LINKEDIN_URL, icon: LINKEDIN_ICON, label: 'LINKEDIN' })}
@@ -31,8 +31,6 @@ export const renderContact = () => `<section class="contact" id="contacto">
 
 // El formulario abre el correo del visitante con el mensaje ya escrito
 export function initContact() {
-  $('mail-text').textContent = CONTACT_EMAIL.toUpperCase();
-  $('mail-link').href = `mailto:${CONTACT_EMAIL}`;
   $('contact-form').addEventListener('submit', e => {
     e.preventDefault();
     const f = new FormData(e.target);

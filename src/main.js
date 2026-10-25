@@ -1,31 +1,20 @@
-// Punto de entrada: monta las secciones en index.html y arranca su comportamiento
+// Punto de entrada: arranca el comportamiento de las secciones de index.html (el markup llega prerenderizado)
 // en el mismo orden que el script original (importa para listeners y animaciones)
 import './styles/main.css';
-import { mount } from './utils/dom.js';
+import { mountSlots } from './utils/dom.js';
 import { prefersReducedMotion } from './utils/motion.js';
-import { nameBar } from './components/name-bar.js';
-import { renderHero } from './sections/hero.js';
-import { renderProjects, initProjects } from './sections/projects.js';
-import { renderExperience, initExperience } from './sections/experience.js';
-import { renderEducation, initEducation } from './sections/education.js';
-import { renderCertificates, renderCertViewer, initCertificates } from './sections/certificates.js';
-import { renderContact, initContact } from './sections/contact.js';
-import { renderFooter, initFooter } from './sections/footer.js';
+import { homeSlots } from './pages/home-page.js';
+import { initProjects } from './sections/projects.js';
+import { initExperience } from './sections/experience.js';
+import { initEducation } from './sections/education.js';
+import { initCertificates } from './sections/certificates.js';
+import { initContact } from './sections/contact.js';
+import { initFooter } from './sections/footer.js';
 import { initHalftone } from './canvas/halftone.js';
 import { initSmoke } from './canvas/smoke.js';
 
-// 1. Markup, en el orden de la página
-mount('hero', renderHero());
-mount('projects', renderProjects());
-mount('bar-renzo', nameBar('RENZO', 18));
-mount('experience', renderExperience());
-mount('bar-ivan', nameBar('IVÁN', 20));
-mount('education', renderEducation());
-mount('certificates', renderCertificates());
-mount('bar-ramos', nameBar('RAMOS', 18));
-mount('contact', renderContact());
-mount('footer', renderFooter());
-mount('cert-viewer', renderCertViewer());
+// 1. Markup: llega prerenderizado en el HTML; solo se monta aquí si faltara
+mountSlots(homeSlots);
 
 // 2. Comportamiento
 initExperience();

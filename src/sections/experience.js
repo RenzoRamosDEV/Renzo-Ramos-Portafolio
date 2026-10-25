@@ -22,12 +22,12 @@ export const renderExperience = () => `<section class="experience" id="experienc
   <!-- Una tarjeta por puesto; su detalle sale al lado con VER MÁS -->
   <div class="exp-pairs">
     <div class="exp-pair">
-      ${expCard('a', { dur: '7.0s', path: 'M0 0 C 22 -18, 34 18, 4 26 C -26 34, -34 -6, 0 0' })}
-      ${expDetail('a')}
+      ${expCard('a', { dur: '7.0s', path: 'M0 0 C 22 -18, 34 18, 4 26 C -26 34, -34 -6, 0 0' }, jobs[0])}
+      ${expDetail('a', jobs[0])}
     </div>
     <div class="exp-pair mirror">
-      ${expCard('b', { dur: '8.5s', path: 'M0 0 C -24 -14, -30 22, -4 28 C 22 34, 30 -8, 0 0' })}
-      ${expDetail('b')}
+      ${expCard('b', { dur: '8.5s', path: 'M0 0 C -24 -14, -30 22, -4 28 C 22 34, 30 -8, 0 0' }, jobs[1 % jobs.length])}
+      ${expDetail('b', jobs[1 % jobs.length])}
     </div>
   </div>
 </section>`;

@@ -7,21 +7,25 @@ import { chevronLeft, chevronRight } from '../svg/icons.js';
 import { $ } from '../utils/dom.js';
 import { pad } from '../utils/format.js';
 
+// El primer proyecto ya va en el markup; las flechas cambian de proyecto desde initProjects
+const first = projects[0];
+const hidden = on => on ? '' : ' style="display:none"';
+
 export const renderProjects = () => `<section class="projects" id="proyectos">
   <div class="guide"></div>
   ${sectionBackground('PROYECTOS')}
   <div class="wrap">
     <div class="swap" id="pj-text">
       <div class="kicker">PROYECTOS</div>
-      <div class="count"><b id="pj-num"></b> / <span id="pj-total"></span></div>
-      <h2 id="pj-name"></h2>
-      <div class="pj-tag" id="pj-tag"><i></i><span id="pj-tag-text"></span></div>
-      <div class="sub" id="pj-sub"></div>
-      <p id="pj-desc"></p>
-      <div class="stack" id="pj-stack"></div>
+      <div class="count"><b id="pj-num">${pad(1)}</b> / <span id="pj-total">${pad(projects.length)}</span></div>
+      <h2 id="pj-name">${first.name}</h2>
+      <div class="pj-tag" id="pj-tag"${hidden(first.tag)}><i></i><span id="pj-tag-text">${first.tag || ''}</span></div>
+      <div class="sub" id="pj-sub">${first.sub}</div>
+      <p id="pj-desc">${first.desc}</p>
+      <div class="stack" id="pj-stack">${stackPills(first.stack)}</div>
       <div class="links">
-        <a class="btn-o solid" id="pj-live" href="#" target="_blank" rel="noopener">VER PROYECTO ↗</a>
-        <a class="btn-o" id="pj-code" href="#" target="_blank" rel="noopener">CÓDIGO</a>
+        <a class="btn-o solid" id="pj-live" href="${first.live || '#'}"${hidden(first.live)} target="_blank" rel="noopener">VER PROYECTO ↗</a>
+        <a class="btn-o" id="pj-code" href="${first.code || '#'}"${hidden(first.code)} target="_blank" rel="noopener">CÓDIGO</a>
       </div>
       <div class="nav">
         <button id="pj-prev" aria-label="Proyecto anterior">${chevronLeft}</button>
@@ -30,7 +34,7 @@ export const renderProjects = () => `<section class="projects" id="proyectos">
     </div>
     <div class="stage">
       <div class="laptop" id="pj-laptop">
-        <div class="screen swap" id="pj-screen"></div>
+        <div class="screen swap" id="pj-screen">${projectShot(first)}<div class="shine"></div></div>
         <div class="base"></div>
       </div>
     </div>
@@ -39,7 +43,6 @@ export const renderProjects = () => `<section class="projects" id="proyectos">
 
 export function initProjects() {
   let i = 0;
-  $('pj-total').textContent = pad(projects.length);
   function render() {
     const p = projects[i];
     $('pj-num').textContent = pad(i + 1); $('pj-name').textContent = p.name; $('pj-sub').textContent = p.sub; $('pj-desc').textContent = p.desc;
@@ -82,7 +85,7 @@ export function initProjects() {
   };
   $('pj-next').onclick = () => go(1);
   $('pj-prev').onclick = () => go(-1);
-  render();
+  startSlides();
 
   // El portátil se inclina siguiendo el ratón
   const sec = $('proyectos'), laptop = $('pj-laptop');

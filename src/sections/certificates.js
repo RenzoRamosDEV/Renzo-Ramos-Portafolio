@@ -9,7 +9,7 @@ import { $ } from '../utils/dom.js';
 export const renderCertificates = () => `<section class="certs" id="certificados">
   ${sectionBackground('CERTIFICADOS')}
   <h2>MIS <em>CERTIFICADOS</em></h2>
-  <div class="seals" id="seals"></div>
+  <div class="seals" id="seals">${certs.map(seal).join('')}</div>
 </section>`;
 
 export const renderCertViewer = () => modal({
@@ -27,8 +27,6 @@ export const renderCertViewer = () => modal({
 });
 
 export function initCertificates() {
-  $('seals').innerHTML = certs.map(seal).join('');
-
   const viewer = $('viewer');
   function open(c) {
     $('v-doc').innerHTML = certDocument(c);
