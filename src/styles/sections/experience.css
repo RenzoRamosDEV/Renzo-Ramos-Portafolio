@@ -44,9 +44,9 @@
 .exp-pairs.detail { gap: 0; }
 .exp-pairs.detail .exp-pair:not(.open) { max-width: 0; opacity: 0; overflow: hidden; pointer-events: none; }
 .exp-detail { position: relative; z-index: 1; width: 0; transition: width .6s cubic-bezier(.22,1,.36,1); }
-.exp-pair.open .exp-detail { width: 444px; }
+.exp-pair.open .exp-detail { width: 624px; }
 .exp-detail-card {
-  position: relative; width: 420px; max-height: 500px; overflow-y: auto; margin-left: 24px; padding: 22px 22px 22px;
+  position: relative; width: 600px; height: var(--card-h, auto); overflow-y: auto; margin-left: 24px; padding: 22px 22px 22px;
   scrollbar-width: thin; scrollbar-color: #444 transparent;
   background: var(--card); color: #e6e6e6; border-radius: 26px; box-shadow: 0 30px 60px rgba(0,0,0,.25);
   opacity: 0; visibility: hidden; transform: translateX(-100%);
@@ -71,12 +71,12 @@
 .exp-detail-card .exp-list li { margin-bottom: 5px; }
 .exp-detail-card .exp-list li:last-child { margin-bottom: 0; }
 
-/* Pantallas estrechas: la card de detalle sale hacia abajo, debajo de su tarjeta */
-@media (max-width: 760px) {
+/* Pantallas medianas y estrechas: la card de detalle sale hacia abajo, debajo de su tarjeta */
+@media (max-width: 1000px) {
   .exp-pair { flex-direction: column; align-items: center; }
   .exp-detail { width: 296px; max-height: 0; transition: max-height .6s cubic-bezier(.22,1,.36,1); }
   .exp-pair.open .exp-detail { width: 296px; max-height: 1400px; }
-  .exp-detail-card { width: 100%; max-height: none; margin: 16px 0 0; transform: translateY(-40px); }
+  .exp-detail-card { width: 100%; height: auto; margin: 16px 0 0; transform: translateY(-40px); }
 }
 @media (prefers-reduced-motion: reduce) {
   .exp-pair, .exp-pairs, .exp-detail, .exp-detail-card, .exp-detail-card > * { transition: none !important; }

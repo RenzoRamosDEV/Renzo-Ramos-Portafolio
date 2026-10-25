@@ -62,6 +62,8 @@ export function initExperience() {
     openSlot = g;
     pairs.classList.add('detail');
     el(g, 'card').parentElement.classList.add('open');
+    // La card de detalle mide lo mismo de alto que su tarjeta
+    el(g, 'detail').style.setProperty('--card-h', `${el(g, 'card').offsetHeight}px`);
     el(g, 'detail').setAttribute('aria-hidden', 'false');
     el(g, 'more').setAttribute('aria-expanded', 'true');
   }
