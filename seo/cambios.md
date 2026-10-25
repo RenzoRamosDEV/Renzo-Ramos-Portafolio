@@ -154,3 +154,30 @@ Notas: las fechas `dateCreated` son las de creación de cada repositorio (Brainy
 nuevos de proyectos anteriores). Google ya solo muestra el resultado enriquecido de FAQ a webs de gobierno y
 salud, pero el marcado sigue sirviendo a buscadores y asistentes de IA para entender las respuestas.
 `personal.html` y las páginas de fotos mantienen su JSON-LD propio (AboutPage/WebPage, ImageObject, BreadcrumbList).
+
+## Fase 6 — GEO / AEO (que los asistentes de IA lean y citen la web)
+
+| Archivo | Cambio | Por qué |
+|---|---|---|
+| `src/data/profile.js` (nuevo) | Perfil resumido único: frase de quién es, rol, formación, ciudad, inicio de la experiencia, stack principal y completo, idiomas, disponibilidad y contacto (datos del `llms.txt` que ya existía y de la web). | Una sola fuente: el bloque visible y los archivos para IA no pueden contradecirse. |
+| `src/components/summary.js` (nuevo), `src/sections/faq.js`, `src/styles/sections/faq.css` | Bloque visible **"Sobre mí en 30 segundos"** (`#resumen`) al inicio de la sección de preguntas: frase-respuesta directa y 9 datos en texto plano (nombre, rol, ciudad, experiencia calculada —"1 año y 1 mes desde septiembre de 2025"—, formación, stack, idiomas, disponibilidad, email) y **fecha visible de actualización** (`<time>`, último commit). | Contenido citable en texto real, con fecha (E-E-A-T). |
+| `vite/prerender.js` | Pasa la fecha del último commit a las secciones (`__LAST_UPDATED__`). | |
+| `vite/llms.js` (nuevo), `public/llms.txt` (eliminado) | `llms.txt` (llmstxt.org: título, resumen, páginas clave, proyectos, perfiles y "Optional") y **`llms-full.txt`** (todo el contenido en Markdown: resumen, contacto, stack, experiencia completa, formación, certificados con credenciales, proyectos con descripción larga, historia personal y FAQ) generados en cada build desde `src/data/`. En dev se sirven en `/llms.txt` y `/llms-full.txt`. | El `llms.txt` anterior estaba escrito a mano y desactualizado (decía que la web era una SPA en React con asistente IA). |
+| `vite/text.js` (nuevo), `vite/structured-data.js` | Ayudante para pasar a mayúsculas normales los textos que la web muestra en MAYÚSCULAS respetando siglas (AI, IA, DAM, MCP, LinkedIn…). Corrige en el JSON-LD nombres como "Profesional De Inteligencia Artificial" o "Linkedin Learning". | Nombres de entidades limpios y consistentes. |
+| `src/data/projects.js` | `details`: descripción larga de cada proyecto (del `llms.txt` anterior), solo para `llms-full.txt`. | |
+| `public/robots.txt` | Añadidos `Claude-SearchBot` y `Claude-User` (ya estaban GPTBot, ClaudeBot, Claude-Web, anthropic-ai, PerplexityBot, Google-Extended, OAI-SearchBot, Bingbot, CCBot, Applebot-Extended y otros); referencia a `llms-full.txt`. | |
+| `public/humans.txt` | Actualizado (decía React/TypeScript y asistente IA). | |
+| `index.html`, `personal.html` | `<link rel="alternate" type="text/markdown">` a `llms-full.txt` (además del `rel="llms"` a `llms.txt`). `meta author`, `rel="author"` y `rel="me"` ya se añadieron en la fase 2. | |
+
+**Ya cumplido en fases anteriores:** todo el contenido importante está en el HTML inicial (prerender, fase 2);
+los canvas no contienen texto; `sameAs` a GitHub y LinkedIn en el JSON-LD.
+
+**No hecho:**
+- Feed RSS/Atom: la web no tiene blog ni registro de cambios; no tendría contenido real.
+- Frase-resumen al principio de cada sección (proyectos, experiencia…): cambiaría el diseño de todas; las respuestas
+  directas están en "Sobre mí en 30 segundos" y en las preguntas frecuentes.
+
+**Inconsistencia a revisar (texto del usuario):** en "Sobre mí", el capítulo "Formación" dice "Formación Profesional
+en Informática… administración de sistemas, redes, soporte técnico" y las prácticas hablan de soporte informático,
+mientras el resto de la web dice Técnico Superior en DAM y Junior Full Stack Developer en SEIDOR. Para buscadores y
+asistentes de IA conviene que todo cuente lo mismo. No lo he cambiado porque es texto personal: TODO decidirlo.
