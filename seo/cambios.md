@@ -227,3 +227,9 @@ Después, también a petición de Renzo, se quita el bloque "Sobre mí en 30 seg
 5. `seo/sea-plan.md`: **no se hace** (fase 7 descartada, ver arriba).
 6. `seo/checklist-post-deploy.md`.
 7. `npm run seo:check`.
+
+### Favicon con el logo nuevo
+`favicon.ico` (16/32/48), `favicon-16.png`, `favicon-32.png`, `apple-touch-icon.png` (180), `icon-192.png` e
+`icon-512.png` pasan del logo antiguo "RR" al emblema nuevo (R con engranaje y laureles), recortado del logo de la web.
+Los iconos de app van sobre el fondo oscuro de la web con margen de seguridad para iconos "maskable". Sigue sin
+haber favicon SVG: haría falta el logo en vectorial.
