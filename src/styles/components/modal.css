@@ -14,14 +14,5 @@
 .viewer h4 { font-family: "Anton", sans-serif; font-weight: 400; font-size: 26px; color: #fff; }
 .viewer .bar small { font-family: "Bebas Neue", sans-serif; font-size: 17px; color: #9a9a9a; }
 .viewer .actions { display: flex; gap: 10px; }
-.job-box { width: min(680px, 100%); padding: 34px 34px 30px; max-height: 85vh; overflow: auto; color: #e6e6e6; }
-.job-box .kicker { font-family: "Oswald", sans-serif; font-weight: 600; font-size: 10px; letter-spacing: 3px; color: var(--accent); }
-.job-box h4 { font-size: 40px; line-height: 1.05; margin: 12px 0 16px; }
-.job-box .job-meta { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 24px; }
-.job-box .job-meta span { font-family: "Oswald", sans-serif; font-size: 11px; letter-spacing: 1.5px; padding: 6px 12px; border-radius: 20px; background: var(--card-tile); border: 1px solid #333; }
-.job-box .job-meta span.hl { background: var(--accent); border-color: var(--accent); color: #000; font-weight: 600; }
-.job-box h5 { font-family: "Bebas Neue", sans-serif; font-weight: 400; font-size: 20px; color: var(--accent); }
-.job-box p { font-family: "Bebas Neue", sans-serif; font-size: 19px; line-height: 25px; color: #cfcfcf; margin-top: 8px; }
-.job-box .exp-list { max-width: none; color: #cfcfcf; font-size: 17px; line-height: 23px; margin-top: 18px; }
 
 .viewer .close { position: absolute; top: 18px; right: 22px; width: 44px; height: 44px; border-radius: 50%; border: 1.5px solid #555; background: #000; color: #fff; font-size: 20px; cursor: pointer; }

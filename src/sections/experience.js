@@ -1,8 +1,8 @@
-// Experiencia: tarjetas de puesto (dos a la vez) y ventana de detalle con "VER MÁS"
+// Experiencia: tarjetas de puesto (dos a la vez) y panel lateral de detalle con "VER MÁS"
 import { jobs } from '../data/experience.js';
 import { sectionBackground } from '../components/section-background.js';
 import { expCard } from '../components/exp-card.js';
-import { modal } from '../components/modal.js';
+import { drawer } from '../components/drawer.js';
 import { listItems } from '../components/list-items.js';
 import { jobMeta } from '../components/job-meta.js';
 import { longArrowRight, longArrowLeft } from '../svg/icons.js';
@@ -30,8 +30,8 @@ export const renderExperience = () => `<section class="experience" id="experienc
   </div>
 </section>`;
 
-export const renderJobModal = () => modal({
-  id: 'job-modal', labelledBy: 'jm-role', closeId: 'jm-close', boxClass: 'box job-box',
+export const renderJobDrawer = () => drawer({
+  id: 'job-drawer', labelledBy: 'jm-role', closeId: 'jm-close', panelClass: 'job-panel',
   content: `
     <div class="kicker" id="jm-kicker"></div>
     <h4 id="jm-role"></h4>
@@ -57,19 +57,26 @@ export function initExperience() {
     });
   }
 
-  // "VER MÁS": abre el detalle del puesto en una ventana
+  // "VER MÁS": el detalle del puesto entra en un panel desde la derecha
   const current = {};
-  const box = document.getElementById('job-modal');
+  const box = document.getElementById('job-drawer');
+  let opener = null;
   const $m = id => document.getElementById(`jm-${id}`);
   function openJob(d) {
     $m('kicker').textContent = d.kicker; $m('role').textContent = d.role;
     $m('meta').innerHTML = jobMeta(d);
     $m('h').textContent = d.left[0]; $m('p').textContent = d.left[1];
     $m('list').innerHTML = listItems(d.list);
-    box.classList.add('open');
+    box.querySelector('.drawer-panel').scrollTop = 0;
+    box.classList.add('open'); box.setAttribute('aria-hidden', 'false');
+    $m('close').focus({ preventScroll: true });
   }
-  const closeJob = () => box.classList.remove('open');
-  ids.forEach(g => el(g, 'more').onclick = () => openJob(current[g]));
+  function closeJob() {
+    if (!box.classList.contains('open')) return;
+    box.classList.remove('open'); box.setAttribute('aria-hidden', 'true');
+    opener?.focus({ preventScroll: true });
+  }
+  ids.forEach(g => el(g, 'more').onclick = e => { opener = e.currentTarget; openJob(current[g]); });
   $m('close').onclick = closeJob;
   box.addEventListener('click', e => { if (e.target === box) closeJob(); });
   document.addEventListener('keydown', e => { if (e.key === 'Escape') closeJob(); });

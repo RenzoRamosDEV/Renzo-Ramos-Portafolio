@@ -35,3 +35,13 @@
   .exp-center { order: -1; }
   .experience h2 { font-size: 34px; line-height: 42px; padding: 0 16px; }
 }
+
+/* Detalle de un puesto ("VER MÁS"), dentro del panel lateral */
+.job-panel .kicker { font-family: "Oswald", sans-serif; font-weight: 600; font-size: 10px; letter-spacing: 3px; color: var(--accent); }
+.job-panel h4 { font-family: "Anton", sans-serif; font-weight: 400; font-size: 36px; line-height: 1.05; color: #fff; margin: 14px 44px 18px 0; }
+.job-panel .job-meta { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 24px; }
+.job-panel .job-meta span { font-family: "Oswald", sans-serif; font-size: 11px; letter-spacing: 1.5px; padding: 6px 12px; border-radius: 20px; background: var(--card-tile); border: 1px solid #333; }
+.job-panel .job-meta span.hl { background: var(--accent); border-color: var(--accent); color: #000; font-weight: 600; }
+.job-panel h5 { font-family: "Bebas Neue", sans-serif; font-weight: 400; font-size: 20px; color: var(--accent); }
+.job-panel p { font-family: "Bebas Neue", sans-serif; font-size: 19px; line-height: 25px; color: #cfcfcf; margin-top: 8px; }
+.job-panel .exp-list { max-width: none; color: #cfcfcf; font-size: 17px; line-height: 23px; margin-top: 18px; }

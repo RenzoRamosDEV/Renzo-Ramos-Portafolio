@@ -71,7 +71,7 @@ src/
 `index.html` solo contiene marcadores como `<div data-mount="projects"></div>`. `src/main.js` hace dos pasos:
 
 1. **Monta el markup** de cada sección en su marcador, en el orden de la página (`mount('projects', renderProjects())`).
-2. **Arranca el comportamiento** (carruseles, ventanas, canvas, observadores) llamando a los `init…()` en un orden fijo.
+2. **Arranca el comportamiento** (carruseles, ventanas y panel lateral, canvas, observadores) llamando a los `init…()` en un orden fijo.
 
 No cambies ese orden sin motivo: de él dependen los listeners de teclado de las ventanas y el momento en que se miden los canvas.
 
@@ -99,7 +99,7 @@ Todo el contenido está en `src/data/`. No hace falta tocar componentes ni estil
 {
   "kicker": "EXPERIENCIA 03", "role": "PUESTO", "place": "CIUDAD, PAÍS", "company": "EMPRESA",
   "from": "ENE. 2027", "to": "ACTUALIDAD",
-  "left": ["QUÉ HAGO :", "Resumen que abre la ventana de VER MÁS."],
+  "left": ["QUÉ HAGO :", "Resumen que aparece en el panel lateral de VER MÁS."],
   "list": ["Tarea 1", "Tarea 2"]
 }
 ```
