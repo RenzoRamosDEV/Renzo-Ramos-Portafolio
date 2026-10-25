@@ -4,12 +4,12 @@
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://portafolio-renzoramos.com/</loc>
-    <lastmod>2026-07-03</lastmod>
+    <lastmod>2026-10-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
     <image:image>
-      <image:loc>https://portafolio-renzoramos.com/og-image.jpg</image:loc>
-      <image:title>Renzo Ramos — Técnico Superior DAM &amp; Junior AI Engineer</image:title>
+      <image:loc>https://portafolio-renzoramos.com/img/og/renzo-ramos-junior-ai-engineer-madrid-portafolio.jpg</image:loc>
+      <image:title>Renzo Ramos, Junior AI Engineer y desarrollador de software en Madrid</image:title>
     </image:image>
     <image:image>
       <image:loc>https://portafolio-renzoramos.com/img/projects/booqi/02.jpg</image:loc>
@@ -30,7 +30,7 @@
   </url>
   <url>
     <loc>https://portafolio-renzoramos.com/personal.html</loc>
-    <lastmod>2026-10-24</lastmod>
+    <lastmod>2026-10-25</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
