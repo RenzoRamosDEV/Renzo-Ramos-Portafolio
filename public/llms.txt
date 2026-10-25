@@ -64,12 +64,12 @@
 
 ## Proyectos destacados
 
-- [Booqi — Sistema de Gestión de Reservas de Eventos](https://github.com/RenzoRamosDEV/Booqui-Sistema-Gestion-Reservas-Eventos):
+- [Booqi — Sistema de Gestión de Reservas de Eventos](https://github.com/RenzoRamosDEV/Booqui-TFG):
   plataforma web para descubrir eventos, comprar entradas (con ticket en PDF) y gestionar reservas,
   más un panel de administración. Arquitectura de microservicios en Java/Spring Boot (usuarios,
   eventos, reservas, pagos), MySQL, OpenAPI/Swagger, JUnit 5 y Pitest, frontend React + Vite +
   Bootstrap, orquestado con Docker Compose. Proyecto en equipo (con Melanie Gabriela Cárdenas Hidalgo).
-  Demo: https://renzoramosdev.github.io/Booqui-Sistema-Gestion-Reservas-Eventos/
+  Demo: https://renzoramosdev.github.io/Booqui-TFG/
 - [Redactor IA — Reformulación de Textos con IA](https://github.com/RenzoRamosDEV/Redactor-IA):
   herramienta web que mejora o reformula textos con IA (control de tono, intensidad e instrucciones).
   Frontend React + Vite + TailwindCSS + i18next (ES/EN); backend Node.js + Express con Google

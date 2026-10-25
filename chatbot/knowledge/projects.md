@@ -22,8 +22,8 @@ afecte a las demás.
 - Frontend: React · React Router · Vite · Bootstrap · Axios · PDF Lib
 - DevOps: Docker · Docker Compose
 
-- 📦 Repositorio: https://github.com/RenzoRamosDEV/Booqui-Sistema-Gestion-Reservas-Eventos
-- 🌐 Demo: https://renzoramosdev.github.io/Booqui-Sistema-Gestion-Reservas-Eventos/
+- 📦 Repositorio: https://github.com/RenzoRamosDEV/Booqui-TFG
+- 🌐 Demo: https://renzoramosdev.github.io/Booqui-TFG/
 
 ## 02 · Redactor IA — Reformulación de Textos con IA
 *Desarrollador único · Full Stack Developer*

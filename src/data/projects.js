@@ -34,8 +34,8 @@ export const projects = [
       "Docker",
       "Docker Compose"
     ],
-    "live": "https://renzoramosdev.github.io/Booqui-Sistema-Gestion-Reservas-Eventos/",
-    "code": "https://github.com/RenzoRamosDEV/Booqui-Sistema-Gestion-Reservas-Eventos"
+    "live": "https://renzoramosdev.github.io/Booqui-TFG/",
+    "code": "https://github.com/RenzoRamosDEV/Booqui-TFG"
   },
   {
     "name": "REDACTOR IA",

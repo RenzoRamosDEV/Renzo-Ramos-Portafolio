@@ -49,8 +49,8 @@ Plataforma de compra y gestión de entradas para eventos. Implementé **cuatro m
 
 **Tecnologías:** Java · Spring Boot · Spring Data JPA · Spring Web · Spring Validation · MySQL · Lombok · MapStruct · SpringDoc OpenAPI · Maven · Docker · Docker Compose · React · Bootstrap
 
-- Repositorio: https://github.com/RenzoRamosDEV/Booqui-Sistema-Gestion-Reservas-Eventos
-- Demo: https://renzoramosdev.github.io/Booqui-Sistema-Gestion-Reservas-Eventos/
+- Repositorio: https://github.com/RenzoRamosDEV/Booqui-TFG
+- Demo: https://renzoramosdev.github.io/Booqui-TFG/
 
 ---
 
