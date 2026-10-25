@@ -46,7 +46,7 @@ export const projects = [
       "img/projects/pokedex/03.jpg",
       "img/projects/pokedex/04.jpg"
     ],
-    "desc": "Pokédex estilo Game Boy sobre PokéAPI, sin frameworks ni build, con un chat de IA (Claude u OpenAI) que responde con datos reales y un servidor MCP para consultarla desde Claude.",
+    "desc": "Pokédex estilo Game Boy sobre PokéAPI, sin frameworks ni build, con un chat de IA (Claude u OpenAI) que responde con datos reales y un servidor MCP.",
     "stack": [
       "JavaScript",
       "HTML",
