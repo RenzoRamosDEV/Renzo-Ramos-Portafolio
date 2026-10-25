@@ -127,3 +127,30 @@ cada proyecto por su propia búsqueda (p. ej. "AgentBoard coste agentes IA"). Pl
 2. El carrusel de la portada no cambia; cada proyecto añade un enlace "Ver ficha del proyecto".
 3. Los anclas actuales (`/#proyectos`, etc.) siguen funcionando: no hace falta ninguna redirección.
 4. Añadir las rutas al sitemap (`vite/sitemap.js`) y a `llms.txt`.
+
+### Corrección de un fallo de la fase 3 (detectado en la fase 5)
+Con `picture { display: contents }`, el `<source>` invisible de cada `<picture>` contaba como un hijo más en
+contenedores flex/grid: el **logo del pie** aparecía en el centro, encima del menú, y el **emblema de la insignia**
+de la portada bajaba un poco. En la fase 3 atribuí esas diferencias de píxeles a la compresión WebP sin revisar
+cada zona. Arreglo: `picture > source { display: none; }` en `reset.css` (no afecta a qué imagen se elige).
+Desde entonces la comparación revisa una a una todas las zonas distintas.
+
+## Fase 5 — Datos estructurados
+
+**Antes:** JSON-LD escrito a mano en `index.html` (Person, WebSite, Organization, 4 proyectos con una imagen,
+BreadcrumbList, ProfilePage sin `@id`), sin FAQ y con riesgo de desincronizarse de los datos de la web.
+**Ahora:** se genera en cada build desde `src/data/` (el mismo contenido que se ve) y se valida contra el
+vocabulario oficial de schema.org: todos los tipos y propiedades existen y se usan en su tipo.
+
+| Archivo | Cambio |
+|---|---|
+| `vite/structured-data.js` (nuevo) | Grafo `@graph` con `@id` enlazados: **Person** (nombre, apellidos, alias, cargo, descripción, email, teléfono, Madrid, lugar de nacimiento, empresa actual y ocupación desde la experiencia, centros de estudio, título DAM y certificados con fecha y credencial, idiomas, `knowsAbout`, `sameAs` GitHub/LinkedIn, 4 fotos con licencia) → **WebSite** → **ProfilePage** (con `dateModified` = fecha del último commit, imagen principal, breadcrumb y partes) → **BreadcrumbList** → **ItemList** de proyectos → **SoftwareSourceCode** (AgentBoard, Pokédex Retro, Booqi) / **WebApplication** gratuita (Brainy), cada uno con descripción, web, repositorio, lenguajes, `dateCreated`, tecnologías y **todas** sus capturas como `ImageObject` con licencia → **FAQPage**. Se quita el nodo `Organization` (no hay marca aparte de la persona). No llega al navegador. |
+| `vite/prerender.js` | Rellena `<!-- prerender:jsonld -->` con ese grafo. |
+| `index.html` | El JSON-LD a mano se sustituye por el marcador. |
+| `src/data/projects.js` | Por proyecto: `title` (nombre con mayúsculas normales), `created` (fecha de creación del repositorio en GitHub) y `languages`. |
+| `src/data/faq.js`, `src/components/faq-item.js`, `src/sections/faq.js`, `src/styles/sections/faq.css` (nuevos); `src/pages/home-page.js`, `src/styles/main.css`, `src/styles/layout/background.css` | Sección visible **"Preguntas frecuentes"** entre certificados y contacto (`#preguntas`): 7 preguntas de reclutador con respuestas sacadas solo de datos de la web (quién es, dónde trabaja, tecnologías, estudios, proyectos, disponibilidad, contacto). Acordeón con `<details>`: funciona sin JavaScript y el texto está en el HTML. Mismo estilo que certificados. Es lo que exige Google para marcar `FAQPage`. |
+
+Notas: las fechas `dateCreated` son las de creación de cada repositorio (Brainy-Site y Pokedex-Retro son repos
+nuevos de proyectos anteriores). Google ya solo muestra el resultado enriquecido de FAQ a webs de gobierno y
+salud, pero el marcado sigue sirviendo a buscadores y asistentes de IA para entender las respuestas.
+`personal.html` y las páginas de fotos mantienen su JSON-LD propio (AboutPage/WebPage, ImageObject, BreadcrumbList).
