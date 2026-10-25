@@ -17,9 +17,9 @@
 .projects .kicker { font-family: "Oswald", sans-serif; font-weight: 600; font-size: 11px; letter-spacing: 3px; color: #9a9a9a; margin-bottom: 18px; }
 .projects .count { font-family: "Anton", sans-serif; font-size: 22px; color: #6a6a6a; }
 .projects .count b { color: var(--accent); font-size: 40px; font-weight: 400; }
-/* Etiqueta opcional del proyecto (p. ej. "ACTUALIZACIONES CONSTANTES"), junto al número */
+/* Etiqueta opcional del proyecto (p. ej. "ACTUALIZACIONES CONSTANTES"), debajo del nombre */
 .projects .pj-tag {
-  display: inline-flex; align-items: center; gap: 8px; margin-left: 16px; padding: 6px 12px; border-radius: 30px; vertical-align: 10px;
+  display: flex; width: fit-content; align-items: center; gap: 8px; margin: -6px 0 18px; padding: 6px 12px; border-radius: 30px;
   background: rgba(var(--accent-rgb),.12); border: 1px solid rgba(var(--accent-rgb),.45); color: #e6e6e6;
   font-family: "Oswald", sans-serif; font-weight: 600; font-size: 10px; letter-spacing: 2px;
 }

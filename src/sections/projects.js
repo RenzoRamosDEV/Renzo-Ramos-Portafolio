@@ -13,8 +13,9 @@ export const renderProjects = () => `<section class="projects" id="proyectos">
   <div class="wrap">
     <div class="swap" id="pj-text">
       <div class="kicker">PROYECTOS</div>
-      <div class="count"><b id="pj-num"></b> / <span id="pj-total"></span><span class="pj-tag" id="pj-tag"><i></i><span id="pj-tag-text"></span></span></div>
+      <div class="count"><b id="pj-num"></b> / <span id="pj-total"></span></div>
       <h2 id="pj-name"></h2>
+      <div class="pj-tag" id="pj-tag"><i></i><span id="pj-tag-text"></span></div>
       <div class="sub" id="pj-sub"></div>
       <p id="pj-desc"></p>
       <div class="stack" id="pj-stack"></div>
