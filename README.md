@@ -52,6 +52,7 @@ src/
 │   ├── education.js       Estudios de la línea de tiempo
 │   ├── certificates.js    Certificados
 │   ├── personal.js        Texto de la página personal (frase, datos y capítulos)
+│   ├── faq.js             Preguntas frecuentes (sección visible y FAQPage del JSON-LD)
 │   └── site.js            Email, enlaces (GitHub, LinkedIn), logo, iconos y navegación
 ├── sections/              Una por sección: render…() devuelve su markup e init…() le da comportamiento
 ├── components/            Piezas reutilizables: reciben datos y devuelven markup
@@ -131,6 +132,9 @@ Todo el contenido está en `src/data/`. No hace falta tocar componentes ni estil
 Si `credential` está vacío, el visor oculta el botón **VER CREDENCIAL**.
 
 **Email, enlaces y navegación** están en `site.js`. **El texto de la página personal** está en `personal.js`.
+**Las preguntas frecuentes** están en `faq.js`: si cambia la experiencia, los estudios o los proyectos, revisa sus respuestas.
+
+Los **datos estructurados (JSON-LD)** de la portada se generan solos desde estos archivos (`vite/structured-data.js`).
 
 ## Crear un componente
 
@@ -169,6 +173,7 @@ Las clases, ids y atributos existentes no se renombran: el CSS y el JavaScript d
 |---|---|
 | `prerender.js` | Mete el markup de cada sección en el HTML (build y dev). |
 | `sitemap.js` | Genera `dist/sitemap.xml` con todas las páginas e imágenes. |
+| `structured-data.js` | Genera el JSON-LD de la portada desde `src/data/` (lo inserta el prerender). |
 | `inline-css.js` | En el build, el CSS va dentro de un `<style>` en cada HTML (sin hojas bloqueantes). |
 | `security-meta.js` | En el build, añade CSP y Referrer-Policy como `<meta>`. Si algún día se carga algo de otro dominio (un script de analítica, una fuente…), hay que añadirlo a la CSP o el navegador lo bloqueará. |
 
