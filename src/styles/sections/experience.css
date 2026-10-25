@@ -78,6 +78,14 @@
   .exp-pair.open .exp-detail { width: 296px; max-height: 1400px; }
   .exp-detail-card { width: 100%; height: auto; margin: 16px 0 0; transform: translateY(-40px); }
 }
+/* Tablet: hay sitio para que el detalle salga al lado de su tarjeta, como en escritorio (más estrecho y con su altura) */
+@media (min-width: 700px) and (max-width: 1000px) {
+  .exp-pair { flex-direction: row; align-items: flex-start; }
+  .exp-pair.open { max-width: none; }
+  .exp-detail { width: 0; max-height: none; transition: width .6s cubic-bezier(.22,1,.36,1); }
+  .exp-pair.open .exp-detail { width: min(624px, 100vw - 376px); max-height: none; }
+  .exp-detail-card { width: calc(min(624px, 100vw - 376px) - 24px); height: auto; min-height: var(--card-h, auto); margin: 0 0 0 24px; transform: translateX(-100%); }
+}
 @media (prefers-reduced-motion: reduce) {
   .exp-pair, .exp-pairs, .exp-detail, .exp-detail-card, .exp-detail-card > * { transition: none !important; }
 }
