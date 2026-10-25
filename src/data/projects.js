@@ -38,27 +38,6 @@ export const projects = [
     "code": "https://github.com/RenzoRamosDEV/Booqui-TFG"
   },
   {
-    "name": "REDACTOR IA",
-    "sub": "REFORMULACIÓN DE TEXTOS CON IA",
-    "image": "img/projects/redactor-ia.jpg",
-    "desc": "Herramienta web para mejorar o reformular textos con IA: eliges el tono, ajustas la intensidad y recibes una versión mejorada en segundos.",
-    "stack": [
-      "React",
-      "Vite",
-      "Tailwind CSS",
-      "i18next",
-      "TypeScript",
-      "Node.js",
-      "Express",
-      "Gemini",
-      "Groq SDK",
-      "helmet",
-      "express-rate-limit"
-    ],
-    "live": "",
-    "code": "https://github.com/RenzoRamosDEV/Redactor-IA"
-  },
-  {
     "name": "POKÉDEX RETRO",
     "sub": "+ CHATBOT REACT (MCP)",
     "image": "img/projects/pokedex.jpg",
@@ -78,5 +57,26 @@ export const projects = [
     ],
     "live": "",
     "code": "https://github.com/RenzoRamosDEV/Api-Pokemon-Scala-Web"
+  },
+  {
+    "name": "REDACTOR IA",
+    "sub": "REFORMULACIÓN DE TEXTOS CON IA",
+    "image": "img/projects/redactor-ia.jpg",
+    "desc": "Herramienta web para mejorar o reformular textos con IA: eliges el tono, ajustas la intensidad y recibes una versión mejorada en segundos.",
+    "stack": [
+      "React",
+      "Vite",
+      "Tailwind CSS",
+      "i18next",
+      "TypeScript",
+      "Node.js",
+      "Express",
+      "Gemini",
+      "Groq SDK",
+      "helmet",
+      "express-rate-limit"
+    ],
+    "live": "",
+    "code": "https://github.com/RenzoRamosDEV/Redactor-IA"
   }
 ];
