@@ -1,7 +1,7 @@
 /* Fondo animado en versión oscura (mismo que experiencia y educación) */
-.projects .bg-dots, .certs .bg-dots { background-image: radial-gradient(rgba(255,255,255,.1) 1px, transparent 1.6px); }
-.projects .bg-word span, .certs .bg-word span { -webkit-text-stroke-color: rgba(255,255,255,.06); }
-.projects .bg-word .row.rev span, .certs .bg-word .row.rev span { -webkit-text-stroke-color: rgba(var(--accent-rgb),.18); }
+.projects .bg-dots, .certs .bg-dots, .faq .bg-dots { background-image: radial-gradient(rgba(255,255,255,.1) 1px, transparent 1.6px); }
+.projects .bg-word span, .certs .bg-word span, .faq .bg-word span { -webkit-text-stroke-color: rgba(255,255,255,.06); }
+.projects .bg-word .row.rev span, .certs .bg-word .row.rev span, .faq .bg-word .row.rev span { -webkit-text-stroke-color: rgba(var(--accent-rgb),.18); }
 
 /* Fondo animado: palabra gigante en contorno deslizándose + trama de puntos que se mueve */
 .bg-dots {
