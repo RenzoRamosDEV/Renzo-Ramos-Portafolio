@@ -51,7 +51,12 @@
 
 @media (max-width: 1000px) {
   .contact { padding: 80px 16px 90px; }
-  .contact-grid { grid-template-columns: 1fr; gap: 50px; }
+  .contact-grid { grid-template-columns: minmax(0, 1fr); gap: 50px; }
   .contact h2 { font-size: 80px; }
   .contact .mail { font-size: 24px; }
+}
+/* Móvil: título y email se ajustan al ancho para que no se salgan (ni empujen el formulario a la derecha) */
+@media (max-width: 640px) {
+  .contact h2 { font-size: min(80px, 17vw); }
+  .contact .mail { font-size: min(24px, 5.6vw); }
 }
