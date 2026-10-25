@@ -27,8 +27,9 @@
 
 ```bash
 npm install
-npm run dev       # servidor de desarrollo en http://localhost:5173
-npm run build     # genera dist/
+npm run dev       # servidor de desarrollo en http://localhost:5173 (antes genera las imágenes WebP)
+npm run build     # genera dist/ (antes genera las imágenes WebP)
+npm run images    # solo genera las versiones WebP en public/opt/ (no se suben al repo)
 npm run preview   # sirve dist/ para comprobar el build
 ```
 
@@ -94,9 +95,9 @@ Todo el contenido está en `src/data/`. No hace falta tocar componentes ni estil
   "name": "MI PROYECTO",
   "sub": "SUBTÍTULO EN NARANJA",
   "tag": "ACTUALIZACIONES CONSTANTES",        // opcional: etiqueta debajo del nombre
-  "image": "img/projects/mi-proyecto.jpg",   // captura 16:10 en public/img/projects/
-  // o, en vez de "image", varias capturas que se van pasando en el portátil:
-  // "images": ["img/projects/mi-proyecto/01.jpg", "img/projects/mi-proyecto/02.jpg"],
+  "images": [                                // capturas de 1536×800 que se van pasando en el portátil
+    { "src": "img/projects/mi-proyecto/mi-proyecto-inicio.jpg", "alt": "Qué se ve en la captura, en 8-15 palabras" }
+  ],
   "desc": "Descripción corta.",
   "stack": ["React", "Node.js"],             // se muestran 8 y un "+N" con el resto
   "live": "https://…",                       // vacío ("") oculta el botón VER PROYECTO
@@ -144,6 +145,17 @@ Si `credential` está vacío, el visor oculta el botón **VER CREDENCIAL**.
 3. Úsalo desde la sección que corresponda (`src/sections/…`) dentro de su `render…()`. Si necesita comportamiento, añádelo en el `init…()` de la sección.
 
 Las clases, ids y atributos existentes no se renombran: el CSS y el JavaScript dependen de ellos. Los archivos nuevos van en kebab-case.
+
+## Imágenes
+
+- **Nombres descriptivos** en minúsculas y con guiones (`agentboard-servidores-mcp.jpg`, no `01.jpg`): Google los usa para entender la imagen.
+- **`alt`** obligatorio: qué se ve, en 8-15 palabras. Las decorativas llevan `alt=""` (el componente añade `role="presentation"`).
+- **Versiones WebP:** `scripts/images.mjs` crea en `public/opt/` copias WebP de 480, 960 y 1600 px de cada imagen de `public/media` y `public/img`
+  (se ejecuta solo antes de `dev` y `build`). El componente `picture()` (`src/components/picture.js`) las sirve con `srcset`,
+  con la original como respaldo y con `width`/`height` para que la página no salte al cargar.
+- **Sitemap:** `vite/sitemap.js` genera `dist/sitemap.xml` en cada build con todas las páginas y todas las imágenes
+  (título y descripción de cada una). Una imagen nueva de un proyecto entra sola; una página nueva hay que añadirla allí.
+- **Licencia:** las fotos y capturas son de Renzo Ramos, con todos los derechos reservados (`/licencia-imagenes.html`).
 
 ## Estilos
 

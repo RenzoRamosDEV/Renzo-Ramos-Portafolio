@@ -46,3 +46,36 @@ píxel a píxel (0 px de diferencia en las 8 capturas) y las interacciones dan e
 | `seo/keywords.md` (nuevo) | 28 keywords por intención y mapa página → keyword → title → H1 → description. | |
 
 **Pendiente con TODO:** icono SVG (no hay logo vectorial en el repo); competidores de referencia (sección 0).
+
+## Fase 3 — Imágenes y Google Imágenes
+
+**Resultado (Lighthouse móvil, build local):**
+
+| Página | LCP | CLS | Peso total |
+|---|---|---|---|
+| `/` antes → después | 5,5 s → **2,8 s** | 0,173 → **0,003** | 1722 KB → **441 KB** |
+| `/personal.html` antes → después | 5,7 s → **1,8 s** | 0,827 → 0,844 (lo causan las fuentes; fase 4) | 798 KB → **197 KB** |
+
+La web se ve igual: mismas posiciones y tamaños en todas las capturas; las únicas diferencias de píxeles son la
+compresión WebP dentro de las fotos.
+
+| Archivo | Cambio | Por qué |
+|---|---|---|
+| `public/media/*`, `public/img/projects/*/*` | Renombradas con keywords: `renzo-ramos-desarrollador-ia-madrid-portada.png`, `renzo-ramos-de-los-rios-sobre-mi.png`, `renzo-ramos-logo.png`, `renzo-ramos-emblema.png`, `agentboard-servidores-mcp.jpg`, `booqi-carrito.jpg`, `pokedex-retro-ficha-bulbasaur.jpg`… (28 archivos). Ninguna estaba publicada aún, no hacen falta redirecciones. | Nombre descriptivo = señal para Google Imágenes. |
+| `src/data/projects.js` | `images` pasa a `[{ src, alt }]`: cada captura con su alt (8-15 palabras). | Antes solo la primera tenía alt (el nombre del proyecto). |
+| `src/data/site.js` | Logo renombrado, alt "Renzo Ramos" (antes "CJJ Renzo Ramos") y dimensiones. | |
+| `src/utils/responsive.js`, `src/components/picture.js` (nuevos) | `<picture>` con WebP 480/960/1600 (`srcset` + `sizes`), original de respaldo, `width`/`height`, `loading="lazy"` salvo la imagen principal (`fetchpriority="high"`). Decorativas: `alt=""` + `role="presentation"`. | Peso, CLS y LCP. |
+| `scripts/images.mjs` (nuevo), `package.json` | Genera los WebP con `sharp` (devDependency nueva) en `public/opt/` antes de `dev` y `build` (`predev`/`prebuild`); solo rehace los que cambian. `public/opt/` está en `.gitignore`. | Optimización dentro del build, también en GitHub Actions. |
+| `src/components/project-shot.js` | Capturas con `picture()`; el conjunto va dentro de un enlace al proyecto (`aria-label="Abrir X (pestaña nueva)"`). | Asociar imagen ↔ proyecto. Al pulsar la pantalla del portátil se abre el proyecto. |
+| `src/sections/hero.js`, `personal-hero.js`, `footer.js`, `src/components/social-link.js` | Logo, foto de portada (alt descriptivo, prioridad alta), emblema e iconos con `picture()`/dimensiones. | |
+| `src/styles/base/reset.css` | `picture { display: contents; }` | `<picture>` no crea caja: el diseño no cambia. |
+| `src/styles/sections/hero.css`, `pages/personal.css`, `sections/footer.css` | `width: auto` donde solo se fijaba la altura. | Que el atributo `width` no estire la imagen. |
+| `index.html`, `personal.html` | `<link rel="preload" as="image">` de la imagen principal con `imagesrcset`. | LCP. |
+| `src/svg/icons.js`, `src/sections/hero.js` | Todos los SVG son decorativos: `aria-hidden="true"` (y `focusable="false"` en los iconos). | No se leen como contenido. |
+| `vite/sitemap.js` (nuevo), `vite.config.ts`, `public/sitemap.xml` (eliminado) | El sitemap se genera en cada build: 6 páginas y 34 imágenes con `<image:title>` y `<image:caption>`; `lastmod` = último commit que tocó la página. | Antes solo tenía 1 captura por proyecto. |
+| `index.html` (JSON-LD) | La foto de portada se añade a `Person.image`; cada proyecto tiene `ImageObject` con su captura (las referencias antiguas `…/02.jpg` estaban rotas tras el renombrado). Todas con `creator`, `creditText`, `copyrightNotice`, `license` y `acquireLicensePage`. | Datos de licencia para Google Imágenes. |
+| `public/licencia-imagenes.html` (nueva) | Página visible con las condiciones de uso (© Renzo Ramos, todos los derechos reservados; cómo pedir permiso). | La exigen `license`/`acquireLicensePage`. |
+| `public/renzo-ramos-*.html` | Foto con `<picture>` WebP y `fetchpriority="high"`; licencia en su `ImageObject`; enlace "Licencia de la imagen". | |
+
+**Fuera del repo (ver checklist post-deploy):** la caché de imágenes la marca Cloudflare/GitHub Pages
+(`max-age=14400`, 4 h); se puede alargar con una regla de caché en Cloudflare.
