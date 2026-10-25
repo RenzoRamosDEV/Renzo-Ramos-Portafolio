@@ -6,7 +6,7 @@ import { renderProjects } from '../sections/projects.js';
 import { renderExperience } from '../sections/experience.js';
 import { renderEducation } from '../sections/education.js';
 import { renderCertificates, renderCertViewer } from '../sections/certificates.js';
-import { renderFaq } from '../sections/faq.js';
+import { renderSummarySection } from '../sections/summary.js';
 import { renderContact } from '../sections/contact.js';
 import { renderFooter } from '../sections/footer.js';
 
@@ -18,7 +18,7 @@ export const homeSlots = () => ({
   'bar-ivan': nameBar('IVÁN', 20),
   'education': renderEducation(),
   'certificates': renderCertificates(),
-  'faq': renderFaq(),
+  'summary': renderSummarySection(),
   'bar-ramos': nameBar('RAMOS', 18),
   'contact': renderContact(),
   'footer': renderFooter(),

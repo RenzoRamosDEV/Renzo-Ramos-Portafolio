@@ -190,3 +190,9 @@ un banner de cookies (RGPD/LSSI) y a cargar JavaScript de Google, a costa del di
 Alternativas gratuitas, sin cookies y sin código en la web: **Google Search Console** (búsquedas, impresiones,
 clics e imágenes; la web ya está verificada) y **Cloudflare Web Analytics** (el dominio ya pasa por Cloudflare).
 No se crean `seo/sea-plan.md` ni etiquetas de medición; la CSP sigue permitiendo solo el propio dominio.
+
+### Cambio posterior: preguntas frecuentes retiradas (25/10/2026)
+A petición de Renzo se quita la sección visible de preguntas frecuentes (`src/data/faq.js`, `faq-item.js`,
+`sections/faq.js`) y, con ella, el `FAQPage` del JSON-LD y la FAQ de `llms-full.txt` (no se marca ni se describe
+contenido que la web no muestra). "Sobre mí en 30 segundos" se queda como sección propia
+(`src/sections/summary.js`, `src/styles/sections/summary.css`) entre certificados y contacto.

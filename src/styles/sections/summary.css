@@ -1,0 +1,19 @@
+/* ---------- Sobre mí en 30 segundos: sobre fondo oscuro, como certificados ---------- */
+.summary-section { position: relative; overflow: hidden; background: var(--surface-dark); padding: 30px 42px 110px; }
+.summary-section h2 { position: relative; z-index: 1; text-align: center; font-family: "Bebas Neue", sans-serif; font-weight: 400; font-size: 46px; color: #fff; margin-bottom: 18px; }
+.summary-section h2 em { font-style: normal; color: var(--accent); }
+.summary { position: relative; z-index: 1; max-width: 860px; margin: 0 auto; }
+.summary-lead { font-family: "Bebas Neue", sans-serif; font-size: 22px; line-height: 28px; color: #e6e6e6; text-align: center; max-width: 760px; margin: 0 auto 28px; }
+.summary-facts { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+.summary-facts div { background: var(--card); border: 1px solid var(--card-line); border-radius: 16px; padding: 14px 16px; }
+.summary-facts dt { font-family: "Oswald", sans-serif; font-weight: 500; font-size: 10px; letter-spacing: 2.5px; text-transform: uppercase; color: var(--accent); }
+.summary-facts dd { font-family: "Bebas Neue", sans-serif; font-size: 19px; line-height: 23px; color: #fff; margin-top: 6px; }
+.summary-facts a { color: inherit; text-decoration: underline; text-decoration-color: rgba(var(--accent-rgb), .6); text-underline-offset: 3px; word-break: break-all; }
+.summary-facts a:hover { color: var(--accent); }
+.summary-updated { margin-top: 16px; text-align: center; font-family: "Oswald", sans-serif; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: #8a8a8a; }
+@media (max-width: 900px) { .summary-facts { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 640px) {
+  .summary-facts { grid-template-columns: 1fr; }
+  .summary-section { padding: 30px 16px 90px; }
+  .summary-section h2 { font-size: 38px; }
+}

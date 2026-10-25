@@ -1,18 +1,17 @@
 // Datos estructurados (JSON-LD) de la página principal, generados en el build a partir de los mismos datos
 // que pinta la web (src/data/): así nunca se desincronizan. Un único @graph con @id enlazados:
-// Person ← WebSite ← ProfilePage → BreadcrumbList, ItemList de proyectos → cada proyecto, FAQPage.
+// Person ← WebSite ← ProfilePage → BreadcrumbList, ItemList de proyectos → cada proyecto.
 // Solo corre en Node (lo llama vite/prerender.js); no llega al navegador.
 import { CONTACT_EMAIL, GITHUB_URL, LINKEDIN_URL } from '../src/data/site.js';
 import { projects } from '../src/data/projects.js';
 import { jobs } from '../src/data/experience.js';
 import { certs } from '../src/data/certificates.js';
-import { faq } from '../src/data/faq.js';
 import { niceCase } from './text.js';
 
 const SITE = 'https://portafolio-renzoramos.com';
 const ID = {
   person: `${SITE}/#renzo`, website: `${SITE}/#website`, page: `${SITE}/#webpage`,
-  breadcrumb: `${SITE}/#breadcrumb`, projects: `${SITE}/#proyectos`, faq: `${SITE}/#preguntas`, photo: `${SITE}/#foto-portada`,
+  breadcrumb: `${SITE}/#breadcrumb`, projects: `${SITE}/#proyectos`, photo: `${SITE}/#foto-portada`,
 };
 const slug = s => s.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
 
@@ -105,7 +104,7 @@ export function homeJsonLd({ lastModified }) {
       description: 'Portafolio de Renzo Ramos, Junior AI Engineer y desarrollador de software en Madrid: agentes de IA con Python y LangChain y APIs con Java.',
       inLanguage: 'es-ES', isPartOf: { '@id': ID.website }, about: { '@id': ID.person }, mainEntity: { '@id': ID.person },
       primaryImageOfPage: { '@id': ID.photo }, breadcrumb: { '@id': ID.breadcrumb }, dateModified: lastModified,
-      hasPart: [{ '@id': ID.projects }, { '@id': ID.faq }],
+      hasPart: [{ '@id': ID.projects }],
     },
     {
       '@type': 'BreadcrumbList', '@id': ID.breadcrumb,
@@ -116,10 +115,6 @@ export function homeJsonLd({ lastModified }) {
       itemListElement: projects.map((p, i) => ({ '@type': 'ListItem', position: i + 1, item: { '@id': `${SITE}/#proyecto-${slug(p.title)}` } })),
     },
     ...projects.map(project),
-    {
-      '@type': 'FAQPage', '@id': ID.faq, url: `${SITE}/#preguntas`, inLanguage: 'es-ES', isPartOf: { '@id': ID.page },
-      mainEntity: faq.map(({ q, a }) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } })),
-    },
   ];
   const json = JSON.stringify({ '@context': 'https://schema.org', '@graph': graph }, null, 2).replace(/</g, '\\u003c');
   return `<script type="application/ld+json">\n${json}\n  </script>`;

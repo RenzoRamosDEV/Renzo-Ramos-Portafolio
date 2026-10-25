@@ -19,9 +19,9 @@ function updated(root) {
 
 async function data(root) {
   const load = f => import(`${pathToFileURL(resolve(root, f)).href}?t=${Date.now()}`);
-  const [{ profile, experienceLength }, { projects }, { jobs }, { studies }, { certs }, { faq }, { personal }, site] = await Promise.all(
-    ['profile', 'projects', 'experience', 'education', 'certificates', 'faq', 'personal', 'site'].map(n => load(`src/data/${n}.js`)));
-  return { profile, experienceLength, projects, jobs, studies, certs, faq, personal, site };
+  const [{ profile, experienceLength }, { projects }, { jobs }, { studies }, { certs }, { personal }, site] = await Promise.all(
+    ['profile', 'projects', 'experience', 'education', 'certificates', 'personal', 'site'].map(n => load(`src/data/${n}.js`)));
+  return { profile, experienceLength, projects, jobs, studies, certs, personal, site };
 }
 
 const projectLine = p => `- [${p.title}](${p.live || p.code}): ${p.desc}${p.code && p.live ? ` Código: ${p.code}` : ''}`;
@@ -40,11 +40,10 @@ Portafolio personal en español. Todo el contenido de la web está también en M
 
 ## Páginas
 
-- [Portafolio de ${profile.name}](${SITE}/): página principal con proyectos, experiencia, educación, certificados, preguntas frecuentes y contacto.
+- [Portafolio de ${profile.name}](${SITE}/): página principal con proyectos, experiencia, educación, certificados, resumen y contacto.
 - [Sobre mí](${SITE}/personal.html): su historia, de Perú a Madrid, su formación y sus objetivos.
 - [Sobre mí en 30 segundos](${SITE}/#resumen): datos clave (rol, ciudad, experiencia, stack, disponibilidad, contacto).
-- [Preguntas frecuentes](${SITE}/#preguntas): respuestas cortas para reclutadores.
-- [Contenido completo en Markdown](${SITE}/llms-full.txt): perfil, experiencia, formación, certificados, proyectos y FAQ.
+- [Contenido completo en Markdown](${SITE}/llms-full.txt): perfil, experiencia, formación, certificados, proyectos e historia personal.
 
 ## Proyectos
 
@@ -127,11 +126,6 @@ ${d.personal.chapters.map(c => `### ${niceCase(c.title)}
 
 ${c.text}`).join('\n\n')}
 
-## Preguntas frecuentes
-
-${d.faq.map(f => `### ${f.q}
-
-${f.a}`).join('\n\n')}
 
 ## Sobre esta web
 

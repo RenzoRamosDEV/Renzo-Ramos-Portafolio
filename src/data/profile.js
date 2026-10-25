@@ -1,4 +1,4 @@
-// Perfil resumido de Renzo Ramos. Lo usan el bloque visible "Sobre mí en 30 segundos" (sección de preguntas)
+// Perfil resumido de Renzo Ramos. Lo usan el bloque visible "Sobre mí en 30 segundos" (src/sections/summary.js)
 // y los archivos para asistentes de IA (llms.txt y llms-full.txt, vite/llms.js): así nunca se contradicen.
 // Experiencia, estudios, certificados y proyectos se leen de sus propios archivos de datos.
 export const profile = {
