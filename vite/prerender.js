@@ -7,10 +7,10 @@ import { execSync } from 'node:child_process';
 import { basename, resolve } from 'node:path';
 import { pathToFileURL } from 'node:url';
 
-// Página → módulo que devuelve { marcador: markup } y, opcionalmente, su JSON-LD
+// Página → módulo que devuelve { marcador: markup }, su JSON-LD (opcional) y sus hojas de estilo
 const PAGES = {
-  'index.html': { slots: ['src/pages/home-page.js', 'homeSlots'], jsonld: ['vite/structured-data.js', 'homeJsonLd'] },
-  'personal.html': { slots: ['src/pages/personal-page.js', 'personalSlots'] },
+  'index.html': { slots: ['src/pages/home-page.js', 'homeSlots'], jsonld: ['vite/structured-data.js', 'homeJsonLd'], css: ['src/styles/main.css'] },
+  'personal.html': { slots: ['src/pages/personal-page.js', 'personalSlots'], css: ['src/styles/main.css', 'src/styles/pages/personal.css'] },
 };
 
 // Variables CSS de :root (colores) para cssVar() fuera del navegador
@@ -52,6 +52,10 @@ export function prerender() {
           const jsonld = (await load(ldFile))[ldExport]({ lastModified: globalThis.__LAST_UPDATED__ });
           html = html.replace('<!-- prerender:jsonld -->', jsonld);
         }
+        // Solo en dev: Vite aplica el CSS desde JavaScript, un instante después de pintar el HTML ya prerenderizado,
+        // y se vería la página sin estilos al recargar. Se enlaza también en el <head> para que llegue antes.
+        // (En el build el CSS va dentro del HTML: vite/inline-css.js.)
+        if (server) html = html.replace('</head>', `${page.css.map(f => `<link rel="stylesheet" href="/${f}">`).join('\n')}\n</head>`);
         return html;
       },
     },
