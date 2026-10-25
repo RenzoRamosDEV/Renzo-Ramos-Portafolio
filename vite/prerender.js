@@ -40,6 +40,7 @@ export function prerender() {
         const page = PAGES[basename(ctx.filename)];
         if (!page) return html;
         globalThis.__CSS_VARS__ = readCssVars(root);
+        globalThis.__LAST_UPDATED__ = lastModified(root);
         const [file, exportName] = page.slots;
         const slots = (await load(file))[exportName]();
         html = html.replace(/<div data-mount="([\w-]+)"><\/div>/g, (tag, name) => {
@@ -48,7 +49,7 @@ export function prerender() {
         });
         if (page.jsonld) {
           const [ldFile, ldExport] = page.jsonld;
-          const jsonld = (await load(ldFile))[ldExport]({ lastModified: lastModified(root) });
+          const jsonld = (await load(ldFile))[ldExport]({ lastModified: globalThis.__LAST_UPDATED__ });
           html = html.replace('<!-- prerender:jsonld -->', jsonld);
         }
         return html;
