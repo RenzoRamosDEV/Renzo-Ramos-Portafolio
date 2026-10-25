@@ -1,13 +1,14 @@
 /* TEAM */
-Desarrollador: Renzo Ramos
-Rol: Técnico Superior DAM · Junior AI Engineer
+Desarrollador: Renzo Ramos (Renzo Iván Ramos de los Ríos)
+Rol: Junior AI Engineer · Técnico Superior en DAM
 Contacto: renzoramosivan@gmail.com
-LinkedIn: https://www.linkedin.com/in/renzoinv04
+LinkedIn: https://www.linkedin.com/in/renzoinv04/
 GitHub: https://github.com/RenzoRamosDEV
 Ubicación: Madrid, España
 
 /* SITE */
-Estándares: HTML5, CSS3, ES Modules
-Stack: React, TypeScript, Vite, TailwindCSS, framer-motion
-Asistente IA: FastAPI + LangChain + OpenAI
-Idiomas: Español, Inglés
+Estándares: HTML5, CSS3, JavaScript (módulos ES)
+Herramientas: Vite (prerender del contenido en el HTML), sharp (imágenes WebP)
+Fuentes: Anton, Bebas Neue y Oswald (autoalojadas)
+Idioma: Español
+Para asistentes de IA: https://portafolio-renzoramos.com/llms.txt

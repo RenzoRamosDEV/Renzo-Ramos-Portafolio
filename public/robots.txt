@@ -15,6 +15,10 @@ User-agent: ClaudeBot
 Allow: /
 User-agent: Claude-Web
 Allow: /
+User-agent: Claude-SearchBot
+Allow: /
+User-agent: Claude-User
+Allow: /
 User-agent: anthropic-ai
 Allow: /
 User-agent: PerplexityBot
@@ -44,7 +48,8 @@ Allow: /
 User-agent: YouBot
 Allow: /
 
-# Recurso optimizado para LLMs
-# llms.txt: https://portafolio-renzoramos.com/llms.txt
+# Recursos para asistentes de IA (estándar llmstxt.org)
+# Resumen: https://portafolio-renzoramos.com/llms.txt
+# Contenido completo en Markdown: https://portafolio-renzoramos.com/llms-full.txt
 
 Sitemap: https://portafolio-renzoramos.com/sitemap.xml
