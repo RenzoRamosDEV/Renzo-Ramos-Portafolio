@@ -40,7 +40,12 @@ export const projects = [
   {
     "name": "POKÉDEX RETRO",
     "sub": "+ CHATBOT REACT (MCP)",
-    "image": "img/projects/pokedex.jpg",
+    "images": [
+      "img/projects/pokedex/01.jpg",
+      "img/projects/pokedex/02.jpg",
+      "img/projects/pokedex/03.jpg",
+      "img/projects/pokedex/04.jpg"
+    ],
     "desc": "Aplicación web completa que combina una Pokédex retro con un chatbot de IA que razona paso a paso (ReAct) y consulta los datos en tiempo real vía MCP.",
     "stack": [
       "Scala",
@@ -55,8 +60,8 @@ export const projects = [
       "Uvicorn",
       "Requests"
     ],
-    "live": "",
-    "code": "https://github.com/RenzoRamosDEV/Api-Pokemon-Scala-Web"
+    "live": "https://renzoramosdev.github.io/Pokedex-Retro/index.html",
+    "code": "https://github.com/RenzoRamosDEV/Pokedex-Retro"
   },
   {
     "name": "REDACTOR IA",
