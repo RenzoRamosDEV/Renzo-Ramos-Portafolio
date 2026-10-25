@@ -42,7 +42,8 @@
 .projects .stage { perspective: 1400px; }
 .projects .laptop { transform-style: preserve-3d; transition: transform .25s ease-out; transform: rotateY(-14deg) rotateX(6deg); }
 .projects .screen {
-  position: relative; aspect-ratio: 16 / 10; overflow: hidden; background: #1a1a1a;
+  /* Misma forma que las capturas de los proyectos (≈1,92:1) para que se vean enteras */
+  position: relative; aspect-ratio: 1.92 / 1; overflow: hidden; background: #1a1a1a;
   border: 12px solid #1a1a1a; border-bottom-width: 18px; border-radius: 16px 16px 6px 6px;
   box-shadow: 0 50px 90px rgba(0,0,0,.7), 0 0 0 1px #333;
 }
@@ -50,7 +51,7 @@
 /* Varias capturas: cada una se queda quieta y el cambio alterna entre deslizamiento lateral
    (la nueva empuja a la anterior) y scroll de navegador (la nueva sube desde abajo) */
 .projects .slides { position: absolute; inset: 0; background: #141218; isolation: isolate; overflow: hidden; }
-.projects .slides .slide { position: absolute; inset: 0; object-position: center top; opacity: 0; }
+.projects .slides .slide { position: absolute; inset: 0; object-fit: contain; opacity: 0; }
 .projects .slides .slide.cur { opacity: 1; z-index: 1; }
 .projects .slides .slide.out { opacity: 1; z-index: 1; }
 .projects .slides .slide.in { opacity: 1; z-index: 2; }
