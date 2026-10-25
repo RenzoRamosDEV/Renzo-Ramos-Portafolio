@@ -86,4 +86,26 @@
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
+  <url>
+    <loc>https://portafolio-renzoramos.com/renzo-ramos-ingeniero-inteligencia-artificial-madrid.html</loc>
+    <lastmod>2026-10-25</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+    <image:image>
+      <image:loc>https://portafolio-renzoramos.com/img/renzo-ramos-ingeniero-inteligencia-artificial-madrid.jpg</image:loc>
+      <image:title>Renzo Ramos — Ingeniero de Inteligencia Artificial en Madrid</image:title>
+      <image:caption>Renzo Ramos · Junior AI Engineer · Inteligencia Artificial · Madrid, España</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://portafolio-renzoramos.com/renzo-ramos-ingeniero-de-software.html</loc>
+    <lastmod>2026-10-25</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+    <image:image>
+      <image:loc>https://portafolio-renzoramos.com/img/renzo-ramos-ingeniero-de-software.jpg</image:loc>
+      <image:title>Renzo Ramos — Ingeniero de Software y Técnico Superior DAM</image:title>
+      <image:caption>Renzo Ramos · Ingeniero de Software · Técnico Superior DAM · Madrid, España</image:caption>
+    </image:image>
+  </url>
 </urlset>
