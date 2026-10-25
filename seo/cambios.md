@@ -196,3 +196,6 @@ A petición de Renzo se quita la sección visible de preguntas frecuentes (`src/
 `sections/faq.js`) y, con ella, el `FAQPage` del JSON-LD y la FAQ de `llms-full.txt` (no se marca ni se describe
 contenido que la web no muestra). "Sobre mí en 30 segundos" se queda como sección propia
 (`src/sections/summary.js`, `src/styles/sections/summary.css`) entre certificados y contacto.
+Después, también a petición de Renzo, se quita el bloque "Sobre mí en 30 segundos" (`src/components/summary.js`,
+`src/sections/summary.js`, `summary.css`). `src/data/profile.js` se mantiene solo como fuente de `llms.txt` y
+`llms-full.txt` (que ya no enlazan a esa sección). La portada vuelve a tener exactamente la estructura original.

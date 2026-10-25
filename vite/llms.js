@@ -40,9 +40,8 @@ Portafolio personal en español. Todo el contenido de la web está también en M
 
 ## Páginas
 
-- [Portafolio de ${profile.name}](${SITE}/): página principal con proyectos, experiencia, educación, certificados, resumen y contacto.
+- [Portafolio de ${profile.name}](${SITE}/): página principal con proyectos, experiencia, educación, certificados y contacto.
 - [Sobre mí](${SITE}/personal.html): su historia, de Perú a Madrid, su formación y sus objetivos.
-- [Sobre mí en 30 segundos](${SITE}/#resumen): datos clave (rol, ciudad, experiencia, stack, disponibilidad, contacto).
 - [Contenido completo en Markdown](${SITE}/llms-full.txt): perfil, experiencia, formación, certificados, proyectos e historia personal.
 
 ## Proyectos
@@ -71,7 +70,7 @@ ${d.projects.map(projectLine).join('\n')}
 
 Fuente: ${SITE}/ · Última actualización: ${updatedText} · Idioma: español
 
-## Sobre mí en 30 segundos
+## Resumen
 
 - **Nombre:** ${profile.name} (${profile.fullName})
 - **Rol actual:** ${current ? `${profile.role} · AI & Data en ${current.company}` : profile.role}

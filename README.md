@@ -52,7 +52,7 @@ src/
 │   ├── education.js       Estudios de la línea de tiempo
 │   ├── certificates.js    Certificados
 │   ├── personal.js        Texto de la página personal (frase, datos y capítulos)
-│   ├── profile.js         Perfil resumido: bloque "Sobre mí en 30 segundos" y llms.txt / llms-full.txt
+│   ├── profile.js         Perfil resumido para llms.txt / llms-full.txt
 │   └── site.js            Email, enlaces (GitHub, LinkedIn), logo, iconos y navegación
 ├── sections/              Una por sección: render…() devuelve su markup e init…() le da comportamiento
 ├── components/            Piezas reutilizables: reciben datos y devuelven markup
@@ -132,7 +132,7 @@ Todo el contenido está en `src/data/`. No hace falta tocar componentes ni estil
 Si `credential` está vacío, el visor oculta el botón **VER CREDENCIAL**.
 
 **Email, enlaces y navegación** están en `site.js`. **El texto de la página personal** está en `personal.js`.
-**El resumen "Sobre mí en 30 segundos"** sale de `profile.js` (y del puesto actual de `experience.js`).
+**El perfil resumido de `llms.txt` y `llms-full.txt`** sale de `profile.js` (y del puesto actual de `experience.js`).
 
 Los **datos estructurados (JSON-LD)** de la portada se generan solos desde estos archivos (`vite/structured-data.js`).
 
