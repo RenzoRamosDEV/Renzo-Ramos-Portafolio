@@ -1,6 +1,8 @@
 # Portfolio de Renzo Ramos — sitio público, indexación permitida
 User-agent: *
 Allow: /
+# Mapas de código fuente (no se generan, pero no deben indexarse si aparecieran)
+Disallow: /assets/*.map
 
 # Bots de IA — acceso explícitamente permitido (visibilidad en asistentes/LLMs)
 User-agent: GPTBot
