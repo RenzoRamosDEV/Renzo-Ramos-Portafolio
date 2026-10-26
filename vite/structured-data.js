@@ -66,7 +66,7 @@ function person() {
       'LiteLLM', 'Temporal.io', 'OpenAI', 'Agentes ReAct', 'Prompt Engineering', 'Spec-Driven Development', 'Machine Learning',
       'Java', 'Spring Boot', 'Spring Modulith', 'Kotlin', 'Scala', 'Play Framework', 'FastAPI', 'Node.js', 'Express',
       'TypeScript', 'JavaScript', 'React', 'Vite', 'TailwindCSS', 'HTML', 'CSS', 'Rust', 'Tauri', 'SQLite', 'MySQL', 'Docker',
-      'API REST', 'Microservicios', 'Clean Architecture', 'SOLID', 'TDD', 'Mockito', 'Testcontainers', 'Git', 'Adobe Experience Manager (AEM)',
+      'API REST', 'Microservicios', 'Clean Architecture', 'SOLID', 'TDD', 'Mockito', 'Testcontainers', 'Git', 'Adobe Experience Manager (AEM)', 'Maven', 'SQL', 'C', 'Linux', 'Shell Scripting', 'Claude Code', 'OpenCode',
     ],
     sameAs: [GITHUB_URL, LINKEDIN_URL],
     image: [

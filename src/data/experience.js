@@ -9,14 +9,14 @@ export const jobs = [
     "to": "JUN. 2026",
     "left": [
       "QUÉ HICE :",
-      "Desarrollo de soluciones con Java, XML, HTML, CSS, JavaScript y Maven."
+      "Desarrollo sobre Adobe Experience Manager (AEM) con Java, XML, HTML, CSS, JavaScript y Maven."
     ],
     "list": [
-      "Desarrollo de componentes reutilizables y contribuibles en AEM",
-      "Creación de Modals para componentes con Java",
-      "Gestión y contribución de páginas con contenido multimedia mediante AEM Assets (DAM)",
+      "Desarrollo de componentes reutilizables y extensibles en Adobe Experience Manager (AEM)",
+      "Implementación de modales y funcionalidades backend utilizando Java",
+      "Gestión e integración de contenido multimedia mediante AEM Assets (DAM)",
       "Resolución de incidencias backend y optimización de funcionalidades existentes",
-      "Elaboración de documentación técnica para soporte y mantenimiento de proyectos"
+      "Elaboración de documentación técnica para facilitar el mantenimiento y la evolución de los proyectos"
     ]
   },
   {
@@ -28,15 +28,17 @@ export const jobs = [
     "to": "ACTUALIDAD",
     "left": [
       "QUÉ HAGO :",
-      "Desarrollo de soluciones con Python, LiteLLM, LangChain, LangGraph, Temporal.io, Claude Code/OpenCode y Spec-Driven Development."
+      "Desarrollo de soluciones de IA utilizando Python, LiteLLM, LangChain y LangGraph."
     ],
     "list": [
-      "Diseñar e implementar soluciones basadas en modelos de Machine Learning e IA generativa para optimizar procesos clave del negocio",
-      "Colaborar con los equipos de producto, growth, IA y Data Science para entender necesidades y aportar soluciones técnicas",
-      "Diseñar, desarrollar y mantener APIs, MCPs y herramientas (tools) consumibles por agentes inteligentes y otros sistemas",
-      "Automatizar procesos internos mediante modelos predictivos y generación de contenido basada en IA",
-      "Documentar y testear el código para garantizar calidad, trazabilidad y mantenibilidad",
-      "Explorar nuevas herramientas y tecnologías emergentes, aplicando la innovación de forma pragmática"
+      "Implementación de agentes inteligentes y automatizaciones con Temporal.io",
+      "Desarrollo asistido por IA mediante Claude Code, OpenCode y Spec-Driven Development (SDD)",
+      "Diseño e implementación de soluciones basadas en Machine Learning e IA generativa para optimizar procesos de negocio",
+      "Desarrollo y mantenimiento de APIs, MCPs y herramientas (tools) para agentes inteligentes y otros sistemas",
+      "Automatización de procesos internos mediante modelos predictivos y generación de contenido con IA",
+      "Colaboración con los equipos de Producto, Growth, IA y Data Science",
+      "Documentación, testing y mejora continua del código para garantizar su calidad y mantenibilidad",
+      "Investigación y evaluación de nuevas herramientas y tecnologías de IA"
     ]
   }
 ];

@@ -26,5 +26,6 @@ la lógica y la interfaz, asegurando que el producto sea coherente de principio 
 - **Rol:** AI Engineer · Full Stack Developer (Junior AI Engineer · AI & Data en Tuio)
 - **Ubicación:** Madrid, España
 - **Especialidad:** Ingeniería de IA (Python, LangChain/LangGraph, Temporal.io, agentes y MCPs) sobre base de backend con Java / Spring Boot.
-- **Formación:** Desarrollo de Aplicaciones Multiplataforma en CESUR (2024–2026)
+- **Formación:** FP Superior en Desarrollo de Aplicaciones Multiplataforma (DAM) en CESUR (2024–2026), Bootcamp 42 Madrid · Fundación Telefónica (2025) y Diseño Gráfico en el Instituto San Ignacio de Loyola (2021–2022)
+- **Experiencia previa:** Junior Full Stack Developer en SEIDOR (AEM con Java, sept. 2025 – jun. 2026)
 - **Idiomas de trabajo:** Español.

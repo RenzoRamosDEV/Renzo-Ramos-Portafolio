@@ -1,4 +1,4 @@
-# Renzo Ramos — Full Stack Developer · IA Developer
+# Renzo Ramos — Junior AI Engineer · Full Stack Developer
 
 **Ubicación:** Madrid, España
 **Email:** renzoramosivan@gmail.com
@@ -22,14 +22,27 @@ Especializado en **Java y Spring Boot** para construir APIs mantenibles, pensada
 
 ## Experiencia
 
-### Fullstack Developer — SEIDOR
-**Sep 2025 – Presente · Madrid, España**
+### Junior AI Engineer · AI & Data — Tuio
+**Jun 2026 – Presente · Madrid, España**
 
-- Desarrollo de componentes reutilizables en **Adobe Experience Manager (AEM)**.
-- Creación de modales en **Java** para gestión dinámica de contenido.
-- Administración y organización de activos digitales en el **DAM** de AEM.
-- Resolución de incidencias técnicas y bugs del sistema.
-- Elaboración de documentación técnica del proyecto.
+- Desarrollo de soluciones de IA utilizando **Python, LiteLLM, LangChain y LangGraph**.
+- Implementación de agentes inteligentes y automatizaciones con **Temporal.io**.
+- Desarrollo asistido por IA mediante **Claude Code, OpenCode y Spec-Driven Development (SDD)**.
+- Diseño e implementación de soluciones basadas en Machine Learning e IA generativa para optimizar procesos de negocio.
+- Desarrollo y mantenimiento de APIs, **MCPs** y herramientas (tools) para agentes inteligentes y otros sistemas.
+- Automatización de procesos internos mediante modelos predictivos y generación de contenido con IA.
+- Colaboración con los equipos de Producto, Growth, IA y Data Science.
+- Documentación, testing y mejora continua del código para garantizar su calidad y mantenibilidad.
+- Investigación y evaluación de nuevas herramientas y tecnologías de IA.
+
+### Junior Full Stack Developer — SEIDOR
+**Sep 2025 – Jun 2026 · Madrid, España**
+
+- Desarrollo de componentes reutilizables y extensibles en **Adobe Experience Manager (AEM)**.
+- Implementación de modales y funcionalidades backend utilizando **Java**.
+- Gestión e integración de contenido multimedia mediante **AEM Assets (DAM)**.
+- Resolución de incidencias backend y optimización de funcionalidades existentes.
+- Elaboración de documentación técnica para facilitar el mantenimiento y la evolución de los proyectos.
 
 ---
 
@@ -93,20 +106,37 @@ Pokédex interactiva con estética retro inspirada en la Game Boy original (DMG-
 
 ## Formación
 
-### FP Superior — Desarrollo de Aplicaciones Multiplataforma
+### FP Superior — Desarrollo de Aplicaciones Multiplataforma (DAM)
 **CESUR · Plaza Elíptica, Madrid · Sep 2024 – Jun 2026**
 
-Ciclo formativo de grado superior en Desarrollo de Aplicaciones Multiplataforma, con enfoque en programación orientada a objetos, bases de datos, desarrollo web y sistemas.
+- Desarrollo de aplicaciones backend y frontend con Java, JavaScript, HTML5 y CSS3.
+- Diseño e implementación de APIs REST y servicios backend con Spring Boot.
+- Diseño y gestión de bases de datos relacionales con MySQL y SQL.
+- Desarrollo de aplicaciones multiplataforma y de escritorio.
+- Gestión de dependencias y construcción de proyectos con Maven.
+- Aplicación de programación orientada a objetos (POO), principios SOLID y buenas prácticas de desarrollo.
+- Control de versiones con Git y GitHub, testing y depuración de código.
 
 ### Bootcamp 42 Madrid
 **Fundación Telefónica · Jul 2025 – Ago 2025**
 
-Bootcamp intensivo de programación en C, administración de sistemas Linux y scripting de shell mediante metodología peer-to-peer y aprendizaje basado en proyectos.
+- Desarrollo de programas en C con enfoque en eficiencia, gestión de memoria y programación de bajo nivel.
+- Trabajo en entornos Linux, uso de terminal y automatización mediante Shell Scripting.
+- Implementación de algoritmos, estructuras de datos y optimización de soluciones.
+- Uso de Git, Makefiles y herramientas de compilación para la gestión de proyectos.
+- Resolución de problemas mediante debugging y análisis del código.
+- Metodología de aprendizaje peer-to-peer, con revisiones de código y trabajo colaborativo.
 
 ### Diseño Gráfico
 **Instituto San Ignacio de Loyola · Lima, Perú · 2021 – 2022**
 
-Formación en diseño gráfico: composición, tipografía, color y herramientas de diseño digital.
+- Diseño de recursos gráficos y elementos visuales con Adobe Illustrator.
+- Edición, retoque y optimización de imágenes con Adobe Photoshop.
+- Maquetación de documentos, publicaciones y materiales editoriales con Adobe InDesign.
+- Creación de identidades visuales, composiciones gráficas y recursos reutilizables.
+- Aplicación de principios de composición, tipografía, teoría del color y jerarquía visual.
+- Preparación de archivos para impresión y publicación digital.
+- Adaptación de diseños a diferentes formatos y necesidades de comunicación visual.
 
 ---
 
