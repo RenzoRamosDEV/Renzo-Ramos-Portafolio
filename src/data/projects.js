@@ -131,7 +131,7 @@ export const projects = [
       "Docker",
       "Docker Compose"
     ],
-    "live": "https://renzoramosdev.github.io/Booqui-TFG/",
+    "live": "https://renzoramosdev.github.io/Documentacion-Proyectos-Renzo-Ramos/booqi/",
     "code": "https://github.com/RenzoRamosDEV/Booqui-TFG"
   }
 ];
