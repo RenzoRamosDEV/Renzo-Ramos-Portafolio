@@ -31,7 +31,7 @@ export const projects = [
       "MCP",
       "OpenSpec"
     ],
-    "live": "https://renzoramosdev.github.io/AgentBoard/",
+    "live": "https://renzoramosdev.github.io/Documentacion-Proyectos-Renzo-Ramos/agentboard/",
     "code": "https://github.com/RenzoRamosDEV/AgentBoard"
   },
   {
