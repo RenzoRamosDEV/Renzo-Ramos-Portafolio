@@ -31,7 +31,7 @@ export const projects = [
       "MCP",
       "OpenSpec"
     ],
-    "live": "https://renzoramosdev.github.io/Documentacion-Proyectos-Renzo-Ramos/agentboard/",
+    "live": "https://biblioteca-renzo-ramos.vercel.app/agentboard/",
     "code": "https://github.com/RenzoRamosDEV/AgentBoard"
   },
   {
@@ -131,7 +131,7 @@ export const projects = [
       "Docker",
       "Docker Compose"
     ],
-    "live": "https://renzoramosdev.github.io/Documentacion-Proyectos-Renzo-Ramos/booqi/",
+    "live": "https://biblioteca-renzo-ramos.vercel.app/booqi/",
     "code": "https://github.com/RenzoRamosDEV/Booqui-TFG"
   }
 ];
