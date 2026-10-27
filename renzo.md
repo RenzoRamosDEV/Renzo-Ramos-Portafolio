@@ -64,7 +64,7 @@ Plataforma de compra y gestión de entradas para eventos. Implementé **cuatro m
 
 - Repositorio: https://github.com/RenzoRamosDEV/Booqui-TFG
 - Demo: https://renzoramosdev.github.io/Booqui-TFG/
-- Documentación: https://renzoramosdev.github.io/Documentacion-Proyectos-Renzo-Ramos/booqi/
+- Documentación: https://biblioteca-renzo-ramos.vercel.app/booqi/
 
 ---
 
