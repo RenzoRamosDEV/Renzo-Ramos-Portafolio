@@ -24,7 +24,7 @@ afecte a las demás.
 
 - 📦 Repositorio: https://github.com/RenzoRamosDEV/Booqui-TFG
 - 🌐 Demo: https://renzoramosdev.github.io/Booqui-TFG/
-- 📖 Documentación: https://biblioteca-renzo-ramos.vercel.app/booqi/
+- 📖 Documentación: https://docs.portafolio-renzoramos.com/booqi/
 
 ## 02 · Redactor IA — Reformulación de Textos con IA
 *Desarrollador único · Full Stack Developer*
