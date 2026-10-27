@@ -40,7 +40,7 @@ npm run preview   # sirve dist/ para comprobar el build
 index.html                 Página principal: <head> (SEO, fuentes) y un marcador <div data-mount="…"> por sección
 personal.html              Página personal (mi historia); misma estructura, entrada en src/personal.js
 public/                    Archivos estáticos que Vite copia tal cual a dist/
-├── media/                 Logo, fotos, emblema, iconos, certificados (PDF) y CV (ahora sin enlazar)
+├── media/                 Logo, fotos, emblema, iconos, certificados (PDF) y CV
 ├── img/                   Capturas de proyectos e imágenes de las páginas SEO
 └── *.html, robots.txt…    Páginas de aterrizaje SEO, sitemap, manifest, CNAME
 src/

@@ -113,6 +113,7 @@
   .gear { width: 681px; height: 681px; margin-left: -340px; top: calc(var(--c-top) - 100px); }
   .title { font-size: 31vw; top: calc(var(--c-top) + 160px - 15.5vw); }
   .person { height: min(640px, 100svh - 150px); bottom: -120px; }
-  .tags { left: 16px; bottom: 32px; }
+  /* Tres pastillas en columna: en fila la del CV quedaría bajo la insignia */
+  .tags { left: 16px; bottom: 32px; flex-direction: column; align-items: flex-start; }
   .cta { right: 16px; bottom: 24px; }
 }
