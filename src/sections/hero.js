@@ -1,5 +1,5 @@
 // Portada: cabecera, enlaces sociales, aros giratorios, nombre, foto, humo e insignia
-import { LOGO, HEADER_NAV, GITHUB_URL, LINKEDIN_URL, GITHUB_ICON, LINKEDIN_ICON } from '../data/site.js';
+import { LOGO, HEADER_NAV, GITHUB_URL, LINKEDIN_URL, CV_URL, GITHUB_ICON, LINKEDIN_ICON, CV_ICON } from '../data/site.js';
 import { navLinks } from '../components/nav-links.js';
 import { menuToggle } from '../components/menu-toggle.js';
 import { socialLink } from '../components/social-link.js';
@@ -22,6 +22,7 @@ export const renderHero = () => `<section class="hero">
   <div class="tags">
     ${socialLink({ href: GITHUB_URL, icon: GITHUB_ICON, label: 'GITHUB' })}
     ${socialLink({ href: LINKEDIN_URL, icon: LINKEDIN_ICON, label: 'LINKEDIN' })}
+    ${socialLink({ href: CV_URL, icon: CV_ICON, label: 'CV' })}
   </div>
 
 

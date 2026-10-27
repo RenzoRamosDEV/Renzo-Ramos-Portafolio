@@ -11,7 +11,8 @@
     "build": "vite build",
     "postbuild": "npm run seo:check",
     "preview": "vite preview",
-    "seo:check": "node scripts/seo-check.mjs"
+    "seo:check": "node scripts/seo-check.mjs",
+    "test": "node --test \"tests/**/*.test.mjs\""
   },
   "dependencies": {
     "framer-motion": "^12.40.0",
