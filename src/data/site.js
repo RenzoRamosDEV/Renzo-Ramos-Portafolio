@@ -26,4 +26,5 @@ export const FOOTER_NAV = [
   { href: '#educacion', label: 'EDUCACIÓN' },
   { href: '#contacto', label: 'CONTACTO' },
   { href: 'personal.html', label: 'PERSONAL' },
+  { href: 'https://docs.portafolio-renzoramos.com/biblioteca/', label: 'BIBLIOTECA' },
 ];
